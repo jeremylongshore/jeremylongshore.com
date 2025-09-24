@@ -21,16 +21,16 @@ title = "Contact"
 ## What I Can Help With
 
 ### 🔧 Technical Projects
-- **Data Architecture**: BigQuery schemas, automated pipelines
-- **AI Integration**: GPT-4, LangChain, custom implementations
-- **Full Stack Development**: React, Python, cloud systems  
-- **Speed DevOps**: 4-day deployment cycles
+- **Data Architecture**: BigQuery schemas (266+ production tables), automated pipelines
+- **AI Integration**: Vertex AI Gemini, Claude, custom RAG implementations
+- **Full Stack Development**: React/TypeScript, Python, Firebase/Firestore, Google Cloud
+- **N8N Automation**: Enterprise workflows, news monitoring, content generation
 
 ### ⚡ Consulting Services
-- **Impossible Deadlines**: When you need it yesterday
-- **AI Strategy**: Practical AI implementation, not hype
-- **System Architecture**: Scalable, production-ready systems
-- **Technical Due Diligence**: Code reviews, architecture audits
+- **Rapid Development**: Production systems in days, not months
+- **AI Strategy**: Vertex AI, local RAG, enterprise automation (not just hype)
+- **System Architecture**: Firebase/Firestore, Google Cloud, security-hardened containers
+- **Open Source**: Contributing to developer community (Vibe PRD 15⭐, automation templates)
 
 ---
 
@@ -44,10 +44,11 @@ title = "Contact"
 
 ## Recent Work Examples
 
-**DiagnosticPro**: 254 BigQuery tables, 4-day build cycle  
-**Data Pipelines**: 500K+ records processed from multiple APIs  
-**RSS Automation**: 226+ feeds with N8N workflows  
-**AI Systems**: GPT-4 integration for automotive diagnostics  
+**[DiagnosticPro](https://diagnosticpro.io)**: 266+ BigQuery tables, Firebase/Firestore migration, Vertex AI diagnostics
+**[Vibe PRD](https://github.com/jeremylongshore/vibe-prd)**: 15⭐ AI documentation generator, enterprise PRDs in 5 minutes
+**[Bob's Brain](https://github.com/jeremylongshore/bobs-brain)**: Neo4j knowledge graph, Gemini 2.5 Flash integration
+**Data Pipelines**: 500K+ records processed, automated N8N workflows, 226+ RSS feeds
+**[Local RAG Agent](https://github.com/jeremylongshore/local-private-rag-agent)**: Zero-cost private document intelligence  
 
 ---
 
