@@ -2,7 +2,6 @@
 title = "Home"
 +++
 
-# Jeremy Longshore
 ## AI Automation Specialist & Business Technology Consultant
 ### *Based in Gulf Shores, Alabama*
 
@@ -13,51 +12,57 @@ title = "Home"
 ## What I Actually Build
 
 ### 🤖 AI-Powered Solutions
-- **DiagnosticPro**: GPT-4 automotive diagnostics processing thousands of repairs monthly
-- **Custom AI Integration**: Claude, GPT-4, and LLM implementations for business processes
-- **Intelligent Automation**: Document processing, analysis, and decision support systems
+- **[DiagnosticPro](https://diagnosticpro.io)**: Vertex AI automotive diagnostics platform with Firebase/Firestore backend (TypeScript/React)
+- **[Vibe PRD](https://github.com/jeremylongshore/vibe-prd)**: AI-powered documentation generator with 15⭐ - enterprise PRDs in 5 minutes
+- **[Local Private RAG Agent](https://github.com/jeremylongshore/local-private-rag-agent)**: NEXUS zero-cost local RAG system for private document intelligence
+- **[Bob's Brain](https://github.com/jeremylongshore/bobs-brain)**: Clean AI agent implementation with continuous learning (Python/Neo4j)
 
 ### ⚡ N8N Workflow Automation
-- **Enterprise Automation**: Eliminating 80% of manual tasks without expensive platforms
-- **API Orchestration**: Connecting disparate systems seamlessly
-- **24/7 Operations**: Automated workflows that run while you sleep
+- **[News Pipeline](https://github.com/jeremylongshore/news-pipeline-n8n)**: Automated daily news monitoring and AI-powered topic analysis
+- **[Daily Energizer Workflow](https://github.com/jeremylongshore/daily-energizer-workflow-n8n)**: Enterprise content generation automation
+- **[Disposable Marketplace](https://github.com/jeremylongshore/disposable-marketplace-n8n)**: N8N-powered marketplace automation (2⭐)
 
-### 💼 Business Technology Solutions
-- **Rapid Prototyping**: Working solutions in days, not months
-- **Custom Web Applications**: React/TypeScript full-stack development
-- **Process Optimization**: From restaurant operations to tech automation
+### 💼 Enterprise Development Solutions
+- **[AI Engineering Curriculum](https://github.com/jeremylongshore/ai-engineering-curriculum)**: Complete K+ curriculum from zero to enterprise deployment
+- **[Waygate MCP](https://github.com/jeremylongshore/waygate-mcp)**: Foundational MCP Server Framework with security hardening (Python/Docker)
+- **[DiagnosticPro Schema](https://github.com/jeremylongshore/diagnosticpro-schema-sql)**: 266+ BigQuery table enterprise data platform architecture
+- **Rapid Prototyping**: Full-stack React/TypeScript applications deployed in days, not months
 
 ---
 
 ## Recent Achievements
 
-### Speed Deployment Examples
-- Built DiagnosticPro platform in **4 days** from concept to production
-- Deployed Start AI Tools in **under 24 hours**
-- Automated 226+ RSS feeds with validation systems
-- Processing real-time data from multiple API sources
+### Open Source Impact
+- **[Vibe PRD](https://github.com/jeremylongshore/vibe-prd)**: 15⭐ AI documentation generator used by developers worldwide
+- **[Disposable Marketplace](https://github.com/jeremylongshore/disposable-marketplace-n8n)**: 2⭐ N8N automation template
+
+### Production Systems
+- **DiagnosticPro**: Live Firebase/Firestore platform processing customer diagnostics
+- **266+ BigQuery tables**: Enterprise data platform architecture for diagnostic insights
+- **Automated N8N workflows**: News monitoring, content generation, marketplace automation
+- **Local RAG system**: Zero-cost private document intelligence with NEXUS architecture
 
 ### Business Impact
 - **$29.99** per diagnostic vs traditional $150+ shop fees
-- **80%** reduction in manual processing time
-- **24/7** automated operations
-- **20+ years** operations experience applied to tech
+- **Firebase migration**: Successfully moved DiagnosticPro from Supabase to Google Cloud
+- **Enterprise automation**: Real-world N8N workflows eliminating manual processes
+- **20+ years** restaurant/operations experience applied to technical solutions
 
 ---
 
 ## Current Projects
 
-### [DiagnosticPro](https://diagnosticpro.io)
-AI-powered automotive diagnostic platform revolutionizing how mechanics and car owners solve vehicle issues.
+### [DiagnosticPro](https://diagnosticpro.io) 🚀 **Active Production**
+Vertex AI automotive diagnostic platform with Firebase/Firestore backend. TypeScript/React frontend processing real customer diagnostics with $29.99 pricing vs traditional $150+ shop fees.
 
-### [Start AI Tools](https://startaitools.com)  
-Rapid AI implementation showcase and consulting platform.
+### [Vibe PRD](https://github.com/jeremylongshore/vibe-prd) ⭐ **15 Stars**
+AI-powered documentation generator transforming ideas into enterprise-ready docs in 5 minutes. Claude Code CLI & Cursor IDE integration with zero setup required.
 
-### N8N Enterprise Automations
-Building intelligent workflows for businesses tired of manual processes.
+### [Start AI Tools](https://startaitools.com) 📈 **Growing**
+AI implementation showcase and knowledge hub with Hugo-powered content pipeline. Automated content sync from multiple sources.
 
-### Intent Solutions
-High-velocity development and automation consulting.
+### [Bob's Brain](https://github.com/jeremylongshore/bobs-brain) 🧠 **Clean Implementation**
+Production AI assistant with Neo4j knowledge graph, Google Gemini 2.5 Flash integration, and continuous learning capabilities.
 
 ---
 
