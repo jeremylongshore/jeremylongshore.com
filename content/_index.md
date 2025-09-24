@@ -75,4 +75,4 @@ Production AI assistant with Neo4j knowledge graph, Google Gemini 2.5 Flash inte
 
 ---
 
-*Gulf Shores, Alabama • From restaurant operations to AI automation - solving real problems with working code.*
+*Gulf Shores, Alabama • From restaurant operations to AI automation - solving real problems with working code.*<!-- Deployment test Tue Sep 23 22:44:53 CDT 2025 -->
