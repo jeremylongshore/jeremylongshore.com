@@ -1,6 +1,11 @@
 # Hugo generated files
 public/
 resources/_gen/
+.hugo_build.lock
+
+# Cache and temporary files
+.cache/
+.netlify-cache-clear
 
 # OS files
 .DS_Store
@@ -11,4 +16,7 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
-*~startaitools/
+*~
+
+# Backup directories
+_backup/
