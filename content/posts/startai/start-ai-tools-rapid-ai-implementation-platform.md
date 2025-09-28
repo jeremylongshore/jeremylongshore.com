@@ -24,7 +24,7 @@ canonical_url = "https://startaitools.com/docs/blog/start-ai-tools-showcase/"
 <li>üöÄ <strong>Launch Speed:</strong> Built and deployed in less than 24 hours</li>
 <li>üéØ <strong>Focus:</strong> Rapid AI implementation for real business problems</li>
 <li>üåä <strong>Location:</strong> Gulf Shores, Alabama with global service delivery</li>
-<li>üîó <strong>Integration:</strong> Part of Intent Solutions io ecosystem</li>
+<li>üîó <strong>Integration:</strong> Part of intent solutions io ecosystem</li>
 <li>üíº <strong>Methodology:</strong> Proven rapid deployment framework</li>
 </ul>
 <p><strong>Live Platform:</strong> <a href="https://startaitools.com">startaitools.com</a></p>
