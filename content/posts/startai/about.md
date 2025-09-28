@@ -9,11 +9,11 @@ canonical_url = "https://startaitools.com/about/"
 +++
 
 <h1 id="about-intent-solutions-inc">
- About Intent Solutions Inc
+ About Intent Solutions io
  
  <a class="anchor" href="#about-intent-solutions-inc">#</a>
 </h1>
-<p>Founded by Jeremy Longshore, Intent Solutions Inc specializes in rapid AI implementation and automation solutions for businesses ready to transform their operations.</p>
+<p>Founded by Jeremy Longshore, Intent Solutions io specializes in rapid AI implementation and automation solutions for businesses ready to transform their operations.</p>
 <h2 id="our-mission">
  Our Mission
  

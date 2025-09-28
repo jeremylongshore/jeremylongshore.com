@@ -15,7 +15,7 @@ Start AI Tools represents the evolution of AI implementation - transforming comp
 - 🚀 **Launch Speed:** Built and deployed in less than 24 hours
 - 🎯 **Focus:** Rapid AI implementation for real business problems
 - 🌊 **Location:** Gulf Shores, Alabama with global service delivery
-- 🔗 **Integration:** Part of Intent Solutions Inc ecosystem
+- 🔗 **Integration:** Part of Intent Solutions io ecosystem
 - 💼 **Methodology:** Proven rapid deployment framework
 
 **Live Platform:** [startaitools.com](https://startaitools.com)
@@ -186,7 +186,7 @@ module.exports = {
 - **Quality Focus:** Small team, high-quality deliverables
 - **Rapid Response:** Central time zone serving East and West Coast clients
 
-### Intent Solutions Inc Ecosystem
+### Intent Solutions io Ecosystem
 **Full-Service Technology Partner**
 - AI development and implementation
 - Business process automation
@@ -326,10 +326,10 @@ Monitoring: Real-time performance tracking
 
 ---
 
-## The Intent Solutions Inc Connection
+## The Intent Solutions io Connection
 
 ### Integrated Business Technology Solutions
-Start AI Tools operates within the broader Intent Solutions Inc ecosystem:
+Start AI Tools operates within the broader Intent Solutions io ecosystem:
 
 - **Strategic Planning:** Business technology roadmapping
 - **Implementation Services:** Full-stack development capabilities
@@ -395,6 +395,6 @@ The platform proves that with modern development practices, cloud infrastructure
 ✉️ [jeremy@intentsolutions.io](mailto:jeremy@intentsolutions.io)  
 🔗 [Start AI Tools Platform](https://startaitools.com)
 
-**Part of Intent Solutions Inc** - Your complete business technology partner
+**Part of Intent Solutions io** - Your complete business technology partner
 
 *Built with: Hugo, Tailwind CSS, Netlify, and a relentless focus on rapid deployment*

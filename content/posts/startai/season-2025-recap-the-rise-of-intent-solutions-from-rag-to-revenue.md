@@ -31,7 +31,7 @@ canonical_url = "https://startaitools.com/posts/season-2025-recap/"
 <p><strong>What You Missed This Season:</strong></p>
 <ul>
 <li>One man’s journey from playing with RAG systems to building revenue-generating AI platforms</li>
-<li>The birth of Intent Solutions Inc and the DiagnosticPro empire</li>
+<li>The birth of Intent Solutions io and the DiagnosticPro empire</li>
 <li>Bob’s Brain evolution from simple bot to AI business partner</li>
 <li>A 72-hour BigQuery deployment that changed everything</li>
 <li>Google calling with business opportunities</li>

@@ -13,7 +13,7 @@ canonical_url = "https://startaitools.com/contact/"
  
  <a class="anchor" href="#get-in-touch">#</a>
 </h1>
-<p>Ready to transform your business with AI? Let’s discuss how Intent Solutions Inc can help you deploy practical AI solutions quickly and effectively.</p>
+<p>Ready to transform your business with AI? Let’s discuss how Intent Solutions io can help you deploy practical AI solutions quickly and effectively.</p>
 <h2 id="contact-information">
  Contact Information
  

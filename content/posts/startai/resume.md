@@ -20,7 +20,7 @@ canonical_url = "https://startaitools.com/resume/"
  
  <a class="anchor" href="#professional-summary">#</a>
 </h2>
-<p>20+ years of combined experience in operations management, logistics, and technology. Currently focused on AI development and rapid deployment solutions through Intent Solutions Inc. Former Marine Corps Reservist and Citadel graduate who transitioned from hospitality operations to technology entrepreneurship, bringing operational excellence and leadership skills to software development.</p>
+<p>20+ years of combined experience in operations management, logistics, and technology. Currently focused on AI development and rapid deployment solutions through Intent Solutions io. Former Marine Corps Reservist and Citadel graduate who transitioned from hospitality operations to technology entrepreneurship, bringing operational excellence and leadership skills to software development.</p>
 <hr/>
 <h2 id="current-focus">
  Current Focus
@@ -31,4 +31,4 @@ canonical_url = "https://startaitools.com/resume/"
 <strong>AI Development Specialist &amp; Founder</strong>
 <a class="anchor" href="#ai-development-specialist--founder">#</a>
 </h3>
-<p><strong>Intent Solutions Inc.</strong> | 2023 - Present | Gulf Shores, AL</p>
+<p><strong>Intent Solutions io.</strong> | 2023 - Present | Gulf Shores, AL</p>
