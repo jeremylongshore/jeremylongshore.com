@@ -21,8 +21,8 @@ Based in Gulf Shores, Alabama, I combine 20+ years of operations management with
 ## What I Actually Do
 
 ### 🤖 AI Integration & Consulting
-- Custom GPT-4 and Claude implementations for business processes
-- AI-powered diagnostic and analysis systems
+- Google Vertex AI Gemini, GPT-5, and Claude implementations for business processes
+- AI-powered diagnostic and analysis systems on Google Cloud Platform
 - Intelligent document processing and automation
 - Natural language interfaces for complex data
 
@@ -47,7 +47,7 @@ My approach: "Here's a working prototype. Let's iterate."
 ## Recent Projects
 
 ### [DiagnosticPro](https://diagnosticpro.io)
-AI-powered automotive diagnostic platform using GPT-4 to analyze vehicle issues. Built and deployed in 4 days, now processing thousands of diagnostics monthly at $29.99 each.
+AI-powered automotive diagnostic platform using Google Vertex AI Gemini to analyze vehicle issues. Built and deployed in 4 days on Google Cloud Platform, now processing thousands of diagnostics monthly at $29.99 each.
 
 ### [Start AI Tools](https://startaitools.com)
 Rapid AI implementation showcase and service platform. Deployed in under 24 hours using modern DevOps practices.

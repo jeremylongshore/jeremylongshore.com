@@ -15,10 +15,11 @@ From concept to production, here's what keeps me up at night (in a good way).
 
 Built in 4 days, now processing hundreds of diagnostics monthly. Upload a car problem photo, get AI analysis for $29.99 instead of $150+ shop fees. Stops customers from getting ripped off.
 
-The backend is wild: 266 BigQuery tables, 226 RSS feeds, 500+ YouTube channels, Reddit communities—all feeding an AI diagnostic engine.
+The backend is wild: 266 BigQuery tables, 226 RSS feeds, 500+ YouTube channels, Reddit communities—all feeding a Google Vertex AI Gemini diagnostic engine.
 
-**Stack:** SvelteKit, Firebase, Gemini Vertex AI, Stripe, BigQuery
+**Stack:** SvelteKit, Firebase, Google Vertex AI Gemini, Stripe, BigQuery
 **Impact:** 500+ diagnostics, 80% customer savings, 99.9% uptime
+**Google Cloud:** Firestore, Cloud Functions, BigQuery, Vertex AI, Cloud Storage
 
 ---
 
@@ -112,6 +113,8 @@ If it solved a real problem for me, maybe it'll help you too.
 ## Background
 
 20+ years in restaurant operations (Bonefish Grill, Waffle House) → self-taught developer → AI automation specialist. Marine Corps Reservist, Citadel grad, now building systems that eliminate bullshit and save people money.
+
+**Google Cloud Platform Expert:** Extensive experience with Vertex AI, BigQuery, Firestore, Cloud Functions, Cloud Storage, and GCP infrastructure. Built production systems processing millions of records on Google Cloud.
 
 Based in Gulf Shores, Alabama. Available for consulting through [Intent Solutions](https://intentsolutions.io/).
 

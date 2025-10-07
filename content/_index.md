@@ -1,9 +1,9 @@
 +++
-title = "Home"
+title = "Jeremy Longshore"
 +++
 
 ## AI Automation Specialist & Business Technology Consultant
-### *Based in Gulf Shores, Alabama*
+### *Google Cloud Platform Expert | Based in Gulf Shores, Alabama*
 
 *Transforming businesses through intelligent automation and rapid deployment.*
 
@@ -12,10 +12,10 @@ title = "Home"
 ## What I Actually Build
 
 ### 🤖 AI-Powered Solutions
-- **[DiagnosticPro](https://diagnosticpro.io)**: Vertex AI automotive diagnostics platform with Firebase/Firestore backend (TypeScript/React)
-- **[Vibe PRD](https://github.com/jeremylongshore/vibe-prd)**: AI-powered documentation generator with 15⭐ - enterprise PRDs in 5 minutes
+- **[DiagnosticPro](https://diagnosticpro.io)**: Google Vertex AI Gemini automotive diagnostics platform with Firebase/Firestore backend (TypeScript/React)
+- **[Vibe PRD](https://github.com/jeremylongshore/vibe-prd)**: GPT-5 powered documentation generator with 15⭐ - enterprise PRDs in 5 minutes
 - **[Local Private RAG Agent](https://github.com/jeremylongshore/local-private-rag-agent)**: NEXUS zero-cost local RAG system for private document intelligence
-- **[Bob's Brain](https://github.com/jeremylongshore/bobs-brain)**: Clean AI agent implementation with continuous learning (Python/Neo4j)
+- **[Bob's Brain](https://github.com/jeremylongshore/bobs-brain)**: Google Gemini 2.5 Flash AI agent with continuous learning (Python/Neo4j)
 
 ### ⚡ N8N Workflow Automation
 - **[News Pipeline](https://github.com/jeremylongshore/news-pipeline-n8n)**: Automated daily news monitoring and AI-powered topic analysis
