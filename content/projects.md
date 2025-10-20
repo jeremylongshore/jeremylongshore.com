@@ -37,7 +37,7 @@ Clean interface focused on what actually matters: minutes played, goals, assists
 ---
 
 ## Cost Plus DB
-**Live at [costplusdb.io](https://costplusdb.io) | Transparent Pricing Database**
+**Live at [costplusdb.dev](https://costplusdb.dev) | Transparent Pricing Database**
 
 Database of cost-plus pricing for services and products. Built to help consumers understand actual costs versus markup. No BS, just real numbers.
 
