@@ -41,7 +41,7 @@ I chose 90-120 seconds initially - ultra-conservative but guaranteed safe.
 
 Every change tracked with timestamp, status, processing time:
 
-```python
+```sql
 CREATE TABLE enhancements (
     id INTEGER PRIMARY KEY,
     timestamp TEXT NOT NULL,
