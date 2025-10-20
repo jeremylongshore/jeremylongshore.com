@@ -20,3 +20,6 @@ Thumbs.db
 
 # Backup directories
 _backup/
+
+# Local Netlify folder
+.netlify
