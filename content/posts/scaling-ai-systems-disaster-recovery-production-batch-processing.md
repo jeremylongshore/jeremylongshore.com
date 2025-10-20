@@ -1,6 +1,6 @@
 +++
 title = 'Scaling AI Systems: Production Batch Processing with Built-In Disaster Recovery'
-date = 2025-10-20T00:30:00-05:00
+date = 2025-10-19T23:50:00-05:00
 draft = false
 tags = ["systems-architecture", "ai-engineering", "disaster-recovery", "automation", "production-systems"]
 +++
