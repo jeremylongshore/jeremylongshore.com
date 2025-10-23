@@ -2,77 +2,163 @@
 title = "Jeremy Longshore"
 +++
 
-## AI Automation Specialist & Business Technology Consultant
-### *Google Cloud Platform Expert | Based in Gulf Shores, Alabama*
+# AI Automation Specialist & Production Engineer
 
-*Transforming businesses through intelligent automation and rapid deployment.*
-
----
-
-## What I Actually Build
-
-### 🤖 AI-Powered Solutions
-- **[DiagnosticPro](https://diagnosticpro.io)**: Google Vertex AI Gemini automotive diagnostics platform with Firebase/Firestore backend (TypeScript/React)
-- **[Vibe PRD](https://github.com/jeremylongshore/vibe-prd)**: GPT-5 powered documentation generator with 15⭐ - enterprise PRDs in 5 minutes
-- **[Local Private RAG Agent](https://github.com/jeremylongshore/local-private-rag-agent)**: NEXUS zero-cost local RAG system for private document intelligence
-- **[Bob's Brain](https://github.com/jeremylongshore/bobs-brain)**: Google Gemini 2.5 Flash AI agent with continuous learning (Python/Neo4j)
-
-### ⚡ N8N Workflow Automation
-- **[News Pipeline](https://github.com/jeremylongshore/news-pipeline-n8n)**: Automated daily news monitoring and AI-powered topic analysis
-- **[Daily Energizer Workflow](https://github.com/jeremylongshore/daily-energizer-workflow-n8n)**: Enterprise content generation automation
-- **[Disposable Marketplace](https://github.com/jeremylongshore/disposable-marketplace-n8n)**: N8N-powered marketplace automation (2⭐)
-
-### 💼 Enterprise Development Solutions
-- **[AI Engineering Curriculum](https://github.com/jeremylongshore/ai-engineering-curriculum)**: Complete K+ curriculum from zero to enterprise deployment
-- **[Waygate MCP](https://github.com/jeremylongshore/waygate-mcp)**: Foundational MCP Server Framework with security hardening (Python/Docker)
-- **[DiagnosticPro Schema](https://github.com/jeremylongshore/diagnosticpro-schema-sql)**: 266+ BigQuery table enterprise data platform architecture
-- **Rapid Prototyping**: Full-stack React/TypeScript applications deployed in days, not months
+*Gulf Shores, Alabama • Building production systems that solve real problems*
 
 ---
 
-## Recent Achievements
+## What I Build
 
-### Open Source Impact
-- **[Vibe PRD](https://github.com/jeremylongshore/vibe-prd)**: 15⭐ AI documentation generator used by developers worldwide
-- **[Disposable Marketplace](https://github.com/jeremylongshore/disposable-marketplace-n8n)**: 2⭐ N8N automation template
+From concept to production deployment in days, not months. Here's what that actually looks like.
 
-### Production Systems
-- **DiagnosticPro**: Live Firebase/Firestore platform processing customer diagnostics
-- **266+ BigQuery tables**: Enterprise data platform architecture for diagnostic insights
-- **Automated N8N workflows**: News monitoring, content generation, marketplace automation
-- **Local RAG system**: Zero-cost private document intelligence with NEXUS architecture
+### Production Platforms
 
-### Business Impact
-- **$29.99** per diagnostic vs traditional $150+ shop fees
-- **Firebase migration**: Successfully moved DiagnosticPro from Supabase to Google Cloud
-- **Enterprise automation**: Real-world N8N workflows eliminating manual processes
-- **20+ years** restaurant/operations experience applied to technical solutions
+**[Claude Code Plugins](https://claudecodeplugins.io)** — Plugin marketplace serving the Claude Code community
+227+ plugins | 152 GitHub stars | Next.js 15 + PostgreSQL + Cloud Run
+Featured: Skills Powerkit — first Agent Skills system for Claude Code
+
+**[DiagnosticPro](https://diagnosticpro.io)** — AI diagnostic platform with transparent pricing
+Vertex AI Gemini + Firebase + 266 BigQuery tables | $4.99 vs $150+ shop diagnostics
+Real customers, real revenue, real cost savings
+
+**[HustleStats](https://hustlestats.io)** — Youth sports analytics platform
+Next.js 15 + PostgreSQL + COPPA-compliant auth | Track player stats without expensive platforms
+Built for parents and coaches who want data, not subscriptions
+
+**[CostPlusDB](https://costplusdb.dev)** — Transparent database hosting
+PostgreSQL 16 + pgBackRest | 25% fixed markup, published costs
+68% savings vs traditional managed providers
+
+**[Start AI Tools](https://startaitools.com)** — AI implementation hub
+Hugo + Netlify | 65+ technical posts, 344 pages, built in 24 hours
+Deploy in days, not months — with proof
 
 ---
 
-## Current Projects
+## AI & Automation Tools
 
-### [DiagnosticPro](https://diagnosticpro.io) 🚀 **Active Production**
-Vertex AI automotive diagnostic platform with Firebase/Firestore backend. TypeScript/React frontend processing real customer diagnostics with $29.99 pricing vs traditional $150+ shop fees.
+**[AI DevOps Documentation Generator](https://github.com/jeremylongshore/ai-devops-intent-solutions)** — 18 stars
+Transform ideas into enterprise PRDs in 5 minutes | Claude Code CLI integration
 
-### [Vibe PRD](https://github.com/jeremylongshore/vibe-prd) ⭐ **15 Stars**
-AI-powered documentation generator transforming ideas into enterprise-ready docs in 5 minutes. Claude Code CLI & Cursor IDE integration with zero setup required.
+**[Hybrid AI Stack](https://github.com/jeremylongshore/Hybrid-ai-stack-intent-solutions)**
+60-80% AI cost reduction with smart local/cloud routing | Complete Docker stack + Terraform configs
 
-### [Start AI Tools](https://startaitools.com) 📈 **Growing**
-AI implementation showcase and knowledge hub with Hugo-powered content pipeline. Automated content sync from multiple sources.
+**[Local RAG Agent](https://github.com/jeremylongshore/local-rag-agent-intent-solutions)** — 2 stars
+Zero-cost private document intelligence | Runs entirely local with autonomous capability
 
-### [Bob's Brain](https://github.com/jeremylongshore/bobs-brain) 🧠 **Clean Implementation**
-Production AI assistant with Neo4j knowledge graph, Google Gemini 2.5 Flash integration, and continuous learning capabilities.
+**[Bob's Brain](https://github.com/jeremylongshore/bobs-brain)**
+Sovereign AI agent with Neo4j knowledge graph | Python + Flask + continuous learning
+
+**[Waygate MCP](https://github.com/jeremylongshore/waygate-mcp)** — 1 star
+Enterprise MCP server with Docker security isolation | FastAPI + Nginx + TaskWarrior integration
+
+---
+
+## N8N Workflow Automation
+
+Production workflows eliminating manual work:
+
+**[News Pipeline](https://github.com/jeremylongshore/news-pipeline-n8n)** — 3 stars
+Daily news monitoring with AI-powered analysis | Automated topic extraction
+
+**[AI Blog Journalist](https://github.com/jeremylongshore/ai-blog-journalist-n8n)**
+Perplexity AI research + Claude content generation | Fully automated blog production
+
+**[Lead Follow-up System](https://github.com/jeremylongshore/lead-followup-system-n8n)**
+B2B lead capture with AI scoring | Tally forms + Airtable automation
+
+**[Gmail Drive Organizer](https://github.com/jeremylongshore/gmail-drive-organizer-n8n)** — 1 star
+Attachment automation to Google Drive | Zero manual filing
+
+**[Disposable Marketplace](https://github.com/jeremylongshore/disposable-marketplace-n8n)** — 2 stars
+Instant marketplace for quote collection | CSV-powered reseller management
+
+---
+
+## Real Numbers
+
+**Production Systems**
+- 5 live platforms serving real customers
+- 227 Claude Code plugins in active use
+- 266 BigQuery tables processing diagnostic data
+- 226+ RSS feeds curated and validated
+
+**Open Source Impact**
+- 152 stars on Claude Code Plugins
+- 18 stars on AI DevOps tools
+- 15 public repositories
+- MIT licensed — clone, fork, learn
+
+**Technical Stack**
+- **Cloud:** Google Cloud Platform (Vertex AI, BigQuery, Cloud Run, Firestore, Cloud Functions)
+- **Frontend:** Next.js 15, React 19, TypeScript, SvelteKit
+- **Backend:** Python, FastAPI, Node.js, PostgreSQL, Firebase
+- **AI:** Vertex AI Gemini, Claude API, Perplexity, Ollama
+- **DevOps:** Docker, Terraform, GitHub Actions, N8N
+
+---
+
+## What Makes This Different
+
+**Deploy in Days, Not Months**
+Intent Solutions landing page: concept to production in 4 days
+DiagnosticPro Firebase migration: 4 days from Supabase cutover to live
+Average deployment velocity: 4 days from idea to customer-facing
+
+**Cost Optimization from Day One**
+Vertex AI vs OpenAI: 62.5% savings with equivalent quality
+DiagnosticPro margin: 96.4% with $4.99 pricing
+Hybrid AI Stack: 60-80% reduction in API costs
+
+**Production-First Mindset**
+Every platform serves real customers
+Every metric is measured and published
+Every deployment is documented and repeatable
+
+---
+
+## Background
+
+20+ years restaurant operations (Bonefish Grill, Waffle House) → self-taught developer → AI automation specialist
+
+**The transition:** From managing P&L and training staff to architecting data pipelines and deploying cloud infrastructure. Same problem-solving mindset, different tools.
+
+**Marine Corps Reservist** | **The Citadel Graduate** | **Google Cloud Platform Expert**
+
+Extensive production experience with Vertex AI, BigQuery, Firestore, Cloud Functions, Cloud Storage, and GCP infrastructure. Built systems processing millions of records on Google Cloud.
 
 ---
 
 ## Connect
 
-**Discord**: asphaltcowboy  
-**X**: [@asphaltcowb0y](https://x.com/asphaltcowb0y)  
-**Email**: [jeremy@intentsolutions.io](mailto:jeremy@intentsolutions.io)  
-**GitHub**: [jeremylongshore](https://github.com/jeremylongshore)
+**Email:** [jeremy@intentsolutions.io](mailto:jeremy@intentsolutions.io)
+**Company:** [Intent Solutions](https://intentsolutions.io/)
+**Discord:** asphaltcowboy
+**X/Twitter:** [@asphaltcowb0y](https://x.com/asphaltcowb0y)
+**GitHub:** [jeremylongshore](https://github.com/jeremylongshore)
+**LinkedIn:** [jeremylongshore](https://linkedin.com/in/jeremylongshore)
 
 ---
 
-*Gulf Shores, Alabama • From restaurant operations to AI automation - solving real problems with working code.*<!-- Deployment test Tue Sep 23 22:44:53 CDT 2025 -->
+## Available for Consulting
+
+**What I help with:**
+- AI platform architecture and deployment
+- Google Cloud Platform infrastructure
+- Rapid prototyping and MVP development
+- Cost optimization for AI/cloud systems
+- N8N workflow automation
+- Data pipeline engineering
+
+**How I work:**
+- Fixed-scope projects with clear deliverables
+- Transparent pricing (no surprises)
+- Production-ready systems, not prototypes
+- Documentation included (CLAUDE.md in every repo)
+
+**Response time:** Usually within 24 hours
+
+---
+
+*"I don't deliver promises. I deliver working systems."*
