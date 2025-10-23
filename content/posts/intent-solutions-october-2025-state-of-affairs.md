@@ -15,7 +15,7 @@ This isn't a success story. It's a progress report from someone who's learning i
 
 ## What's Actually Running in Production
 
-### DiagnosticPro: The $500K Revenue Validation
+### DiagnosticPro: 96.4% Margin AI Platform
 
 **What it does:** AI-powered vehicle diagnostics using Google Vertex AI Gemini 2.5 Flash.
 
