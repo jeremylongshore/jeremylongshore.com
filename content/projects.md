@@ -24,7 +24,7 @@ The catalog includes slash commands, MCP servers, automation workflows, and deve
 ---
 
 ## HustleStats
-**Live at [huststats.io](https://huststats.io) | Youth Sports Analytics**
+**Live at [hustlestats.io](https://hustlestats.io) | Youth Sports Analytics**
 
 Track soccer player statistics for youth teams. Built for parents and coaches who want real data without expensive platforms. Game stats, player development tracking, season summaries.
 
