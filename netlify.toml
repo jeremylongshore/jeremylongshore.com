@@ -13,4 +13,4 @@
   from = "http://jeremylongshore.com/*"
   to = "https://jeremylongshore.com/:splat"
   status = 301
-  force = true
+  force = true# Force rebuild Wed Oct 29 23:41:06 CDT 2025
