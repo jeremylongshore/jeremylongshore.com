@@ -1,3 +1,14 @@
+# Release v1.0.1
+
+**Release Date**: 2025-10-30
+
+## Changes since v1.0.0
+
+- chore: release v1.0.1 [skip ci] (ca625f5)
+- fix: change BrightStream post date from future to past (dec8cee)
+
+---
+
 # Release v1.0.0
 
 **Release Date**: 2025-10-30
