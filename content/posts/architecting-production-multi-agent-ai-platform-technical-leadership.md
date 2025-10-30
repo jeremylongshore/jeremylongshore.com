@@ -1,6 +1,6 @@
 +++
 title = 'Architecting a Production Multi-Agent AI Platform: Technical Leadership in Action'
-date = 2025-10-30T02:30:00-05:00
+date = 2025-10-29T21:30:00-05:00
 draft = false
 tags = ["technical-leadership", "cloud-architecture", "ai-systems", "cost-optimization", "infrastructure-automation", "problem-solving"]
 +++
