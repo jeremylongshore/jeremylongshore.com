@@ -1,3 +1,14 @@
+# Release v1.1.0
+
+**Release Date**: 2025-11-09
+
+## Changes since v1.0.1
+
+- chore: release v1.1.0 [skip ci] (f3e0bfe)
+- feat: add blog post - Fine-Tuning Hierarchical Multi-Agent AI Systems (13384da)
+
+---
+
 # Release v1.0.1
 
 **Release Date**: 2025-10-30
