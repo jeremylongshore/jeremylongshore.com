@@ -1,3 +1,14 @@
+# Release v1.2.0
+
+**Release Date**: 2025-11-18
+
+## Changes since v1.1.0
+
+- chore: release v1.2.0 [skip ci] (ed390b6)
+- feat: add blog post - Solving Stripe Webhook Drift with a Unified Enforcement Engine (4050223)
+
+---
+
 # Release v1.1.0
 
 **Release Date**: 2025-11-09
