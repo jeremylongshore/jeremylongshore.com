@@ -10,39 +10,55 @@ From concept to production, here's what keeps me up at night (in a good way).
 
 ---
 
+## Perception
+**Live at [perception-with-intent.web.app](https://perception-with-intent.web.app) | AI News Intelligence**
+
+Stop manually checking 50 news sources. Perception monitors everything, filters what matters using 8 specialized Vertex AI agents, and delivers executive-level insights to your dashboard.
+
+Multi-agent system orchestrated via Google's A2A Protocol on Vertex AI Agent Engine. Source-agnostic ingestion (RSS, APIs, custom connectors). Real-time Firebase dashboard with Gemini 2.0 Flash analysis.
+
+**Stack:** Python 3.11, Firebase, Vertex AI Agent Engine, Gemini 2.0 Flash
+**Features:** 8-agent orchestration, daily executive briefs, smart alerts, enterprise security
+**Google Cloud:** Vertex AI, Cloud Run, Firebase Hosting, Firestore, Cloud Scheduler
+
+---
+
 ## Claude Code Plugins
-**Live at [claudecodeplugins.io](https://claudecodeplugins.io) | 227+ Plugins**
+**Live at [claudecodeplugins.io](https://claudecodeplugins.io) | 253 Plugins**
 
-Plugin marketplace and hub for Claude Code. Browse, install, and contribute plugins that extend Claude Code functionality. Features the Skills Powerkit - first Agent Skills plugin for Claude Code.
+The only Claude Code marketplace 100% compliant with Anthropic's 2025 Skills schema. 253 production-ready plugins including 185 Agent Skills with tool permissions, version tracking, and enhanced activation triggers.
 
-The catalog includes slash commands, MCP servers, automation workflows, and development tools. Built to make Claude Code more powerful and accessible.
+First marketplace to implement the complete 2025 specification released by Anthropic. Includes MCP servers, slash commands, subagents, and the Skills Powerkit - the first Agent Skills meta-plugin.
 
-**Stack:** Next.js 15, React 19, TypeScript, PostgreSQL, Tailwind CSS 4
-**Features:** Plugin discovery, installation guides, marketplace validation
-**Google Cloud:** Cloud Run, Cloud SQL, Firestore
+**Stack:** Next.js 15, TypeScript, GitHub-based marketplace, Node.js MCP servers
+**Features:** 253 plugins, 185 Agent Skills, tool permission system, activation guides
+**Status:** v1.3.1 (November 2025), 221+ commits in 2025
+
+---
+
+## PipelinePilot
+**Production | B2B Sales Automation Platform**
+
+B2B sales automation orchestrating external data providers (Clay, Apollo, Clearbit, Crunchbase) through an AI-powered Reasoning Engine. Firebase Functions gateway routing to Vertex AI for intelligent API orchestration.
+
+Serverless architecture with bring-your-own-keys (BYO) policy for cost control and compliance. Multi-cloud ready with Terraform templates for GCP, AWS, and Azure deployments.
+
+**Stack:** Firebase Functions Gen2 (Node 20 ESM), Python ADK, Vertex AI Reasoning Engine
+**Features:** 4 ADK-compliant agents, 6 connector tools, action counting, multi-tenant isolation
+**Google Cloud:** Firebase Functions, Vertex AI, Firestore, Secret Manager
 
 ---
 
 ## HustleStats
-**Live at [hustlestats.io](https://hustlestats.io) | Youth Sports Analytics**
+**In Development | Youth Sports Analytics**
 
-Track soccer player statistics for youth teams. Built for parents and coaches who want real data without expensive platforms. Game stats, player development tracking, season summaries.
+Youth soccer statistics tracking with three integrated systems: core Next.js app, Vertex AI multi-agent orchestration (A2A protocol), and NWSL video pipeline using Veo 3.0.
 
-Clean interface focused on what actually matters: minutes played, goals, assists, development over time.
+Currently in Phase 1 migration from PostgreSQL/NextAuth to Firebase Auth and Firestore. Step 1 complete with local Firebase wiring verified. Multi-agent system includes orchestrator plus 4 sub-agents for operations automation.
 
-**Stack:** Next.js 15, TypeScript, PostgreSQL, Prisma, NextAuth v5
-**Features:** Player profiles, game tracking, season analytics
-**Google Cloud:** Cloud Run, Cloud SQL (PostgreSQL)
-
----
-
-## Cost Plus DB
-**Live at [costplusdb.dev](https://costplusdb.dev) | Transparent Pricing Database**
-
-Database of cost-plus pricing for services and products. Built to help consumers understand actual costs versus markup. No BS, just real numbers.
-
-**Stack:** Next.js, PostgreSQL, TypeScript
-**Purpose:** Transparency in pricing, help people not get ripped off
+**Stack:** Next.js 15, React 19, TypeScript, Firebase Auth, Firestore (migrating from Prisma)
+**Features:** Player profiles, game tracking, Vertex AI agents, NWSL video generation (CI-only)
+**Google Cloud:** Firebase Hosting, Cloud Functions, Firestore, Vertex AI Agent Engine, Veo 3.0
 
 ---
 
@@ -59,15 +75,16 @@ Not another AI hype blog - practical guides on what works, what doesn't, and how
 ---
 
 ## DiagnosticPro
-**Prototype at [diagnosticpro.io](https://diagnosticpro.io) | AI Diagnostic Platform**
+**95% Production Ready | AI Diagnostic Platform**
 
-AI-powered equipment diagnostic platform using Google Vertex AI Gemini. Upload a problem photo, get AI analysis. Built to help people avoid getting overcharged by repair shops.
+AI-powered equipment diagnostic platform. Upload a problem photo, get Vertex AI Gemini analysis for $4.99. Helps people avoid getting overcharged by repair shops.
 
-The backend data infrastructure is the real work: 266 BigQuery tables, 226 RSS feeds, 500+ YouTube channels, Reddit communities - all feeding the diagnostic engine. Currently in development.
+API Gateway routes Stripe webhooks to private Cloud Run backend. Vertex AI analyzes images, generates PDF reports, delivers via email. Data infrastructure includes 266 BigQuery tables for diagnostic intelligence.
 
-**Stack:** SvelteKit, Firebase, Google Vertex AI Gemini, BigQuery
-**Google Cloud:** Firestore, Cloud Functions, BigQuery, Vertex AI, Cloud Storage
-**Status:** Active development, data pipeline operational
+**Stack:** React, Express, Vertex AI Gemini, API Gateway, Cloud Run
+**Features:** Image analysis, PDF generation, Stripe integration, email delivery
+**Google Cloud:** API Gateway, Cloud Run, Firestore, Vertex AI, Firebase Storage, BigQuery
+**Status:** Awaiting Firebase Storage bucket creation (5-minute console setup)
 
 ---
 
@@ -94,13 +111,16 @@ Built on the principle that AI should serve you, not surveil you.
 
 ---
 
-## Hybrid AI Stack
-**[GitHub](https://github.com/jeremylongshore/Hybrid-ai-stack-intent-solutions) | 60-80% Cost Reduction**
+## Private AI Deployments (Intent Solutions)
+**intentsolutions.io/ai-models | Enterprise Private LLM Stacks**
 
-Sick of AI API bills? This routes simple requests to local models, complex ones to cloud. Includes 3,445-line implementation guide, Docker stack, Terraform configs for AWS/GCP.
+Keep data on your cloud while offering ChatGPT-style experience to every teammate. Curated model stack includes Llama 3.1 70B (enterprise reasoning), Mistral 7B (fast interactions), and Qwen 2.5 14B (technical/multilingual).
 
-**Stack:** Docker, Python, n8n, Ollama, Terraform
-**For:** Anyone tired of $500/month AI bills
+Orchestration layer automatically routes calls based on task requirements. Maps workflows during onboarding for consistent performance. Combined with Hybrid AI Stack for 60-80% cost reduction via intelligent local/cloud routing.
+
+**Stack:** Llama 3.1 70B, Mistral 7B, Qwen 2.5 14B, Docker, Ollama, n8n, Terraform
+**Features:** Model orchestration, workflow mapping, local/cloud routing, AWS/GCP ready
+**For:** Enterprises wanting private AI without cloud API bills
 
 ---
 
