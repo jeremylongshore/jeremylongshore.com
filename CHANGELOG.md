@@ -1,3 +1,14 @@
+# Release v1.3.0
+
+**Release Date**: 2025-11-18
+
+## Changes since v1.2.0
+
+- chore: release v1.3.0 [skip ci] (419fade)
+- feat(projects): update portfolio with verified GitHub project data (5728100)
+
+---
+
 # Release v1.2.0
 
 **Release Date**: 2025-11-18
