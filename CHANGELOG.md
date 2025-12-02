@@ -1,3 +1,15 @@
+# Release v1.4.0
+
+**Release Date**: 2025-12-02
+
+## Changes since v1.3.0
+
+- chore: release v1.4.0 [skip ci] (c8de5c5)
+- Merge remote-tracking branch 'origin/main' (5144748)
+- feat: add blog post - Delivering Brand Consistency (49bffa0)
+
+---
+
 # Release v1.3.0
 
 **Release Date**: 2025-11-18
