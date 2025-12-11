@@ -1,3 +1,14 @@
+# Release v1.5.0
+
+**Release Date**: 2025-12-11
+
+## Changes since v1.4.0
+
+- chore: release v1.5.0 [skip ci] (299179d)
+- feat: add blog post - From Did I Lose My PRs to Google Recognized (cf244ff)
+
+---
+
 # Release v1.4.0
 
 **Release Date**: 2025-12-02
