@@ -1,3 +1,14 @@
+# Release v1.5.1
+
+**Release Date**: 2025-12-12
+
+## Changes since v1.5.0
+
+- chore: release v1.5.1 [skip ci] (73a6eb9)
+- Add: Hunting the ghost bug - 9 PRs one import path (718fe26)
+
+---
+
 # Release v1.5.0
 
 **Release Date**: 2025-12-11
