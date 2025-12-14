@@ -1,3 +1,14 @@
+# Release v1.5.2
+
+**Release Date**: 2025-12-14
+
+## Changes since v1.5.1
+
+- chore: release v1.5.2 [skip ci] (8ae62ee)
+- Add: CTO mindset - stop asking start shipping (31fa52e)
+
+---
+
 # Release v1.5.1
 
 **Release Date**: 2025-12-12
