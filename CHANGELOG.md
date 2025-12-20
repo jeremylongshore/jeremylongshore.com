@@ -1,3 +1,14 @@
+# Release v2.0.2
+
+**Release Date**: 2025-12-20
+
+## Changes since v2.0.1
+
+- chore: release v2.0.2 [skip ci] (2785cad)
+- fix: disable Hugo auto-detection in Netlify (fe90c04)
+
+---
+
 # Release v2.0.1
 
 **Release Date**: 2025-12-20
