@@ -1,3 +1,14 @@
+# Release v2.0.8
+
+**Release Date**: 2025-12-20
+
+## Changes since v2.0.7
+
+- chore: release v2.0.8 [skip ci] (229b6cd)
+- fix: skip Ruby build, deploy static HTML landing page (f073597)
+
+---
+
 # Release v2.0.7
 
 **Release Date**: 2025-12-20
