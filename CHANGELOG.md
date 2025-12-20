@@ -1,3 +1,14 @@
+# Release v2.0.1
+
+**Release Date**: 2025-12-20
+
+## Changes since v2.0.0
+
+- chore: release v2.0.1 [skip ci] (3e839e1)
+- fix: remove Hugo theme Git submodules (a24f17c)
+
+---
+
 # Release v2.0.0
 
 **Release Date**: 2025-12-20
