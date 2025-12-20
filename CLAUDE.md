@@ -4,174 +4,169 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Personal portfolio and technical blog for Jeremy Longshore, AI Automation Specialist based in Gulf Shores, Alabama. Built with Hugo and the hugo-bearblog theme, featuring production engineering case studies, cloud infrastructure work, and AI automation projects.
+Personal landing page for Jeremy Longshore, AI Automation Specialist based in Gulf Shores, Alabama. Built with **Linkyee** (Ruby-based static landing page generator) featuring links to active projects and social profiles.
 
 **Live site:** https://jeremylongshore.com
 **GitHub:** https://github.com/jeremylongshore
 **Company:** intentsolutions.io
 **Contact:** jeremy@intentsolutions.io
 
-**Active Projects Referenced:**
-- [DiagnosticPro](https://diagnosticpro.io) - AI diagnostic platform (Google Vertex AI Gemini, 266 BigQuery tables, 226+ RSS feeds)
-- [Claude Code Plugins Plus](https://github.com/jeremylongshore/claude-code-plugins-plus) - 227 plugins hub with Skills Powerkit
-- [Start AI Tools](https://startaitools.com) - AI tools directory and implementation guides
-- [Bob's Brain](https://github.com/jeremylongshore/bobs-brain) - Sovereign AI agent for Slack
-- [Waygate MCP](https://github.com/jeremylongshore/waygate-mcp) - Enterprise MCP server framework
-- Hustle - Youth sports stats app (private repo, Next.js 15 + PostgreSQL)
+**Featured Projects:**
+- [Start AI Tools](https://startaitools.com) - AI implementation guides and tutorials
+- [Perception](https://perception-with-intent.web.app) - Multi-agent AI news intelligence
+- [Claude Code Skills](https://claudecodeskills.io) - Production-ready agent skills
+- [Claude Code Plugins](https://claudecodeplugins.io) - 253 plugins marketplace
+- [DiagnosticPro](https://diagnosticpro.io) - AI vehicle diagnostics platform
+- [PipelinePilot](https://pipelinepilot-prod.web.app) - B2B sales automation
+- [HustleStats](https://hustlestats.io) - Youth sports analytics
+- [Waygate MCP](https://github.com/jeremylongshore/waygate-mcp) - Enterprise MCP server
+- [Bob's Brain](https://intent-solutions-io.github.io/bobs-brain/) - Specialist AI team
 
 ## Key Commands
 
 ### Local Development
 ```bash
-# Start local development server with live reload
-hugo server -D  # -D flag includes draft posts
+# Build and preview the site locally
+bash build.sh
 
-# Start server without drafts (production-like preview)
-hugo server
-
-# Start server accessible from external devices
-hugo server -D --bind 0.0.0.0
+# Then serve the output directory with any static server
+cd _output && python -m http.server 8000
+# Visit http://localhost:8000
 ```
 
 ### Building the Site
 ```bash
 # Production build (used by Netlify)
-hugo --gc --minify --cleanDestinationDir
+bash build.sh
 
-# Standard build to public/ directory
-hugo
+# Output will be in _output/ directory
 ```
 
-### Content Management
+### Editing Content
+All content is managed in a single YAML configuration file:
+
 ```bash
-# Create a new blog post (primary location)
-hugo new posts/my-new-post.md
-
-# Create static pages
-hugo new about.md
-hugo new contact.md
+# Edit site configuration (links, projects, bio, etc.)
+# Open config.yml in your editor
 ```
 
-### Content Synchronization from Start AI Tools
-```bash
-# Run Python sync script (primary method)
-python scripts/sync-startaitools.py
-
-# Automated: GitHub Actions runs daily at 06:17 UTC
-# Manual trigger: workflow_dispatch via GitHub Actions UI
-```
+**Note:** This is NOT a blog/CMS. It's a single-page landing page with links. All content modifications happen in `config.yml`.
 
 ## Project Structure
 
 ```
 jeremylongshore/
-├── config/_default/
-│   └── config.toml              # Main Hugo configuration (TOML format)
-├── content/
-│   ├── posts/                   # Primary blog posts (37 manual posts, Dec 2025)
-│   │   └── startai/            # Synced content from Start AI Tools (29 posts)
-│   ├── _index.md               # Homepage content
-│   ├── about.md                # About page (20+ years ops → AI specialist)
-│   ├── contact.md              # Contact page
-│   └── projects.md             # Projects showcase (DiagnosticPro, Hybrid AI Stack, etc.)
+├── config.yml                  # ⭐ MAIN CONFIGURATION FILE (all content lives here)
+├── scaffold.rb                 # Ruby build script (generates HTML from template)
+├── build.sh                    # Build wrapper script (called by Netlify)
+├── Gemfile                     # Ruby dependencies (liquid, yaml, nokogiri)
 ├── themes/
-│   └── hugo-bearblog/          # Active theme (Git submodule, minimal design)
-├── static/
-│   └── images/                 # Static assets (images, CSS, JS)
-│       └── startai/            # Downloaded images from synced content
-├── scripts/
-│   ├── sync-startaitools.py    # Python sync script (primary, requests + beautifulsoup4)
-│   └── sync-startaitools.sh    # Bash sync script (legacy, not used)
-├── layouts/
-│   └── partials/               # Custom layout overrides (currently empty)
-├── public/                     # Generated site (DO NOT EDIT - auto-generated)
-├── netlify.toml                # Netlify deployment config (Hugo v0.150.0)
-├── version.txt                 # Current version (v1.5.1)
-├── CHANGELOG.md                # Auto-generated release changelog
-├── CLAUDE.md                   # This file - source of truth for development
-├── README.md                   # Project documentation (⚠️ OUTDATED - references wrong theme/version)
+│   └── default/               # Linkyee theme (HTML template + assets)
+│       ├── index.html         # Liquid template (rendered with config.yml data)
+│       ├── style.css          # Styles
+│       ├── images/            # Theme images (profile.jpeg, etc.)
+│       └── fontawesome/       # Font Awesome icons
+├── plugins/
+│   └── GithubRepoStarsCountPlugin.rb  # Fetches GitHub star counts dynamically
+├── _output/                   # Generated site (DO NOT EDIT - auto-generated)
+├── netlify.toml               # Netlify deployment config (Ruby 3.4.2)
+├── version.txt                # Current version (v1.6.0)
+├── CHANGELOG.md               # Auto-generated release changelog
+├── CLAUDE.md                  # This file - source of truth for development
 └── .github/workflows/
-    ├── sync-startaitools.yml   # Daily automated content sync (06:17 UTC)
-    └── release.yml             # Automated release workflow (conventional commits)
+    └── release.yml            # Automated release workflow (conventional commits)
 ```
 
-**Note:** README.md contains outdated information (mentions Hermit v2 theme, wrong Hugo version). This CLAUDE.md is the source of truth.
+**Critical files:**
+- `config.yml`: Single source of truth for ALL site content (links, bio, social profiles, projects)
+- `scaffold.rb`: Builds site by combining `config.yml` data with theme template
+- `themes/default/index.html`: Liquid template that gets populated with config data
 
-## Hugo Architecture & Configuration
+**Note:** README.md may be outdated. This CLAUDE.md is the source of truth.
 
-### Front Matter Format
-This site supports **both TOML and YAML** front matter formats. Recent posts (Dec 2025) primarily use YAML.
+## Linkyee Architecture
 
-**YAML format** (current standard, delimited by `---`):
+### How Linkyee Works
+
+Linkyee is a Ruby-based static site generator optimized for single-page landing pages with links.
+
+**Build process:**
+1. `build.sh` is called (by you or Netlify)
+2. `bundle install` installs Ruby gems (liquid, yaml, nokogiri)
+3. `scaffold.rb` runs:
+   - Loads `config.yml` (site configuration)
+   - Copies theme from `themes/default/` to `_output/`
+   - Runs plugins (e.g., fetches GitHub star counts)
+   - Processes Liquid template (`themes/default/index.html`)
+   - Injects config data into template
+   - Writes final HTML to `_output/index.html`
+4. `_output/` directory contains the complete static site
+
+**Key technology:**
+- Ruby 3.4.2
+- Liquid templating (same as Jekyll, Shopify)
+- YAML configuration
+- Plugin system for dynamic data
+
+### Configuration Structure (config.yml)
+
+All site content is in `config.yml`:
+
 ```yaml
----
-title: "Your Post Title"
-date: 2025-12-13
-draft: false
-tags: ["debugging", "learning", "python"]
-categories: ["Technical Deep-Dive"]
-description: "Brief description for SEO and social sharing"
----
+theme: default                    # Theme directory name
+lang: "en"                       # HTML lang attribute
+title: "Jeremy Longshore - AI Automation & Cloud Infrastructure"
+avatar: "./images/profile.jpeg"  # Profile image path
+name: "Jeremy Longshore"
+tagline: >-                      # Bio/tagline (multiline)
+    AI Automation Specialist & Google Cloud Platform Expert...
 
-Your markdown content here...
+plugins:                         # Dynamic data fetching
+  - GithubRepoStarsCountPlugin:
+      - jeremylongshore/claude-code-plugins-plus
+      - jeremylongshore/waygate-mcp
+      # Access via {{vars.GithubRepoStarsCountPlugin['repo-name']}}
+
+links:                           # Main project links
+  - link:
+      icon: "fa-solid fa-robot"
+      text: "Start AI Tools - Implementation Guides"
+      url: "https://startaitools.com"
+      alt: "Start AI Tools description"
+      title: "Start AI Tools title"
+      target: "_blank"
+
+socials:                         # Social media links
+  - social:
+      icon: "fa-brands fa-github"
+      url: "https://github.com/jeremylongshore"
+      title: "Jeremy Longshore's GitHub"
+      alt: "Jeremy Longshore's GitHub"
+      target: "_blank"
+
+footer: >                        # Footer bio text
+    AI Automation Specialist & Google Cloud Platform Expert...
+
+copyright: >                     # Footer copyright HTML
+    © 2025 <a href="...">Jeremy Longshore</a> | ...
 ```
 
-**TOML format** (legacy, still supported, delimited by `+++`):
-```toml
-+++
-title = 'Your Post Title'
-date = 2025-09-08T14:30:00-05:00
-draft = false
-tags = ["BigQuery", "Data Architecture", "GCP"]
-categories = ["Technical Deep-Dive", "Architecture"]
-+++
+### Adding New Projects/Links
 
-Your markdown content here...
+Edit `config.yml` and add to the `links` array:
+
+```yaml
+links:
+  - link:
+      icon: "fa-solid fa-code"           # Font Awesome icon
+      text: "New Project Name"            # Display text
+      url: "https://example.com"         # URL
+      alt: "Description for accessibility"
+      title: "Hover tooltip text"
+      target: "_blank"                   # Open in new tab
 ```
 
-**Note:** Synced content from Start AI Tools uses TOML format (generated by sync script), while manually created posts typically use YAML.
-
-### Site Configuration (config/_default/config.toml)
-```toml
-baseURL = "https://jeremylongshore.com/"
-theme = "hugo-bearblog"
-title = "Jeremy Longshore"
-languageCode = "en-US"
-
-[params]
-  description = "AI engineering, software, and startup notes."
-
-[menu]
-  [[menu.main]]
-    name = "Posts"      # weight = 10
-  [[menu.main]]
-    name = "About"      # weight = 20
-  [[menu.main]]
-    name = "Projects"   # weight = 25
-  [[menu.main]]
-    name = "Contact"    # weight = 30
-
-[permalinks]
-  posts = "/posts/:slug/"
-
-[markup.goldmark.renderer]
-  unsafe = true  # Allow raw HTML in markdown
-```
-
-### Content Sync from Start AI Tools
-Automated RSS feed synchronization pulls content from startaitools.com:
-
-**Python script** (`scripts/sync-startaitools.py`):
-- Fetches RSS feed from https://startaitools.com/index.xml
-- Downloads and localizes images to `static/images/startai/`
-- Converts HTML to markdown while preserving code blocks
-- Writes posts to `content/posts/startai/` with TOML front matter
-- **Dependencies:** `requests`, `beautifulsoup4`
-
-**GitHub Actions** (`.github/workflows/sync-startaitools.yml`):
-- Runs daily at 06:17 UTC
-- Can be manually triggered via workflow_dispatch
-- Auto-commits changes if new content detected
+Then rebuild: `bash build.sh`
 
 ## Deployment & Netlify Configuration
 
@@ -180,14 +175,11 @@ Automated RSS feed synchronization pulls content from startaitools.com:
 **Build Configuration** (netlify.toml):
 ```toml
 [build]
-  command = "hugo --gc --minify --cleanDestinationDir"
-  publish = "public"
+  command = "bash build.sh"
+  publish = "_output"
 
 [build.environment]
-  HUGO_VERSION = "0.150.0"
-  HUGO_ENABLEGITINFO = "true"
-  HUGO_ENV = "production"
-  NODE_VERSION = "18"
+  RUBY_VERSION = "3.4.2"
   TZ = "America/Chicago"
 
 [[redirects]]
@@ -198,108 +190,85 @@ Automated RSS feed synchronization pulls content from startaitools.com:
 ```
 
 **Deployment workflow:**
-1. Edit/create content in `content/posts/`
-2. Test locally with `hugo server -D`
+1. Edit `config.yml` to update links, bio, or projects
+2. Test locally with `bash build.sh && cd _output && python -m http.server 8000`
 3. Commit and push to main branch
-4. Netlify auto-builds and deploys (typically < 2 minutes)
-5. Daily automated sync from Start AI Tools at 06:17 UTC
+4. Netlify auto-builds and deploys (typically < 1 minute)
 
-## Theme: hugo-bearblog
+## Theme: Linkyee Default
 
-**Active theme:** hugo-bearblog (Git submodule at `themes/hugo-bearblog/`)
+**Active theme:** `themes/default/` (Linkyee's default theme)
 
 **Design philosophy:**
-- Minimal, fast, accessible
-- Clean typography with no JavaScript dependencies
-- Focused on content readability
-- Responsive design
+- Single-page landing page
+- Clean, modern design
+- Mobile responsive
+- Fast loading (minimal dependencies)
+- Font Awesome icons
+- Focus on links and project showcase
 
 **Customization approach:**
-- Override layouts by creating files in `layouts/` directory (e.g., `layouts/partials/`)
-- Hugo will use local layouts over theme layouts automatically
-- Never edit theme files directly (Git submodule)
-- Currently no custom layout overrides in use (empty `layouts/partials/` directory)
+- Primary customization: Edit `config.yml` (no code changes needed)
+- Advanced customization: Edit `themes/default/index.html` (Liquid template)
+- Styling: Edit `themes/default/style.css`
+- Images: Replace `themes/default/images/profile.jpeg`
 
-**Navigation menu:** 4-item menu configured in config.toml:
-- Posts (weight 10)
-- About (weight 20)
-- Projects (weight 25)
-- Contact (weight 30)
-
-## Content Topics & Categories
-
-**Current version:** v1.5.1 (Dec 2025)
-
-**Recent focus (Dec 2025):**
-- **Production Engineering:** CI/CD pipelines, debugging case studies, testing infrastructure (Playwright)
-- **Claude Code Development:** Plugin marketplace, Skills Powerkit, automation workflows
-- **Cloud Infrastructure:** Google Cloud Platform (Vertex AI, BigQuery, Firestore, Cloud Functions)
-- **Enterprise Systems:** Marketplace schema validation, legal compliance, production deployments
-
-**Ongoing technical coverage:**
-- **Data Engineering:** BigQuery schemas (266 tables), data pipelines, RSS feed validation (226+ feeds)
-- **AI Automation:** N8N workflows, Google Vertex AI Gemini, multi-agent systems
-- **Developer Productivity:** Custom AI commands, workflow automation, rapid deployment (days not months)
-- **Project Case Studies:** DiagnosticPro ($500K+ revenue), Claude Code Plugins (227 plugins), Waygate MCP
-
-**Personal background (reflected in About page):**
-- 20+ years restaurant operations → self-taught developer → AI automation specialist
-- Marine Corps Reservist, The Citadel graduate
-- Based in Gulf Shores, Alabama
-- Company: Intent Solutions (intentsolutions.io)
+**Never edit `_output/` directory** - It's auto-generated and will be overwritten on every build
 
 ## Critical Development Rules
 
-1. **Never edit `public/` directory** - It's auto-generated and will be overwritten on every build
-2. **Front matter format** - Use YAML (`---`) for new manual posts, TOML (`+++`) is auto-generated by sync script for Start AI Tools content
-3. **Test locally before committing** - Run `hugo server -D` to preview changes
-4. **Theme is Git submodule** - Never modify files in `themes/hugo-bearblog/` directly; use `layouts/` directory for overrides
-5. **Images for synced content** - Automatically downloaded to `static/images/startai/` by sync script
-6. **Hugo version locked** - Site uses Hugo v0.150.0 (defined in netlify.toml)
-7. **Git submodule initialization** - Build command includes `git submodule update --init --recursive` for theme
+1. **Never edit `_output/` directory** - It's auto-generated and will be overwritten
+2. **All content changes happen in `config.yml`** - Single source of truth
+3. **Test locally before committing** - Run `bash build.sh` to preview changes
+4. **Ruby version locked** - Site uses Ruby 3.4.2 (defined in netlify.toml and .ruby-version)
+5. **Icons use Font Awesome** - Free icons only: https://fontawesome.com/search?o=r&m=free
+6. **Plugin output caching** - GitHub star counts may be cached; rebuild clears cache
 
 ## Common Development Tasks
 
-### Creating a New Blog Post
+### Adding a New Project Link
 ```bash
-# Generate new post with proper front matter
-hugo new posts/my-new-post.md
+# 1. Edit config.yml
+# 2. Add new entry to the 'links' array
+# 3. Build and test
+bash build.sh
+cd _output && python -m http.server 8000
 
-# Edit the file (opens in default editor)
-# Set draft = false when ready to publish
-# Commit and push to deploy
+# 4. Commit and push
+git add config.yml
+git commit -m "feat: add new project link"
+git push
 ```
 
-### Testing Content Sync
+### Updating Bio/Tagline
 ```bash
-# Install Python dependencies
-pip install requests beautifulsoup4
-
-# Run sync script manually
-python scripts/sync-startaitools.py
-
-# Check for new content in content/posts/startai/
-# Check for new images in static/images/startai/
+# Edit the 'tagline' or 'footer' fields in config.yml
+# Then rebuild
+bash build.sh
 ```
 
-### Previewing Production Build
+### Changing Profile Image
 ```bash
-# Build exactly as Netlify does
-hugo --gc --minify --cleanDestinationDir
-
-# Serve the built site
-cd public && python -m http.server 8000
-# Visit http://localhost:8000
+# 1. Replace themes/default/images/profile.jpeg
+# 2. Or update the 'avatar' field in config.yml to point to new image
+# 3. Rebuild
+bash build.sh
 ```
 
-### Updating Theme
+### Adding a New Social Profile
 ```bash
-# Update hugo-bearblog submodule to latest
-cd themes/hugo-bearblog
-git pull origin main
-cd ../..
-git add themes/hugo-bearblog
-git commit -m "chore: update hugo-bearblog theme"
+# 1. Edit config.yml
+# 2. Add new entry to the 'socials' array
+# 3. Find icon code from Font Awesome (e.g., "fa-brands fa-twitter")
+# 4. Rebuild and test
+bash build.sh
+```
+
+### Testing Plugin Changes
+```bash
+# Plugins are in plugins/ directory (Ruby files)
+# After editing a plugin, rebuild to see changes
+bash build.sh
 ```
 
 ## Versioning & Releases
