@@ -1,3 +1,14 @@
+# Release v2.0.6
+
+**Release Date**: 2025-12-20
+
+## Changes since v2.0.5
+
+- chore: release v2.0.6 [skip ci] (d464825)
+- fix: use Ruby 3.2.2 for faster builds (precompiled on Netlify) (fe2a1c3)
+
+---
+
 # Release v2.0.5
 
 **Release Date**: 2025-12-20
