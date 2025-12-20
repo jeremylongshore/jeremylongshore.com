@@ -1,9 +1,8 @@
 [build]
-  command = "bash build.sh"
+  command = "echo 'No build needed - serving static HTML'"
   publish = "_output"
 
 [build.environment]
-  RUBY_VERSION = "3.3.0"
   TZ = "America/Chicago"
 
 [[redirects]]
