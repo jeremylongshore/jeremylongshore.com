@@ -1,3 +1,14 @@
+# Release v2.0.5
+
+**Release Date**: 2025-12-20
+
+## Changes since v2.0.4
+
+- chore: release v2.0.5 [skip ci] (261b49f)
+- fix: remove runtime.txt causing Python buildpack conflict (60e138a)
+
+---
+
 # Release v2.0.4
 
 **Release Date**: 2025-12-20
