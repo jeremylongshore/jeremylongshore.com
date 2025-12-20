@@ -1,3 +1,14 @@
+# Release v1.7.1
+
+**Release Date**: 2025-12-20
+
+## Changes since v1.7.0
+
+- chore: release v1.7.1 [skip ci] (c8649bf)
+- fix: update Ruby version to 3.3.0 for Netlify compatibility (8cd85bb)
+
+---
+
 # Release v1.7.0
 
 **Release Date**: 2025-12-20
