@@ -1,3 +1,14 @@
+# Release v2.0.4
+
+**Release Date**: 2025-12-20
+
+## Changes since v2.0.3
+
+- chore: release v2.0.4 [skip ci] (81d0a7c)
+- fix: add runtime.txt for Ruby buildpack detection (9135d6f)
+
+---
+
 # Release v2.0.3
 
 **Release Date**: 2025-12-20
