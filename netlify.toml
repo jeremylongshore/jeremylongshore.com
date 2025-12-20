@@ -1,12 +1,9 @@
 [build]
-  command = "git submodule update --init --recursive && hugo --gc --minify --cleanDestinationDir"
-  publish = "public"
+  command = "bash build.sh"
+  publish = "_output"
 
 [build.environment]
-  HUGO_VERSION = "0.150.0"
-  HUGO_ENABLEGITINFO = "true"
-  HUGO_ENV = "production"
-  NODE_VERSION = "18"
+  RUBY_VERSION = "3.4.2"
   TZ = "America/Chicago"
 
 [[redirects]]
