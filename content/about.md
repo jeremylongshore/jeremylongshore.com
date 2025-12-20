@@ -2,6 +2,8 @@
 title = "About"
 +++
 
+![Jeremy Longshore](/images/jeremy-headshot.jpg)
+
 # Jeremy Longshore
 ## AI Automation Specialist & Business Technology Consultant
 ### *Gulf Shores, Alabama*
