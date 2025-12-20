@@ -1,3 +1,14 @@
+# Release v2.0.3
+
+**Release Date**: 2025-12-20
+
+## Changes since v2.0.2
+
+- chore: release v2.0.3 [skip ci] (752e397)
+- fix: simplify build script and remove DISABLE_AUTO_INSTALL (668c111)
+
+---
+
 # Release v2.0.2
 
 **Release Date**: 2025-12-20
