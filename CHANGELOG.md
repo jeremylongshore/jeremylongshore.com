@@ -1,3 +1,14 @@
+# Release v2.0.0
+
+**Release Date**: 2025-12-20
+
+## Changes since v1.7.1
+
+- chore: release v2.0.0 [skip ci] (f86dd1b)
+- fix: remove Hugo files to enable Linkyee deployment (5577d38)
+
+---
+
 # Release v1.7.1
 
 **Release Date**: 2025-12-20
