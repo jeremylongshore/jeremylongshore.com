@@ -44,6 +44,13 @@ tagline: >-
 # target: `_blank` opens in a new tab, `_self` opens in the same frame
 links:
   - link:
+      icon: "fa-solid fa-robot"
+      text: "Start AI Tools - Implementation Guides"
+      url: "https://startaitools.com"
+      alt: "Start AI Tools - AI implementation guides and tutorials"
+      title: "Start AI Tools - AI implementation guides and tutorials"
+      target: "_blank"
+  - link:
       icon: "fa-solid fa-brain"
       text: "Perception - AI News Intelligence"
       url: "https://perception-with-intent.web.app"
@@ -70,13 +77,6 @@ links:
       url: "https://diagnosticpro.io"
       alt: "DiagnosticPro - AI-powered equipment diagnostic platform with Vertex AI Gemini"
       title: "DiagnosticPro - AI-powered equipment diagnostic platform with Vertex AI Gemini"
-      target: "_blank"
-  - link:
-      icon: "fa-solid fa-robot"
-      text: "Start AI Tools - Implementation Guides"
-      url: "https://startaitools.com"
-      alt: "Start AI Tools - AI implementation guides and tutorials"
-      title: "Start AI Tools - AI implementation guides and tutorials"
       target: "_blank"
   - link:
       icon: "fa-solid fa-rocket"
