@@ -1,3 +1,14 @@
+# Release v1.6.0
+
+**Release Date**: 2025-12-20
+
+## Changes since v1.5.2
+
+- chore: release v1.6.0 [skip ci] (f836072)
+- feat: migrate to Linkyee landing page (434636b)
+
+---
+
 # Release v1.5.2
 
 **Release Date**: 2025-12-14
