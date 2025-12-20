@@ -1,3 +1,14 @@
+# Release v1.7.0
+
+**Release Date**: 2025-12-20
+
+## Changes since v1.6.0
+
+- chore: release v1.7.0 [skip ci] (27405bd)
+- feat: move Start AI Tools to top of links (6bc4065)
+
+---
+
 # Release v1.6.0
 
 **Release Date**: 2025-12-20
