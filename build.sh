@@ -11,13 +11,7 @@ build() {
     rm -rf "$SITE_DIR"
   fi
 
-  # Install bundler if not present
-  if ! command -v bundle &> /dev/null; then
-    echo "Installing bundler..."
-    gem install bundler
-  fi
-
-  # Install bundle dependencies
+  # Install bundle dependencies (bundler should be pre-installed by Netlify)
   bundle install
 
   # Run the Ruby script to generate the output
