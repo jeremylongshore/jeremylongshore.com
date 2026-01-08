@@ -1,3 +1,14 @@
+# Release v2.2.1
+
+**Release Date**: 2026-01-08
+
+## Changes since v2.2.0
+
+- chore: release v2.2.1 [skip ci] (7f34d33)
+- fix: use bundle exec for ruby script in CI (615908f)
+
+---
+
 # Release v2.2.0
 
 **Release Date**: 2026-01-08
