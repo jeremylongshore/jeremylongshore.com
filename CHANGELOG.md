@@ -1,3 +1,14 @@
+# Release v2.3.1
+
+**Release Date**: 2026-01-08
+
+## Changes since v2.3.0
+
+- chore: release v2.3.1 [skip ci] (67e2d4c)
+- refactor: simplify to Linktree-style UI with accordion expand (2c5e01e)
+
+---
+
 # Release v2.3.0
 
 **Release Date**: 2026-01-08
