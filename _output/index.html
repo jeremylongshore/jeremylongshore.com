@@ -1,223 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeremy Longshore - AI Automation & Cloud Infrastructure</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jeremy Longshore - AI Automation & Cloud Infrastructure</title>
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
+  <meta charset="UTF-8">
+  <meta name="last-modified" content="2026-01-07T19:02:18-0600">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta
+    name="viewport"
+    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
+  >
 
-        .container {
-            max-width: 680px;
-            width: 100%;
-            background: white;
-            border-radius: 20px;
-            padding: 60px 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
+  <meta property="og:title" content="Jeremy Longshore - AI Automation & Cloud Infrastructure" />
+  <meta name="author" content="Jeremy Longshore" />
+  <meta property="og:locale" content="en" />
+  <meta name="description" content="AI Automation Specialist & Google Cloud Platform Expert from Gulf Shores, Alabama 🇺🇸. Building production systems that ship in days, not months." />
+  <meta property="og:description" content="AI Automation Specialist & Google Cloud Platform Expert from Gulf Shores, Alabama 🇺🇸. Building production systems that ship in days, not months." />
+  <meta property="og:site_name" content="Jeremy Longshore - AI Automation & Cloud Infrastructure" />
+  <meta property="og:image" content="./images/profile.jpeg" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="twitter:image" content="./images/profile.jpeg" />
+  <meta property="twitter:title" content="Jeremy Longshore - AI Automation & Cloud Infrastructure" />
 
-        .profile {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicons/favicon-16x16.png">
+  <link rel="manifest" href="./images/favicons/site.webmanifest">
+  <link rel="shortcut icon" href="./images/favicons/favicon.ico">
+  <meta name="apple-mobile-web-app-title" content="Jeremy Longshore - AI Automation & Cloud Infrastructure">
+  <meta name="application-name" content="Jeremy Longshore - AI Automation & Cloud Infrastructure">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="./images/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
 
-        .profile img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            object-fit: cover;
-            border: 4px solid #667eea;
-        }
 
-        .profile h1 {
-            font-size: 32px;
-            color: #2d3748;
-            margin-bottom: 10px;
-        }
-
-        .profile p {
-            font-size: 16px;
-            color: #718096;
-            line-height: 1.6;
-        }
-
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .link {
-            display: flex;
-            align-items: center;
-            padding: 18px 24px;
-            background: #f7fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            text-decoration: none;
-            color: #2d3748;
-            transition: all 0.3s ease;
-        }
-
-        .link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-            border-color: #667eea;
-        }
-
-        .link i {
-            font-size: 24px;
-            margin-right: 16px;
-            color: #667eea;
-            min-width: 30px;
-            text-align: center;
-        }
-
-        .link-text {
-            flex: 1;
-            font-weight: 500;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 2px solid #e2e8f0;
-            color: #718096;
-            font-size: 14px;
-        }
-
-        .socials {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .social-link {
-            color: #667eea;
-            font-size: 24px;
-            transition: transform 0.3s ease;
-        }
-
-        .social-link:hover {
-            transform: scale(1.2);
-        }
-    </style>
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
-    <div class="container">
-        <div class="profile">
-            <h1>Jeremy Longshore</h1>
-            <p>AI Automation Specialist & Google Cloud Platform Expert from Gulf Shores, Alabama 🇺🇸.<br>Building production systems that ship in days, not months.</p>
-        </div>
-
-        <div class="links">
-            <a href="https://startaitools.com" class="link" target="_blank" rel="noopener">
-                <i class="fa-solid fa-robot"></i>
-                <span class="link-text">Start AI Tools - Implementation Guides</span>
-            </a>
-
-            <a href="https://perception-with-intent.web.app" class="link" target="_blank" rel="noopener">
-                <i class="fa-solid fa-brain"></i>
-                <span class="link-text">Perception - AI News Intelligence</span>
-            </a>
-
-            <a href="https://claudecodeskills.io" class="link" target="_blank" rel="noopener">
-                <i class="fa-solid fa-code"></i>
-                <span class="link-text">Claude Code Skills</span>
-            </a>
-
-            <a href="https://claudecodeplugins.io" class="link" target="_blank" rel="noopener">
-                <i class="fa-solid fa-puzzle-piece"></i>
-                <span class="link-text">Claude Code Plugins (253 Plugins)</span>
-            </a>
-
-            <a href="https://diagnosticpro.io" class="link" target="_blank" rel="noopener">
-                <i class="fa-solid fa-wrench"></i>
-                <span class="link-text">DiagnosticPro - AI Vehicle Diagnostics</span>
-            </a>
-
-            <a href="https://pipelinepilot-prod.web.app" class="link" target="_blank" rel="noopener">
-                <i class="fa-solid fa-rocket"></i>
-                <span class="link-text">PipelinePilot - B2B Sales Automation</span>
-            </a>
-
-            <a href="https://hustlestats.io" class="link" target="_blank" rel="noopener">
-                <i class="fa-solid fa-futbol"></i>
-                <span class="link-text">HustleStats - Youth Sports Analytics</span>
-            </a>
-
-            <a href="https://github.com/jeremylongshore/waygate-mcp" class="link" target="_blank" rel="noopener">
-                <i class="fa-solid fa-shield-halved"></i>
-                <span class="link-text">Waygate MCP</span>
-            </a>
-
-            <a href="https://intent-solutions-io.github.io/bobs-brain/" class="link" target="_blank" rel="noopener">
-                <i class="fa-solid fa-brain-circuit"></i>
-                <span class="link-text">Bob's Brain</span>
-            </a>
-
-            <a href="https://intentsolutions.io" class="link" target="_blank" rel="noopener">
-                <i class="fa-solid fa-gears"></i>
-                <span class="link-text">N8N Workflow Automation - 10+ Production Systems</span>
-            </a>
-
-            <a href="https://jeremylongshore.github.io/prompts-intent-solutions/" class="link" target="_blank" rel="noopener">
-                <i class="fa-solid fa-file-code"></i>
-                <span class="link-text">Prompts Intent Solutions - 150+ Templates</span>
-            </a>
-
-            <a href="https://intentsolutions.io/ai-models" class="link" target="_blank" rel="noopener">
-                <i class="fa-solid fa-cloud"></i>
-                <span class="link-text">Private AI Deployments - Enterprise LLM Stacks</span>
-            </a>
-        </div>
-
-        <div class="footer">
-            <div class="socials">
-                <a href="https://github.com/jeremylongshore" class="social-link" target="_blank" rel="noopener" title="GitHub">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="https://github.com/intent-solutions-io" class="social-link" target="_blank" rel="noopener" title="Intent Solutions GitHub">
-                    <i class="fa-solid fa-building"></i>
-                </a>
-                <a href="https://linkedin.com/in/jeremylongshore" class="social-link" target="_blank" rel="noopener" title="LinkedIn">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-                <a href="https://x.com/asphaltcowb0y" class="social-link" target="_blank" rel="noopener" title="X/Twitter">
-                    <i class="fa-brands fa-twitter"></i>
-                </a>
-                <a href="https://discord.com/users/asphaltcowboy" class="social-link" target="_blank" rel="noopener" title="Discord">
-                    <i class="fa-brands fa-discord"></i>
-                </a>
-                <a href="mailto:jeremy@intentsolutions.io" class="social-link" target="_blank" rel="noopener" title="Email">
-                    <i class="fa-solid fa-envelope"></i>
-                </a>
-            </div>
-            <p style="margin-top: 20px;">
-                AI Automation Specialist & Google Cloud Platform Expert. 20+ years restaurant operations → self-taught developer → AI systems architect.<br>
-                Based in Gulf Shores, Alabama. Marine Corps Reservist, Citadel grad.<br>
-                Building systems that eliminate manual work and save businesses money.
-            </p>
-            <p style="margin-top: 15px;">© 2025 Jeremy Longshore | Intent Solutions</p>
-        </div>
+  <div class="container">
+    <div class="profile">
+      <img src="./images/profile.jpeg" alt="Profile Picture" class="profile-pic" />
+      <h1 class="name">Jeremy Longshore</h1>
+      <p class="description">AI Automation Specialist & Google Cloud Platform Expert from Gulf Shores, Alabama 🇺🇸. Building production systems that ship in days, not months.</p>
     </div>
+
+    <div class="links">
+      
+        
+        <a href="https://startaitools.com" target="_blank" class="link-button" alt="Start AI Tools - Hugo static site with AI implementation guides, tutorials, and tool reviews" title="Start AI Tools - Hugo static site with AI implementation guides, tutorials, and tool reviews">
+          <i class="fa-solid fa-robot"></i> Start AI Tools - Implementation Guides
+        </a>
+      
+        
+        <a href="https://perception-with-intent.web.app" target="_blank" class="link-button" alt="Perception - 8 Vertex AI agents monitoring 50+ news sources. Built with Google ADK, Agent Engine, A2A protocol, Firebase" title="Perception - 8 Vertex AI agents monitoring 50+ news sources. Built with Google ADK, Agent Engine, A2A protocol, Firebase">
+          <i class="fa-solid fa-brain"></i> Perception - AI News Intelligence
+        </a>
+      
+        
+        <a href="https://claudecodeplugins.io" target="_blank" class="link-button" alt="Claude Code Plugins - 253+ production plugins and MCP servers for Claude Code CLI" title="Claude Code Plugins - 253+ production plugins and MCP servers for Claude Code CLI">
+          <i class="fa-solid fa-puzzle-piece"></i> Claude Code Plugins <span class='link-button-text'>(0 Stars)</span>
+        </a>
+      
+        
+        <a href="https://diagnosticpro.io" target="_blank" class="link-button" alt="DiagnosticPro - React + Firebase + Vertex AI Gemini. AI-powered equipment diagnostics for $4.99" title="DiagnosticPro - React + Firebase + Vertex AI Gemini. AI-powered equipment diagnostics for $4.99">
+          <i class="fa-solid fa-wrench"></i> DiagnosticPro - AI Vehicle Diagnostics
+        </a>
+      
+        
+        <a href="https://pipelinepilot-prod.web.app" target="_blank" class="link-button" alt="PipelinePilot - Google ADK + Vertex AI Agent Engine + Firestore. SDR orchestration and lead qualification" title="PipelinePilot - Google ADK + Vertex AI Agent Engine + Firestore. SDR orchestration and lead qualification">
+          <i class="fa-solid fa-rocket"></i> PipelinePilot - B2B Sales Automation
+        </a>
+      
+        
+        <a href="https://hustlestats.io" target="_blank" class="link-button" alt="HustleStats - Firebase + Vertex AI Agent Engine + A2A protocol. Youth soccer performance tracking" title="HustleStats - Firebase + Vertex AI Agent Engine + A2A protocol. Youth soccer performance tracking">
+          <i class="fa-solid fa-futbol"></i> HustleStats - Youth Sports Analytics
+        </a>
+      
+        
+        <a href="https://github.com/jeremylongshore/waygate-mcp" target="_blank" class="link-button" alt="Waygate MCP - Docker + TypeScript. Enterprise MCP server with container isolation and security hardening" title="Waygate MCP - Docker + TypeScript. Enterprise MCP server with container isolation and security hardening">
+          <i class="fa-solid fa-shield-halved"></i> Waygate MCP <span class='link-button-text'>(1 Stars)</span>
+        </a>
+      
+        
+        <a href="https://bobs-brain.web.app/" target="_blank" class="link-button" alt="Bob's Brain - Google ADK + Vertex AI Agent Engine + Cloud Run + Python. 8 specialist agents for codebase compliance" title="Bob's Brain - Google ADK + Vertex AI Agent Engine + Cloud Run + Python. 8 specialist agents for codebase compliance">
+          <i class="fa-solid fa-brain-circuit"></i> Bob's Brain <span class='link-button-text'>(0 Stars)</span>
+        </a>
+      
+        
+        <a href="https://costplusdb.dev" target="_blank" class="link-button" alt="CostPlusDB - PostgreSQL hosting at cost + 25%. Published benchmarks, no hidden fees, transparent pricing" title="CostPlusDB - PostgreSQL hosting at cost + 25%. Published benchmarks, no hidden fees, transparent pricing">
+          <i class="fa-solid fa-database"></i> CostPlusDB - Transparent PostgreSQL Hosting
+        </a>
+      
+        
+        <a href="https://intentsolutions.io" target="_blank" class="link-button" alt="Intent Solutions - Claude Code implementations, Google Cloud AI consulting, custom agent development" title="Intent Solutions - Claude Code implementations, Google Cloud AI consulting, custom agent development">
+          <i class="fa-solid fa-building-columns"></i> Intent Solutions - AI Consulting & Implementation
+        </a>
+      
+        
+        <a href="https://github.com/intent-solutions-io/iam-git-with-intent" target="_blank" class="link-button" alt="Git With Intent - Python + Vertex AI. Intelligent git workflows with AI-powered commit analysis" title="Git With Intent - Python + Vertex AI. Intelligent git workflows with AI-powered commit analysis">
+          <i class="fa-solid fa-code-branch"></i> Git With Intent
+        </a>
+      
+        
+        <a href="https://inferencepriceindex.com" target="_blank" class="link-button" alt="STCI - Daily LLM API pricing benchmark. Tracks OpenAI, Anthropic, Google, DeepSeek. Free API endpoint" title="STCI - Daily LLM API pricing benchmark. Tracks OpenAI, Anthropic, Google, DeepSeek. Free API endpoint">
+          <i class="fa-solid fa-chart-line"></i> STCI - Inference Price Index
+        </a>
+      
+        
+        <a href="https://github.com/intent-solutions-io/intentvision" target="_blank" class="link-button" alt="IntentVision - Vertex AI + BigQuery. Connect sources, normalize metrics, forecast anomalies, alert via API" title="IntentVision - Vertex AI + BigQuery. Connect sources, normalize metrics, forecast anomalies, alert via API">
+          <i class="fa-solid fa-eye"></i> IntentVision - Universal Prediction Engine (Private Client Work)
+        </a>
+      
+        
+        <a href="https://github.com/intent-solutions-io/plugins-nixtla" target="_blank" class="link-button" alt="Nixtla Plugins - Python + TimeGPT + FastAPI. Generate forecasting pipelines and model benchmarks from natural language" title="Nixtla Plugins - Python + TimeGPT + FastAPI. Generate forecasting pipelines and model benchmarks from natural language">
+          <i class="fa-solid fa-chart-simple"></i> Nixtla Plugins - TimeGPT for Claude Code (Private Client Work)
+        </a>
+      
+        
+        <a href="https://github.com/intent-solutions-io/intent-mail" target="_blank" class="link-button" alt="IntentMail - TypeScript + MCP protocol. Unified email interface for Gmail and Outlook with AI integration" title="IntentMail - TypeScript + MCP protocol. Unified email interface for Gmail and Outlook with AI integration">
+          <i class="fa-solid fa-envelope"></i> IntentMail - Modern Email Stack
+        </a>
+      
+        
+        <a href="https://intentsolutions.io/ai-models" target="_blank" class="link-button" alt="Private AI Deployments - Google Cloud + Vertex AI. Enterprise LLM infrastructure on your own cloud" title="Private AI Deployments - Google Cloud + Vertex AI. Enterprise LLM infrastructure on your own cloud">
+          <i class="fa-solid fa-cloud"></i> Private AI Deployments - Enterprise LLM Stacks
+        </a>
+      
+        
+        <a href="https://jeremylongshore.github.io/disposable-marketplace-n8n/" target="_blank" class="link-button" alt="Disposable Marketplace - N8N workflow. CSV-based reseller outreach and quote collection automation" title="Disposable Marketplace - N8N workflow. CSV-based reseller outreach and quote collection automation">
+          <i class="fa-solid fa-cart-shopping"></i> Disposable Marketplace N8N
+        </a>
+      
+        
+        <a href="https://jeremylongshore.github.io/gmail-drive-organizer-n8n/" target="_blank" class="link-button" alt="Gmail Drive Organizer - N8N workflow. Auto-organize Gmail attachments into structured Google Drive folders" title="Gmail Drive Organizer - N8N workflow. Auto-organize Gmail attachments into structured Google Drive folders">
+          <i class="fa-solid fa-envelope-open-text"></i> Gmail Drive Organizer N8N
+        </a>
+      
+        
+        <a href="https://github.com/jeremylongshore/news-pipeline-n8n" target="_blank" class="link-button" alt="News Pipeline - N8N workflow. Automated daily news monitoring, topic analysis, and content aggregation" title="News Pipeline - N8N workflow. Automated daily news monitoring, topic analysis, and content aggregation">
+          <i class="fa-solid fa-newspaper"></i> News Pipeline N8N
+        </a>
+      
+    </div>
+
+    <div class="button-container">
+      <div class="button-group">
+        
+          
+          <a href="https://github.com/jeremylongshore" title="Jeremy Longshore's GitHub" target="_blank" class="icon-button" alt="Jeremy Longshore's GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        
+          
+          <a href="https://github.com/intent-solutions-io" title="Intent Solutions GitHub Organization" target="_blank" class="icon-button" alt="Intent Solutions GitHub Organization">
+            <i class="fa-solid fa-building"></i>
+          </a>
+        
+          
+          <a href="https://linkedin.com/in/jeremylongshore" title="Jeremy Longshore's LinkedIn" target="_blank" class="icon-button" alt="Jeremy Longshore's LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+        
+          
+          <a href="https://x.com/asphaltcowb0y" title="Jeremy Longshore's X (Twitter)" target="_blank" class="icon-button" alt="Jeremy Longshore's X (Twitter)">
+            <i class="fa-brands fa-twitter"></i>
+          </a>
+        
+          
+          <a href="https://discord.com/users/asphaltcowboy" title="Discord: asphaltcowboy" target="_blank" class="icon-button" alt="Discord: asphaltcowboy">
+            <i class="fa-brands fa-discord"></i>
+          </a>
+        
+          
+          <a href="mailto:jeremy@intentsolutions.io" title="Email: jeremy@intentsolutions.io" target="_blank" class="icon-button" alt="jeremy@intentsolutions.io">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        
+      </div>
+    </div>
+
+    <footer class="footer">
+      AI Automation Specialist & Google Cloud Platform Expert. 20+ years restaurant operations → self-taught developer → AI systems architect. Based in Gulf Shores, Alabama. Marine Corps Reservist, Citadel grad. Building systems that eliminate manual work and save businesses money.
+
+      <div class="copyright">© 2025  <a href="https://jeremylongshore.com" target="_blank">Jeremy Longshore</a> | <a href="https://intentsolutions.io" target="_blank">Intent Solutions</a> | Powered by <a href="https://github.com/ZhgChgLi/linkyee" target="_blank">linkyee</a>
+</div>
+    </footer>
+  </div>
+  <script src="fontawesome/js/all.js" data-auto-replace-svg="nest"></script>
+  
+  <script src="./scripts.js"></script>
 </body>
 </html>
