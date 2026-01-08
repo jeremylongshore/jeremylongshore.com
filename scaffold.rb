@@ -15,13 +15,16 @@ projects_file = "./data/projects.yml"
 if File.exist?(projects_file)
   projects_data = YAML.load_file(projects_file)
   settings["projects"] = projects_data["projects"] || []
+  settings["n8n_workflows"] = projects_data["n8n_workflows"] || []
 else
   puts "Warning: #{projects_file} not found. Using empty projects list."
   settings["projects"] = []
+  settings["n8n_workflows"] = []
 end
 
-# Collect GitHub repos from projects for star fetching
-github_repos = settings["projects"]
+# Collect GitHub repos from all projects for star fetching
+all_projects = settings["projects"] + settings["n8n_workflows"]
+github_repos = all_projects
   .map { |p| p["github_repo"] }
   .compact
   .uniq

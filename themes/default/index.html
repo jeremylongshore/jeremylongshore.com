@@ -4,177 +4,135 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ title }}</title>
-
-  <meta charset="UTF-8">
   <meta name="last-modified" content="{{ last_modified_at }}">
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f7f7">
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1b1b1e">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0d1117">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta
-    name="viewport"
-    content="width=device-width, user-scalable=no initial-scale=1, shrink-to-fit=no, viewport-fit=cover"
-  >
-
-  <meta property="og:title" content="{{ title }}" />
-  <meta name="author" content="{{ name }}" />
-  <meta property="og:locale" content="en" />
   <meta name="description" content="{{ tagline }}" />
+  <meta property="og:title" content="{{ title }}" />
   <meta property="og:description" content="{{ tagline }}" />
-  <meta property="og:site_name" content="{{ title }}" />
   <meta property="og:image" content="{{ avatar }}" />
-  <meta property="og:type" content="article" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta property="twitter:image" content="{{ avatar }}" />
-  <meta property="twitter:title" content="{{ title }}" />
-
+  <meta name="twitter:card" content="summary" />
   <link rel="apple-touch-icon" sizes="180x180" href="./images/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicons/favicon-16x16.png">
-  <link rel="manifest" href="./images/favicons/site.webmanifest">
   <link rel="shortcut icon" href="./images/favicons/favicon.ico">
-  <meta name="apple-mobile-web-app-title" content="{{ title }}">
-  <meta name="application-name" content="{{ title }}">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="msapplication-config" content="./images/favicons/browserconfig.xml">
-  <meta name="theme-color" content="#ffffff">
-
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
   <div class="container">
-    <div class="profile">
-      <img src="{{ avatar }}" alt="Profile Picture" class="profile-pic" />
-      <h1 class="name">{{ name }}</h1>
-      <p class="description">{{ tagline }}</p>
-    </div>
+    <header class="profile">
+      <img src="{{ avatar }}" alt="{{ name }}" class="avatar" />
+      <h1>{{ name }}</h1>
+      <p class="tagline">{{ tagline }}</p>
+    </header>
 
-    <div class="projects-section">
-      <h2 class="section-title">Projects</h2>
-      <div class="projects-list">
-        {% for project in projects %}
-          {% unless project.category == 'n8n' %}
-          <a href="{{ project.url }}" target="_blank" class="project-card" title="{{ project.purpose }}">
-            <div class="project-icon">
-              <i class="{{ project.icon }}"></i>
-            </div>
-            <div class="project-content">
-              <div class="project-header">
-                <div class="project-title-row">
-                  <span class="project-title">{{ project.title }}</span>
-                  <span class="project-subtitle">{{ project.subtitle }}</span>
-                </div>
-                <div class="project-badge">
-                  {% if project.github_repo %}
-                    {% assign stars = github_stars[project.github_repo] %}
-                    {% if stars != null and stars != '' %}
-                      {% if stars == 1 %}
-                        <span class="stars-badge">{{ stars }} Star</span>
-                      {% else %}
-                        <span class="stars-badge">{{ stars }} Stars</span>
-                      {% endif %}
-                    {% elsif project.visibility == 'private' or project.client_work %}
-                      <span class="private-badge">Private</span>
-                    {% else %}
-                      <span class="private-badge">&mdash;</span>
-                    {% endif %}
-                  {% elsif project.visibility == 'private' or project.client_work %}
-                    <span class="private-badge">Private</span>
-                  {% endif %}
-                </div>
-              </div>
-              <p class="project-purpose">{{ project.purpose }}</p>
-              <div class="project-meta">
-                {% if project.tech_stack.size > 0 %}
-                <div class="badge-group">
-                  {% for tech in project.tech_stack %}
-                    <span class="tech-badge">{{ tech }}</span>
-                  {% endfor %}
-                </div>
-                {% endif %}
-                {% if project.agent_framework.size > 0 %}
-                <div class="badge-group">
-                  {% for framework in project.agent_framework %}
-                    <span class="agent-badge">{{ framework }}</span>
-                  {% endfor %}
-                </div>
-                {% endif %}
-              </div>
-              {% if project.use_cases.size > 0 %}
-              <ul class="use-cases">
-                {% for use_case in project.use_cases limit:3 %}
-                  <li>{{ use_case }}</li>
-                {% endfor %}
-              </ul>
+    <section class="links">
+      {% for p in projects %}
+      <div class="link-item" data-id="{{ p.id }}">
+        <div class="link-row" onclick="toggleExpand('{{ p.id }}')">
+          <div class="link-icon"><i class="{{ p.icon }}"></i></div>
+          <div class="link-text">
+            <span class="link-title">{{ p.title }}</span>
+            <span class="link-desc">{{ p.purpose_short }}</span>
+          </div>
+          <div class="link-badge">
+            {% if p.github_repo %}
+              {% assign stars = github_stars[p.github_repo] %}
+              {% if stars != null and stars != '' %}
+                {% if stars == 1 %}<span class="badge stars">{{ stars }} Star</span>
+                {% else %}<span class="badge stars">{{ stars }} Stars</span>{% endif %}
+              {% elsif p.visibility == 'private' or p.client_work %}
+                <span class="badge private">Private</span>
               {% endif %}
-            </div>
-          </a>
-          {% endunless %}
-        {% endfor %}
-      </div>
-    </div>
-
-    <div class="projects-section n8n-section">
-      <h2 class="section-title">N8N Workflows</h2>
-      <div class="projects-list">
-        {% for project in projects %}
-          {% if project.category == 'n8n' %}
-          <a href="{{ project.url }}" target="_blank" class="project-card project-card-compact" title="{{ project.purpose }}">
-            <div class="project-icon">
-              <i class="{{ project.icon }}"></i>
-            </div>
-            <div class="project-content">
-              <div class="project-header">
-                <div class="project-title-row">
-                  <span class="project-title">{{ project.title }}</span>
-                </div>
-                {% if project.github_repo %}
-                  {% assign stars = github_stars[project.github_repo] %}
-                  {% if stars != null and stars != '' %}
-                    {% if stars == 1 %}
-                      <span class="stars-badge">{{ stars }} Star</span>
-                    {% else %}
-                      <span class="stars-badge">{{ stars }} Stars</span>
-                    {% endif %}
-                  {% endif %}
-                {% endif %}
-              </div>
-              <p class="project-purpose">{{ project.purpose }}</p>
-            </div>
-          </a>
+            {% elsif p.visibility == 'private' or p.client_work %}
+              <span class="badge private">Private</span>
+            {% endif %}
+            <span class="expand-icon">+</span>
+          </div>
+        </div>
+        <div class="link-expand" id="expand-{{ p.id }}">
+          <p class="expand-desc">{{ p.purpose_long }}</p>
+          {% if p.use_cases.size > 0 %}
+          <ul class="expand-list">
+            {% for uc in p.use_cases %}<li>{{ uc }}</li>{% endfor %}
+          </ul>
           {% endif %}
-        {% endfor %}
+          <div class="expand-tags">
+            {% for t in p.tech_stack %}<span class="tag tech">{{ t }}</span>{% endfor %}
+            {% for a in p.agent_framework %}<span class="tag agent">{{ a }}</span>{% endfor %}
+          </div>
+          <a href="{{ p.url }}" target="_blank" class="expand-link">Open &rarr;</a>
+        </div>
       </div>
-    </div>
+      {% endfor %}
+    </section>
 
-    <div class="button-container">
-      <div class="button-group">
-        {% for item in socials %}
-          {% assign social = item.social %}
-          <a href="{{ social.url }}" title="{{ social.title }}" target="{{ social.target }}" class="icon-button" alt="{{ social.alt }}">
-            <i class="{{ social.icon }}"></i>
-          </a>
-        {% endfor %}
-      </div>
-    </div>
+    {% if n8n_workflows.size > 0 %}
+    <section class="links n8n">
+      <h2 class="section-label">N8N Workflows</h2>
+      {% for p in n8n_workflows %}
+      <a href="{{ p.url }}" target="_blank" class="link-item simple">
+        <div class="link-icon"><i class="{{ p.icon }}"></i></div>
+        <div class="link-text">
+          <span class="link-title">{{ p.title }}</span>
+          <span class="link-desc">{{ p.purpose_short }}</span>
+        </div>
+        <div class="link-badge">
+          {% if p.github_repo %}
+            {% assign stars = github_stars[p.github_repo] %}
+            {% if stars != null and stars != '' %}
+              {% if stars == 1 %}<span class="badge stars">{{ stars }} Star</span>
+              {% else %}<span class="badge stars">{{ stars }} Stars</span>{% endif %}
+            {% endif %}
+          {% endif %}
+        </div>
+      </a>
+      {% endfor %}
+    </section>
+    {% endif %}
 
-    <footer class="footer">
-      {{ footer }}
-      <div class="copyright">{{ copyright }}</div>
+    <nav class="socials">
+      {% for item in socials %}
+      {% assign s = item.social %}
+      <a href="{{ s.url }}" target="{{ s.target }}" title="{{ s.title }}" class="social-icon">
+        <i class="{{ s.icon }}"></i>
+      </a>
+      {% endfor %}
+    </nav>
+
+    <footer>
+      <p>{{ footer }}</p>
+      <p class="copyright">{{ copyright }}</p>
     </footer>
   </div>
-  <script src="fontawesome/js/all.js" data-auto-replace-svg="nest"></script>
-  {% if google_analytics_id %}
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ google_analytics_id }}"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', '{{ google_analytics_id }}');
-    </script>
+  <script src="fontawesome/js/all.js" data-auto-replace-svg="nest"></script>
+  <script>
+  function toggleExpand(id) {
+    const el = document.getElementById('expand-' + id);
+    const item = el.closest('.link-item');
+    const icon = item.querySelector('.expand-icon');
+    if (el.classList.contains('open')) {
+      el.classList.remove('open');
+      icon.textContent = '+';
+    } else {
+      document.querySelectorAll('.link-expand.open').forEach(e => {
+        e.classList.remove('open');
+        e.closest('.link-item').querySelector('.expand-icon').textContent = '+';
+      });
+      el.classList.add('open');
+      icon.textContent = '-';
+    }
+  }
+  </script>
+  {% if google_analytics_id %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ google_analytics_id }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ google_analytics_id }}');
+  </script>
   {% endif %}
-  <script src="./scripts.js"></script>
 </body>
 </html>

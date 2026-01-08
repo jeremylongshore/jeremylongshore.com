@@ -1,394 +1,269 @@
 # Projects Data - Single Source of Truth
-# All project metadata lives here
+# purpose_short: max 90 chars, shown in list view
+# purpose_long: full description, shown in expanded view
 
 projects:
-  # ============================================
-  # MAIN PROJECTS
-  # ============================================
-
   - id: startaitools
     title: "Start AI Tools"
-    subtitle: "Implementation Guides"
     url: "https://startaitools.com"
     icon: "fa-solid fa-robot"
     github_repo: "jeremylongshore/startaitools.com"
     visibility: public
-    purpose: "AI tools directory with tutorials and implementation guides for developers."
+    purpose_short: "AI tools directory with tutorials and implementation guides"
+    purpose_long: "Comprehensive directory of AI development tools with step-by-step implementation guides for developers."
     use_cases:
       - "Find and compare AI development tools"
       - "Follow step-by-step implementation tutorials"
       - "Learn best practices for AI integrations"
-    tech_stack:
-      - "Hugo"
-      - "Netlify"
-      - "Markdown"
+    tech_stack: ["Hugo", "Netlify", "Markdown"]
     agent_framework: []
 
   - id: perception
     title: "Perception"
-    subtitle: "AI News Intelligence"
     url: "https://perception-with-intent.web.app"
     icon: "fa-solid fa-brain"
     github_repo: "intent-solutions-io/perception-with-intent"
     visibility: private
-    purpose: "Multi-agent news monitoring system tracking 50+ sources with intelligent analysis."
+    purpose_short: "Multi-agent news monitoring with 8 Vertex AI agents"
+    purpose_long: "AI news intelligence platform with 8 specialist agents monitoring 50+ sources for real-time analysis."
     use_cases:
       - "Real-time news aggregation and analysis"
       - "Topic clustering and trend detection"
       - "Automated daily briefings"
-      - "Cross-source fact correlation"
-    tech_stack:
-      - "Python"
-      - "Firebase"
-      - "Cloud Run"
-    agent_framework:
-      - "Google ADK"
-      - "Vertex AI Agent Engine"
-      - "A2A Protocol"
+    tech_stack: ["Python", "Firebase", "Cloud Run"]
+    agent_framework: ["Google ADK", "Vertex AI Agent Engine", "A2A Protocol"]
 
   - id: claude-code-plugins
     title: "Claude Code Plugins"
-    subtitle: "253+ Production Plugins"
     url: "https://claudecodeplugins.io"
     icon: "fa-solid fa-puzzle-piece"
     github_repo: "jeremylongshore/claude-code-plugins-plus-skills"
     visibility: public
-    purpose: "Curated collection of production-ready plugins and MCP servers for Claude Code CLI."
+    purpose_short: "253+ production plugins and MCP servers for Claude Code"
+    purpose_long: "Curated collection of production-ready plugins and MCP servers extending Claude Code CLI capabilities."
     use_cases:
       - "Extend Claude Code with custom capabilities"
       - "Integrate MCP servers for external tools"
-      - "Share and discover community plugins"
       - "Automate development workflows"
-    tech_stack:
-      - "TypeScript"
-      - "Node.js"
-      - "MCP Protocol"
-    agent_framework:
-      - "Claude Code"
-      - "MCP Servers"
+    tech_stack: ["TypeScript", "Node.js", "MCP Protocol"]
+    agent_framework: ["Claude Code", "MCP Servers"]
 
   - id: diagnosticpro
     title: "DiagnosticPro"
-    subtitle: "AI Vehicle Diagnostics"
     url: "https://diagnosticpro.io"
     icon: "fa-solid fa-wrench"
     github_repo: "intent-solutions-io/DiagnosticPro"
-    visibility: private
-    purpose: "AI-powered equipment diagnostic platform with Gemini analysis for $4.99/diagnosis."
+    visibility: public
+    purpose_short: "AI-powered equipment diagnostics for $4.99"
+    purpose_long: "AI diagnostic platform using Gemini for equipment troubleshooting and repair cost estimates."
     use_cases:
       - "Diagnose vehicle issues from symptoms"
       - "Get repair cost estimates"
-      - "Find nearby repair shops"
       - "Track maintenance history"
-    tech_stack:
-      - "React"
-      - "Firebase"
-      - "Cloud Functions"
-    agent_framework:
-      - "Vertex AI Gemini"
+    tech_stack: ["React", "Firebase", "Cloud Functions"]
+    agent_framework: ["Vertex AI Gemini"]
 
   - id: pipelinepilot
     title: "PipelinePilot"
-    subtitle: "B2B Sales Automation"
     url: "https://pipelinepilot-prod.web.app"
     icon: "fa-solid fa-rocket"
-    github_repo: null
     visibility: private
-    purpose: "SDR orchestration platform for automated lead qualification and outreach."
+    purpose_short: "B2B sales automation with AI lead qualification"
+    purpose_long: "SDR orchestration platform for automated lead qualification and multi-channel outreach."
     use_cases:
       - "Automated lead scoring and qualification"
       - "Multi-channel outreach sequences"
       - "CRM integration and sync"
-      - "Performance analytics dashboard"
-    tech_stack:
-      - "Python"
-      - "Firestore"
-      - "Cloud Run"
-    agent_framework:
-      - "Google ADK"
-      - "Vertex AI Agent Engine"
+    tech_stack: ["Python", "Firestore", "Cloud Run"]
+    agent_framework: ["Google ADK", "Vertex AI Agent Engine"]
 
   - id: hustlestats
     title: "HustleStats"
-    subtitle: "Youth Sports Analytics"
     url: "https://hustlestats.io"
     icon: "fa-solid fa-futbol"
-    github_repo: null
     visibility: private
-    purpose: "Youth soccer performance tracking with AI-powered game analysis."
+    purpose_short: "Youth soccer performance tracking with AI analysis"
+    purpose_long: "Youth sports analytics platform with AI-powered game analysis and performance reports."
     use_cases:
       - "Track player statistics in real-time"
       - "Generate performance reports"
-      - "Compare stats across seasons"
       - "Share highlights with parents"
-    tech_stack:
-      - "React"
-      - "Firebase"
-      - "Cloud Functions"
-    agent_framework:
-      - "Vertex AI Agent Engine"
-      - "A2A Protocol"
+    tech_stack: ["React", "Firebase", "Cloud Functions"]
+    agent_framework: ["Vertex AI Agent Engine", "A2A Protocol"]
 
   - id: waygate-mcp
     title: "Waygate MCP"
-    subtitle: "Enterprise MCP Server"
     url: "https://github.com/jeremylongshore/waygate-mcp"
     icon: "fa-solid fa-shield-halved"
     github_repo: "jeremylongshore/waygate-mcp"
     visibility: public
-    purpose: "Enterprise MCP server with Docker container isolation and security hardening."
+    purpose_short: "Enterprise MCP server with Docker isolation"
+    purpose_long: "Enterprise MCP server with container isolation, security hardening, and audit logging."
     use_cases:
       - "Secure tool execution in isolated containers"
       - "Multi-tenant MCP deployments"
       - "Audit logging for compliance"
-      - "Rate limiting and access control"
-    tech_stack:
-      - "TypeScript"
-      - "Docker"
-      - "Node.js"
-    agent_framework:
-      - "MCP Protocol"
+    tech_stack: ["TypeScript", "Docker", "Node.js"]
+    agent_framework: ["MCP Protocol"]
 
   - id: bobs-brain
     title: "Bob's Brain"
-    subtitle: "Codebase Compliance"
     url: "https://bobs-brain.web.app/"
     icon: "fa-solid fa-brain"
     github_repo: "intent-solutions-io/iam-bobs-brain"
     visibility: public
-    purpose: "8 specialist agents ensuring codebase compliance with Google ADK patterns."
+    purpose_short: "8 specialist agents for Google ADK compliance"
+    purpose_long: "Multi-agent system ensuring codebase compliance with Google ADK patterns and best practices."
     use_cases:
       - "Automated code review for ADK compliance"
       - "Pattern enforcement across repositories"
       - "Documentation generation"
-      - "Migration assistance"
-    tech_stack:
-      - "Python"
-      - "Cloud Run"
-      - "Firebase"
-    agent_framework:
-      - "Google ADK"
-      - "Vertex AI Agent Engine"
+    tech_stack: ["Python", "Cloud Run", "Firebase"]
+    agent_framework: ["Google ADK", "Vertex AI Agent Engine"]
 
   - id: costplusdb
     title: "CostPlusDB"
-    subtitle: "Transparent PostgreSQL"
     url: "https://costplusdb.dev"
     icon: "fa-solid fa-database"
-    github_repo: null
     visibility: private
-    purpose: "PostgreSQL hosting at cost + 25% with published benchmarks and no hidden fees."
+    purpose_short: "PostgreSQL hosting at cost + 25%"
+    purpose_long: "Transparent PostgreSQL hosting with published benchmarks, no hidden fees, and predictable billing."
     use_cases:
       - "Transparent database hosting"
       - "Performance benchmarks published"
       - "Predictable billing"
-      - "Migration assistance"
-    tech_stack:
-      - "PostgreSQL"
-      - "GCP Compute"
-      - "Terraform"
+    tech_stack: ["PostgreSQL", "GCP Compute", "Terraform"]
     agent_framework: []
 
   - id: intentsolutions
     title: "Intent Solutions"
-    subtitle: "AI Consulting"
     url: "https://intentsolutions.io"
     icon: "fa-solid fa-building-columns"
-    github_repo: null
     visibility: private
-    purpose: "Claude Code implementations, Google Cloud AI consulting, and custom agent development."
+    purpose_short: "AI consulting and Claude Code implementations"
+    purpose_long: "Professional services for Claude Code deployments, Google Cloud AI consulting, and custom agent development."
     use_cases:
       - "Claude Code enterprise deployments"
       - "Custom agent development"
       - "GCP architecture consulting"
-      - "AI workflow automation"
-    tech_stack:
-      - "Google Cloud"
-      - "Vertex AI"
-      - "Terraform"
-    agent_framework:
-      - "Google ADK"
-      - "Claude Code"
+    tech_stack: ["Google Cloud", "Vertex AI", "Terraform"]
+    agent_framework: ["Google ADK", "Claude Code"]
 
   - id: git-with-intent
     title: "Git With Intent"
-    subtitle: "Intelligent Git Workflows"
     url: "https://github.com/intent-solutions-io/iam-git-with-intent"
     icon: "fa-solid fa-code-branch"
     github_repo: "intent-solutions-io/iam-git-with-intent"
     visibility: public
-    purpose: "Intelligent git workflows with AI-powered commit analysis and automation."
+    purpose_short: "AI-powered git workflows and commit analysis"
+    purpose_long: "Intelligent git workflows with AI-powered commit analysis, changelog generation, and PR drafting."
     use_cases:
       - "AI-generated commit messages"
       - "Automated changelog generation"
       - "PR description drafting"
-      - "Code review assistance"
-    tech_stack:
-      - "Python"
-      - "Git"
-      - "CLI"
-    agent_framework:
-      - "Vertex AI"
+    tech_stack: ["Python", "Git", "CLI"]
+    agent_framework: ["Vertex AI"]
 
   - id: stci
     title: "STCI"
-    subtitle: "Inference Price Index"
     url: "https://inferencepriceindex.com"
     icon: "fa-solid fa-chart-line"
-    github_repo: null
     visibility: private
-    purpose: "Daily LLM API pricing benchmark tracking OpenAI, Anthropic, Google, DeepSeek."
+    purpose_short: "Daily LLM API pricing benchmark"
+    purpose_long: "Inference price index tracking OpenAI, Anthropic, Google, DeepSeek with free API endpoint."
     use_cases:
       - "Compare LLM API pricing"
       - "Track price changes over time"
       - "Free API endpoint for developers"
-      - "Cost optimization insights"
-    tech_stack:
-      - "Python"
-      - "Firebase"
-      - "Cloud Scheduler"
+    tech_stack: ["Python", "Firebase", "Cloud Scheduler"]
     agent_framework: []
 
   - id: intentvision
     title: "IntentVision"
-    subtitle: "Universal Prediction Engine"
     url: "https://github.com/intent-solutions-io/intentvision"
     icon: "fa-solid fa-eye"
     github_repo: "intent-solutions-io/intentvision"
     visibility: private
     client_work: true
-    purpose: "Connect data sources, normalize metrics, forecast anomalies, and alert via API."
+    purpose_short: "Universal prediction engine for anomaly detection"
+    purpose_long: "Connect data sources, normalize metrics, forecast anomalies, and alert via API."
     use_cases:
       - "Multi-source data ingestion"
       - "Anomaly detection and alerting"
       - "Metric forecasting"
-      - "Custom dashboard generation"
-    tech_stack:
-      - "Python"
-      - "BigQuery"
-      - "Cloud Run"
-    agent_framework:
-      - "Vertex AI"
+    tech_stack: ["Python", "BigQuery", "Cloud Run"]
+    agent_framework: ["Vertex AI"]
 
   - id: nixtla-plugins
     title: "Nixtla Plugins"
-    subtitle: "TimeGPT for Claude Code"
     url: "https://github.com/intent-solutions-io/plugins-nixtla"
     icon: "fa-solid fa-chart-simple"
     github_repo: "intent-solutions-io/plugins-nixtla"
     visibility: private
     client_work: true
-    purpose: "Generate forecasting pipelines and model benchmarks from natural language."
+    purpose_short: "TimeGPT forecasting for Claude Code"
+    purpose_long: "Generate forecasting pipelines and model benchmarks from natural language prompts."
     use_cases:
       - "Natural language to forecast pipeline"
       - "Automated model benchmarking"
       - "Time series analysis"
-      - "Forecast visualization"
-    tech_stack:
-      - "Python"
-      - "TimeGPT"
-      - "FastAPI"
-    agent_framework:
-      - "Claude Code"
+    tech_stack: ["Python", "TimeGPT", "FastAPI"]
+    agent_framework: ["Claude Code"]
 
   - id: intentmail
     title: "IntentMail"
-    subtitle: "Modern Email Stack"
     url: "https://github.com/intent-solutions-io/intent-mail"
     icon: "fa-solid fa-envelope"
     github_repo: "intent-solutions-io/intent-mail"
     visibility: public
-    purpose: "Unified email interface for Gmail and Outlook with AI integration via MCP."
+    purpose_short: "Unified Gmail + Outlook with MCP integration"
+    purpose_long: "Modern email stack with unified inbox for Gmail and Outlook, plus MCP server for AI agents."
     use_cases:
       - "Unified inbox across providers"
       - "AI-powered email drafting"
-      - "Template management"
       - "MCP integration for agents"
-    tech_stack:
-      - "TypeScript"
-      - "MCP Protocol"
-      - "OAuth 2.0"
-    agent_framework:
-      - "MCP Servers"
+    tech_stack: ["TypeScript", "MCP Protocol", "OAuth 2.0"]
+    agent_framework: ["MCP Servers"]
 
   - id: private-ai
     title: "Private AI Deployments"
-    subtitle: "Enterprise LLM Stacks"
     url: "https://intentsolutions.io/ai-models"
     icon: "fa-solid fa-cloud"
-    github_repo: null
     visibility: private
-    purpose: "Enterprise LLM infrastructure deployed on your own Google Cloud environment."
+    purpose_short: "Enterprise LLM infrastructure on your cloud"
+    purpose_long: "Private LLM deployments on Google Cloud with data sovereignty compliance and custom fine-tuning."
     use_cases:
       - "Private LLM deployments"
       - "Data sovereignty compliance"
       - "Custom fine-tuned models"
-      - "On-prem/hybrid options"
-    tech_stack:
-      - "Google Cloud"
-      - "Vertex AI"
-      - "Terraform"
-      - "GKE"
-    agent_framework:
-      - "Vertex AI"
+    tech_stack: ["Google Cloud", "Vertex AI", "Terraform", "GKE"]
+    agent_framework: ["Vertex AI"]
 
-  # ============================================
-  # N8N WORKFLOWS (separate section)
-  # ============================================
-
+# N8N Workflows - separate category
+n8n_workflows:
   - id: disposable-marketplace-n8n
     title: "Disposable Marketplace"
-    subtitle: "N8N Workflow"
     url: "https://jeremylongshore.github.io/disposable-marketplace-n8n/"
     icon: "fa-solid fa-cart-shopping"
     github_repo: "jeremylongshore/disposable-marketplace-n8n"
     visibility: public
-    category: n8n
-    purpose: "CSV-based reseller outreach and quote collection automation."
-    use_cases:
-      - "Bulk reseller outreach"
-      - "Quote collection and tracking"
-      - "Automated follow-ups"
-    tech_stack:
-      - "N8N"
-      - "CSV"
-      - "Email"
-    agent_framework: []
+    purpose_short: "Reseller outreach and quote collection automation"
+    tech_stack: ["N8N", "CSV", "Email"]
 
   - id: gmail-drive-organizer-n8n
     title: "Gmail Drive Organizer"
-    subtitle: "N8N Workflow"
     url: "https://jeremylongshore.github.io/gmail-drive-organizer-n8n/"
     icon: "fa-solid fa-envelope-open-text"
     github_repo: "jeremylongshore/gmail-drive-organizer-n8n"
     visibility: public
-    category: n8n
-    purpose: "Auto-organize Gmail attachments into structured Google Drive folders."
-    use_cases:
-      - "Automatic attachment filing"
-      - "Folder structure by sender/date"
-      - "Duplicate detection"
-    tech_stack:
-      - "N8N"
-      - "Gmail API"
-      - "Google Drive API"
-    agent_framework: []
+    purpose_short: "Auto-organize Gmail attachments to Drive"
+    tech_stack: ["N8N", "Gmail API", "Google Drive API"]
 
   - id: news-pipeline-n8n
     title: "News Pipeline"
-    subtitle: "N8N Workflow"
     url: "https://github.com/jeremylongshore/news-pipeline-n8n"
     icon: "fa-solid fa-newspaper"
     github_repo: "jeremylongshore/news-pipeline-n8n"
     visibility: public
-    category: n8n
-    purpose: "Automated daily news monitoring, topic analysis, and content aggregation."
-    use_cases:
-      - "Daily news digest generation"
-      - "Topic clustering"
-      - "Source monitoring"
-    tech_stack:
-      - "N8N"
-      - "RSS"
-      - "AI Analysis"
-    agent_framework: []
+    purpose_short: "Daily news monitoring and topic analysis"
+    tech_stack: ["N8N", "RSS", "AI Analysis"]
