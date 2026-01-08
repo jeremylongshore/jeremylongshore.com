@@ -27,7 +27,7 @@ jobs:
       - name: Build site
         run: |
           bundle install
-          ruby scaffold.rb
+          bundle exec ruby scaffold.rb
 
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
