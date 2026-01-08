@@ -1,3 +1,14 @@
+# Release v2.1.0
+
+**Release Date**: 2026-01-08
+
+## Changes since v2.0.8
+
+- chore: release v2.1.0 [skip ci] (f7b385c)
+- feat: update landing page with 22 projects and tech stack descriptions (1b64fc9)
+
+---
+
 # Release v2.0.8
 
 **Release Date**: 2025-12-20
