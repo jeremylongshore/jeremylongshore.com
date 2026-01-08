@@ -1,3 +1,14 @@
+# Release v2.3.2
+
+**Release Date**: 2026-01-08
+
+## Changes since v2.3.1
+
+- chore: release v2.3.2 [skip ci] (166cf28)
+- style: add USA flag to Gulf Shores, Alabama (ce1ab27)
+
+---
+
 # Release v2.3.1
 
 **Release Date**: 2026-01-08
