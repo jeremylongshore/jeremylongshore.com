@@ -1,3 +1,14 @@
+# Release v2.4.1
+
+**Release Date**: 2026-01-08
+
+## Changes since v2.4.0
+
+- chore: release v2.4.1 [skip ci] (1dd8287)
+- fix: correct Analytics measurement ID (G-40E6F2PYMQ) (7257cae)
+
+---
+
 # Release v2.4.0
 
 **Release Date**: 2026-01-08
