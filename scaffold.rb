@@ -10,7 +10,22 @@ end
 
 settings = YAML.load_file("config.yml") || {}
 
-#
+# Load projects from data file
+projects_file = "./data/projects.yml"
+if File.exist?(projects_file)
+  projects_data = YAML.load_file(projects_file)
+  settings["projects"] = projects_data["projects"] || []
+else
+  puts "Warning: #{projects_file} not found. Using empty projects list."
+  settings["projects"] = []
+end
+
+# Collect GitHub repos from projects for star fetching
+github_repos = settings["projects"]
+  .map { |p| p["github_repo"] }
+  .compact
+  .uniq
+
 source_dir = "./themes/#{settings["theme"] || "default"}"
 destination_dir = "./_output/"
 
@@ -50,14 +65,34 @@ end
 
 template_content = File.read(template_file)
 
+# Initialize vars for plugins
 settings["vars"] = {}
+
+# Run GithubRepoStarsCountPlugin for project repos
+if github_repos.any?
+  if File.exist?("./plugins/GithubRepoStarsCountPlugin.rb")
+    require_relative "./plugins/GithubRepoStarsCountPlugin.rb"
+    plugin_data = [github_repos]
+    plugin = GithubRepoStarsCountPlugin.new(plugin_data)
+    settings["github_stars"] = plugin.execute()
+    settings["vars"]["GithubRepoStarsCountPlugin"] = settings["github_stars"]
+  end
+end
+
+# Run any additional plugins from config
 if !settings["plugins"].nil?
   settings["plugins"].each do |plugin|
     pluginFileName = plugin.keys[0]
     if File.exist?("./plugins/#{pluginFileName}.rb")
       require_relative "./plugins/#{pluginFileName}.rb"
       pluginObject = Object.const_get(pluginFileName).new(plugin.values)
-      settings["vars"][pluginFileName] = pluginObject.execute()
+      result = pluginObject.execute()
+      settings["vars"][pluginFileName] = result
+      # Merge stars into github_stars if this is the stars plugin
+      if pluginFileName == "GithubRepoStarsCountPlugin" && result.is_a?(Hash)
+        settings["github_stars"] ||= {}
+        settings["github_stars"].merge!(result)
+      end
     end
   end
 end

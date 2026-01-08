@@ -1,4 +1,5 @@
 # Site Configuration
+# Projects are now defined in data/projects.yml
 
 # Theme, mapped to the directory: ./theme/xxxx
 theme: default
@@ -6,25 +7,13 @@ theme: default
 # HTML Language setting
 lang: "en"
 
-# Plugins, implemented in ./plugins/PLUGIN_NAME
-# Use {{ vars.PLUGIN_NAME }} in the settings below
-
-# The output of the plugin can be used below, e.g., {{vars.GithubRepoStarsCountPlugin}}
-plugins:
-  # Automatically fetch Github repo star count
-  - GithubRepoStarsCountPlugin:
-      - jeremylongshore/claude-code-plugins-plus
-      - jeremylongshore/waygate-mcp
-      - intent-solutions-io/bobs-brain
-      - jeremylongshore/startaitools.com
-
 # Google Analytics tracking id
 google_analytics_id:
 
 # HTML Title
 title: "Jeremy Longshore - AI Automation & Cloud Infrastructure"
 
-# Avatar image path (you'll need to add your profile image to themes/default/images/)
+# Avatar image path
 avatar: "./images/profile.jpeg"
 
 # Name section text
@@ -32,159 +21,10 @@ name: "Jeremy Longshore"
 
 # Tagline section text
 tagline: >-
-    AI Automation Specialist & Google Cloud Platform Expert from Gulf Shores, Alabama 🇺🇸.
+    AI Automation Specialist & Google Cloud Platform Expert from Gulf Shores, Alabama.
     Building production systems that ship in days, not months.
 
-# List of links
-# icon: Use Font Awesome icons (https://fontawesome.com/search?o=r&m=free)
-# text: The displayed text for the link
-# title: The url title
-# url: The URL of the link
-# alt: Alternative text for accessibility
-# target: `_blank` opens in a new tab, `_self` opens in the same frame
-links:
-  - link:
-      icon: "fa-solid fa-robot"
-      text: "Start AI Tools - Implementation Guides"
-      url: "https://startaitools.com"
-      alt: "Start AI Tools - Hugo static site with AI implementation guides, tutorials, and tool reviews"
-      title: "Start AI Tools - Hugo static site with AI implementation guides, tutorials, and tool reviews"
-      target: "_blank"
-  - link:
-      icon: "fa-solid fa-brain"
-      text: "Perception - AI News Intelligence"
-      url: "https://perception-with-intent.web.app"
-      alt: "Perception - 8 Vertex AI agents monitoring 50+ news sources. Built with Google ADK, Agent Engine, A2A protocol, Firebase"
-      title: "Perception - 8 Vertex AI agents monitoring 50+ news sources. Built with Google ADK, Agent Engine, A2A protocol, Firebase"
-      target: "_blank"
-  - link:
-      icon: "fa-solid fa-puzzle-piece"
-      text: "Claude Code Plugins <span class='link-button-text'>({{vars.GithubRepoStarsCountPlugin['jeremylongshore/claude-code-plugins-plus']}} Stars)</span>"
-      url: "https://claudecodeplugins.io"
-      alt: "Claude Code Plugins - 253+ production plugins and MCP servers for Claude Code CLI"
-      title: "Claude Code Plugins - 253+ production plugins and MCP servers for Claude Code CLI"
-      target: "_blank"
-  - link:
-      icon: "fa-solid fa-wrench"
-      text: "DiagnosticPro - AI Vehicle Diagnostics"
-      url: "https://diagnosticpro.io"
-      alt: "DiagnosticPro - React + Firebase + Vertex AI Gemini. AI-powered equipment diagnostics for $4.99"
-      title: "DiagnosticPro - React + Firebase + Vertex AI Gemini. AI-powered equipment diagnostics for $4.99"
-      target: "_blank"
-  - link:
-      icon: "fa-solid fa-rocket"
-      text: "PipelinePilot - B2B Sales Automation"
-      url: "https://pipelinepilot-prod.web.app"
-      alt: "PipelinePilot - Google ADK + Vertex AI Agent Engine + Firestore. SDR orchestration and lead qualification"
-      title: "PipelinePilot - Google ADK + Vertex AI Agent Engine + Firestore. SDR orchestration and lead qualification"
-      target: "_blank"
-  - link:
-      icon: "fa-solid fa-futbol"
-      text: "HustleStats - Youth Sports Analytics"
-      url: "https://hustlestats.io"
-      alt: "HustleStats - Firebase + Vertex AI Agent Engine + A2A protocol. Youth soccer performance tracking"
-      title: "HustleStats - Firebase + Vertex AI Agent Engine + A2A protocol. Youth soccer performance tracking"
-      target: "_blank"
-  - link:
-      icon: "fa-solid fa-shield-halved"
-      text: "Waygate MCP <span class='link-button-text'>({{vars.GithubRepoStarsCountPlugin['jeremylongshore/waygate-mcp']}} Stars)</span>"
-      url: "https://github.com/jeremylongshore/waygate-mcp"
-      alt: "Waygate MCP - Docker + TypeScript. Enterprise MCP server with container isolation and security hardening"
-      title: "Waygate MCP - Docker + TypeScript. Enterprise MCP server with container isolation and security hardening"
-      target: "_blank"
-  - link:
-      icon: "fa-solid fa-brain-circuit"
-      text: "Bob's Brain <span class='link-button-text'>({{vars.GithubRepoStarsCountPlugin['intent-solutions-io/bobs-brain']}} Stars)</span>"
-      url: "https://bobs-brain.web.app/"
-      alt: "Bob's Brain - Google ADK + Vertex AI Agent Engine + Cloud Run + Python. 8 specialist agents for codebase compliance"
-      title: "Bob's Brain - Google ADK + Vertex AI Agent Engine + Cloud Run + Python. 8 specialist agents for codebase compliance"
-      target: "_blank"
-  - link:
-      icon: "fa-solid fa-database"
-      text: "CostPlusDB - Transparent PostgreSQL Hosting"
-      url: "https://costplusdb.dev"
-      alt: "CostPlusDB - PostgreSQL hosting at cost + 25%. Published benchmarks, no hidden fees, transparent pricing"
-      title: "CostPlusDB - PostgreSQL hosting at cost + 25%. Published benchmarks, no hidden fees, transparent pricing"
-      target: "_blank"
-  - link:
-      icon: "fa-solid fa-building-columns"
-      text: "Intent Solutions - AI Consulting & Implementation"
-      url: "https://intentsolutions.io"
-      alt: "Intent Solutions - Claude Code implementations, Google Cloud AI consulting, custom agent development"
-      title: "Intent Solutions - Claude Code implementations, Google Cloud AI consulting, custom agent development"
-      target: "_blank"
-  - link:
-      icon: "fa-solid fa-code-branch"
-      text: "Git With Intent"
-      url: "https://github.com/intent-solutions-io/iam-git-with-intent"
-      alt: "Git With Intent - Python + Vertex AI. Intelligent git workflows with AI-powered commit analysis"
-      title: "Git With Intent - Python + Vertex AI. Intelligent git workflows with AI-powered commit analysis"
-      target: "_blank"
-  - link:
-      icon: "fa-solid fa-chart-line"
-      text: "STCI - Inference Price Index"
-      url: "https://inferencepriceindex.com"
-      alt: "STCI - Daily LLM API pricing benchmark. Tracks OpenAI, Anthropic, Google, DeepSeek. Free API endpoint"
-      title: "STCI - Daily LLM API pricing benchmark. Tracks OpenAI, Anthropic, Google, DeepSeek. Free API endpoint"
-      target: "_blank"
-  - link:
-      icon: "fa-solid fa-eye"
-      text: "IntentVision - Universal Prediction Engine (Private Client Work)"
-      url: "https://github.com/intent-solutions-io/intentvision"
-      alt: "IntentVision - Vertex AI + BigQuery. Connect sources, normalize metrics, forecast anomalies, alert via API"
-      title: "IntentVision - Vertex AI + BigQuery. Connect sources, normalize metrics, forecast anomalies, alert via API"
-      target: "_blank"
-  - link:
-      icon: "fa-solid fa-chart-simple"
-      text: "Nixtla Plugins - TimeGPT for Claude Code (Private Client Work)"
-      url: "https://github.com/intent-solutions-io/plugins-nixtla"
-      alt: "Nixtla Plugins - Python + TimeGPT + FastAPI. Generate forecasting pipelines and model benchmarks from natural language"
-      title: "Nixtla Plugins - Python + TimeGPT + FastAPI. Generate forecasting pipelines and model benchmarks from natural language"
-      target: "_blank"
-  - link:
-      icon: "fa-solid fa-envelope"
-      text: "IntentMail - Modern Email Stack"
-      url: "https://github.com/intent-solutions-io/intent-mail"
-      alt: "IntentMail - TypeScript + MCP protocol. Unified email interface for Gmail and Outlook with AI integration"
-      title: "IntentMail - TypeScript + MCP protocol. Unified email interface for Gmail and Outlook with AI integration"
-      target: "_blank"
-  - link:
-      icon: "fa-solid fa-cloud"
-      text: "Private AI Deployments - Enterprise LLM Stacks"
-      url: "https://intentsolutions.io/ai-models"
-      alt: "Private AI Deployments - Google Cloud + Vertex AI. Enterprise LLM infrastructure on your own cloud"
-      title: "Private AI Deployments - Google Cloud + Vertex AI. Enterprise LLM infrastructure on your own cloud"
-      target: "_blank"
-  # N8N Workflows
-  - link:
-      icon: "fa-solid fa-cart-shopping"
-      text: "Disposable Marketplace N8N"
-      url: "https://jeremylongshore.github.io/disposable-marketplace-n8n/"
-      alt: "Disposable Marketplace - N8N workflow. CSV-based reseller outreach and quote collection automation"
-      title: "Disposable Marketplace - N8N workflow. CSV-based reseller outreach and quote collection automation"
-      target: "_blank"
-  - link:
-      icon: "fa-solid fa-envelope-open-text"
-      text: "Gmail Drive Organizer N8N"
-      url: "https://jeremylongshore.github.io/gmail-drive-organizer-n8n/"
-      alt: "Gmail Drive Organizer - N8N workflow. Auto-organize Gmail attachments into structured Google Drive folders"
-      title: "Gmail Drive Organizer - N8N workflow. Auto-organize Gmail attachments into structured Google Drive folders"
-      target: "_blank"
-  - link:
-      icon: "fa-solid fa-newspaper"
-      text: "News Pipeline N8N"
-      url: "https://github.com/jeremylongshore/news-pipeline-n8n"
-      alt: "News Pipeline - N8N workflow. Automated daily news monitoring, topic analysis, and content aggregation"
-      title: "News Pipeline - N8N workflow. Automated daily news monitoring, topic analysis, and content aggregation"
-      target: "_blank"
-
-
 # List of social media links
-# icon: Use Font Awesome icons (https://fontawesome.com/search?o=r&m=free)
-# title: The url title
-# url: The URL of the social media link
-# alt: Alternative text for accessibility
-# target: _blank opens in a new tab, _self opens in the same frame
 socials:
   - social:
       icon: "fa-brands fa-github"
@@ -205,7 +45,7 @@ socials:
       alt: "Jeremy Longshore's LinkedIn"
       target: "_blank"
   - social:
-      icon: "fa-brands fa-twitter"
+      icon: "fa-brands fa-x-twitter"
       url: "https://x.com/asphaltcowb0y"
       title: "Jeremy Longshore's X (Twitter)"
       alt: "Jeremy Longshore's X (Twitter)"
@@ -225,9 +65,8 @@ socials:
 
 # Footer text
 footer: >
-    AI Automation Specialist & Google Cloud Platform Expert. 20+ years restaurant operations → self-taught developer → AI systems architect. Based in Gulf Shores, Alabama. Marine Corps Reservist, Citadel grad. Building systems that eliminate manual work and save businesses money.
+    AI Automation Specialist & Google Cloud Platform Expert. 20+ years restaurant operations to self-taught developer to AI systems architect. Based in Gulf Shores, Alabama. Marine Corps Reservist, Citadel grad. Building systems that eliminate manual work and save businesses money.
 
 # Footer copyright message
-# Linkyee is a 100% free, open-source project—feel free to modify the copyright message as you like. :)
 copyright: >
-  © 2025  <a href="https://jeremylongshore.com" target="_blank">Jeremy Longshore</a> | <a href="https://intentsolutions.io" target="_blank">Intent Solutions</a> | Powered by <a href="https://github.com/ZhgChgLi/linkyee" target="_blank">linkyee</a>
+  &copy; 2025 <a href="https://jeremylongshore.com" target="_blank">Jeremy Longshore</a> | <a href="https://intentsolutions.io" target="_blank">Intent Solutions</a>

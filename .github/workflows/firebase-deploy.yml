@@ -25,6 +25,8 @@ jobs:
           bundler-cache: true
 
       - name: Build site
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           bundle install
           bundle exec ruby scaffold.rb

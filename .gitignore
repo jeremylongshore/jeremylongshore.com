@@ -24,3 +24,7 @@ _backup/
 # Local Netlify folder
 .netlify
 _hugo_backup/
+
+# Build-time cache files
+.github_stars_cache.json
+vendor/
