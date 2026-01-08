@@ -1,3 +1,14 @@
+# Release v2.4.0
+
+**Release Date**: 2026-01-08
+
+## Changes since v2.3.2
+
+- chore: release v2.4.0 [skip ci] (7faf6aa)
+- feat: enable Google Analytics (G-XGDPBB6BT6) (f1a68b3)
+
+---
+
 # Release v2.3.2
 
 **Release Date**: 2026-01-08
