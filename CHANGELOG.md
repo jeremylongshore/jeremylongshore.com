@@ -1,3 +1,14 @@
+# Release v2.2.0
+
+**Release Date**: 2026-01-08
+
+## Changes since v2.1.0
+
+- chore: release v2.2.0 [skip ci] (54b95ef)
+- feat: add Firebase Hosting with GitHub Actions deployment (85c0836)
+
+---
+
 # Release v2.1.0
 
 **Release Date**: 2026-01-08
