@@ -1,3 +1,14 @@
+# Release v2.3.0
+
+**Release Date**: 2026-01-08
+
+## Changes since v2.2.1
+
+- chore: release v2.3.0 [skip ci] (95ebba4)
+- feat: complete UI overhaul with project cards, tech stacks, and fixed star counts (1639462)
+
+---
+
 # Release v2.2.1
 
 **Release Date**: 2026-01-08
