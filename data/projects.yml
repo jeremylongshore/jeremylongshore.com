@@ -178,22 +178,6 @@ projects:
     tech_stack: ["Python", "Firebase", "Cloud Scheduler"]
     agent_framework: []
 
-  - id: intentvision
-    title: "IntentVision"
-    url: "https://github.com/intent-solutions-io/intentvision"
-    icon: "fa-solid fa-eye"
-    github_repo: "intent-solutions-io/intentvision"
-    visibility: private
-    client_work: true
-    purpose_short: "Universal prediction engine for anomaly detection"
-    purpose_long: "Connect data sources, normalize metrics, forecast anomalies, and alert via API."
-    use_cases:
-      - "Multi-source data ingestion"
-      - "Anomaly detection and alerting"
-      - "Metric forecasting"
-    tech_stack: ["Python", "BigQuery", "Cloud Run"]
-    agent_framework: ["Vertex AI"]
-
   - id: nixtla-plugins
     title: "Nixtla Plugins"
     url: "https://github.com/intent-solutions-io/plugins-nixtla"
