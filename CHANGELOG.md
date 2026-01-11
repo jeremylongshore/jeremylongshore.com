@@ -1,3 +1,14 @@
+# Release v2.4.2
+
+**Release Date**: 2026-01-11
+
+## Changes since v2.4.1
+
+- chore: release v2.4.2 [skip ci] (f2c308d)
+- fix: remove IntentVision (404 link) (3fd6b58)
+
+---
+
 # Release v2.4.1
 
 **Release Date**: 2026-01-08
