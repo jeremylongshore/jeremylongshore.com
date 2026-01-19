@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ title }}</title>
   <meta name="last-modified" content="{{ last_modified_at }}">
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0d1117">
+  <meta name="theme-color" content="#18181B">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="description" content="{{ tagline }}" />
   <meta property="og:title" content="{{ title }}" />
@@ -99,6 +98,18 @@
       </a>
       {% endfor %}
     </nav>
+
+    <section class="contact-cta">
+      <h2 class="section-label">Let's Connect</h2>
+      <div class="cta-buttons">
+        <a href="{{ booking_url }}" target="_blank" class="btn btn-primary">
+          <i class="fa-solid fa-calendar"></i> Book a Call
+        </a>
+        <a href="{{ contact_url }}" target="_blank" class="btn btn-secondary">
+          <i class="fa-solid fa-envelope"></i> Send a Message
+        </a>
+      </div>
+    </section>
 
     <footer>
       <p>{{ footer }}</p>
