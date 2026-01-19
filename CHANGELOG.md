@@ -1,3 +1,14 @@
+# Release v2.5.0
+
+**Release Date**: 2026-01-19
+
+## Changes since v2.4.2
+
+- chore: release v2.5.0 [skip ci] (45e06fa)
+- feat: charcoal slate theme + Executive Intent + detailed descriptions (c91e0c7)
+
+---
+
 # Release v2.4.2
 
 **Release Date**: 2026-01-11
