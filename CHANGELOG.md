@@ -1,3 +1,14 @@
+# Release v2.5.1
+
+**Release Date**: 2026-01-21
+
+## Changes since v2.5.0
+
+- chore: release v2.5.1 [skip ci] (a0ed0c3)
+- fix: move CTA buttons to top of page (a69824b)
+
+---
+
 # Release v2.5.0
 
 **Release Date**: 2026-01-19
