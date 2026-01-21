@@ -302,6 +302,13 @@ body {
   text-align: center;
 }
 
+.contact-cta.top {
+  margin-top: 0;
+  margin-bottom: 32px;
+  padding-top: 0;
+  border-top: none;
+}
+
 .cta-buttons {
   display: flex;
   justify-content: center;

@@ -25,6 +25,17 @@
       <p class="tagline">{{ tagline }}</p>
     </header>
 
+    <section class="contact-cta top">
+      <div class="cta-buttons">
+        <a href="{{ booking_url }}" target="_blank" class="btn btn-primary">
+          <i class="fa-solid fa-calendar"></i> Book a Call
+        </a>
+        <a href="{{ contact_url }}" target="_blank" class="btn btn-secondary">
+          <i class="fa-solid fa-envelope"></i> Send a Message
+        </a>
+      </div>
+    </section>
+
     <section class="links">
       {% for p in projects %}
       <div class="link-item" data-id="{{ p.id }}">
@@ -98,18 +109,6 @@
       </a>
       {% endfor %}
     </nav>
-
-    <section class="contact-cta">
-      <h2 class="section-label">Let's Connect</h2>
-      <div class="cta-buttons">
-        <a href="{{ booking_url }}" target="_blank" class="btn btn-primary">
-          <i class="fa-solid fa-calendar"></i> Book a Call
-        </a>
-        <a href="{{ contact_url }}" target="_blank" class="btn btn-secondary">
-          <i class="fa-solid fa-envelope"></i> Send a Message
-        </a>
-      </div>
-    </section>
 
     <footer>
       <p>{{ footer }}</p>
