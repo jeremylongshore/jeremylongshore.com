@@ -1,3 +1,14 @@
+# Release v2.6.0
+
+**Release Date**: 2026-01-21
+
+## Changes since v2.5.1
+
+- chore: release v2.6.0 [skip ci] (ff223ca)
+- feat: add Terms of Service and Privacy Policy pages (80d4009)
+
+---
+
 # Release v2.5.1
 
 **Release Date**: 2026-01-21
