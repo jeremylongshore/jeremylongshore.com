@@ -1,3 +1,14 @@
+# Release v2.6.1
+
+**Release Date**: 2026-01-23
+
+## Changes since v2.6.0
+
+- chore: release v2.6.1 [skip ci] (bea2df7)
+- fix: CTA button styling and zero stars display (191f9d4)
+
+---
+
 # Release v2.6.0
 
 **Release Date**: 2026-01-21
