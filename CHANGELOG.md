@@ -1,3 +1,14 @@
+# Release v2.6.2
+
+**Release Date**: 2026-01-23
+
+## Changes since v2.6.1
+
+- chore: release v2.6.2 [skip ci] (cc64d7c)
+- docs: update CLAUDE.md for Firebase deployment (dcf814a)
+
+---
+
 # Release v2.6.1
 
 **Release Date**: 2026-01-23
