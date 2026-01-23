@@ -21,7 +21,7 @@
 
 ## 🏗️ Tech Stack
 
-- **Static Site Generator:** [Hugo](https://gohugo.io/) v2.6.1
+- **Static Site Generator:** [Hugo](https://gohugo.io/) v2.6.2
 - **Theme:** [Hermit v2](https://github.com/1bl4z3r/hermit-V2) (Customized)
 - **Hosting:** [Netlify](https://netlify.com/)
 - **Domain:** Porkbun
@@ -50,7 +50,7 @@ data/
 
 ### Prerequisites
 
-- [Hugo](https://gohugo.io/installation/) v2.6.1+
+- [Hugo](https://gohugo.io/installation/) v2.6.2+
 - [Git](https://git-scm.com/)
 - [Node.js](https://nodejs.org/) (optional, for advanced features)
 
