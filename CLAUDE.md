@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Personal landing page for Jeremy Longshore built with **Linkyee** (Ruby-based static site generator). Single-page design featuring project links, social profiles, and dynamic GitHub star counts.
 
 **Live:** https://jeremylongshore.com
-**Deployment:** Netlify serves pre-built `_output/` directory (no build step on Netlify)
+**Deployment:** Firebase Hosting via GitHub Actions (builds on push to main)
 
 ## Commands
 
@@ -67,8 +67,16 @@ text: "Project <span class='link-button-text'>({{vars.GithubRepoStarsCountPlugin
 1. **Never edit `_output/` manually** - regenerated on every build
 2. **All content in `config.yml`** - single source of truth
 3. **Icons: Font Awesome Free only** - https://fontawesome.com/search?o=r&m=free
-4. **Build before commit**: Always run `bash build.sh` and commit `_output/` changes
+4. **Test locally before push**: Run `bash build.sh` to verify changes work
 5. **README.md is outdated** - references old Hugo setup; ignore it for architecture info
+
+## Deployment
+
+- **Host:** Firebase Hosting (project: `bigo-portfolio`)
+- **Trigger:** Push to `main` branch
+- **Workflow:** `.github/workflows/firebase-deploy.yml`
+- **Auth:** Workload Identity Federation (no service account keys)
+- **Caching:** 1-year cache for images, CSS, JS
 
 ## Dependencies
 
