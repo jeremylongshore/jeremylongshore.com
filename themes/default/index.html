@@ -48,7 +48,7 @@
           <div class="link-badge">
             {% if p.github_repo %}
               {% assign stars = github_stars[p.github_repo] %}
-              {% if stars != null and stars != '' %}
+              {% if stars != null and stars != '' and stars > 0 %}
                 {% if stars == 1 %}<span class="badge stars">{{ stars }} Star</span>
                 {% else %}<span class="badge stars">{{ stars }} Stars</span>{% endif %}
               {% elsif p.visibility == 'private' or p.client_work %}
@@ -90,7 +90,7 @@
         <div class="link-badge">
           {% if p.github_repo %}
             {% assign stars = github_stars[p.github_repo] %}
-            {% if stars != null and stars != '' %}
+            {% if stars != null and stars != '' and stars > 0 %}
               {% if stars == 1 %}<span class="badge stars">{{ stars }} Star</span>
               {% else %}<span class="badge stars">{{ stars }} Stars</span>{% endif %}
             {% endif %}

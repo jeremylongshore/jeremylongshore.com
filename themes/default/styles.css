@@ -319,13 +319,25 @@ body {
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 12px 24px;
+  min-height: 48px;
   border-radius: 8px;
   font-size: 15px;
   font-weight: 600;
-  text-decoration: none;
+  text-decoration: none !important;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+  cursor: pointer;
   transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+.btn:link,
+.btn:visited,
+.btn:hover,
+.btn:active {
+  text-decoration: none !important;
 }
 
 .btn:hover {
@@ -337,13 +349,28 @@ body {
   transform: scale(0.98);
 }
 
+.btn:focus {
+  outline: 2px solid #60A5FA; /* blue-400 */
+  outline-offset: 2px;
+}
+
+.btn:focus:not(:focus-visible) {
+  outline: none;
+}
+
 .btn-primary {
   background: #E4E4E7; /* zinc-200 */
   color: #18181B; /* zinc-900 */
 }
 
+.btn-primary:link,
+.btn-primary:visited {
+  color: #18181B; /* zinc-900 */
+}
+
 .btn-primary:hover {
   background: #FAFAFA; /* zinc-50 */
+  color: #18181B; /* zinc-900 */
 }
 
 .btn-secondary {
@@ -352,9 +379,15 @@ body {
   border: 1px solid #52525B; /* zinc-600 */
 }
 
+.btn-secondary:link,
+.btn-secondary:visited {
+  color: #E4E4E7; /* zinc-200 */
+}
+
 .btn-secondary:hover {
   background: #27272A; /* zinc-800 */
   border-color: #71717A; /* zinc-500 */
+  color: #E4E4E7; /* zinc-200 */
 }
 
 /* Footer */
@@ -439,11 +472,13 @@ footer a:hover {
 
   .cta-buttons {
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
   }
 
   .btn {
     width: 100%;
     justify-content: center;
+    min-height: 48px;
+    padding: 14px 24px;
   }
 }
