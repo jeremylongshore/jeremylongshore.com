@@ -1,3 +1,14 @@
+# Release v2.7.0
+
+**Release Date**: 2026-01-23
+
+## Changes since v2.6.2
+
+- chore: release v2.7.0 [skip ci] (5f68f3c)
+- feat: organize projects into categories with linked section headers (8685f40)
+
+---
+
 # Release v2.6.2
 
 **Release Date**: 2026-01-23
