@@ -14,16 +14,25 @@ settings = YAML.load_file("config.yml") || {}
 projects_file = "./data/projects.yml"
 if File.exist?(projects_file)
   projects_data = YAML.load_file(projects_file)
-  settings["projects"] = projects_data["projects"] || []
+  settings["intent_solutions_repos"] = projects_data["intent_solutions_repos"] || []
+  settings["products"] = projects_data["products"] || []
+  settings["personal_repos"] = projects_data["personal_repos"] || []
+  settings["client_projects"] = projects_data["client_projects"] || []
   settings["n8n_workflows"] = projects_data["n8n_workflows"] || []
+  # Legacy support
+  settings["projects"] = projects_data["projects"] || []
 else
   puts "Warning: #{projects_file} not found. Using empty projects list."
-  settings["projects"] = []
+  settings["intent_solutions_repos"] = []
+  settings["products"] = []
+  settings["personal_repos"] = []
+  settings["client_projects"] = []
   settings["n8n_workflows"] = []
+  settings["projects"] = []
 end
 
 # Collect GitHub repos from all projects for star fetching
-all_projects = settings["projects"] + settings["n8n_workflows"]
+all_projects = settings["intent_solutions_repos"] + settings["products"] + settings["personal_repos"] + settings["client_projects"] + settings["n8n_workflows"]
 github_repos = all_projects
   .map { |p| p["github_repo"] }
   .compact

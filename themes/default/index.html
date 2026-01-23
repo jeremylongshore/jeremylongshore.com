@@ -36,8 +36,13 @@
       </div>
     </section>
 
+    {% if intent_solutions_repos.size > 0 %}
     <section class="links">
-      {% for p in projects %}
+      <a href="https://github.com/intent-solutions-io" target="_blank" class="section-header">
+        <h2 class="section-label">Intent Solutions</h2>
+        <i class="fa-brands fa-github"></i>
+      </a>
+      {% for p in intent_solutions_repos %}
       <div class="link-item" data-id="{{ p.id }}">
         <div class="link-row" onclick="toggleExpand('{{ p.id }}')">
           <div class="link-icon"><i class="{{ p.icon }}"></i></div>
@@ -76,10 +81,153 @@
       </div>
       {% endfor %}
     </section>
+    {% endif %}
+
+    {% if products.size > 0 %}
+    <section class="links">
+      <div class="section-header">
+        <h2 class="section-label">Products</h2>
+      </div>
+      {% for p in products %}
+      <div class="link-item" data-id="{{ p.id }}">
+        <div class="link-row" onclick="toggleExpand('{{ p.id }}')">
+          <div class="link-icon"><i class="{{ p.icon }}"></i></div>
+          <div class="link-text">
+            <span class="link-title">{{ p.title }}</span>
+            <span class="link-desc">{{ p.purpose_short }}</span>
+          </div>
+          <div class="link-badge">
+            {% if p.github_repo %}
+              {% assign stars = github_stars[p.github_repo] %}
+              {% if stars != null and stars != '' and stars > 0 %}
+                {% if stars == 1 %}<span class="badge stars">{{ stars }} Star</span>
+                {% else %}<span class="badge stars">{{ stars }} Stars</span>{% endif %}
+              {% elsif p.visibility == 'private' or p.client_work %}
+                <span class="badge private">Private</span>
+              {% endif %}
+            {% elsif p.visibility == 'private' or p.client_work %}
+              <span class="badge private">Private</span>
+            {% endif %}
+            <span class="expand-icon">+</span>
+          </div>
+        </div>
+        <div class="link-expand" id="expand-{{ p.id }}">
+          <p class="expand-desc">{{ p.purpose_long }}</p>
+          {% if p.use_cases.size > 0 %}
+          <ul class="expand-list">
+            {% for uc in p.use_cases %}<li>{{ uc }}</li>{% endfor %}
+          </ul>
+          {% endif %}
+          <div class="expand-tags">
+            {% for t in p.tech_stack %}<span class="tag tech">{{ t }}</span>{% endfor %}
+            {% for a in p.agent_framework %}<span class="tag agent">{{ a }}</span>{% endfor %}
+          </div>
+          <a href="{{ p.url }}" target="_blank" class="expand-link">Open &rarr;</a>
+        </div>
+      </div>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    {% if personal_repos.size > 0 %}
+    <section class="links">
+      <a href="https://github.com/jeremylongshore" target="_blank" class="section-header">
+        <h2 class="section-label">Open Source</h2>
+        <i class="fa-brands fa-github"></i>
+      </a>
+      {% for p in personal_repos %}
+      <div class="link-item" data-id="{{ p.id }}">
+        <div class="link-row" onclick="toggleExpand('{{ p.id }}')">
+          <div class="link-icon"><i class="{{ p.icon }}"></i></div>
+          <div class="link-text">
+            <span class="link-title">{{ p.title }}</span>
+            <span class="link-desc">{{ p.purpose_short }}</span>
+          </div>
+          <div class="link-badge">
+            {% if p.github_repo %}
+              {% assign stars = github_stars[p.github_repo] %}
+              {% if stars != null and stars != '' and stars > 0 %}
+                {% if stars == 1 %}<span class="badge stars">{{ stars }} Star</span>
+                {% else %}<span class="badge stars">{{ stars }} Stars</span>{% endif %}
+              {% elsif p.visibility == 'private' or p.client_work %}
+                <span class="badge private">Private</span>
+              {% endif %}
+            {% elsif p.visibility == 'private' or p.client_work %}
+              <span class="badge private">Private</span>
+            {% endif %}
+            <span class="expand-icon">+</span>
+          </div>
+        </div>
+        <div class="link-expand" id="expand-{{ p.id }}">
+          <p class="expand-desc">{{ p.purpose_long }}</p>
+          {% if p.use_cases.size > 0 %}
+          <ul class="expand-list">
+            {% for uc in p.use_cases %}<li>{{ uc }}</li>{% endfor %}
+          </ul>
+          {% endif %}
+          <div class="expand-tags">
+            {% for t in p.tech_stack %}<span class="tag tech">{{ t }}</span>{% endfor %}
+            {% for a in p.agent_framework %}<span class="tag agent">{{ a }}</span>{% endfor %}
+          </div>
+          <a href="{{ p.url }}" target="_blank" class="expand-link">Open &rarr;</a>
+        </div>
+      </div>
+      {% endfor %}
+    </section>
+    {% endif %}
+
+    {% if client_projects.size > 0 %}
+    <section class="links">
+      <a href="https://intentsolutions.io" target="_blank" class="section-header">
+        <h2 class="section-label">Client Projects</h2>
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+      {% for p in client_projects %}
+      <div class="link-item" data-id="{{ p.id }}">
+        <div class="link-row" onclick="toggleExpand('{{ p.id }}')">
+          <div class="link-icon"><i class="{{ p.icon }}"></i></div>
+          <div class="link-text">
+            <span class="link-title">{{ p.title }}</span>
+            <span class="link-desc">{{ p.purpose_short }}</span>
+          </div>
+          <div class="link-badge">
+            {% if p.github_repo %}
+              {% assign stars = github_stars[p.github_repo] %}
+              {% if stars != null and stars != '' and stars > 0 %}
+                {% if stars == 1 %}<span class="badge stars">{{ stars }} Star</span>
+                {% else %}<span class="badge stars">{{ stars }} Stars</span>{% endif %}
+              {% elsif p.visibility == 'private' or p.client_work %}
+                <span class="badge private">Private</span>
+              {% endif %}
+            {% elsif p.visibility == 'private' or p.client_work %}
+              <span class="badge private">Private</span>
+            {% endif %}
+            <span class="expand-icon">+</span>
+          </div>
+        </div>
+        <div class="link-expand" id="expand-{{ p.id }}">
+          <p class="expand-desc">{{ p.purpose_long }}</p>
+          {% if p.use_cases.size > 0 %}
+          <ul class="expand-list">
+            {% for uc in p.use_cases %}<li>{{ uc }}</li>{% endfor %}
+          </ul>
+          {% endif %}
+          <div class="expand-tags">
+            {% for t in p.tech_stack %}<span class="tag tech">{{ t }}</span>{% endfor %}
+            {% for a in p.agent_framework %}<span class="tag agent">{{ a }}</span>{% endfor %}
+          </div>
+          <a href="{{ p.url }}" target="_blank" class="expand-link">Open &rarr;</a>
+        </div>
+      </div>
+      {% endfor %}
+    </section>
+    {% endif %}
 
     {% if n8n_workflows.size > 0 %}
-    <section class="links n8n">
-      <h2 class="section-label">N8N Workflows</h2>
+    <section class="links">
+      <div class="section-header">
+        <h2 class="section-label">N8N Workflows</h2>
+      </div>
       {% for p in n8n_workflows %}
       <a href="{{ p.url }}" target="_blank" class="link-item simple">
         <div class="link-icon"><i class="{{ p.icon }}"></i></div>

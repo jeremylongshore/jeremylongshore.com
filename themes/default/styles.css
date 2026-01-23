@@ -57,11 +57,7 @@ body {
   gap: 10px;
 }
 
-.links.n8n {
-  margin-top: 32px;
-  padding-top: 24px;
-  border-top: 1px solid #27272A; /* zinc-800 */
-}
+/* Legacy n8n styling - now handled by .links + .links */
 
 .section-label {
   font-size: 12px;
@@ -69,7 +65,46 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   color: #71717A; /* zinc-500 */
+  margin: 0;
+}
+
+/* Section Header with optional link */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 12px;
+  padding: 8px 0;
+  text-decoration: none;
+  border-bottom: 1px solid #27272A; /* zinc-800 */
+}
+
+a.section-header {
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+a.section-header:hover {
+  border-color: #52525B; /* zinc-600 */
+}
+
+a.section-header:hover .section-label {
+  color: #A1A1AA; /* zinc-400 */
+}
+
+.section-header i {
+  font-size: 14px;
+  color: #52525B; /* zinc-600 */
+  transition: color 0.15s;
+}
+
+a.section-header:hover i {
+  color: #A1A1AA; /* zinc-400 */
+}
+
+/* Add spacing between sections */
+.links + .links {
+  margin-top: 32px;
 }
 
 /* Link Item Card */

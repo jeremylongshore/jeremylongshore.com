@@ -1,8 +1,10 @@
-# Projects Data - Single Source of Truth
+# Projects Data - Organized by Category
 # purpose_short: max 90 chars, shown in list view
 # purpose_long: full description, shown in expanded view
 
-projects:
+# Intent Solutions Organization - Enterprise & Production Systems
+# Links to: github.com/intent-solutions-io
+intent_solutions_repos:
   - id: executive-intent
     title: "Executive Intent"
     url: "https://executive-intent.web.app"
@@ -18,37 +20,6 @@ projects:
       - "Real-time DLP enforcement on sensitive communications"
     tech_stack: ["Next.js", "Supabase", "pgvector", "Inngest"]
     agent_framework: ["Nightfall DLP", "OpenAI Embeddings"]
-
-  - id: intentsolutions
-    title: "Intent Solutions"
-    url: "https://intentsolutions.io"
-    icon: "fa-solid fa-building-columns"
-    visibility: private
-    purpose_short: "AI consulting and Claude Code implementations"
-    purpose_long: "Professional services firm specializing in Claude Code enterprise deployments, Google Cloud AI consulting, and custom agent development. We build production AI systems that ship in days, not months. Services include Claude Code team training, custom plugin development, Vertex AI integrations, and full-stack agent architectures using Google ADK."
-    use_cases:
-      - "Claude Code enterprise deployments and team training"
-      - "Custom agent and plugin development"
-      - "GCP architecture consulting and Vertex AI integrations"
-      - "Production AI system design and implementation"
-    tech_stack: ["Google Cloud", "Vertex AI", "Terraform", "Firebase"]
-    agent_framework: ["Google ADK", "Claude Code", "MCP Protocol"]
-
-  - id: claude-code-plugins
-    title: "Claude Code Plugins"
-    url: "https://claudecodeplugins.io"
-    icon: "fa-solid fa-puzzle-piece"
-    github_repo: "jeremylongshore/claude-code-plugins-plus-skills"
-    visibility: public
-    purpose_short: "253+ production plugins and MCP servers for Claude Code"
-    purpose_long: "The largest curated marketplace of production-ready plugins and MCP servers for Claude Code CLI. Browse 253+ plugins across categories including development tools, cloud integrations, database connectors, and workflow automation. Each plugin is validated for security, performance, and compatibility. Includes installation guides, usage examples, and community ratings."
-    use_cases:
-      - "Extend Claude Code with cloud provider integrations"
-      - "Add database and API connectors to your workflow"
-      - "Install pre-built automation and DevOps plugins"
-      - "Discover MCP servers for external tool integration"
-    tech_stack: ["TypeScript", "Node.js", "MCP Protocol", "React"]
-    agent_framework: ["Claude Code", "MCP Servers"]
 
   - id: perception
     title: "Perception"
@@ -66,22 +37,6 @@ projects:
     tech_stack: ["Python", "Firebase", "Cloud Run", "BigQuery"]
     agent_framework: ["Google ADK", "Vertex AI Agent Engine", "A2A Protocol"]
 
-  - id: startaitools
-    title: "Start AI Tools"
-    url: "https://startaitools.com"
-    icon: "fa-solid fa-robot"
-    github_repo: "jeremylongshore/startaitools.com"
-    visibility: public
-    purpose_short: "AI tools directory with tutorials and implementation guides"
-    purpose_long: "Comprehensive directory of AI development tools with in-depth tutorials and step-by-step implementation guides. Covers everything from LLM APIs and embedding models to vector databases and agent frameworks. Each tool listing includes pricing comparisons, code examples, integration guides, and real-world use cases. Updated weekly with new tools and tutorials."
-    use_cases:
-      - "Discover and compare AI development tools"
-      - "Follow step-by-step implementation tutorials"
-      - "Learn production best practices for AI integrations"
-      - "Stay current with the AI tools ecosystem"
-    tech_stack: ["Hugo", "Netlify", "Markdown", "JavaScript"]
-    agent_framework: []
-
   - id: diagnosticpro
     title: "DiagnosticPro"
     url: "https://diagnosticpro.io"
@@ -97,6 +52,71 @@ projects:
       - "Track maintenance history and upcoming service needs"
     tech_stack: ["React", "Firebase", "Cloud Functions", "Firestore"]
     agent_framework: ["Vertex AI Gemini"]
+
+  - id: bobs-brain
+    title: "Bob's Brain"
+    url: "https://bobs-brain.web.app/"
+    icon: "fa-solid fa-brain"
+    github_repo: "intent-solutions-io/iam-bobs-brain"
+    visibility: public
+    purpose_short: "8 specialist agents for Google ADK compliance"
+    purpose_long: "Multi-agent system that ensures codebase compliance with Google Agent Development Kit (ADK) patterns and best practices. Eight specialist agents review code for architecture patterns, security vulnerabilities, performance issues, and documentation gaps. Integrates with CI/CD pipelines for automated compliance checks on every commit. Essential for teams building production agents on Google Cloud."
+    use_cases:
+      - "Automated code review for ADK pattern compliance"
+      - "Security vulnerability scanning for agent code"
+      - "Documentation generation and gap analysis"
+      - "CI/CD integration for continuous compliance"
+    tech_stack: ["Python", "Cloud Run", "Firebase", "GitHub Actions"]
+    agent_framework: ["Google ADK", "Vertex AI Agent Engine"]
+
+  - id: git-with-intent
+    title: "Git With Intent"
+    url: "https://github.com/intent-solutions-io/iam-git-with-intent"
+    icon: "fa-solid fa-code-branch"
+    github_repo: "intent-solutions-io/iam-git-with-intent"
+    visibility: public
+    purpose_short: "AI-powered git workflows and commit analysis"
+    purpose_long: "Intelligent git workflow automation powered by Vertex AI. Automatically generates meaningful commit messages from diffs, creates comprehensive changelogs from commit history, and drafts pull request descriptions with context. Analyzes code changes to suggest reviewers and identify potential issues. Integrates seamlessly with existing git workflows via CLI or GitHub Actions."
+    use_cases:
+      - "AI-generated commit messages from code diffs"
+      - "Automated changelog generation from commits"
+      - "Smart PR description drafting with context"
+      - "Code change analysis and reviewer suggestions"
+    tech_stack: ["Python", "Git", "CLI", "GitHub Actions"]
+    agent_framework: ["Vertex AI"]
+
+  - id: intentmail
+    title: "IntentMail"
+    url: "https://github.com/intent-solutions-io/intent-mail"
+    icon: "fa-solid fa-envelope"
+    github_repo: "intent-solutions-io/intent-mail"
+    visibility: public
+    purpose_short: "Unified Gmail + Outlook with MCP integration"
+    purpose_long: "Modern email stack providing unified inbox across Gmail and Outlook, plus an MCP server for AI agent integration. Single API for reading, sending, and organizing email across providers. The MCP server enables AI agents to draft responses, triage messages, and manage inbox rules. OAuth 2.0 authentication with secure token refresh and provider abstraction."
+    use_cases:
+      - "Unified inbox across Gmail and Outlook"
+      - "AI-powered email drafting via MCP server"
+      - "Programmatic email triage and organization"
+      - "Secure multi-provider authentication"
+    tech_stack: ["TypeScript", "MCP Protocol", "OAuth 2.0", "Express"]
+    agent_framework: ["MCP Servers"]
+
+# Products & Services - Commercial Offerings
+products:
+  - id: intentsolutions
+    title: "Intent Solutions"
+    url: "https://intentsolutions.io"
+    icon: "fa-solid fa-building-columns"
+    visibility: private
+    purpose_short: "AI consulting and Claude Code implementations"
+    purpose_long: "Professional services firm specializing in Claude Code enterprise deployments, Google Cloud AI consulting, and custom agent development. We build production AI systems that ship in days, not months. Services include Claude Code team training, custom plugin development, Vertex AI integrations, and full-stack agent architectures using Google ADK."
+    use_cases:
+      - "Claude Code enterprise deployments and team training"
+      - "Custom agent and plugin development"
+      - "GCP architecture consulting and Vertex AI integrations"
+      - "Production AI system design and implementation"
+    tech_stack: ["Google Cloud", "Vertex AI", "Terraform", "Firebase"]
+    agent_framework: ["Google ADK", "Claude Code", "MCP Protocol"]
 
   - id: pipelinepilot
     title: "PipelinePilot"
@@ -128,21 +148,85 @@ projects:
     tech_stack: ["React", "Firebase", "Cloud Functions", "Firestore"]
     agent_framework: ["Vertex AI Agent Engine", "A2A Protocol"]
 
-  - id: bobs-brain
-    title: "Bob's Brain"
-    url: "https://bobs-brain.web.app/"
-    icon: "fa-solid fa-brain"
-    github_repo: "intent-solutions-io/iam-bobs-brain"
-    visibility: public
-    purpose_short: "8 specialist agents for Google ADK compliance"
-    purpose_long: "Multi-agent system that ensures codebase compliance with Google Agent Development Kit (ADK) patterns and best practices. Eight specialist agents review code for architecture patterns, security vulnerabilities, performance issues, and documentation gaps. Integrates with CI/CD pipelines for automated compliance checks on every commit. Essential for teams building production agents on Google Cloud."
+  - id: costplusdb
+    title: "CostPlusDB"
+    url: "https://costplusdb.dev"
+    icon: "fa-solid fa-database"
+    visibility: private
+    purpose_short: "PostgreSQL hosting at cost + 25%"
+    purpose_long: "Transparent PostgreSQL hosting with a simple pricing model: infrastructure cost plus 25% margin. No hidden fees, no surprise bills, no vendor lock-in. Published performance benchmarks let you compare against AWS RDS, Cloud SQL, and others. Features include automated backups, point-in-time recovery, connection pooling, and performance monitoring. Built on GCP Compute Engine for reliability."
     use_cases:
-      - "Automated code review for ADK pattern compliance"
-      - "Security vulnerability scanning for agent code"
-      - "Documentation generation and gap analysis"
-      - "CI/CD integration for continuous compliance"
-    tech_stack: ["Python", "Cloud Run", "Firebase", "GitHub Actions"]
-    agent_framework: ["Google ADK", "Vertex AI Agent Engine"]
+      - "Predictable database hosting with transparent pricing"
+      - "Compare performance against major cloud providers"
+      - "Automated backups and disaster recovery"
+      - "No vendor lock-in with standard PostgreSQL"
+    tech_stack: ["PostgreSQL", "GCP Compute", "Terraform", "Prometheus"]
+    agent_framework: []
+
+  - id: stci
+    title: "STCI"
+    url: "https://inferencepriceindex.com"
+    icon: "fa-solid fa-chart-line"
+    visibility: private
+    purpose_short: "Daily LLM API pricing benchmark"
+    purpose_long: "The Standard Token Cost Index - a daily benchmark tracking LLM API pricing across OpenAI, Anthropic, Google, DeepSeek, and other providers. Historical price tracking shows cost trends over time. Free public API endpoint lets developers query current prices programmatically. Essential resource for teams optimizing AI infrastructure costs and making informed provider decisions."
+    use_cases:
+      - "Compare LLM API pricing across providers"
+      - "Track historical price changes and trends"
+      - "Free API endpoint for programmatic access"
+      - "Optimize AI infrastructure costs"
+    tech_stack: ["Python", "Firebase", "Cloud Scheduler", "FastAPI"]
+    agent_framework: []
+
+  - id: private-ai
+    title: "Private AI Deployments"
+    url: "https://intentsolutions.io/private-ai"
+    icon: "fa-solid fa-cloud"
+    visibility: private
+    purpose_short: "Enterprise LLM infrastructure on your cloud"
+    purpose_long: "Private LLM deployment services for enterprises requiring data sovereignty and compliance. We deploy open-source models (Llama, Mistral, Gemma) on your Google Cloud infrastructure with full isolation. Includes custom fine-tuning pipelines, model serving optimization, and ongoing maintenance. Ideal for regulated industries (healthcare, finance, government) that cannot send data to third-party APIs."
+    use_cases:
+      - "Private LLM deployments with data sovereignty"
+      - "HIPAA/SOC2/FedRAMP compliant AI infrastructure"
+      - "Custom model fine-tuning on proprietary data"
+      - "On-premise or VPC-isolated deployments"
+    tech_stack: ["Google Cloud", "Vertex AI", "Terraform", "GKE", "vLLM"]
+    agent_framework: ["Vertex AI"]
+
+# Open Source - Personal Public Repos
+# Links to: github.com/jeremylongshore
+personal_repos:
+  - id: claude-code-plugins
+    title: "Claude Code Plugins"
+    url: "https://claudecodeplugins.io"
+    icon: "fa-solid fa-puzzle-piece"
+    github_repo: "jeremylongshore/claude-code-plugins-plus-skills"
+    visibility: public
+    purpose_short: "253+ production plugins and MCP servers for Claude Code"
+    purpose_long: "The largest curated marketplace of production-ready plugins and MCP servers for Claude Code CLI. Browse 253+ plugins across categories including development tools, cloud integrations, database connectors, and workflow automation. Each plugin is validated for security, performance, and compatibility. Includes installation guides, usage examples, and community ratings."
+    use_cases:
+      - "Extend Claude Code with cloud provider integrations"
+      - "Add database and API connectors to your workflow"
+      - "Install pre-built automation and DevOps plugins"
+      - "Discover MCP servers for external tool integration"
+    tech_stack: ["TypeScript", "Node.js", "MCP Protocol", "React"]
+    agent_framework: ["Claude Code", "MCP Servers"]
+
+  - id: startaitools
+    title: "Start AI Tools"
+    url: "https://startaitools.com"
+    icon: "fa-solid fa-robot"
+    github_repo: "jeremylongshore/startaitools.com"
+    visibility: public
+    purpose_short: "AI tools directory with tutorials and implementation guides"
+    purpose_long: "Comprehensive directory of AI development tools with in-depth tutorials and step-by-step implementation guides. Covers everything from LLM APIs and embedding models to vector databases and agent frameworks. Each tool listing includes pricing comparisons, code examples, integration guides, and real-world use cases. Updated weekly with new tools and tutorials."
+    use_cases:
+      - "Discover and compare AI development tools"
+      - "Follow step-by-step implementation tutorials"
+      - "Learn production best practices for AI integrations"
+      - "Stay current with the AI tools ecosystem"
+    tech_stack: ["Hugo", "Netlify", "Markdown", "JavaScript"]
+    agent_framework: []
 
   - id: waygate-mcp
     title: "Waygate MCP"
@@ -160,52 +244,9 @@ projects:
     tech_stack: ["TypeScript", "Docker", "Node.js", "Express"]
     agent_framework: ["MCP Protocol"]
 
-  - id: costplusdb
-    title: "CostPlusDB"
-    url: "https://costplusdb.dev"
-    icon: "fa-solid fa-database"
-    visibility: private
-    purpose_short: "PostgreSQL hosting at cost + 25%"
-    purpose_long: "Transparent PostgreSQL hosting with a simple pricing model: infrastructure cost plus 25% margin. No hidden fees, no surprise bills, no vendor lock-in. Published performance benchmarks let you compare against AWS RDS, Cloud SQL, and others. Features include automated backups, point-in-time recovery, connection pooling, and performance monitoring. Built on GCP Compute Engine for reliability."
-    use_cases:
-      - "Predictable database hosting with transparent pricing"
-      - "Compare performance against major cloud providers"
-      - "Automated backups and disaster recovery"
-      - "No vendor lock-in with standard PostgreSQL"
-    tech_stack: ["PostgreSQL", "GCP Compute", "Terraform", "Prometheus"]
-    agent_framework: []
-
-  - id: git-with-intent
-    title: "Git With Intent"
-    url: "https://github.com/intent-solutions-io/iam-git-with-intent"
-    icon: "fa-solid fa-code-branch"
-    github_repo: "intent-solutions-io/iam-git-with-intent"
-    visibility: public
-    purpose_short: "AI-powered git workflows and commit analysis"
-    purpose_long: "Intelligent git workflow automation powered by Vertex AI. Automatically generates meaningful commit messages from diffs, creates comprehensive changelogs from commit history, and drafts pull request descriptions with context. Analyzes code changes to suggest reviewers and identify potential issues. Integrates seamlessly with existing git workflows via CLI or GitHub Actions."
-    use_cases:
-      - "AI-generated commit messages from code diffs"
-      - "Automated changelog generation from commits"
-      - "Smart PR description drafting with context"
-      - "Code change analysis and reviewer suggestions"
-    tech_stack: ["Python", "Git", "CLI", "GitHub Actions"]
-    agent_framework: ["Vertex AI"]
-
-  - id: stci
-    title: "STCI"
-    url: "https://inferencepriceindex.com"
-    icon: "fa-solid fa-chart-line"
-    visibility: private
-    purpose_short: "Daily LLM API pricing benchmark"
-    purpose_long: "The Standard Token Cost Index - a daily benchmark tracking LLM API pricing across OpenAI, Anthropic, Google, DeepSeek, and other providers. Historical price tracking shows cost trends over time. Free public API endpoint lets developers query current prices programmatically. Essential resource for teams optimizing AI infrastructure costs and making informed provider decisions."
-    use_cases:
-      - "Compare LLM API pricing across providers"
-      - "Track historical price changes and trends"
-      - "Free API endpoint for programmatic access"
-      - "Optimize AI infrastructure costs"
-    tech_stack: ["Python", "Firebase", "Cloud Scheduler", "FastAPI"]
-    agent_framework: []
-
+# Client Projects - Work for Others
+# Links to: intentsolutions.io
+client_projects:
   - id: nixtla-plugins
     title: "Nixtla Plugins"
     url: "https://github.com/intent-solutions-io/plugins-nixtla"
@@ -223,38 +264,8 @@ projects:
     tech_stack: ["Python", "TimeGPT", "FastAPI", "Pandas"]
     agent_framework: ["Claude Code"]
 
-  - id: intentmail
-    title: "IntentMail"
-    url: "https://github.com/intent-solutions-io/intent-mail"
-    icon: "fa-solid fa-envelope"
-    github_repo: "intent-solutions-io/intent-mail"
-    visibility: public
-    purpose_short: "Unified Gmail + Outlook with MCP integration"
-    purpose_long: "Modern email stack providing unified inbox across Gmail and Outlook, plus an MCP server for AI agent integration. Single API for reading, sending, and organizing email across providers. The MCP server enables AI agents to draft responses, triage messages, and manage inbox rules. OAuth 2.0 authentication with secure token refresh and provider abstraction."
-    use_cases:
-      - "Unified inbox across Gmail and Outlook"
-      - "AI-powered email drafting via MCP server"
-      - "Programmatic email triage and organization"
-      - "Secure multi-provider authentication"
-    tech_stack: ["TypeScript", "MCP Protocol", "OAuth 2.0", "Express"]
-    agent_framework: ["MCP Servers"]
-
-  - id: private-ai
-    title: "Private AI Deployments"
-    url: "https://intentsolutions.io/private-ai"
-    icon: "fa-solid fa-cloud"
-    visibility: private
-    purpose_short: "Enterprise LLM infrastructure on your cloud"
-    purpose_long: "Private LLM deployment services for enterprises requiring data sovereignty and compliance. We deploy open-source models (Llama, Mistral, Gemma) on your Google Cloud infrastructure with full isolation. Includes custom fine-tuning pipelines, model serving optimization, and ongoing maintenance. Ideal for regulated industries (healthcare, finance, government) that cannot send data to third-party APIs."
-    use_cases:
-      - "Private LLM deployments with data sovereignty"
-      - "HIPAA/SOC2/FedRAMP compliant AI infrastructure"
-      - "Custom model fine-tuning on proprietary data"
-      - "On-premise or VPC-isolated deployments"
-    tech_stack: ["Google Cloud", "Vertex AI", "Terraform", "GKE", "vLLM"]
-    agent_framework: ["Vertex AI"]
-
-# N8N Workflows - separate category
+# N8N Workflows - Automation Templates
+# Links to: n8n.io or no link
 n8n_workflows:
   - id: disposable-marketplace-n8n
     title: "Disposable Marketplace"
