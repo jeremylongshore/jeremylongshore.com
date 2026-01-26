@@ -212,6 +212,22 @@ personal_repos:
     tech_stack: ["React", "Lit Protocol", "Firebase", "Web3"]
     agent_framework: []
 
+  - id: irsb-protocol
+    title: "IRSB Protocol"
+    url: "https://github.com/jeremylongshore/irsb-protocol"
+    icon: "fa-brands fa-ethereum"
+    github_repo: "jeremylongshore/irsb-protocol"
+    visibility: public
+    purpose_short: "Ethereum protocol for intent-based transaction accountability"
+    purpose_long: "Intent Receipts & Solver Bonds (IRSB) - An Ethereum protocol providing accountability for intent-based transactions. Complements ERC-7683 cross-chain intents with on-chain receipts proving solver execution, staked ETH bonds slashable for violations, and deterministic enforcement via automated slashing for timeouts, constraint violations, and receipt forgery. Deployed on Sepolia testnet."
+    use_cases:
+      - "On-chain intent receipts with cryptographic proofs"
+      - "Solver bond management with slashing mechanics"
+      - "Automated dispute resolution and arbitration"
+      - "Reputation tracking via IntentScore metrics"
+    tech_stack: ["Solidity", "Foundry", "Ethereum", "ERC-7683"]
+    agent_framework: []
+
   - id: claude-code-plugins
     title: "Claude Code Plugins"
     url: "https://claudecodeplugins.io"
