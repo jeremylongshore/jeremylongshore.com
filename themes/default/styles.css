@@ -6,6 +6,12 @@
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
+/* Global link reset - prevents Safari blue links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 body {
   background: #18181B; /* zinc-900 */
   color: #FAFAFA; /* zinc-50 */
@@ -394,35 +400,40 @@ a.section-header:hover i {
 }
 
 .btn-primary {
-  background: #E4E4E7; /* zinc-200 */
-  color: #18181B; /* zinc-900 */
+  background: #E4E4E7 !important; /* zinc-200 */
+  color: #18181B !important; /* zinc-900 */
+  border: none;
 }
 
 .btn-primary:link,
-.btn-primary:visited {
-  color: #18181B; /* zinc-900 */
+.btn-primary:visited,
+.btn-primary:active {
+  background: #E4E4E7 !important;
+  color: #18181B !important;
 }
 
 .btn-primary:hover {
-  background: #FAFAFA; /* zinc-50 */
-  color: #18181B; /* zinc-900 */
+  background: #FAFAFA !important; /* zinc-50 */
+  color: #18181B !important; /* zinc-900 */
 }
 
 .btn-secondary {
-  background: transparent;
-  color: #E4E4E7; /* zinc-200 */
-  border: 1px solid #52525B; /* zinc-600 */
+  background: transparent !important;
+  color: #E4E4E7 !important; /* zinc-200 */
+  border: 1px solid #52525B !important; /* zinc-600 */
 }
 
 .btn-secondary:link,
-.btn-secondary:visited {
-  color: #E4E4E7; /* zinc-200 */
+.btn-secondary:visited,
+.btn-secondary:active {
+  background: transparent !important;
+  color: #E4E4E7 !important;
 }
 
 .btn-secondary:hover {
-  background: #27272A; /* zinc-800 */
-  border-color: #71717A; /* zinc-500 */
-  color: #E4E4E7; /* zinc-200 */
+  background: #27272A !important; /* zinc-800 */
+  border-color: #71717A !important; /* zinc-500 */
+  color: #E4E4E7 !important; /* zinc-200 */
 }
 
 /* Footer */
