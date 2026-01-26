@@ -196,6 +196,22 @@ products:
 # Open Source - Personal Public Repos
 # Links to: github.com/jeremylongshore
 personal_repos:
+  - id: lit-with-intent
+    title: "Vincent"
+    url: "https://lit-with-intent.web.app"
+    icon: "fa-solid fa-key"
+    github_repo: "jeremylongshore/lit-with-intent"
+    visibility: public
+    purpose_short: "DeFi education platform for policy-controlled wallets and Lit Protocol"
+    purpose_long: "Educational DeFi platform teaching policy-controlled wallets, group investing, and distributed key management using Lit Protocol. Demonstrates real-world crypto infrastructure without marketing hype: programmable custody with spending rules, transparent multi-sig portfolios, and threshold cryptography. Built as both a practical tool and teaching instrument for understanding modern cryptocurrency custody and collaborative finance."
+    use_cases:
+      - "Learn policy-controlled wallet architecture"
+      - "Understand distributed key management"
+      - "Explore group investing patterns"
+      - "Monitor network health and market data"
+    tech_stack: ["React", "Lit Protocol", "Firebase", "Web3"]
+    agent_framework: []
+
   - id: claude-code-plugins
     title: "Claude Code Plugins"
     url: "https://claudecodeplugins.io"
