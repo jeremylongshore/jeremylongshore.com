@@ -1,3 +1,14 @@
+# Release v2.8.0
+
+**Release Date**: 2026-01-26
+
+## Changes since v2.7.0
+
+- chore: release v2.8.0 [skip ci] (4c7ea7c)
+- feat: reorder sections, add Vincent (Lit Protocol) to Open Source (59e1b99)
+
+---
+
 # Release v2.7.0
 
 **Release Date**: 2026-01-23
