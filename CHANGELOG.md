@@ -1,3 +1,14 @@
+# Release v2.9.0
+
+**Release Date**: 2026-01-26
+
+## Changes since v2.8.0
+
+- chore: release v2.9.0 [skip ci] (932d21b)
+- feat: add IRSB Protocol to Open Source section (7a7d7ee)
+
+---
+
 # Release v2.8.0
 
 **Release Date**: 2026-01-26
