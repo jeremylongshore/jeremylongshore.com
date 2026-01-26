@@ -1,3 +1,14 @@
+# Release v2.9.1
+
+**Release Date**: 2026-01-26
+
+## Changes since v2.9.0
+
+- chore: release v2.9.1 [skip ci] (145fccc)
+- fix: aggressive button styling + cache busting for Safari (f5fd2bc)
+
+---
+
 # Release v2.9.0
 
 **Release Date**: 2026-01-26
