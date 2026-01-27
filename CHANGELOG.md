@@ -1,3 +1,14 @@
+# Release v2.9.2
+
+**Release Date**: 2026-01-27
+
+## Changes since v2.9.1
+
+- chore: release v2.9.2 [skip ci] (ba9bfe6)
+- fix: remove Vincent, fix IRSB link, Claude Code Plugins first (2deada8)
+
+---
+
 # Release v2.9.1
 
 **Release Date**: 2026-01-26
