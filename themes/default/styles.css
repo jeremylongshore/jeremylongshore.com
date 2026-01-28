@@ -108,6 +108,42 @@ a.section-header:hover i {
   color: #A1A1AA; /* zinc-400 */
 }
 
+/* Contribution count badge in section header */
+.contribution-count {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 10px;
+  background: #14532D; /* green-900 */
+  color: #86EFAC; /* green-300 */
+}
+
+/* Contributions footer - smaller links */
+.contributions-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #1F1F23; /* slightly darker */
+  border-radius: 8px;
+  margin-top: 4px;
+}
+
+.contrib-other {
+  font-size: 12px;
+  color: #71717A; /* zinc-500 */
+  text-decoration: none;
+  padding: 4px 10px;
+  background: #27272A; /* zinc-800 */
+  border-radius: 6px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.contrib-other:hover {
+  color: #A1A1AA; /* zinc-400 */
+  background: #3F3F46; /* zinc-700 */
+}
+
 /* Add spacing between sections */
 .links + .links {
   margin-top: 32px;
@@ -212,6 +248,11 @@ a.section-header:hover i {
 .badge.private {
   background: #3F3F46; /* zinc-700 */
   color: #A1A1AA; /* zinc-400 */
+}
+
+.badge.contrib {
+  background: #14532D; /* green-900 */
+  color: #86EFAC; /* green-300 */
 }
 
 .expand-icon {

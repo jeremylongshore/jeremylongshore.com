@@ -74,3 +74,51 @@ footer: >
 # Footer copyright message
 copyright: >
   &copy; 2025 <a href="https://jeremylongshore.com" target="_blank">Jeremy Longshore</a> | <a href="https://intentsolutions.io" target="_blank">Intent Solutions</a> | <a href="./privacy.html">Privacy</a> | <a href="./terms.html">Terms</a>
+
+# Open Source Contributions
+contributions:
+  total_prs: 12
+  total_repos: 7
+  highlights:
+    - repo: "GoogleCloudPlatform/vertex-ai-samples"
+      url: "https://github.com/GoogleCloudPlatform/vertex-ai-samples/pull/4393"
+      icon: "fa-brands fa-google"
+      title: "Vertex AI Samples"
+      description: "ADK inline source deployment tutorial for Agent Engine"
+      pr_number: 4393
+      tags: ["Python", "Vertex AI", "ADK"]
+    - repo: "GoogleCloudPlatform/agent-starter-pack"
+      url: "https://github.com/GoogleCloudPlatform/agent-starter-pack/pull/580"
+      icon: "fa-brands fa-google"
+      title: "Agent Starter Pack"
+      description: "Bob's Brain production ADK reference in community showcase"
+      pr_number: 580
+      tags: ["Docs", "ADK"]
+    - repo: "PostHog/posthog"
+      url: "https://github.com/PostHog/posthog"
+      icon: "fa-solid fa-chart-simple"
+      title: "PostHog"
+      description: "React state management and feature flag bug fixes"
+      prs: 2
+      tags: ["TypeScript", "React"]
+    - repo: "steveyegge/beads"
+      url: "https://github.com/steveyegge/beads/pull/718"
+      icon: "fa-solid fa-link"
+      title: "Beads"
+      description: "Natural-language skill activation (823 lines)"
+      pr_number: 718
+      tags: ["Go", "Claude Code"]
+    - repo: "pabs-ai/blur-extension"
+      url: "https://github.com/pabs-ai/blur-extension"
+      icon: "fa-solid fa-eye-slash"
+      title: "Blur Extension"
+      description: "Teams, Slack, export/import, custom patterns"
+      prs: 4
+      tags: ["JavaScript", "Privacy"]
+  others:
+    - repo: "tldraw/tldraw"
+      url: "https://github.com/tldraw/tldraw/pull/7664"
+      note: "Prettier extension"
+    - repo: "filamentphp/filament"
+      url: "https://github.com/filamentphp/filament/pull/18875"
+      note: "Dark mode fix"

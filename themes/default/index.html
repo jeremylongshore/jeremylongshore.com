@@ -176,6 +176,35 @@
     </section>
     {% endif %}
 
+    {% if contributions.highlights.size > 0 %}
+    <section class="links">
+      <div class="section-header">
+        <h2 class="section-label">Open Source Contributions</h2>
+        <span class="contribution-count">{{ contributions.total_prs }} PRs merged</span>
+      </div>
+      {% for c in contributions.highlights %}
+      <a href="{{ c.url }}" target="_blank" class="link-item simple">
+        <div class="link-icon"><i class="{{ c.icon }}"></i></div>
+        <div class="link-text">
+          <span class="link-title">{{ c.title }}</span>
+          <span class="link-desc">{{ c.description }}</span>
+        </div>
+        <div class="link-badge">
+          {% if c.prs %}<span class="badge contrib">{{ c.prs }} PRs</span>
+          {% else %}<span class="badge contrib">#{{ c.pr_number }}</span>{% endif %}
+        </div>
+      </a>
+      {% endfor %}
+      {% if contributions.others.size > 0 %}
+      <div class="contributions-footer">
+        {% for o in contributions.others %}
+        <a href="{{ o.url }}" target="_blank" class="contrib-other">{{ o.repo | split: "/" | last }}: {{ o.note }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </section>
+    {% endif %}
+
     {% if client_projects.size > 0 %}
     <section class="links">
       <a href="https://intentsolutions.io" target="_blank" class="section-header">

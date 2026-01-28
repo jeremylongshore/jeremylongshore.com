@@ -101,6 +101,166 @@ intent_solutions_repos:
     tech_stack: ["TypeScript", "MCP Protocol", "OAuth 2.0", "Express"]
     agent_framework: ["MCP Servers"]
 
+  - id: intent-catalog
+    title: "Intent Catalog"
+    url: "https://github.com/intent-solutions-io/intent-catalog"
+    icon: "fa-solid fa-folder-tree"
+    github_repo: "intent-solutions-io/intent-catalog"
+    visibility: public
+    purpose_short: "Control-plane for plugins, skills, and documents"
+    purpose_long: "Centralized catalog system for managing Claude Code plugins, agent skills, and documentation assets. Provides versioning, dependency resolution, and discovery APIs. Built as the backbone for Intent Solutions' plugin ecosystem with full CRUD operations and metadata indexing."
+    use_cases:
+      - "Manage plugin versions and dependencies"
+      - "Discover skills by capability or tag"
+      - "Index and search documentation assets"
+      - "Automate catalog updates via CI/CD"
+    tech_stack: ["Python", "FastAPI", "SQLite"]
+    agent_framework: []
+
+  - id: intent-blueprint-docs
+    title: "Intent Blueprint Docs"
+    url: "https://github.com/intent-solutions-io/intent-blueprint-docs"
+    icon: "fa-solid fa-file-lines"
+    github_repo: "intent-solutions-io/intent-blueprint-docs"
+    visibility: public
+    purpose_short: "Enterprise AI documentation generator with 22 templates"
+    purpose_long: "Production-ready documentation generator with 22 professional templates covering PRD, architecture, tasks, and risk management. Works with Claude Code and Cursor IDE with zero setup. Includes enterprise intake workflow and automated template selection based on project needs."
+    use_cases:
+      - "Generate PRDs from natural language descriptions"
+      - "Create architecture decision records automatically"
+      - "Build comprehensive task breakdowns"
+      - "Produce risk assessments and mitigation plans"
+    tech_stack: ["TypeScript", "Templates", "GitHub Actions"]
+    agent_framework: ["Claude Code"]
+
+  - id: intent-genai-project-template
+    title: "GenAI Project Template"
+    url: "https://github.com/intent-solutions-io/intent-genai-project-template"
+    icon: "fa-solid fa-layer-group"
+    github_repo: "intent-solutions-io/intent-genai-project-template"
+    visibility: public
+    purpose_short: "Production Python template for LLM apps with evals"
+    purpose_long: "Battle-tested Python project template for building LLM applications. Includes FastAPI server, CLI interface, prompt pack management, streaming support, and evaluation framework. Preconfigured CI/CD with GitHub Actions, Docker support, and structured logging via structlog."
+    use_cases:
+      - "Bootstrap new LLM projects in minutes"
+      - "Run prompt evaluations with built-in framework"
+      - "Deploy via Docker with production defaults"
+      - "Manage prompt versions with prompt packs"
+    tech_stack: ["Python", "FastAPI", "Docker", "structlog", "GitHub Actions"]
+    agent_framework: []
+
+  - id: intent-agent-model-jvp-base
+    title: "Agent Model JVP Base"
+    url: "https://github.com/intent-solutions-io/intent-agent-model-jvp-base"
+    icon: "fa-solid fa-sitemap"
+    github_repo: "intent-solutions-io/intent-agent-model-jvp-base"
+    visibility: public
+    purpose_short: "Strategic boss agent template for multi-agent systems"
+    purpose_long: "Modular baseline template for building production-ready multi-agent systems on Google Cloud. Implements boss agent patterns with A2A protocol, Session Cache, Memory Bank, and RAG search. Includes Jupyter notebooks for development and testing against Vertex AI Agent Engine."
+    use_cases:
+      - "Build hierarchical multi-agent architectures"
+      - "Implement boss-worker agent patterns"
+      - "Test agents locally before Agent Engine deployment"
+      - "Leverage Memory Bank for persistent context"
+    tech_stack: ["Jupyter", "Python", "Vertex AI"]
+    agent_framework: ["Google ADK", "Vertex AI Agent Engine", "A2A Protocol"]
+
+  - id: resume-firebase
+    title: "Resume Firebase"
+    url: "https://github.com/intent-solutions-io/resume-firebase"
+    icon: "fa-solid fa-file-user"
+    github_repo: "intent-solutions-io/resume-firebase"
+    visibility: private
+    purpose_short: "Google-native resume generator with AI parsing"
+    purpose_long: "Full-stack resume generation platform built entirely on Google Cloud. Users upload documents via Firebase, which triggers Cloud Functions for processing. Vertex AI extracts structured data, Document AI handles PDF parsing, and Terraform manages infrastructure. Real-time status updates via Firestore."
+    use_cases:
+      - "Parse resumes from PDF, DOCX, or images"
+      - "Extract structured data with Document AI"
+      - "Generate formatted resumes in multiple styles"
+      - "Track document processing in real-time"
+    tech_stack: ["TypeScript", "Firebase", "Cloud Run", "Vertex AI", "Document AI", "Terraform"]
+    agent_framework: ["Vertex AI"]
+
+  - id: resume-realtime
+    title: "Resume Realtime"
+    url: "https://github.com/intent-solutions-io/resume-realtime"
+    icon: "fa-solid fa-users-viewfinder"
+    github_repo: "intent-solutions-io/resume-realtime"
+    visibility: private
+    purpose_short: "Real-time collaborative resume builder in Rust"
+    purpose_long: "Collaborative resume editing platform with real-time sync built on Rust and Leptos. Server-side rendered for fast initial loads with hydration for interactivity. Multiple users can edit the same resume simultaneously with conflict resolution and live cursor tracking."
+    use_cases:
+      - "Edit resumes collaboratively in real-time"
+      - "See live changes from other editors"
+      - "Fast initial page loads with SSR"
+      - "Work offline with automatic sync"
+    tech_stack: ["Rust", "Leptos", "SSR", "WebSocket"]
+    agent_framework: []
+
+  - id: proposal-template
+    title: "Proposal Template"
+    url: "https://github.com/intent-solutions-io/proposal-template"
+    icon: "fa-solid fa-file-contract"
+    github_repo: "intent-solutions-io/proposal-template"
+    visibility: private
+    purpose_short: "Production proposal generator with safety patches"
+    purpose_long: "Jinja-based proposal generation system with commercial-safety patches for sensitive content. Includes templates for consulting engagements, SOWs, and project proposals. Automated variable substitution, PDF export, and version tracking for professional client deliverables."
+    use_cases:
+      - "Generate client proposals from templates"
+      - "Auto-fill project details and pricing"
+      - "Export to PDF with professional formatting"
+      - "Track proposal versions and revisions"
+    tech_stack: ["Jinja", "Python", "PDF"]
+    agent_framework: []
+
+  - id: bounties
+    title: "Bounties"
+    url: "https://github.com/intent-solutions-io/bounties"
+    icon: "fa-solid fa-bullseye"
+    github_repo: "intent-solutions-io/bounties"
+    visibility: private
+    purpose_short: "Open source bounty hunting automation"
+    purpose_long: "Automated system for discovering, tracking, and claiming open source bounties across GitHub, Gitcoin, and other platforms. Monitors repositories for new bounties, scores opportunities by difficulty and reward, and tracks claim status through completion."
+    use_cases:
+      - "Discover new bounties across platforms"
+      - "Score opportunities by ROI potential"
+      - "Track bounty claims and payouts"
+      - "Automate bounty status updates"
+    tech_stack: ["TypeScript", "GitHub API", "PostgreSQL"]
+    agent_framework: []
+
+  - id: drop
+    title: "Drop"
+    url: "https://github.com/intent-solutions-io/drop"
+    icon: "fa-solid fa-droplet"
+    github_repo: "intent-solutions-io/drop"
+    visibility: private
+    purpose_short: "Water-first Situation Graph for location events"
+    purpose_long: "Global standard platform for verified, citeable location-based events with water infrastructure as the primary use case. Implements a Situation Graph data model for tracking events, conditions, and responses tied to geographic coordinates with cryptographic verification."
+    use_cases:
+      - "Track water infrastructure events globally"
+      - "Verify and cite location-based incidents"
+      - "Build situation awareness dashboards"
+      - "Enable cross-organization event sharing"
+    tech_stack: ["Shell", "GCP", "BigQuery"]
+    agent_framework: []
+
+  - id: lit-with-intent
+    title: "Lit With Intent"
+    url: "https://github.com/intent-solutions-io/lit-with-intent"
+    icon: "fa-solid fa-key"
+    github_repo: "intent-solutions-io/lit-with-intent"
+    visibility: private
+    purpose_short: "Lit Protocol decentralized access control"
+    purpose_long: "Integration layer for Lit Protocol's decentralized access control and encryption. Enables token-gated content, programmable signing, and cross-chain authentication. Built for Intent Solutions projects requiring trustless key management and conditional decryption."
+    use_cases:
+      - "Implement token-gated access control"
+      - "Enable programmable signing conditions"
+      - "Encrypt data with decentralized keys"
+      - "Build cross-chain authentication flows"
+    tech_stack: ["TypeScript", "Lit Protocol", "Ethereum"]
+    agent_framework: []
+
 # Products & Services - Commercial Offerings
 products:
   - id: intentsolutions
@@ -193,6 +353,22 @@ products:
     tech_stack: ["Google Cloud", "Vertex AI", "Terraform", "GKE", "vLLM"]
     agent_framework: ["Vertex AI"]
 
+  - id: gastown-viewer
+    title: "Gastown Viewer"
+    url: "https://github.com/intent-solutions-io/gastown-viewer-intent"
+    icon: "fa-solid fa-gauge-high"
+    github_repo: "intent-solutions-io/gastown-viewer-intent"
+    visibility: public
+    purpose_short: "Local-first Mission Control for agent swarms"
+    purpose_long: "Dashboard and TUI for monitoring Beads task management and Gastown-style agent swarms. Provides real-time visibility into agent status, task queues, and execution logs. Built with Go backend and React frontend, with optional terminal interface for headless operation."
+    use_cases:
+      - "Monitor multi-agent swarm execution"
+      - "Track Beads task progress in real-time"
+      - "Debug agent failures with execution logs"
+      - "Operate via TUI on remote servers"
+    tech_stack: ["Go", "React", "TUI"]
+    agent_framework: ["Beads"]
+
 # Open Source - Personal Public Repos
 # Links to: github.com/jeremylongshore
 personal_repos:
@@ -260,6 +436,134 @@ personal_repos:
     tech_stack: ["TypeScript", "Docker", "Node.js", "Express"]
     agent_framework: ["MCP Protocol"]
 
+  - id: iam-local-rag
+    title: "NEXUS Local RAG"
+    url: "https://github.com/intent-solutions-io/iam-local-rag"
+    icon: "fa-solid fa-database"
+    github_repo: "intent-solutions-io/iam-local-rag"
+    visibility: public
+    purpose_short: "Zero-cost local RAG for private document intelligence"
+    purpose_long: "Fully autonomous local AI agent for private document intelligence. Runs 100% locally with no cloud costs using Ollama for inference and LangChain for orchestration. Indexes documents into vector store for semantic retrieval while keeping all data on-premises."
+    use_cases:
+      - "Query private documents with natural language"
+      - "Run AI analysis without cloud API costs"
+      - "Keep sensitive data fully on-premises"
+      - "Build custom knowledge bases from local files"
+    tech_stack: ["Python", "LangChain", "Ollama", "ChromaDB"]
+    agent_framework: []
+
+  - id: lumera-agent-memory
+    title: "Lumera Agent Memory"
+    url: "https://github.com/intent-solutions-io/lumera-agent-memory"
+    icon: "fa-solid fa-brain"
+    github_repo: "intent-solutions-io/lumera-agent-memory"
+    visibility: public
+    purpose_short: "Hybrid memory system for coding agents"
+    purpose_long: "Memory architecture combining local search with cascade storage for coding agents. Implements tiered retrieval with fast local lookup and fallback to persistent storage. Designed for long-running agent sessions that need to remember context across compactions."
+    use_cases:
+      - "Persist agent memory across sessions"
+      - "Fast local search for recent context"
+      - "Cascade to storage for older memories"
+      - "Survive context compaction events"
+    tech_stack: ["Python", "SQLite", "Vector Search"]
+    agent_framework: []
+
+  - id: create-agent-skill-md
+    title: "Create Agent Skill MD"
+    url: "https://github.com/intent-solutions-io/create-agent-skill-md"
+    icon: "fa-solid fa-wand-magic-sparkles"
+    github_repo: "intent-solutions-io/create-agent-skill-md"
+    visibility: public
+    purpose_short: "CLI for validating Claude Agent Skills"
+    purpose_long: "Command-line tool for scaffolding and validating Claude Code agent skills. Generates compliant SKILL.md files with proper frontmatter, validates existing skills against the 2025 specification, and provides migration helpers for older skill formats."
+    use_cases:
+      - "Scaffold new skills with proper structure"
+      - "Validate skills against 2025 spec"
+      - "Migrate legacy skills to current format"
+      - "Check skill compatibility before publish"
+    tech_stack: ["Go", "CLI"]
+    agent_framework: ["Claude Code"]
+
+  - id: prompts-intent-solutions
+    title: "Prompts Intent Solutions"
+    url: "https://github.com/jeremylongshore/prompts-intent-solutions"
+    icon: "fa-solid fa-scroll"
+    github_repo: "jeremylongshore/prompts-intent-solutions"
+    visibility: public
+    purpose_short: "Automation templates and prompt engineering"
+    purpose_long: "Collection of production prompt templates, GitHub workflow configurations, and automation scripts used across Intent Solutions projects. Includes reusable CI/CD workflows, shell utilities, and curated prompts for common AI development tasks."
+    use_cases:
+      - "Bootstrap projects with proven workflows"
+      - "Reuse tested prompt templates"
+      - "Standardize CI/CD across repositories"
+      - "Share automation scripts between projects"
+    tech_stack: ["Shell", "GitHub Actions", "YAML"]
+    agent_framework: []
+
+  - id: homebrew-tap
+    title: "Homebrew Tap"
+    url: "https://github.com/intent-solutions-io/homebrew-tap"
+    icon: "fa-brands fa-apple"
+    github_repo: "intent-solutions-io/homebrew-tap"
+    visibility: public
+    purpose_short: "Homebrew tap for Intent Solutions tools"
+    purpose_long: "Official Homebrew tap for installing Intent Solutions CLI tools on macOS and Linux. Provides formulae for project utilities, development helpers, and automation scripts. One-command installation with automatic updates via brew upgrade."
+    use_cases:
+      - "Install Intent Solutions tools via Homebrew"
+      - "Keep tools updated with brew upgrade"
+      - "Distribute CLI tools to team members"
+      - "Manage tool dependencies automatically"
+    tech_stack: ["Ruby", "Homebrew"]
+    agent_framework: []
+
+  - id: the-county-line
+    title: "The County Line"
+    url: "https://github.com/jeremylongshore/the-county-line"
+    icon: "fa-solid fa-car-side"
+    github_repo: "jeremylongshore/the-county-line"
+    visibility: public
+    purpose_short: "Roblox UTV mud racing with realistic physics"
+    purpose_long: "Roblox game featuring UTV mud racing with realistic vehicle physics, progression systems, and safety-compliant monetization. Built on Luau with type safety, includes seasonal events, leaderboards, and vehicle customization. Designed for Gulf Coast off-road culture."
+    use_cases:
+      - "Race UTVs through mud tracks"
+      - "Customize vehicles with earned credits"
+      - "Compete on seasonal leaderboards"
+      - "Progress through racing tiers"
+    tech_stack: ["Lua", "Luau", "Roblox"]
+    agent_framework: []
+
+  - id: roblox-game-template
+    title: "Roblox Game Template"
+    url: "https://github.com/jeremylongshore/roblox-game-template"
+    icon: "fa-solid fa-gamepad"
+    github_repo: "jeremylongshore/roblox-game-template"
+    visibility: public
+    purpose_short: "Production Roblox template with Luau type safety"
+    purpose_long: "Production-ready Roblox game template with Luau strict typing, professional tooling, and CI/CD pipeline. Includes modular code structure, testing framework, and deployment automation. Foundation for building commercial-quality Roblox experiences."
+    use_cases:
+      - "Start new Roblox games with best practices"
+      - "Enforce type safety with Luau strict mode"
+      - "Run automated tests in CI/CD"
+      - "Deploy to Roblox via GitHub Actions"
+    tech_stack: ["Lua", "Luau", "GitHub Actions", "Rojo"]
+    agent_framework: []
+
+  - id: no-you-pick
+    title: "No You Pick"
+    url: "https://github.com/intent-solutions-io/No-You-Pick."
+    icon: "fa-solid fa-utensils"
+    github_repo: "intent-solutions-io/No-You-Pick."
+    visibility: public
+    purpose_short: "Restaurant finder app for indecisive groups"
+    purpose_long: "Mobile-friendly app that solves the 'where should we eat' problem. Users input preferences and constraints, and the app suggests restaurants based on location, cuisine, price, and dietary requirements. Eliminates decision paralysis with weighted randomization."
+    use_cases:
+      - "Find restaurants matching group preferences"
+      - "Filter by cuisine, price, and distance"
+      - "Handle dietary restrictions and allergies"
+      - "Break decision deadlocks with smart picks"
+    tech_stack: ["TypeScript", "React", "Google Places API"]
+    agent_framework: []
+
 # Client Projects - Work for Others
 # Links to: intentsolutions.io
 client_projects:
@@ -309,3 +613,30 @@ n8n_workflows:
     visibility: public
     purpose_short: "Daily news monitoring and topic analysis"
     tech_stack: ["N8N", "RSS", "AI Analysis"]
+
+  - id: n8n-workflow-template
+    title: "N8N Workflow Template"
+    url: "https://github.com/jeremylongshore/n8n-workflow-template"
+    icon: "fa-solid fa-diagram-project"
+    github_repo: "jeremylongshore/n8n-workflow-template"
+    visibility: public
+    purpose_short: "Professional template for documented n8n repos"
+    tech_stack: ["N8N", "GitHub Pages", "Markdown"]
+
+  - id: lead-followup-system-n8n
+    title: "Lead Followup System"
+    url: "https://jeremylongshore.github.io/lead-followup-system-n8n/"
+    icon: "fa-solid fa-user-plus"
+    github_repo: "jeremylongshore/lead-followup-system-n8n"
+    visibility: public
+    purpose_short: "Automated B2B lead capture with AI scoring"
+    tech_stack: ["N8N", "Airtable", "Tally", "AI Scoring"]
+
+  - id: ai-blog-journalist-n8n
+    title: "AI Blog Journalist"
+    url: "https://github.com/jeremylongshore/ai-blog-journalist-n8n"
+    icon: "fa-solid fa-pen-nib"
+    github_repo: "jeremylongshore/ai-blog-journalist-n8n"
+    visibility: public
+    purpose_short: "Automated blog content with AI research"
+    tech_stack: ["N8N", "Perplexity", "Claude", "Markdown"]
