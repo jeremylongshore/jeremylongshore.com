@@ -1,3 +1,15 @@
+# Release v2.10.0
+
+**Release Date**: 2026-01-28
+
+## Changes since v2.9.2
+
+- chore: release v2.10.0 [skip ci] (4d9a17a)
+- feat: add 25 projects and Open Source Contributions section (848fecf)
+- docs: rewrite README to match actual Linkyee/Firebase architecture (c8b93e3)
+
+---
+
 # Release v2.9.2
 
 **Release Date**: 2026-01-27
