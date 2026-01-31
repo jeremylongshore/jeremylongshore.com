@@ -1,3 +1,14 @@
+# Release v2.11.0
+
+**Release Date**: 2026-01-31
+
+## Changes since v2.10.1
+
+- chore: release v2.11.0 [skip ci] (35f9871)
+- feat: add missing repos, update visibility, remove private-ai (1d45d59)
+
+---
+
 # Release v2.10.1
 
 **Release Date**: 2026-01-31
