@@ -1,3 +1,14 @@
+# Release v2.10.1
+
+**Release Date**: 2026-01-31
+
+## Changes since v2.10.0
+
+- chore: release v2.10.1 [skip ci] (2598d61)
+- fix: update 9 repos visibility from private to public (aafb1e3)
+
+---
+
 # Release v2.10.0
 
 **Release Date**: 2026-01-28
