@@ -91,6 +91,23 @@ if github_repos.any?
   end
 end
 
+# Sort each category by star count (descending), then alphabetically
+def sort_by_stars(projects, github_stars)
+  projects.sort_by do |p|
+    repo = p["github_repo"]
+    stars = repo ? (github_stars[repo] || 0) : 0
+    [-stars, p["title"].to_s.downcase]  # Descending stars, then alphabetical
+  end
+end
+
+if settings["github_stars"]
+  settings["intent_solutions_repos"] = sort_by_stars(settings["intent_solutions_repos"], settings["github_stars"])
+  settings["products"] = sort_by_stars(settings["products"], settings["github_stars"])
+  settings["personal_repos"] = sort_by_stars(settings["personal_repos"], settings["github_stars"])
+  settings["client_projects"] = sort_by_stars(settings["client_projects"], settings["github_stars"])
+  settings["n8n_workflows"] = sort_by_stars(settings["n8n_workflows"], settings["github_stars"])
+end
+
 # Run any additional plugins from config
 if !settings["plugins"].nil?
   settings["plugins"].each do |plugin|

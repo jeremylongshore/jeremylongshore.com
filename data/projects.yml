@@ -298,7 +298,8 @@ products:
     title: "HustleStats"
     url: "https://hustlestats.io"
     icon: "fa-solid fa-futbol"
-    visibility: private
+    github_repo: "intent-solutions-io/hustle"
+    visibility: public
     purpose_short: "Youth soccer performance tracking with AI analysis"
     purpose_long: "Youth sports analytics platform designed for coaches and parents. Track player statistics in real-time during games, generate AI-powered performance reports, and share highlight clips with families. Features include individual player development tracking, team analytics, season comparisons, and college recruiting profiles. Uses Vertex AI for game analysis and A2A protocol for multi-agent stat processing."
     use_cases:
@@ -313,7 +314,8 @@ products:
     title: "CostPlusDB"
     url: "https://costplusdb.dev"
     icon: "fa-solid fa-database"
-    visibility: private
+    github_repo: "jeremylongshore/cost-plus-db"
+    visibility: public
     purpose_short: "PostgreSQL hosting at cost + 25%"
     purpose_long: "Transparent PostgreSQL hosting with a simple pricing model: infrastructure cost plus 25% margin. No hidden fees, no surprise bills, no vendor lock-in. Published performance benchmarks let you compare against AWS RDS, Cloud SQL, and others. Features include automated backups, point-in-time recovery, connection pooling, and performance monitoring. Built on GCP Compute Engine for reliability."
     use_cases:
@@ -328,7 +330,8 @@ products:
     title: "STCI"
     url: "https://inferencepriceindex.com"
     icon: "fa-solid fa-chart-line"
-    visibility: private
+    github_repo: "intent-solutions-io/stci-standard-inference-token-cost-index"
+    visibility: public
     purpose_short: "Daily LLM API pricing benchmark"
     purpose_long: "The Standard Token Cost Index - a daily benchmark tracking LLM API pricing across OpenAI, Anthropic, Google, DeepSeek, and other providers. Historical price tracking shows cost trends over time. Free public API endpoint lets developers query current prices programmatically. Essential resource for teams optimizing AI infrastructure costs and making informed provider decisions."
     use_cases:
@@ -338,21 +341,6 @@ products:
       - "Optimize AI infrastructure costs"
     tech_stack: ["Python", "Firebase", "Cloud Scheduler", "FastAPI"]
     agent_framework: []
-
-  - id: private-ai
-    title: "Private AI Deployments"
-    url: "https://intentsolutions.io/private-ai"
-    icon: "fa-solid fa-cloud"
-    visibility: private
-    purpose_short: "Enterprise LLM infrastructure on your cloud"
-    purpose_long: "Private LLM deployment services for enterprises requiring data sovereignty and compliance. We deploy open-source models (Llama, Mistral, Gemma) on your Google Cloud infrastructure with full isolation. Includes custom fine-tuning pipelines, model serving optimization, and ongoing maintenance. Ideal for regulated industries (healthcare, finance, government) that cannot send data to third-party APIs."
-    use_cases:
-      - "Private LLM deployments with data sovereignty"
-      - "HIPAA/SOC2/FedRAMP compliant AI infrastructure"
-      - "Custom model fine-tuning on proprietary data"
-      - "On-premise or VPC-isolated deployments"
-    tech_stack: ["Google Cloud", "Vertex AI", "Terraform", "GKE", "vLLM"]
-    agent_framework: ["Vertex AI"]
 
   - id: gastown-viewer
     title: "Gastown Viewer"
@@ -389,6 +377,37 @@ personal_repos:
     tech_stack: ["TypeScript", "Node.js", "MCP Protocol", "React"]
     agent_framework: ["Claude Code", "MCP Servers"]
 
+  - id: hybrid-ai-stack
+    title: "Hybrid AI Stack"
+    url: "https://github.com/jeremylongshore/Hybrid-ai-stack-intent-solutions"
+    icon: "fa-solid fa-layer-group"
+    github_repo: "jeremylongshore/Hybrid-ai-stack-intent-solutions"
+    visibility: public
+    purpose_short: "Production AI architecture patterns for Google Cloud"
+    purpose_long: "Reference architecture for building hybrid AI systems on Google Cloud. Combines Vertex AI, Firebase, and Cloud Run for production-grade AI applications."
+    use_cases:
+      - "Production AI architecture patterns"
+      - "Google Cloud AI integrations"
+      - "Hybrid cloud + AI deployments"
+    tech_stack: ["Google Cloud", "Vertex AI", "Firebase", "Cloud Run"]
+    agent_framework: ["Vertex AI"]
+
+  - id: excel-analyst-pro
+    title: "Excel Analyst Pro"
+    url: "https://github.com/jeremylongshore/excel-analyst-pro"
+    icon: "fa-solid fa-file-excel"
+    github_repo: "jeremylongshore/excel-analyst-pro"
+    visibility: public
+    purpose_short: "Financial modeling toolkit for Claude Code"
+    purpose_long: "Professional financial modeling toolkit for Claude Code with auto-invoked Skills. Build DCF models, LBO analysis, variance reports, and pivot tables using natural language."
+    use_cases:
+      - "DCF model generation from natural language"
+      - "LBO analysis automation"
+      - "Variance reports and pivot tables"
+      - "Financial modeling in Claude Code"
+    tech_stack: ["Python", "Excel", "Claude Code"]
+    agent_framework: ["Claude Code"]
+
   - id: irsb-protocol
     title: "IRSB Protocol"
     url: "https://irsb-protocol.web.app"
@@ -403,6 +422,22 @@ personal_repos:
       - "Automated dispute resolution and arbitration"
       - "Reputation tracking via IntentScore metrics"
     tech_stack: ["Solidity", "Foundry", "Ethereum", "ERC-7683"]
+    agent_framework: []
+
+  - id: irsb-watchtower
+    title: "IRSB Watchtower"
+    url: "https://github.com/intent-solutions-io/IRSB-watchtower"
+    icon: "fa-solid fa-tower-observation"
+    github_repo: "intent-solutions-io/IRSB-watchtower"
+    visibility: public
+    purpose_short: "Universal watchtower service for IRSB protocol monitoring"
+    purpose_long: "Universal watchtower service for IRSB protocol - monitors on-chain activity, detects violations, and optionally auto-acts. Provides real-time surveillance of solver behavior and automated violation detection."
+    use_cases:
+      - "Monitor IRSB protocol on-chain activity"
+      - "Detect solver violations automatically"
+      - "Trigger slashing for protocol violations"
+      - "Real-time blockchain surveillance"
+    tech_stack: ["TypeScript", "Ethereum", "Foundry"]
     agent_framework: []
 
   - id: startaitools
