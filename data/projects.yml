@@ -10,7 +10,7 @@ intent_solutions_repos:
     url: "https://executive-intent.web.app"
     icon: "fa-solid fa-shield-check"
     github_repo: "intent-solutions-io/executive-intent"
-    visibility: private
+    visibility: public
     purpose_short: "Proof-first security pipeline for Gmail/Calendar intelligence"
     purpose_long: "Enterprise security pipeline that transforms Gmail and Calendar data into a governed, DLP-screened knowledge base. Ingests email and calendar metadata through OAuth, applies Nightfall DLP enforcement (allow/redact/quarantine), indexes content with pgvector embeddings, and enables semantic retrieval with documented provenance. Every query returns audit receipts tied to build and deploy pipelines."
     use_cases:
@@ -26,7 +26,7 @@ intent_solutions_repos:
     url: "https://perception-with-intent.web.app"
     icon: "fa-solid fa-brain"
     github_repo: "intent-solutions-io/perception-with-intent"
-    visibility: private
+    visibility: public
     purpose_short: "Multi-agent news monitoring with 8 Vertex AI agents"
     purpose_long: "AI-powered news intelligence platform with 8 specialist Vertex AI agents monitoring 50+ sources in real-time. Agents specialize in different domains (tech, finance, policy, etc.) and collaborate through A2A protocol to provide comprehensive analysis. Features include automated daily briefings, topic clustering, trend detection, and anomaly alerts. Built on Google ADK with Agent Engine for production-grade reliability."
     use_cases:
@@ -170,7 +170,7 @@ intent_solutions_repos:
     url: "https://github.com/intent-solutions-io/resume-firebase"
     icon: "fa-solid fa-file-user"
     github_repo: "intent-solutions-io/resume-firebase"
-    visibility: private
+    visibility: public
     purpose_short: "Google-native resume generator with AI parsing"
     purpose_long: "Full-stack resume generation platform built entirely on Google Cloud. Users upload documents via Firebase, which triggers Cloud Functions for processing. Vertex AI extracts structured data, Document AI handles PDF parsing, and Terraform manages infrastructure. Real-time status updates via Firestore."
     use_cases:
@@ -186,7 +186,7 @@ intent_solutions_repos:
     url: "https://github.com/intent-solutions-io/resume-realtime"
     icon: "fa-solid fa-users-viewfinder"
     github_repo: "intent-solutions-io/resume-realtime"
-    visibility: private
+    visibility: public
     purpose_short: "Real-time collaborative resume builder in Rust"
     purpose_long: "Collaborative resume editing platform with real-time sync built on Rust and Leptos. Server-side rendered for fast initial loads with hydration for interactivity. Multiple users can edit the same resume simultaneously with conflict resolution and live cursor tracking."
     use_cases:
@@ -218,7 +218,7 @@ intent_solutions_repos:
     url: "https://github.com/intent-solutions-io/bounties"
     icon: "fa-solid fa-bullseye"
     github_repo: "intent-solutions-io/bounties"
-    visibility: private
+    visibility: public
     purpose_short: "Open source bounty hunting automation"
     purpose_long: "Automated system for discovering, tracking, and claiming open source bounties across GitHub, Gitcoin, and other platforms. Monitors repositories for new bounties, scores opportunities by difficulty and reward, and tracks claim status through completion."
     use_cases:
@@ -234,7 +234,7 @@ intent_solutions_repos:
     url: "https://github.com/intent-solutions-io/drop"
     icon: "fa-solid fa-droplet"
     github_repo: "intent-solutions-io/drop"
-    visibility: private
+    visibility: public
     purpose_short: "Water-first Situation Graph for location events"
     purpose_long: "Global standard platform for verified, citeable location-based events with water infrastructure as the primary use case. Implements a Situation Graph data model for tracking events, conditions, and responses tied to geographic coordinates with cryptographic verification."
     use_cases:
@@ -250,7 +250,7 @@ intent_solutions_repos:
     url: "https://github.com/intent-solutions-io/lit-with-intent"
     icon: "fa-solid fa-key"
     github_repo: "intent-solutions-io/lit-with-intent"
-    visibility: private
+    visibility: public
     purpose_short: "Lit Protocol decentralized access control"
     purpose_long: "Integration layer for Lit Protocol's decentralized access control and encryption. Enables token-gated content, programmable signing, and cross-chain authentication. Built for Intent Solutions projects requiring trustless key management and conditional decryption."
     use_cases:
@@ -282,7 +282,8 @@ products:
     title: "PipelinePilot"
     url: "https://pipelinepilot-prod.web.app"
     icon: "fa-solid fa-rocket"
-    visibility: private
+    github_repo: "jeremylongshore/pipelinepilot"
+    visibility: public
     purpose_short: "B2B sales automation with AI lead qualification"
     purpose_long: "SDR orchestration platform that automates the entire outbound sales pipeline. AI agents qualify leads using firmographic and technographic signals, craft personalized outreach sequences, and manage multi-channel follow-ups across email, LinkedIn, and phone. Integrates with major CRMs and provides real-time pipeline analytics. Built on Google ADK for reliable, scalable agent execution."
     use_cases:
@@ -572,7 +573,7 @@ client_projects:
     url: "https://github.com/intent-solutions-io/plugins-nixtla"
     icon: "fa-solid fa-chart-simple"
     github_repo: "intent-solutions-io/plugins-nixtla"
-    visibility: private
+    visibility: public
     client_work: true
     purpose_short: "TimeGPT forecasting for Claude Code"
     purpose_long: "Claude Code plugin suite for Nixtla's TimeGPT forecasting platform. Generate complete forecasting pipelines from natural language descriptions, run automated model benchmarks against historical data, and visualize predictions. Supports univariate and multivariate time series, anomaly detection, and cross-validation. Built for data teams who want AI-assisted forecasting without leaving their IDE."
