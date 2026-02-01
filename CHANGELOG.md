@@ -1,3 +1,14 @@
+# Release v2.11.2
+
+**Release Date**: 2026-02-01
+
+## Changes since v2.11.1
+
+- chore: release v2.11.2 [skip ci] (dd9057f)
+- build: rebuild site without No You Pick (2324e1d)
+
+---
+
 # Release v2.11.1
 
 **Release Date**: 2026-02-01
