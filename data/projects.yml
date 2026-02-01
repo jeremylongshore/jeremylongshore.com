@@ -584,22 +584,6 @@ personal_repos:
     tech_stack: ["Lua", "Luau", "GitHub Actions", "Rojo"]
     agent_framework: []
 
-  - id: no-you-pick
-    title: "No You Pick"
-    url: "https://github.com/intent-solutions-io/No-You-Pick."
-    icon: "fa-solid fa-utensils"
-    github_repo: "intent-solutions-io/No-You-Pick."
-    visibility: public
-    purpose_short: "Restaurant finder app for indecisive groups"
-    purpose_long: "Mobile-friendly app that solves the 'where should we eat' problem. Users input preferences and constraints, and the app suggests restaurants based on location, cuisine, price, and dietary requirements. Eliminates decision paralysis with weighted randomization."
-    use_cases:
-      - "Find restaurants matching group preferences"
-      - "Filter by cuisine, price, and distance"
-      - "Handle dietary restrictions and allergies"
-      - "Break decision deadlocks with smart picks"
-    tech_stack: ["TypeScript", "React", "Google Places API"]
-    agent_framework: []
-
 # Client Projects - Work for Others
 # Links to: intentsolutions.io
 client_projects:
