@@ -1,3 +1,14 @@
+# Release v2.11.1
+
+**Release Date**: 2026-02-01
+
+## Changes since v2.11.0
+
+- chore: release v2.11.1 [skip ci] (1d5b762)
+- chore: remove No You Pick app from website (7304ed1)
+
+---
+
 # Release v2.11.0
 
 **Release Date**: 2026-01-31
