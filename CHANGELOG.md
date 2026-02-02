@@ -1,3 +1,14 @@
+# Release v2.13.0
+
+**Release Date**: 2026-02-02
+
+## Changes since v2.12.1
+
+- chore: release v2.13.0 [skip ci] (f953319)
+- feat: position for organizational transformation with DORA methodology (9df3c05)
+
+---
+
 # Release v2.12.1
 
 **Release Date**: 2026-02-02
