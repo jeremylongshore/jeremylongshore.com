@@ -56,6 +56,26 @@ body {
   line-height: 1.5;
 }
 
+.site-links {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #71717A; /* zinc-500 */
+}
+
+.site-links a {
+  color: #A1A1AA; /* zinc-400 */
+  transition: color 0.15s;
+}
+
+.site-links a:hover {
+  color: #FAFAFA; /* zinc-50 */
+}
+
+.site-links span {
+  margin: 0 8px;
+  color: #52525B; /* zinc-600 */
+}
+
 /* Productivity Approach Section */
 .productivity-approach {
   margin-bottom: 40px;
