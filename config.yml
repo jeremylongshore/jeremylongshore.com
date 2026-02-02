@@ -11,7 +11,7 @@ lang: "en"
 google_analytics_id: "G-40E6F2PYMQ"
 
 # HTML Title
-title: "Jeremy Longshore - AI Automation & Cloud Infrastructure"
+title: "Jeremy Longshore - AI Productivity & Engineering Transformation"
 
 # Avatar image path
 avatar: "./images/profile.jpeg"
@@ -21,8 +21,7 @@ name: "Jeremy Longshore"
 
 # Tagline section text
 tagline: >-
-    AI Automation Specialist & Google Cloud Platform Expert from Gulf Shores, Alabama 🇺🇸
-    Building production systems that ship in days, not months.
+    AI Productivity & Engineering Transformation Leader — I help engineering organizations capture measurable efficiency gains through automation, workflow redesign, and operational excellence.
 
 # List of social media links
 socials:
@@ -69,7 +68,7 @@ contact_url: "https://intentsolutions.io/contact"
 
 # Footer text
 footer: >
-    AI Automation Specialist & Google Cloud Platform Expert. 20+ years restaurant operations to self-taught developer to AI systems architect. Based in Gulf Shores, Alabama. Marine Corps Reservist, Citadel grad. Building systems that eliminate manual work and save businesses money.
+    AI Productivity Leader. 20+ years ops leadership → self-taught developer → AI systems architect. Marine Corps Reservist, Citadel grad.
 
 # Footer copyright message
 copyright: >

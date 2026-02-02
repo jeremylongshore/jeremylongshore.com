@@ -56,6 +56,152 @@ body {
   line-height: 1.5;
 }
 
+/* Productivity Approach Section */
+.productivity-approach {
+  margin-bottom: 40px;
+  padding: 24px;
+  background: #1F1F23;
+  border-radius: 12px;
+  border: 1px solid #27272A;
+}
+
+.productivity-approach h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #FAFAFA;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.approach-item {
+  padding: 16px;
+  background: #27272A;
+  border-radius: 8px;
+}
+
+.approach-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #FAFAFA;
+  margin-bottom: 6px;
+}
+
+.approach-desc {
+  font-size: 13px;
+  color: #A1A1AA;
+  line-height: 1.4;
+}
+
+.philosophy {
+  padding-top: 16px;
+  border-top: 1px solid #27272A;
+}
+
+.philosophy p {
+  font-size: 14px;
+  color: #A1A1AA;
+  margin-bottom: 8px;
+}
+
+.philosophy ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.philosophy li {
+  font-size: 13px;
+  color: #A1A1AA;
+  padding: 4px 0 4px 20px;
+  position: relative;
+}
+
+.philosophy li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #71717A;
+}
+
+/* Section Intro Text */
+.section-intro {
+  font-size: 14px;
+  color: #A1A1AA;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+/* Who I Work With Section */
+.who-i-work-with {
+  margin-top: 40px;
+  padding: 24px;
+  background: #1F1F23;
+  border-radius: 12px;
+  border: 1px solid #27272A;
+  text-align: center;
+}
+
+.who-i-work-with h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #FAFAFA;
+  margin-bottom: 16px;
+}
+
+.who-i-work-with p {
+  font-size: 14px;
+  color: #A1A1AA;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.who-i-work-with ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+  text-align: left;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.who-i-work-with li {
+  font-size: 14px;
+  color: #A1A1AA;
+  padding: 6px 0 6px 24px;
+  position: relative;
+}
+
+.who-i-work-with li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #71717A;
+}
+
+.cta-link {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 600;
+  color: #60A5FA;
+  text-decoration: none;
+  padding: 12px 24px;
+  background: #27272A;
+  border-radius: 8px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.cta-link:hover {
+  background: #3F3F46;
+  color: #93C5FD;
+}
+
 /* Links Section */
 .links {
   display: flex;
@@ -525,6 +671,15 @@ footer a:hover {
 
   .profile h1 {
     font-size: 22px;
+  }
+
+  .approach-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .productivity-approach,
+  .who-i-work-with {
+    padding: 20px 16px;
   }
 
   .link-row,

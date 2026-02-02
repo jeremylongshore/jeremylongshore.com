@@ -28,7 +28,7 @@
     <section class="contact-cta top">
       <div class="cta-buttons">
         <a href="{{ booking_url }}" target="_blank" class="btn btn-primary">
-          <i class="fa-solid fa-calendar"></i> Book a Call
+          <i class="fa-solid fa-calendar"></i> Discuss Productivity Goals
         </a>
         <a href="{{ contact_url }}" target="_blank" class="btn btn-secondary">
           <i class="fa-solid fa-envelope"></i> Send a Message
@@ -36,12 +36,43 @@
       </div>
     </section>
 
+    <section class="productivity-approach">
+      <h2>How I Drive Productivity at Scale</h2>
+      <div class="approach-grid">
+        <div class="approach-item">
+          <div class="approach-label">Identify Friction</div>
+          <div class="approach-desc">Audit workflows, find bottlenecks, quantify waste</div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-label">Build Solutions</div>
+          <div class="approach-desc">Automation, AI tooling, developer experience improvements</div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-label">Drive Adoption</div>
+          <div class="approach-desc">Change management, governance, training</div>
+        </div>
+        <div class="approach-item">
+          <div class="approach-label">Measure Impact</div>
+          <div class="approach-desc">Cycle time, throughput, cost savings, time-to-value</div>
+        </div>
+      </div>
+      <div class="philosophy">
+        <p><strong>My philosophy:</strong></p>
+        <ul>
+          <li>If a workflow happens more than twice, automate it</li>
+          <li>If a system scales, govern it</li>
+          <li>If it works, measure it — then make it faster</li>
+        </ul>
+      </div>
+    </section>
+
     {% if personal_repos.size > 0 %}
     <section class="links">
       <a href="https://github.com/jeremylongshore" target="_blank" class="section-header">
-        <h2 class="section-label">Open Source</h2>
+        <h2 class="section-label">Proof of Impact</h2>
         <i class="fa-brands fa-github"></i>
       </a>
+      <p class="section-intro">The work speaks for itself. Open source contributions, production tools, and systems people actually use.</p>
       {% for p in personal_repos %}
       <div class="link-item" data-id="{{ p.id }}">
         <div class="link-row" onclick="toggleExpand('{{ p.id }}')">
@@ -277,6 +308,18 @@
       {% endfor %}
     </section>
     {% endif %}
+
+    <section class="who-i-work-with">
+      <h2>Who I Work With</h2>
+      <p>I partner with founders, engineering leads, and executive teams who want to transform how their organizations operate — not just add tools, but fundamentally redesign how work gets done.</p>
+      <p><strong>If you're:</strong></p>
+      <ul>
+        <li>Building a productivity function from scratch</li>
+        <li>Scaling an engineering org post-restructuring</li>
+        <li>Driving operational transformation with AI</li>
+      </ul>
+      <a href="{{ booking_url }}" target="_blank" class="cta-link">Let's talk →</a>
+    </section>
 
     <nav class="socials">
       {% for item in socials %}
