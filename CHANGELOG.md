@@ -1,3 +1,14 @@
+# Release v2.16.1
+
+**Release Date**: 2026-02-02
+
+## Changes since v2.16.0
+
+- chore: release v2.16.1 [skip ci] (d5702f9)
+- fix: claudecodeskills.io not plugins (d921ae3)
+
+---
+
 # Release v2.16.0
 
 **Release Date**: 2026-02-02
