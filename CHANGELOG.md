@@ -1,3 +1,14 @@
+# Release v2.15.0
+
+**Release Date**: 2026-02-02
+
+## Changes since v2.14.1
+
+- chore: release v2.15.0 [skip ci] (711e0e9)
+- feat: add intent-driven methodology to tagline (282328e)
+
+---
+
 # Release v2.14.1
 
 **Release Date**: 2026-02-02
