@@ -149,22 +149,6 @@ intent_solutions_repos:
     tech_stack: ["Python", "FastAPI", "Docker", "structlog", "GitHub Actions"]
     agent_framework: []
 
-  - id: intent-agent-model-jvp-base
-    title: "Agent Model JVP Base"
-    url: "https://github.com/intent-solutions-io/intent-agent-model-jvp-base"
-    icon: "fa-solid fa-sitemap"
-    github_repo: "intent-solutions-io/intent-agent-model-jvp-base"
-    visibility: public
-    purpose_short: "Strategic boss agent template for multi-agent systems"
-    purpose_long: "Modular baseline template for building production-ready multi-agent systems on Google Cloud. Implements boss agent patterns with A2A protocol, Session Cache, Memory Bank, and RAG search. Includes Jupyter notebooks for development and testing against Vertex AI Agent Engine."
-    use_cases:
-      - "Build hierarchical multi-agent architectures"
-      - "Implement boss-worker agent patterns"
-      - "Test agents locally before Agent Engine deployment"
-      - "Leverage Memory Bank for persistent context"
-    tech_stack: ["Jupyter", "Python", "Vertex AI"]
-    agent_framework: ["Google ADK", "Vertex AI Agent Engine", "A2A Protocol"]
-
   - id: resume-firebase
     title: "Resume Firebase"
     url: "https://github.com/intent-solutions-io/resume-firebase"
@@ -552,38 +536,6 @@ personal_repos:
     tech_stack: ["Ruby", "Homebrew"]
     agent_framework: []
 
-  - id: the-county-line
-    title: "The County Line"
-    url: "https://github.com/jeremylongshore/the-county-line"
-    icon: "fa-solid fa-car-side"
-    github_repo: "jeremylongshore/the-county-line"
-    visibility: public
-    purpose_short: "Roblox UTV mud racing with realistic physics"
-    purpose_long: "Roblox game featuring UTV mud racing with realistic vehicle physics, progression systems, and safety-compliant monetization. Built on Luau with type safety, includes seasonal events, leaderboards, and vehicle customization. Designed for Gulf Coast off-road culture."
-    use_cases:
-      - "Race UTVs through mud tracks"
-      - "Customize vehicles with earned credits"
-      - "Compete on seasonal leaderboards"
-      - "Progress through racing tiers"
-    tech_stack: ["Lua", "Luau", "Roblox"]
-    agent_framework: []
-
-  - id: roblox-game-template
-    title: "Roblox Game Template"
-    url: "https://github.com/jeremylongshore/roblox-game-template"
-    icon: "fa-solid fa-gamepad"
-    github_repo: "jeremylongshore/roblox-game-template"
-    visibility: public
-    purpose_short: "Production Roblox template with Luau type safety"
-    purpose_long: "Production-ready Roblox game template with Luau strict typing, professional tooling, and CI/CD pipeline. Includes modular code structure, testing framework, and deployment automation. Foundation for building commercial-quality Roblox experiences."
-    use_cases:
-      - "Start new Roblox games with best practices"
-      - "Enforce type safety with Luau strict mode"
-      - "Run automated tests in CI/CD"
-      - "Deploy to Roblox via GitHub Actions"
-    tech_stack: ["Lua", "Luau", "GitHub Actions", "Rojo"]
-    agent_framework: []
-
 # Client Projects - Work for Others
 # Links to: intentsolutions.io
 client_projects:
@@ -642,15 +594,6 @@ n8n_workflows:
     visibility: public
     purpose_short: "Professional template for documented n8n repos"
     tech_stack: ["N8N", "GitHub Pages", "Markdown"]
-
-  - id: lead-followup-system-n8n
-    title: "Lead Followup System"
-    url: "https://jeremylongshore.github.io/lead-followup-system-n8n/"
-    icon: "fa-solid fa-user-plus"
-    github_repo: "jeremylongshore/lead-followup-system-n8n"
-    visibility: public
-    purpose_short: "Automated B2B lead capture with AI scoring"
-    tech_stack: ["N8N", "Airtable", "Tally", "AI Scoring"]
 
   - id: ai-blog-journalist-n8n
     title: "AI Blog Journalist"
