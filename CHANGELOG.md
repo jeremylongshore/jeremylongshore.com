@@ -1,3 +1,14 @@
+# Release v2.16.0
+
+**Release Date**: 2026-02-02
+
+## Changes since v2.15.0
+
+- chore: release v2.16.0 [skip ci] (9aaa01f)
+- feat: add site links under tagline (e1691ef)
+
+---
+
 # Release v2.15.0
 
 **Release Date**: 2026-02-02
