@@ -1,3 +1,14 @@
+# Release v2.16.2
+
+**Release Date**: 2026-02-02
+
+## Changes since v2.16.1
+
+- chore: release v2.16.2 [skip ci] (640655f)
+- fix: remove broken links (n8n, roblox projects, jvp-base) (b940232)
+
+---
+
 # Release v2.16.1
 
 **Release Date**: 2026-02-02
