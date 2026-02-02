@@ -1,3 +1,14 @@
+# Release v2.12.1
+
+**Release Date**: 2026-02-02
+
+## Changes since v2.12.0
+
+- chore: release v2.12.1 [skip ci] (9bf1807)
+- fix: update footer with Citadel link and streamline Marine reference (0ace7ab)
+
+---
+
 # Release v2.12.0
 
 **Release Date**: 2026-02-02
