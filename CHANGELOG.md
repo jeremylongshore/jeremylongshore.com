@@ -1,3 +1,14 @@
+# Release v2.14.1
+
+**Release Date**: 2026-02-02
+
+## Changes since v2.14.0
+
+- chore: release v2.14.1 [skip ci] (fa5befe)
+- fix: remove DORA branding, keep metrics generic (2d0ea3d)
+
+---
+
 # Release v2.14.0
 
 **Release Date**: 2026-02-02
