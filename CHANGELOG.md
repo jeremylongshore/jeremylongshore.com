@@ -1,3 +1,14 @@
+# Release v2.12.0
+
+**Release Date**: 2026-02-02
+
+## Changes since v2.11.2
+
+- chore: release v2.12.0 [skip ci] (8b7e9fd)
+- feat: reposition for AI Productivity & Transformation Leader role (0c2ceae)
+
+---
+
 # Release v2.11.2
 
 **Release Date**: 2026-02-01
