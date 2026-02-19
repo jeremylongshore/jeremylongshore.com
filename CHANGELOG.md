@@ -1,3 +1,14 @@
+# Release v2.17.0
+
+**Release Date**: 2026-02-19
+
+## Changes since v2.16.2
+
+- chore: release v2.17.0 [skip ci] (cdfe3a3)
+- feat: add Upwork social, Learn with Jeremy product, updated tagline and footer (6707e6a)
+
+---
+
 # Release v2.16.2
 
 **Release Date**: 2026-02-02
