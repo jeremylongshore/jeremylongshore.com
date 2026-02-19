@@ -21,7 +21,7 @@ name: "Jeremy Longshore"
 
 # Tagline section text
 tagline: >-
-    I lead organizational transformation through intent-driven methodology — aligning teams, integrating cultures post-acquisition, and building the systems that make new ways of working stick. Engineering sets the pace, but the shift is org-wide.
+    I build AI systems that ship. I train teams to run faster with Claude Code.
 
 # List of social media links
 socials:
@@ -42,6 +42,12 @@ socials:
       url: "https://linkedin.com/in/jeremylongshore"
       title: "Jeremy Longshore's LinkedIn"
       alt: "Jeremy Longshore's LinkedIn"
+      target: "_blank"
+  - social:
+      icon: "fa-brands fa-upwork"
+      url: "https://www.upwork.com/freelancers/jeremylongshore"
+      title: "Hire Jeremy on Upwork"
+      alt: "Jeremy Longshore on Upwork"
       target: "_blank"
   - social:
       icon: "fa-brands fa-x-twitter"
@@ -68,16 +74,16 @@ contact_url: "https://intentsolutions.io/contact"
 
 # Footer text
 footer: >
-    AI Productivity Leader. 20+ years ops leadership → self-taught developer → AI systems architect. Marine, <a href="https://www.citadel.edu" target="_blank">Citadel</a> alumni.
+    Creator of Claude Code Plugins (1,300+ stars). AI Productivity Leader. 20+ years ops leadership → self-taught developer → AI systems architect. Marine Corps Reservist, Citadel grad.
 
 # Footer copyright message
 copyright: >
-  &copy; 2025 <a href="https://jeremylongshore.com" target="_blank">Jeremy Longshore</a> | <a href="https://intentsolutions.io" target="_blank">Intent Solutions</a> | <a href="./privacy.html">Privacy</a> | <a href="./terms.html">Terms</a>
+  &copy; 2026 <a href="https://jeremylongshore.com" target="_blank">Jeremy Longshore</a> | <a href="https://intentsolutions.io" target="_blank">Intent Solutions</a> | <a href="./privacy.html">Privacy</a> | <a href="./terms.html">Terms</a>
 
 # Open Source Contributions
 contributions:
-  total_prs: 12
-  total_repos: 7
+  total_prs: 15
+  total_repos: 10
   highlights:
     - repo: "GoogleCloudPlatform/vertex-ai-samples"
       url: "https://github.com/GoogleCloudPlatform/vertex-ai-samples/pull/4393"
@@ -115,6 +121,9 @@ contributions:
       prs: 4
       tags: ["JavaScript", "Privacy"]
   others:
+    - repo: "Kilo-Org/kilocode"
+      url: "https://github.com/Kilo-Org/kilocode/pull/5880"
+      note: "Agent runtime test fix"
     - repo: "tldraw/tldraw"
       url: "https://github.com/tldraw/tldraw/pull/7664"
       note: "Prettier extension"

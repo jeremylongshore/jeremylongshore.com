@@ -2,9 +2,7 @@ require 'fileutils'
 require 'liquid'
 require 'yaml'
 
-if File.exist?("config.yml")
-    config = YAML.load_file("config.yml")
-else
+unless File.exist?("config.yml")
     raise "Error: config.yml not found."
 end
 
