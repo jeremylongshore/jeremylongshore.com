@@ -1,3 +1,14 @@
+# Release v2.17.1
+
+**Release Date**: 2026-03-06
+
+## Changes since v2.17.0
+
+- chore: release v2.17.1 [skip ci] (c3cd937)
+- ci: disable all cron schedules to stop burning Actions minutes (984b9e8)
+
+---
+
 # Release v2.17.0
 
 **Release Date**: 2026-02-19
