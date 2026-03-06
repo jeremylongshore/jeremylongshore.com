@@ -252,15 +252,15 @@ products:
     url: "https://www.upwork.com/freelancers/jeremylongshore"
     icon: "fa-solid fa-graduation-cap"
     visibility: public
-    purpose_short: "1:1 Claude Code coaching — your project, my methodology"
-    purpose_long: "White-glove 1:1 Claude Code coaching for founders, engineers, and teams. You bring your real project — I teach the methodology. Starter ($99, 30 min) covers CLI basics and your first plugin. Standard ($299, 90 min + follow-up) builds custom workflows and skills. Advanced ($999, full day) architects production agent infrastructure end-to-end. Book via Upwork, intentsolutions.io/coaching, or schedule directly at calendar.app.google."
+    purpose_short: "1:1 AI coding agent coaching — your project, my methodology"
+    purpose_long: "White-glove 1:1 coaching on AI coding agents for founders, engineers, and teams. Claude Code, Codex, Gemini Code Assist — I teach the methodology that works across all of them. You bring your real project. Starter (30 min) covers agent basics and your first workflow. Standard (90 min + follow-up) builds custom automations. Advanced (full day) architects production agent infrastructure end-to-end. Book via Upwork or schedule directly."
     use_cases:
-      - "Get productive with Claude Code in one session"
+      - "Get productive with AI coding agents in one session"
       - "Design custom plugins and MCP integrations for your stack"
       - "Build multi-agent workflows on your actual codebase"
       - "Architecture review for production AI systems"
-    tech_stack: ["Claude Code", "MCP Protocol", "Google Cloud"]
-    agent_framework: ["Claude Code"]
+    tech_stack: ["Claude Code", "Codex", "MCP Protocol", "Google Cloud"]
+    agent_framework: ["Claude Code", "OpenAI Codex"]
 
   - id: intentsolutions
     title: "Intent Solutions"
@@ -268,9 +268,9 @@ products:
     icon: "fa-solid fa-building-columns"
     visibility: private
     purpose_short: "We ship production AI systems in days, not months"
-    purpose_long: "Professional services firm specializing in Claude Code enterprise deployments, Google Cloud AI consulting, and custom agent development. We build production AI systems that ship in days, not months. Services include Claude Code team training, custom plugin development, Vertex AI integrations, and full-stack agent architectures using Google ADK."
+    purpose_long: "Professional services firm specializing in AI coding agent deployments, Google Cloud consulting, and custom agent development. We build production AI systems that ship in days, not months. Services include team training on Claude Code, Codex, and Gemini, custom plugin development, Vertex AI integrations, and full-stack agent architectures using Google ADK."
     use_cases:
-      - "Claude Code enterprise deployments and team training"
+      - "AI coding agent deployments and team training"
       - "Custom agent and plugin development"
       - "GCP architecture consulting and Vertex AI integrations"
       - "Production AI system design and implementation"
