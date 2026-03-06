@@ -1,4 +1,4 @@
-/* Charcoal Slate Theme - Matching intentsolutions.io */
+/* Braves Booth Theme - White background with Navy/Red/Gold accents */
 * {
   margin: 0;
   padding: 0;
@@ -6,15 +6,15 @@
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Global link reset - prevents Safari blue links */
+/* Global link reset */
 a {
   color: inherit;
   text-decoration: none;
 }
 
 body {
-  background: #18181B; /* zinc-900 */
-  color: #FAFAFA; /* zinc-50 */
+  background: #FFFFFF;
+  color: #0C2340; /* Braves Navy */
   min-height: 100vh;
   padding: 40px 16px;
   display: flex;
@@ -38,19 +38,19 @@ body {
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 12px;
-  border: 2px solid #27272A; /* zinc-800 */
+  border: 2px solid #e2e8f0;
 }
 
 .profile h1 {
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 8px;
-  color: #FAFAFA; /* zinc-50 */
+  color: #0C2340; /* Braves Navy */
 }
 
 .tagline {
   font-size: 15px;
-  color: #A1A1AA; /* zinc-400 */
+  color: #4a5568; /* Slate gray */
   max-width: 400px;
   margin: 0 auto;
   line-height: 1.5;
@@ -59,36 +59,36 @@ body {
 .site-links {
   margin-top: 12px;
   font-size: 13px;
-  color: #71717A; /* zinc-500 */
+  color: #718096;
 }
 
 .site-links a {
-  color: #A1A1AA; /* zinc-400 */
+  color: #CE1141; /* Braves Red */
   transition: color 0.15s;
 }
 
 .site-links a:hover {
-  color: #FAFAFA; /* zinc-50 */
+  color: #0C2340; /* Braves Navy */
 }
 
 .site-links span {
   margin: 0 8px;
-  color: #52525B; /* zinc-600 */
+  color: #cbd5e0;
 }
 
 /* Productivity Approach Section */
 .productivity-approach {
   margin-bottom: 40px;
   padding: 24px;
-  background: #1F1F23;
+  background: #f7f8fa;
   border-radius: 12px;
-  border: 1px solid #27272A;
+  border: 1px solid #e2e8f0;
 }
 
 .productivity-approach h2 {
   font-size: 16px;
   font-weight: 600;
-  color: #FAFAFA;
+  color: #0C2340; /* Braves Navy */
   margin-bottom: 20px;
   text-align: center;
 }
@@ -102,31 +102,32 @@ body {
 
 .approach-item {
   padding: 16px;
-  background: #27272A;
+  background: #FFFFFF;
   border-radius: 8px;
+  border: 1px solid #e2e8f0;
 }
 
 .approach-label {
   font-size: 14px;
   font-weight: 600;
-  color: #FAFAFA;
+  color: #0C2340; /* Braves Navy */
   margin-bottom: 6px;
 }
 
 .approach-desc {
   font-size: 13px;
-  color: #A1A1AA;
+  color: #4a5568;
   line-height: 1.4;
 }
 
 .philosophy {
   padding-top: 16px;
-  border-top: 1px solid #27272A;
+  border-top: 1px solid #e2e8f0;
 }
 
 .philosophy p {
   font-size: 14px;
-  color: #A1A1AA;
+  color: #4a5568;
   margin-bottom: 8px;
 }
 
@@ -137,22 +138,22 @@ body {
 
 .philosophy li {
   font-size: 13px;
-  color: #A1A1AA;
+  color: #4a5568;
   padding: 4px 0 4px 20px;
   position: relative;
 }
 
 .philosophy li::before {
-  content: "→";
+  content: "\2192";
   position: absolute;
   left: 0;
-  color: #71717A;
+  color: #CE1141; /* Braves Red */
 }
 
 /* Section Intro Text */
 .section-intro {
   font-size: 14px;
-  color: #A1A1AA;
+  color: #4a5568;
   margin-bottom: 16px;
   line-height: 1.5;
 }
@@ -161,22 +162,22 @@ body {
 .who-i-work-with {
   margin-top: 40px;
   padding: 24px;
-  background: #1F1F23;
+  background: #f7f8fa;
   border-radius: 12px;
-  border: 1px solid #27272A;
+  border: 1px solid #e2e8f0;
   text-align: center;
 }
 
 .who-i-work-with h2 {
   font-size: 16px;
   font-weight: 600;
-  color: #FAFAFA;
+  color: #0C2340; /* Braves Navy */
   margin-bottom: 16px;
 }
 
 .who-i-work-with p {
   font-size: 14px;
-  color: #A1A1AA;
+  color: #4a5568;
   line-height: 1.6;
   margin-bottom: 12px;
 }
@@ -193,33 +194,35 @@ body {
 
 .who-i-work-with li {
   font-size: 14px;
-  color: #A1A1AA;
+  color: #4a5568;
   padding: 6px 0 6px 24px;
   position: relative;
 }
 
 .who-i-work-with li::before {
-  content: "→";
+  content: "\2192";
   position: absolute;
   left: 0;
-  color: #71717A;
+  color: #CE1141; /* Braves Red */
 }
 
 .cta-link {
   display: inline-block;
   font-size: 15px;
   font-weight: 600;
-  color: #60A5FA;
+  color: #CE1141; /* Braves Red */
   text-decoration: none;
   padding: 12px 24px;
-  background: #27272A;
+  background: #FFFFFF;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
-  transition: background 0.15s, color 0.15s;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 
 .cta-link:hover {
-  background: #3F3F46;
-  color: #93C5FD;
+  background: #CE1141; /* Braves Red */
+  color: #FFFFFF;
+  border-color: #CE1141;
 }
 
 /* Links Section */
@@ -229,14 +232,12 @@ body {
   gap: 10px;
 }
 
-/* Legacy n8n styling - now handled by .links + .links */
-
 .section-label {
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: #71717A; /* zinc-500 */
+  color: #718096;
   margin: 0;
 }
 
@@ -248,7 +249,7 @@ body {
   margin-bottom: 12px;
   padding: 8px 0;
   text-decoration: none;
-  border-bottom: 1px solid #27272A; /* zinc-800 */
+  border-bottom: 1px solid #e2e8f0;
 }
 
 a.section-header {
@@ -257,21 +258,21 @@ a.section-header {
 }
 
 a.section-header:hover {
-  border-color: #52525B; /* zinc-600 */
+  border-color: #CE1141; /* Braves Red */
 }
 
 a.section-header:hover .section-label {
-  color: #A1A1AA; /* zinc-400 */
+  color: #CE1141; /* Braves Red */
 }
 
 .section-header i {
   font-size: 14px;
-  color: #52525B; /* zinc-600 */
+  color: #cbd5e0;
   transition: color 0.15s;
 }
 
 a.section-header:hover i {
-  color: #A1A1AA; /* zinc-400 */
+  color: #CE1141; /* Braves Red */
 }
 
 /* Contribution count badge in section header */
@@ -280,8 +281,8 @@ a.section-header:hover i {
   font-weight: 500;
   padding: 3px 8px;
   border-radius: 10px;
-  background: #14532D; /* green-900 */
-  color: #86EFAC; /* green-300 */
+  background: #E8F5E9;
+  color: #2E7D32;
 }
 
 /* Contributions footer - smaller links */
@@ -290,24 +291,25 @@ a.section-header:hover i {
   flex-wrap: wrap;
   gap: 8px;
   padding: 12px 16px;
-  background: #1F1F23; /* slightly darker */
+  background: #f7f8fa;
   border-radius: 8px;
   margin-top: 4px;
 }
 
 .contrib-other {
   font-size: 12px;
-  color: #71717A; /* zinc-500 */
+  color: #718096;
   text-decoration: none;
   padding: 4px 10px;
-  background: #27272A; /* zinc-800 */
+  background: #FFFFFF;
+  border: 1px solid #e2e8f0;
   border-radius: 6px;
-  transition: color 0.15s, background 0.15s;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
 }
 
 .contrib-other:hover {
-  color: #A1A1AA; /* zinc-400 */
-  background: #3F3F46; /* zinc-700 */
+  color: #CE1141; /* Braves Red */
+  border-color: #CE1141;
 }
 
 /* Add spacing between sections */
@@ -317,16 +319,17 @@ a.section-header:hover i {
 
 /* Link Item Card */
 .link-item {
-  background: #27272A; /* zinc-800 */
+  background: #f7f8fa;
   border-radius: 12px;
   overflow: hidden;
   transition: transform 0.1s, box-shadow 0.15s, background 0.15s;
-  border: 1px solid transparent;
+  border: 1px solid #e2e8f0;
 }
 
 .link-item:hover {
-  background: #3F3F46; /* zinc-700 */
-  border-color: #52525B; /* zinc-600 */
+  background: #FFFFFF;
+  border-color: #CE1141; /* Braves Red */
+  box-shadow: 0 2px 8px rgba(12, 35, 64, 0.08);
 }
 
 .link-item:active {
@@ -361,10 +364,10 @@ a.section-header:hover i {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #3F3F46; /* zinc-700 */
+  background: #0C2340; /* Braves Navy */
   border-radius: 10px;
   font-size: 18px;
-  color: #A1A1AA; /* zinc-400 */
+  color: #FFFFFF;
 }
 
 /* Text */
@@ -379,12 +382,12 @@ a.section-header:hover i {
 .link-title {
   font-size: 15px;
   font-weight: 600;
-  color: #FAFAFA; /* zinc-50 */
+  color: #0C2340; /* Braves Navy */
 }
 
 .link-desc {
   font-size: 13px;
-  color: #A1A1AA; /* zinc-400 */
+  color: #4a5568;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -407,18 +410,19 @@ a.section-header:hover i {
 }
 
 .badge.stars {
-  background: #422006; /* amber-950 */
-  color: #FCD34D; /* amber-300 */
+  background: #FFF8E1;
+  color: #B8860B;
 }
 
 .badge.private {
-  background: #3F3F46; /* zinc-700 */
-  color: #A1A1AA; /* zinc-400 */
+  background: #f7f8fa;
+  color: #718096;
+  border: 1px solid #e2e8f0;
 }
 
 .badge.contrib {
-  background: #14532D; /* green-900 */
-  color: #86EFAC; /* green-300 */
+  background: #E8F5E9;
+  color: #2E7D32;
 }
 
 .expand-icon {
@@ -429,7 +433,7 @@ a.section-header:hover i {
   justify-content: center;
   font-size: 16px;
   font-weight: 300;
-  color: #71717A; /* zinc-500 */
+  color: #718096;
 }
 
 /* Expanded Content */
@@ -450,11 +454,11 @@ a.section-header:hover i {
 
 .expand-desc {
   font-size: 14px;
-  color: #A1A1AA; /* zinc-400 */
+  color: #4a5568;
   line-height: 1.5;
   padding-top: 4px;
   padding-bottom: 12px;
-  border-top: 1px solid #3F3F46; /* zinc-700 */
+  border-top: 1px solid #e2e8f0;
 }
 
 .expand-list {
@@ -464,16 +468,16 @@ a.section-header:hover i {
 
 .expand-list li {
   font-size: 13px;
-  color: #A1A1AA; /* zinc-400 */
+  color: #4a5568;
   padding: 3px 0 3px 16px;
   position: relative;
 }
 
 .expand-list li::before {
-  content: "→";
+  content: "\2192";
   position: absolute;
   left: 0;
-  color: #71717A; /* zinc-500 */
+  color: #CE1141; /* Braves Red */
   font-size: 11px;
 }
 
@@ -492,27 +496,27 @@ a.section-header:hover i {
 }
 
 .tag.tech {
-  background: #1E3A5F; /* blue-900 muted */
-  color: #7DD3FC; /* sky-300 */
+  background: #E3F2FD;
+  color: #1565C0;
 }
 
 .tag.agent {
-  background: #14532D; /* green-900 */
-  color: #86EFAC; /* green-300 */
+  background: #E8F5E9;
+  color: #2E7D32;
 }
 
 .expand-link {
   display: inline-block;
   font-size: 13px;
   font-weight: 500;
-  color: #60A5FA; /* blue-400 */
+  color: #CE1141; /* Braves Red */
   padding-bottom: 16px;
   text-decoration: none;
 }
 
 .expand-link:hover {
   text-decoration: underline;
-  color: #93C5FD; /* blue-300 */
+  color: #A00D33;
 }
 
 /* Socials */
@@ -529,24 +533,26 @@ a.section-header:hover i {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #27272A; /* zinc-800 */
+  background: #f7f8fa;
+  border: 1px solid #e2e8f0;
   border-radius: 50%;
-  color: #A1A1AA; /* zinc-400 */
+  color: #4a5568;
   font-size: 20px;
-  transition: transform 0.15s, background 0.15s, color 0.15s;
+  transition: transform 0.15s, background 0.15s, color 0.15s, border-color 0.15s;
 }
 
 .social-icon:hover {
   transform: scale(1.1);
-  background: #3F3F46; /* zinc-700 */
-  color: #FAFAFA; /* zinc-50 */
+  background: #0C2340; /* Braves Navy */
+  color: #FFFFFF;
+  border-color: #0C2340;
 }
 
 /* Contact CTA */
 .contact-cta {
   margin-top: 32px;
   padding-top: 24px;
-  border-top: 1px solid #27272A; /* zinc-800 */
+  border-top: 1px solid #e2e8f0;
   text-align: center;
 }
 
@@ -590,7 +596,7 @@ a.section-header:hover i {
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(12, 35, 64, 0.15);
 }
 
 .btn:active {
@@ -598,7 +604,7 @@ a.section-header:hover i {
 }
 
 .btn:focus {
-  outline: 2px solid #60A5FA; /* blue-400 */
+  outline: 2px solid #CE1141; /* Braves Red */
   outline-offset: 2px;
 }
 
@@ -607,75 +613,74 @@ a.section-header:hover i {
 }
 
 .btn-primary {
-  background: #E4E4E7 !important; /* zinc-200 */
-  color: #18181B !important; /* zinc-900 */
+  background: #CE1141 !important; /* Braves Red */
+  color: #FFFFFF !important;
   border: none;
 }
 
 .btn-primary:link,
 .btn-primary:visited,
 .btn-primary:active {
-  background: #E4E4E7 !important;
-  color: #18181B !important;
+  background: #CE1141 !important;
+  color: #FFFFFF !important;
 }
 
 .btn-primary:hover {
-  background: #FAFAFA !important; /* zinc-50 */
-  color: #18181B !important; /* zinc-900 */
+  background: #A00D33 !important; /* Darker Red */
+  color: #FFFFFF !important;
 }
 
 .btn-secondary {
   background: transparent !important;
-  color: #E4E4E7 !important; /* zinc-200 */
-  border: 1px solid #52525B !important; /* zinc-600 */
+  color: #0C2340 !important; /* Braves Navy */
+  border: 1px solid #0C2340 !important;
 }
 
 .btn-secondary:link,
 .btn-secondary:visited,
 .btn-secondary:active {
   background: transparent !important;
-  color: #E4E4E7 !important;
+  color: #0C2340 !important;
 }
 
 .btn-secondary:hover {
-  background: #27272A !important; /* zinc-800 */
-  border-color: #71717A !important; /* zinc-500 */
-  color: #E4E4E7 !important; /* zinc-200 */
+  background: #0C2340 !important; /* Braves Navy */
+  color: #FFFFFF !important;
 }
 
 /* Footer */
 footer {
   margin-top: 40px;
   padding-top: 24px;
-  border-top: 1px solid #27272A; /* zinc-800 */
+  border-top: 1px solid #e2e8f0;
   text-align: center;
   font-size: 14px;
-  color: #71717A; /* zinc-500 */
+  color: #718096;
   line-height: 1.6;
 }
 
 footer a {
-  color: #A1A1AA; /* zinc-400 */
+  color: #CE1141; /* Braves Red */
   text-decoration: none;
 }
 
 footer a:hover {
-  color: #FAFAFA; /* zinc-50 */
+  color: #0C2340; /* Braves Navy */
   text-decoration: underline;
 }
 
 .copyright {
   margin-top: 8px;
   font-size: 12px;
-  color: #52525B; /* zinc-600 */
+  color: #a0aec0;
 }
 
 .copyright a {
-  color: #71717A; /* zinc-500 */
+  color: #718096;
 }
 
 .copyright a:hover {
-  color: #A1A1AA; /* zinc-400 */
+  color: #CE1141; /* Braves Red */
 }
 
 /* Mobile */

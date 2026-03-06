@@ -11,7 +11,7 @@ lang: "en"
 google_analytics_id: "G-40E6F2PYMQ"
 
 # HTML Title
-title: "Jeremy Longshore - AI Productivity & Engineering Transformation"
+title: "Jeremy Longshore - I Make Teams AI-Native"
 
 # Avatar image path
 avatar: "./images/profile.jpeg"
@@ -21,7 +21,7 @@ name: "Jeremy Longshore"
 
 # Tagline section text
 tagline: >-
-    I build AI systems that ship. I train teams to run faster with Claude Code.
+    I build AI systems that ship and train teams to run faster with Claude Code. 20+ years ops, self-taught dev, 60+ repos with real GitHub stars — not slide decks.
 
 # List of social media links
 socials:
@@ -74,7 +74,7 @@ contact_url: "https://intentsolutions.io/contact"
 
 # Footer text
 footer: >
-    Creator of Claude Code Plugins (1,300+ stars). AI Productivity Leader. 20+ years ops leadership → self-taught developer → AI systems architect. Marine Corps Reservist, Citadel grad.
+    Claude Code Plugins creator (1,300+ stars). Marine. <a href="https://www.citadel.edu" target="_blank">Citadel</a> grad. 20 years ops → self-taught dev → AI architect. I build what I sell.
 
 # Footer copyright message
 copyright: >
