@@ -1,3 +1,14 @@
+# Release v2.18.0
+
+**Release Date**: 2026-03-06
+
+## Changes since v2.17.1
+
+- chore: release v2.18.0 [skip ci] (df4a671)
+- feat: redesign with Braves colors, sharpen copy, white background (f21abf9)
+
+---
+
 # Release v2.17.1
 
 **Release Date**: 2026-03-06
