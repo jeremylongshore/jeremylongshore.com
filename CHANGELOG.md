@@ -1,3 +1,14 @@
+# Release v2.18.1
+
+**Release Date**: 2026-03-06
+
+## Changes since v2.18.0
+
+- chore: release v2.18.1 [skip ci] (3c6df8b)
+- fix: broaden copy from Claude-only to all AI coding agents (c00c01b)
+
+---
+
 # Release v2.18.0
 
 **Release Date**: 2026-03-06
