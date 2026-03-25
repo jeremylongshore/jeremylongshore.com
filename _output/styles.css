@@ -425,6 +425,30 @@ a.section-header:hover i {
   color: #2E7D32;
 }
 
+.badge.date {
+  background: #EDE7F6;
+  color: #5E35B1;
+  font-variant-numeric: tabular-nums;
+}
+
+.blog-section .section-intro {
+  margin-bottom: 4px;
+}
+
+.view-all-link {
+  display: block;
+  text-align: center;
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #2563EB;
+  text-decoration: none;
+  padding: 8px;
+}
+.view-all-link:hover {
+  text-decoration: underline;
+}
+
 .expand-icon {
   width: 24px;
   height: 24px;

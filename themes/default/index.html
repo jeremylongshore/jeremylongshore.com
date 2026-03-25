@@ -328,6 +328,29 @@
       <a href="{{ booking_url }}" target="_blank" class="cta-link">Let's talk →</a>
     </section>
 
+    {% if blog_posts.size > 0 %}
+    <section class="links blog-section">
+      <a href="https://startaitools.com/posts/" target="_blank" class="section-header">
+        <h2 class="section-label">Latest Writing</h2>
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+      <p class="section-intro">Technical deep-dives on AI agents, plugin development, and production systems.</p>
+      {% for post in blog_posts %}
+      <a href="{{ post.url }}" target="_blank" class="link-item simple">
+        <div class="link-icon"><i class="fa-solid fa-pen-nib"></i></div>
+        <div class="link-text">
+          <span class="link-title">{{ post.title }}</span>
+          <span class="link-desc">{{ post.description }}</span>
+        </div>
+        <div class="link-badge">
+          <span class="badge date">{{ post.date }}</span>
+        </div>
+      </a>
+      {% endfor %}
+      <a href="https://startaitools.com/posts/" target="_blank" class="view-all-link">View all posts →</a>
+    </section>
+    {% endif %}
+
     <nav class="socials">
       {% for item in socials %}
       {% assign s = item.social %}

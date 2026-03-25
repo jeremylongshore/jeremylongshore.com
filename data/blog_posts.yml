@@ -1,0 +1,39 @@
+- title: "X Bug Triage Plugin: Zero to v0.4.3 in One Day"
+  date: "2026-03-23"
+  description: "A brand-new MCP plugin that triages X/Twitter bug reports shipped 10 epics, 13 releases, 89 tests, and 4 extracted sub-agents."
+  url: "https://startaitools.com/posts/x-bug-triage-plugin-zero-to-v043-one-day/"
+
+- title: "Ninety Skills, Three Packs, One Day"
+  date: "2026-03-22"
+  description: "Building three complete 30-skill SaaS integration packs — Sentry, Notion, and Supabase — in a single day."
+  url: "https://startaitools.com/posts/ninety-skills-three-packs-one-day/"
+
+- title: "Nuclear Option Day: Validator Rewrite, 63 New Packs, 414 Plugins"
+  date: "2026-03-21"
+  description: "Rewrote the universal validator from scratch to match Anthropic's 14-field spec, generated 63 SaaS packs."
+  url: "https://startaitools.com/posts/nuclear-option-day-validator-rewrite-414-plugins/"
+
+- title: "58 E2E Tests, a Slack Channel Launch, and the Auth Injection That Made It Work"
+  date: "2026-03-20"
+  description: "How REST API auth plus IndexedDB injection unlocked 58 production E2E tests for cad-dxf-agent."
+  url: "https://startaitools.com/posts/58-e2e-tests-slack-channel-launch-one-day/"
+
+- title: "Governed Knowledge: Two Major Releases, a Freshness Daemon, and Export Gating"
+  date: "2026-03-19"
+  description: "qmd-team-intent-kb ships v0.2.0 and v0.3.0 in one day — freshness-aware search with exponential decay."
+  url: "https://startaitools.com/posts/governed-knowledge-two-releases-freshness-daemon/"
+
+- title: "Knowledge Base from Zero to API: Lifecycle State Machines and Policy Engines"
+  date: "2026-03-18"
+  description: "Building a team knowledge base with lifecycle state machines, policy engines, and git-exported articles."
+  url: "https://startaitools.com/posts/knowledge-base-zero-to-api-lifecycle-state-machine/"
+
+- title: "Content Quality War: 7-Check Audit Across 340 Plugins"
+  date: "2026-03-17"
+  description: "A 7-category audit script found boilerplate openings, empty shells, reference stubs, and duplicate content."
+  url: "https://startaitools.com/posts/content-quality-war-7-check-audit-across-340-plugins/"
+
+- title: "Meta-Agent Orchestration and the UX of Removing Features"
+  date: "2026-03-16"
+  description: "The oss-agent-lab ships its meta-agent capstone — one agent to orchestrate nine specialists."
+  url: "https://startaitools.com/posts/meta-agent-orchestration-and-the-ux-of-removing-features/"
