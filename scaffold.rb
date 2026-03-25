@@ -29,6 +29,14 @@ else
   settings["projects"] = []
 end
 
+# Load blog posts from data file
+blog_posts_file = "./data/blog_posts.yml"
+if File.exist?(blog_posts_file)
+  settings["blog_posts"] = YAML.load_file(blog_posts_file) || []
+else
+  settings["blog_posts"] = []
+end
+
 # Collect GitHub repos from all projects for star fetching
 all_projects = settings["intent_solutions_repos"] + settings["products"] + settings["personal_repos"] + settings["client_projects"] + settings["n8n_workflows"]
 github_repos = all_projects
