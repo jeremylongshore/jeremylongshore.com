@@ -1,3 +1,14 @@
+# Release v2.18.2
+
+**Release Date**: 2026-03-25
+
+## Changes since v2.18.1
+
+- chore: release v2.18.2 [skip ci] (3f8e1a8)
+- chore: update FUNDING.yml with GitHub Sponsors + Buy Me a Coffee (c87630f)
+
+---
+
 # Release v2.18.1
 
 **Release Date**: 2026-03-06
