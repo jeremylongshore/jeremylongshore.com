@@ -1,3 +1,17 @@
+# Release v2.19.0
+
+**Release Date**: 2026-03-27
+
+## Changes since v2.18.1
+
+- chore: release v2.19.0 [skip ci] (643b8a0)
+- feat: add 14 missing projects and reorder personal_repos (61d475a)
+- bd init: initialize beads issue tracking (a2baa06)
+- chore: update FUNDING.yml with GitHub Sponsors + Buy Me a Coffee (f0b7076)
+- chore: update FUNDING.yml with GitHub Sponsors + Buy Me a Coffee (c87630f)
+
+---
+
 # Release v2.18.1
 
 **Release Date**: 2026-03-06
