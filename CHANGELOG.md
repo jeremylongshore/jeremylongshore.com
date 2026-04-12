@@ -1,3 +1,14 @@
+# Release v2.19.1
+
+**Release Date**: 2026-04-12
+
+## Changes since v2.19.0
+
+- chore: release v2.19.1 [skip ci] (aa20724)
+- fix: refresh GitHub star counts — claude-code-plugins 1725→1912 (a4f68b4)
+
+---
+
 # Release v2.19.0
 
 **Release Date**: 2026-03-27
