@@ -1,3 +1,14 @@
+# Release v2.20.0
+
+**Release Date**: 2026-04-24
+
+## Changes since v2.19.1
+
+- chore: release v2.20.0 [skip ci] (e1631fa)
+- feat(legal): swap privacy/terms to GetTerms.io embed + add acceptable-use (28e68e8)
+
+---
+
 # Release v2.19.1
 
 **Release Date**: 2026-04-12
