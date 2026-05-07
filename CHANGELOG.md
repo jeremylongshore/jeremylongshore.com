@@ -1,3 +1,14 @@
+# Release v2.21.0
+
+**Release Date**: 2026-05-07
+
+## Changes since v2.20.0
+
+- chore: release v2.21.0 [skip ci] (ea9920a)
+- feat(analytics): add Umami tracker for self-hosted analytics (a75fba5)
+
+---
+
 # Release v2.20.0
 
 **Release Date**: 2026-04-24
