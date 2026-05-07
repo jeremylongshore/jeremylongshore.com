@@ -316,6 +316,31 @@
     </section>
     {% endif %}
 
+    {% if articles.size > 0 %}
+    <section class="links work-diary">
+      <a href="https://startaitools.com" target="_blank" class="section-header">
+        <h2 class="section-label">Work Diary</h2>
+        <span class="article-count">{{ articles.size }} latest</span>
+      </a>
+      <p class="section-intro">What I'm building, breaking, and shipping — direct from the commit log.</p>
+      {% for article in articles %}
+      <a href="{{ article.url }}" target="_blank" class="link-item simple article-item">
+        <div class="link-icon"><i class="fa-solid fa-pen-nib"></i></div>
+        <div class="link-text">
+          <span class="link-title">{{ article.title }}</span>
+          <span class="link-desc">{{ article.description }}</span>
+        </div>
+        <div class="link-badge">
+          <span class="badge article-date">{{ article.date }}</span>
+        </div>
+      </a>
+      {% endfor %}
+      <div class="article-footer">
+        <a href="https://startaitools.com" target="_blank" class="expand-link">Read all posts →</a>
+      </div>
+    </section>
+    {% endif %}
+
     <section class="who-i-work-with">
       <h2>Who I Work With</h2>
       <p>I work with organizations adopting AI — from startups building their first agent to enterprises rolling out coding tools across 500 engineers.</p>
@@ -371,5 +396,6 @@
     gtag('config', '{{ google_analytics_id }}');
   </script>
   {% endif %}
+  <script defer src="https://analytics.intentsolutions.io/script.js" data-website-id="3cea8ff2-5842-4090-a8a3-d2dc128f5385"></script>
 </body>
 </html>
