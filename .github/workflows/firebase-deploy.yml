@@ -32,7 +32,7 @@ jobs:
           bundle exec ruby scaffold.rb
 
       - name: Authenticate to Google Cloud
-        uses: google-github-actions/auth@v2
+        uses: google-github-actions/auth@v3
         with:
           workload_identity_provider: 'projects/409656019618/locations/global/workloadIdentityPools/github-pool/providers/github-provider'
           service_account: 'github-actions@bigo-portfolio.iam.gserviceaccount.com'
