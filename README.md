@@ -2,7 +2,7 @@
 
 [![Deploy: self-hosted VPS](https://img.shields.io/badge/deploy-self--hosted%20VPS%20(Caddy)-2ea44f)](https://intentsolutions.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-![Version](https://img.shields.io/badge/version-v2.22.1-blue)
+![Version](https://img.shields.io/badge/version-v2.23.0-blue)
 
 Personal landing page and portfolio for Jeremy Longshore - AI Automation Specialist & Google Cloud Platform Expert.
 
