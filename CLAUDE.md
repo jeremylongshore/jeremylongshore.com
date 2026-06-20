@@ -87,11 +87,9 @@ GitHub app (not a workflow in this repo):
 - **Build-time data** (stars, contributions, RSS) is baked into `_output/` at
   commit time — run `bash build.sh` and commit `_output/` to refresh it.
 
-**Legacy / redundant:** `.github/workflows/firebase-deploy.yml` still fires on
-push to `main` and deploys a second copy to Firebase project `bigo-portfolio`
-(via Workload Identity Federation). That copy does **not** serve the domain and
-is a GCP-exodus removal candidate; `firebase.json` / `.firebaserc` are legacy
-too.
+**History:** Firebase Hosting (`bigo-portfolio`) was the previous deploy; its
+workflow (`firebase-deploy.yml`) and config (`firebase.json` / `.firebaserc`)
+were removed 2026-06-20 in favor of Netlify (part of the GCP exodus).
 
 ## Dependencies
 
