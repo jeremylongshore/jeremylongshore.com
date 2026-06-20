@@ -125,6 +125,21 @@ if !settings["plugins"].nil?
 end
 
 
+# Run StartAIToolsRSSPlugin for Work Diary section
+if File.exist?("./plugins/StartAIToolsRSSPlugin.rb")
+  require_relative "./plugins/StartAIToolsRSSPlugin.rb"
+  rss_plugin = StartAIToolsRSSPlugin.new([6])
+  settings["articles"] = rss_plugin.execute()
+end
+
+# Run GithubContributionsPlugin for live Open Source Contributions section
+if File.exist?("./plugins/GithubContributionsPlugin.rb")
+  require_relative "./plugins/GithubContributionsPlugin.rb"
+  contrib_plugin = GithubContributionsPlugin.new([])
+  settings["vars"] ||= {}
+  settings["vars"]["GithubContributionsPlugin"] = contrib_plugin.execute()
+end
+
 if !settings["links"].nil?
   settings["links"].each_with_index do |link, index|
     settings["links"][index]["link"]["icon"] = Liquid::Template.parse(settings["links"][index]["link"]["icon"]).render(settings)

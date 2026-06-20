@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Personal landing page for Jeremy Longshore built with **Linkyee** (Ruby-based static site generator). Single-page design featuring project links, social profiles, and dynamic GitHub star counts.
 
 **Live:** https://jeremylongshore.com
-**Deployment:** Firebase Hosting via GitHub Actions (builds on push to main)
+**Deployment:** Netlify (auto-deploys `main`; serves the committed `_output/` directly)
 
 ## Commands
 
@@ -62,6 +62,10 @@ plugins:
 text: "Project <span class='link-button-text'>({{vars.GithubRepoStarsCountPlugin['owner/repo-name']}} Stars)</span>"
 ```
 
+**Other build-time plugins (auto-run by `scaffold.rb`, no config needed):**
+- `StartAIToolsRSSPlugin` — pulls the latest posts from startaitools.com for the Work Diary section (1h cache).
+- `GithubContributionsPlugin` — pulls merged PRs to **external** repos live from the GitHub search API for the Open Source Contributions section; curated repo metadata (label/description/icon/tags) lives in the plugin's `META` map. Needs `GITHUB_TOKEN` in CI; falls back to `.github_contributions_cache.json` (6h TTL). This replaced the old hand-maintained `contributions:` block in `config.yml`.
+
 ## Critical Rules
 
 1. **Never edit `_output/` manually** - regenerated on every build
@@ -72,17 +76,27 @@ text: "Project <span class='link-button-text'>({{vars.GithubRepoStarsCountPlugin
 
 ## Deployment
 
-- **Host:** Firebase Hosting (project: `bigo-portfolio`)
-- **Trigger:** Push to `main` branch
-- **Workflow:** `.github/workflows/firebase-deploy.yml`
-- **Auth:** Workload Identity Federation (no service account keys)
-- **Caching:** 1-year cache for images, CSS, JS
+**Netlify** is the live deploy for jeremylongshore.com, wired via the Netlify
+GitHub app (not a workflow in this repo):
+
+- **Host:** Netlify — serves the committed `_output/` directly (`netlify.toml`:
+  `publish = "_output"`, no build command). Whatever `_output/` you commit is
+  what ships.
+- **Trigger:** push to `main` → production deploy; every PR gets a deploy preview
+  at `deploy-preview-<N>--jeremylongshore.netlify.app`.
+- **Build-time data** (stars, contributions, RSS) is baked into `_output/` at
+  commit time — run `bash build.sh` and commit `_output/` to refresh it.
+
+**History:** Firebase Hosting (`bigo-portfolio`) was the previous deploy; its
+workflow (`firebase-deploy.yml`) and config (`firebase.json` / `.firebaserc`)
+were removed 2026-06-20 in favor of Netlify (part of the GCP exodus).
 
 ## Dependencies
 
 Ruby gems (see Gemfile):
 - `liquid` ~> 5.5 - Template rendering
 - `nokogiri` >= 1.18.4 - HTML parsing for plugins
+- `rexml` - RSS/XML parsing (Work Diary plugin)
 - `yaml`, `bigdecimal`, `base64` - Standard libs
 
 ## Release Process

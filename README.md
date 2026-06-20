@@ -1,6 +1,6 @@
 # JeremyLongshore.com
 
-[![Firebase Hosting](https://img.shields.io/badge/Firebase-Hosting-FFCA28?logo=firebase)](https://firebase.google.com/products/hosting)
+[![Netlify](https://img.shields.io/badge/Netlify-deployed-00C7B7?logo=netlify&logoColor=white)](https://www.netlify.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![Version](https://img.shields.io/badge/version-v2.21.0-blue)
 
@@ -20,7 +20,7 @@ themes/default/         # Liquid template + CSS + Font Awesome
   styles.css            # Site styling
 plugins/                # Ruby plugins for dynamic data
   GithubRepoStarsCountPlugin.rb  # Fetches GitHub star counts
-_output/                # Generated static site (deployed to Firebase)
+_output/                # Generated static site (committed; served by Netlify)
 ```
 
 **Build flow:** `config.yml` → plugins fetch data → Liquid renders `themes/default/` → `_output/`
@@ -37,27 +37,24 @@ cd _output && python -m http.server 8000
 
 ## Deployment
 
-### GitHub Actions + Workload Identity Federation (WIF)
+**Netlify** hosts the live site, wired via the Netlify GitHub app (no workflow in
+this repo). Netlify serves the committed `_output/` directly — `netlify.toml` sets
+`publish = "_output"` with no build command, so whatever `_output/` you commit is
+what ships.
 
-On push to `main`, GitHub Actions:
-1. Checks out code
-2. Sets up Ruby 3.2 + bundler
-3. Runs `bundle exec ruby scaffold.rb` to build
-4. Authenticates to GCP via WIF (no service account keys)
-5. Deploys `_output/` to Firebase Hosting
-
-**WIF Configuration:**
-- **Workload Identity Pool:** `github-pool`
-- **Provider:** `github-provider`
-- **Service Account:** `github-actions@bigo-portfolio.iam.gserviceaccount.com`
-- **Project:** `bigo-portfolio`
-
-### Manual Deploy
+- Push to `main` → production deploy.
+- Every PR gets a deploy preview at `deploy-preview-<N>--jeremylongshore.netlify.app`.
+- Build-time data (stars, contributions, RSS) is baked into `_output/` at commit
+  time. To refresh it, rebuild and commit:
 
 ```bash
-bash build.sh
-firebase deploy --only hosting --project bigo-portfolio
+GITHUB_TOKEN=$(gh auth token) bash build.sh   # contributions plugin needs a token
+git add _output/ && git commit -m "chore: rebuild _output"
 ```
+
+> Firebase Hosting (`bigo-portfolio`) was the previous deploy; its workflow and
+> config (`firebase-deploy.yml`, `firebase.json`, `.firebaserc`) were removed
+> 2026-06-20 in favor of Netlify.
 
 ## Configuration
 
@@ -75,12 +72,13 @@ Organized by category:
 - `client_projects` - Work for clients
 - `n8n_workflows` - Automation templates
 
-### GitHub Stars Plugin
-Automatically fetches star counts for repos listed in `data/projects.yml`:
-```yaml
-github_repo: "owner/repo-name"  # Add to any project
-```
-Stars are cached in `.github_stars_cache.json` between builds.
+### Build-time data plugins (`plugins/`, auto-run by `scaffold.rb`)
+- **GithubRepoStarsCountPlugin** — star counts for any project with a
+  `github_repo: "owner/repo-name"`, cached in `.github_stars_cache.json`.
+- **GithubContributionsPlugin** — merged PRs to external repos, pulled live from
+  the GitHub search API for the Open Source Contributions section (needs
+  `GITHUB_TOKEN`; cached in `.github_contributions_cache.json`).
+- **StartAIToolsRSSPlugin** — latest startaitools.com posts for the Work Diary.
 
 ## Release Process
 
@@ -92,11 +90,10 @@ Automated via GitHub Actions on push to `main`:
 ## Tech Stack
 
 - **Generator:** [Linkyee](https://github.com/username/linkyee) (Ruby + Liquid)
-- **Hosting:** Firebase Hosting
-- **CI/CD:** GitHub Actions with Workload Identity Federation
-- **Auth:** GCP WIF (keyless authentication)
+- **Hosting:** Netlify (serves committed `_output/`)
+- **CI/CD:** Netlify GitHub app (deploys) + GitHub Actions `release.yml` (versioning)
 - **Icons:** Font Awesome Free
-- **Analytics:** Google Analytics 4
+- **Analytics:** Google Analytics 4 + self-hosted Umami
 
 ## File Management
 
@@ -104,9 +101,8 @@ Automated via GitHub Actions on push to `main`:
 |------|---------|
 | `config.yml` | All site content - single source of truth |
 | `data/projects.yml` | Project listings with metadata |
-| `_output/` | Generated site (auto-deployed) |
-| `firebase.json` | Firebase hosting config |
-| `.firebaserc` | Firebase project binding |
+| `_output/` | Generated site (committed; served by Netlify) |
+| `netlify.toml` | Netlify config (publish dir, redirects) |
 
 **Rules:**
 - Never edit `_output/` manually - regenerated on every build
