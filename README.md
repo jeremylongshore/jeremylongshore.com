@@ -1,6 +1,6 @@
 # JeremyLongshore.com
 
-[![Firebase Hosting](https://img.shields.io/badge/Firebase-Hosting-FFCA28?logo=firebase)](https://firebase.google.com/products/hosting)
+[![Deploy: self-hosted VPS](https://img.shields.io/badge/deploy-self--hosted%20VPS%20(Caddy)-2ea44f)](https://intentsolutions.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![Version](https://img.shields.io/badge/version-v2.22.1-blue)
 
@@ -20,7 +20,7 @@ themes/default/         # Liquid template + CSS + Font Awesome
   styles.css            # Site styling
 plugins/                # Ruby plugins for dynamic data
   GithubRepoStarsCountPlugin.rb  # Fetches GitHub star counts
-_output/                # Generated static site (committed; deployed to Firebase)
+_output/                # Generated static site (rebuilt + served on the VPS via Caddy)
 ```
 
 **Build flow:** `config.yml` → plugins fetch data → Liquid renders `themes/default/` → `_output/`
@@ -37,27 +37,26 @@ cd _output && python -m http.server 8000
 
 ## Deployment
 
-**Firebase Hosting** (project `bigo-portfolio`) serves the live domain. The apex
-`jeremylongshore.com` and `www` both resolve to Firebase (`199.36.158.100`).
+**Self-hosted** on the Intent Solutions VPS (`intentsolutions`, `167.86.106.29`) —
+the canonical VPS-as-the-home pattern. Caddy serves the static build via
+`file_server` from `/srv/jeremylongshore/dist`. The apex + `www` resolve to the VPS
+(`dig +short jeremylongshore.com` → `167.86.106.29`).
 
-On push to `main`, `.github/workflows/firebase-deploy.yml`:
-1. Checks out + sets up Ruby 3.2
-2. Builds with `bundle exec ruby scaffold.rb` (`GITHUB_TOKEN` in env so the
-   stars/contributions plugins fetch live)
-3. Authenticates to GCP via Workload Identity Federation (no service-account keys)
-4. Runs `firebase deploy --only hosting --project bigo-portfolio`
+On push to `main`, `.github/workflows/deploy.yml`:
+1. **Build gate** — Ruby 3.2 + `bundle exec ruby scaffold.rb` (validates Liquid + plugins)
+2. **Tailscale OIDC** — keyless auth to the tailnet (per-repo WIF trust)
+3. **SSH (force-command)** — triggers `/usr/local/sbin/deploy-jeremylongshore` on the VPS,
+   which does `git fetch` + `bundle install` + `ruby scaffold.rb` +
+   `rsync -a --delete _output/ → dist/` + writes `dist/healthz`
+4. **Smoke check** — `curl https://jeremylongshore.com/healthz` asserts `.ok == true`
 
-**Manual deploy:**
+Reusable workflow: `jeremylongshore/.github` `vps-deploy.yml` (`variant: static`).
+GH secrets: `TS_OIDC_CLIENT_ID`, `TS_AUDIENCE`, `VPS_DEPLOY_KEY`, `VPS_HOST_KEY`.
 
-```bash
-GITHUB_TOKEN=$(gh auth token) bash build.sh
-firebase deploy --only hosting --project bigo-portfolio
-```
+**Manual deploy:** `ssh intentsolutions /usr/local/sbin/deploy-jeremylongshore`
 
-**Netlify is preview-only** — the Netlify GitHub app builds a deploy preview per
-PR (`deploy-preview-<N>--jeremylongshore.netlify.app`); it does **not** serve the
-live domain. Verify the host with `dig +short jeremylongshore.com`, not docs.
-Migrating the apex to Netlify (GCP exodus) is a candidate but not yet done.
+> Migrated off Firebase Hosting (`bigo-portfolio`) **and** Netlify on 2026-06-20 as
+> part of the GCP exodus — single deploy path, no Google, no Netlify.
 
 ## Configuration
 
@@ -93,8 +92,8 @@ Automated via GitHub Actions on push to `main`:
 ## Tech Stack
 
 - **Generator:** [Linkyee](https://github.com/username/linkyee) (Ruby + Liquid)
-- **Hosting:** Firebase Hosting (`bigo-portfolio`)
-- **CI/CD:** GitHub Actions — `firebase-deploy.yml` (deploy via WIF) + `release.yml` (versioning); Netlify GitHub app for PR previews only
+- **Hosting:** Self-hosted on the `intentsolutions` VPS (Caddy `file_server`)
+- **CI/CD:** GitHub Actions — `deploy.yml` (VPS deploy via Tailscale OIDC) + `release.yml` (versioning)
 - **Icons:** Font Awesome Free
 - **Analytics:** Google Analytics 4 + self-hosted Umami
 
@@ -104,10 +103,8 @@ Automated via GitHub Actions on push to `main`:
 |------|---------|
 | `config.yml` | All site content - single source of truth |
 | `data/projects.yml` | Project listings with metadata |
-| `_output/` | Generated site (committed; deployed to Firebase) |
-| `firebase.json` | Firebase hosting config |
-| `.firebaserc` | Firebase project binding |
-| `netlify.toml` | Netlify config (PR deploy previews only) |
+| `_output/` | Generated site (rebuilt + served on the VPS via Caddy) |
+| `.github/workflows/deploy.yml` | VPS deploy (Tailscale OIDC + force-command SSH) |
 
 **Rules:**
 - Never edit `_output/` manually - regenerated on every build

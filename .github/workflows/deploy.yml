@@ -1,0 +1,57 @@
+name: Deploy jeremylongshore.com to VPS
+
+# Push to main -> CI build gate -> Tailscale OIDC -> SSH to the intentsolutions
+# VPS -> force-command /usr/local/sbin/deploy-jeremylongshore (git fetch +
+# bundle install + ruby scaffold.rb + rsync _output/ -> /srv/jeremylongshore/dist)
+# -> Caddy file_server -> /healthz smoke check.
+#
+# Replaces the old Firebase deploy (removed). Onboarded per
+# intentsolutions-vps-runbook/docs/onboard-new-repo-deploy.md (static variant).
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  id-token: write   # required for Tailscale OIDC
+
+concurrency:
+  group: deploy-vps-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  test:
+    name: pre-deploy build gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+      - name: Build site (validates Liquid + plugins)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # stars + contributions plugins
+        run: bundle exec ruby scaffold.rb
+      - name: Verify build artifact
+        run: test -f _output/index.html
+
+  deploy:
+    needs: test
+    uses: jeremylongshore/.github/.github/workflows/vps-deploy.yml@53d6be37d6c046818157b954acb33667ac095dd8
+    with:
+      variant: static
+      srv-path: /srv/jeremylongshore
+      health-check-url: https://jeremylongshore.com/healthz
+      vps-tailnet-ip: 100.88.144.55
+      vps-public-ip: 167.86.106.29
+      vps-host: intentsolutions
+      vps-user: intentsolutions
+      smoke-validation: '.ok == true'
+    secrets:
+      TS_OIDC_CLIENT_ID: ${{ secrets.TS_OIDC_CLIENT_ID }}
+      TS_AUDIENCE: ${{ secrets.TS_AUDIENCE }}
+      VPS_DEPLOY_KEY: ${{ secrets.VPS_DEPLOY_KEY }}
+      VPS_HOST_KEY: ${{ secrets.VPS_HOST_KEY }}
