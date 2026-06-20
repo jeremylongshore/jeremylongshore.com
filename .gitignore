@@ -29,6 +29,7 @@ _hugo_backup/
 .github_stars_cache.json
 .github_contributions_cache.json
 .rss_cache.json
+.firebase/
 vendor/
 
 # Dolt database files (added by bd init)
