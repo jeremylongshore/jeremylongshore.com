@@ -1,3 +1,14 @@
+# Release v2.22.1
+
+**Release Date**: 2026-06-20
+
+## Changes since v2.22.0
+
+- chore: release v2.22.1 [skip ci] (1b2b85b)
+- fix(deploy): restore Firebase production deploy; correct deploy docs (#10) (c341b3a)
+
+---
+
 # Release v2.22.0
 
 **Release Date**: 2026-06-20
