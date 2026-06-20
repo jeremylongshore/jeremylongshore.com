@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Personal landing page for Jeremy Longshore built with **Linkyee** (Ruby-based static site generator). Single-page design featuring project links, social profiles, and dynamic GitHub star counts.
 
 **Live:** https://jeremylongshore.com
-**Deployment:** Netlify (auto-deploys `main`; serves the committed `_output/` directly)
+**Deployment:** Firebase Hosting (`bigo-portfolio`) via `.github/workflows/firebase-deploy.yml` on push to `main`. Netlify is connected for PR deploy previews only — it does NOT serve the live domain.
 
 ## Commands
 
@@ -76,20 +76,28 @@ text: "Project <span class='link-button-text'>({{vars.GithubRepoStarsCountPlugin
 
 ## Deployment
 
-**Netlify** is the live deploy for jeremylongshore.com, wired via the Netlify
-GitHub app (not a workflow in this repo):
+**Firebase Hosting** (project `bigo-portfolio`) serves the live domain. Apex
+`jeremylongshore.com` and `www` both point at Firebase (A `199.36.158.100`).
 
-- **Host:** Netlify — serves the committed `_output/` directly (`netlify.toml`:
-  `publish = "_output"`, no build command). Whatever `_output/` you commit is
-  what ships.
-- **Trigger:** push to `main` → production deploy; every PR gets a deploy preview
-  at `deploy-preview-<N>--jeremylongshore.netlify.app`.
+- **Production deploy:** `.github/workflows/firebase-deploy.yml` runs on push to
+  `main` — builds with `scaffold.rb` (`GITHUB_TOKEN` in env), authenticates to
+  GCP via Workload Identity Federation (pool `github-pool`, SA
+  `github-actions@bigo-portfolio.iam.gserviceaccount.com`), then
+  `firebase deploy --only hosting`.
+- **Manual deploy:** `bash build.sh && firebase deploy --only hosting --project bigo-portfolio`.
+- **Netlify is PREVIEW-ONLY:** the Netlify GitHub app builds a deploy preview per
+  PR (`deploy-preview-<N>--jeremylongshore.netlify.app`). It does **not** serve
+  the production domain.
 - **Build-time data** (stars, contributions, RSS) is baked into `_output/` at
-  commit time — run `bash build.sh` and commit `_output/` to refresh it.
+  build time; CI rebuilds it on every deploy.
 
-**History:** Firebase Hosting (`bigo-portfolio`) was the previous deploy; its
-workflow (`firebase-deploy.yml`) and config (`firebase.json` / `.firebaserc`)
-were removed 2026-06-20 in favor of Netlify (part of the GCP exodus).
+> ⚠️ Verify the live host with DNS, not docs: `dig +short jeremylongshore.com`
+> → `199.36.158.100` = Firebase. (2026-06-20: a redesign was briefly mis-shipped
+> on the assumption Netlify was canonical — it is not.)
+>
+> **Planned (GCP exodus):** migrating the apex to Netlify is a candidate but is
+> NOT done — it needs a deliberate Porkbun DNS cutover + Netlify domain/SSL setup
+> with rollback. Until executed, Firebase is production.
 
 ## Dependencies
 

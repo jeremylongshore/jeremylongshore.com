@@ -1,6 +1,6 @@
 # JeremyLongshore.com
 
-[![Netlify](https://img.shields.io/badge/Netlify-deployed-00C7B7?logo=netlify&logoColor=white)](https://www.netlify.com/)
+[![Firebase Hosting](https://img.shields.io/badge/Firebase-Hosting-FFCA28?logo=firebase)](https://firebase.google.com/products/hosting)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![Version](https://img.shields.io/badge/version-v2.22.0-blue)
 
@@ -20,7 +20,7 @@ themes/default/         # Liquid template + CSS + Font Awesome
   styles.css            # Site styling
 plugins/                # Ruby plugins for dynamic data
   GithubRepoStarsCountPlugin.rb  # Fetches GitHub star counts
-_output/                # Generated static site (committed; served by Netlify)
+_output/                # Generated static site (committed; deployed to Firebase)
 ```
 
 **Build flow:** `config.yml` → plugins fetch data → Liquid renders `themes/default/` → `_output/`
@@ -37,24 +37,27 @@ cd _output && python -m http.server 8000
 
 ## Deployment
 
-**Netlify** hosts the live site, wired via the Netlify GitHub app (no workflow in
-this repo). Netlify serves the committed `_output/` directly — `netlify.toml` sets
-`publish = "_output"` with no build command, so whatever `_output/` you commit is
-what ships.
+**Firebase Hosting** (project `bigo-portfolio`) serves the live domain. The apex
+`jeremylongshore.com` and `www` both resolve to Firebase (`199.36.158.100`).
 
-- Push to `main` → production deploy.
-- Every PR gets a deploy preview at `deploy-preview-<N>--jeremylongshore.netlify.app`.
-- Build-time data (stars, contributions, RSS) is baked into `_output/` at commit
-  time. To refresh it, rebuild and commit:
+On push to `main`, `.github/workflows/firebase-deploy.yml`:
+1. Checks out + sets up Ruby 3.2
+2. Builds with `bundle exec ruby scaffold.rb` (`GITHUB_TOKEN` in env so the
+   stars/contributions plugins fetch live)
+3. Authenticates to GCP via Workload Identity Federation (no service-account keys)
+4. Runs `firebase deploy --only hosting --project bigo-portfolio`
+
+**Manual deploy:**
 
 ```bash
-GITHUB_TOKEN=$(gh auth token) bash build.sh   # contributions plugin needs a token
-git add _output/ && git commit -m "chore: rebuild _output"
+GITHUB_TOKEN=$(gh auth token) bash build.sh
+firebase deploy --only hosting --project bigo-portfolio
 ```
 
-> Firebase Hosting (`bigo-portfolio`) was the previous deploy; its workflow and
-> config (`firebase-deploy.yml`, `firebase.json`, `.firebaserc`) were removed
-> 2026-06-20 in favor of Netlify.
+**Netlify is preview-only** — the Netlify GitHub app builds a deploy preview per
+PR (`deploy-preview-<N>--jeremylongshore.netlify.app`); it does **not** serve the
+live domain. Verify the host with `dig +short jeremylongshore.com`, not docs.
+Migrating the apex to Netlify (GCP exodus) is a candidate but not yet done.
 
 ## Configuration
 
@@ -90,8 +93,8 @@ Automated via GitHub Actions on push to `main`:
 ## Tech Stack
 
 - **Generator:** [Linkyee](https://github.com/username/linkyee) (Ruby + Liquid)
-- **Hosting:** Netlify (serves committed `_output/`)
-- **CI/CD:** Netlify GitHub app (deploys) + GitHub Actions `release.yml` (versioning)
+- **Hosting:** Firebase Hosting (`bigo-portfolio`)
+- **CI/CD:** GitHub Actions — `firebase-deploy.yml` (deploy via WIF) + `release.yml` (versioning); Netlify GitHub app for PR previews only
 - **Icons:** Font Awesome Free
 - **Analytics:** Google Analytics 4 + self-hosted Umami
 
@@ -101,8 +104,10 @@ Automated via GitHub Actions on push to `main`:
 |------|---------|
 | `config.yml` | All site content - single source of truth |
 | `data/projects.yml` | Project listings with metadata |
-| `_output/` | Generated site (committed; served by Netlify) |
-| `netlify.toml` | Netlify config (publish dir, redirects) |
+| `_output/` | Generated site (committed; deployed to Firebase) |
+| `firebase.json` | Firebase hosting config |
+| `.firebaserc` | Firebase project binding |
+| `netlify.toml` | Netlify config (PR deploy previews only) |
 
 **Rules:**
 - Never edit `_output/` manually - regenerated on every build
