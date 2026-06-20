@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ title }}</title>
   <meta name="last-modified" content="{{ last_modified_at }}">
-  <meta name="theme-color" content="#FFFFFF">
+  <meta name="theme-color" content="#faf8f4">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="description" content="{{ tagline }}" />
   <meta property="og:title" content="{{ title }}" />
@@ -15,6 +15,9 @@
   <link rel="apple-touch-icon" sizes="180x180" href="./images/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicons/favicon-32x32.png">
   <link rel="shortcut icon" href="./images/favicons/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css?v={{ last_modified_at }}" />
 </head>
 <body>
@@ -40,6 +43,16 @@
         <a href="{{ contact_url }}" target="_blank" class="btn btn-secondary">
           <i class="fa-solid fa-envelope"></i> Send a Message
         </a>
+      </div>
+    </section>
+
+    <section class="featured-coaching">
+      <span class="fc-eyebrow">Learn with Jeremy</span>
+      <h2 class="fc-title">Your project. My methodology.</h2>
+      <p class="fc-desc">1:1 coaching on AI coding agents &mdash; Claude Code, Codex, Gemini, whatever moves the needle. You bring your real codebase; I bring the methodology that actually ships. Starter, Standard, and full-day deep dives.</p>
+      <div class="fc-actions">
+        <a href="{{ booking_url }}" target="_blank" class="btn btn-primary"><i class="fa-solid fa-calendar"></i> Book a session</a>
+        <a href="https://www.upwork.com/freelancers/jeremylongshore" target="_blank" class="btn btn-secondary">See the tiers</a>
       </div>
     </section>
 
@@ -174,6 +187,7 @@
         <h2 class="section-label">Products</h2>
       </div>
       {% for p in products %}
+      {% unless p.id == 'learn-with-jeremy' %}
       <div class="link-item" data-id="{{ p.id }}">
         <div class="link-row" onclick="toggleExpand('{{ p.id }}')">
           <div class="link-icon"><i class="{{ p.icon }}"></i></div>
@@ -210,33 +224,34 @@
           <a href="{{ p.url }}" target="_blank" class="expand-link">Open &rarr;</a>
         </div>
       </div>
+      {% endunless %}
       {% endfor %}
     </section>
     {% endif %}
 
-    {% if contributions.highlights.size > 0 %}
+    {% assign contrib = vars.GithubContributionsPlugin %}
+    {% if contrib and contrib.total_prs > 0 %}
     <section class="links">
-      <div class="section-header">
+      <a href="https://github.com/pulls?q=is%3Apr%20author%3Ajeremylongshore%20is%3Amerged" target="_blank" class="section-header">
         <h2 class="section-label">Open Source Contributions</h2>
-        <span class="contribution-count">{{ contributions.total_prs }} PRs merged</span>
-      </div>
-      {% for c in contributions.highlights %}
+        <span class="contribution-count">{{ contrib.total_prs }} PRs &middot; {{ contrib.total_repos }} repos</span>
+      </a>
+      {% for c in contrib.highlights %}
       <a href="{{ c.url }}" target="_blank" class="link-item simple">
         <div class="link-icon"><i class="{{ c.icon }}"></i></div>
         <div class="link-text">
-          <span class="link-title">{{ c.title }}</span>
+          <span class="link-title">{{ c.label }}</span>
           <span class="link-desc">{{ c.description }}</span>
         </div>
         <div class="link-badge">
-          {% if c.prs %}<span class="badge contrib">{{ c.prs }} PRs</span>
-          {% else %}<span class="badge contrib">#{{ c.pr_number }}</span>{% endif %}
+          <span class="badge contrib">{{ c.count }} PR{% unless c.count == 1 %}s{% endunless %}</span>
         </div>
       </a>
       {% endfor %}
-      {% if contributions.others.size > 0 %}
+      {% if contrib.others.size > 0 %}
       <div class="contributions-footer">
-        {% for o in contributions.others %}
-        <a href="{{ o.url }}" target="_blank" class="contrib-other">{{ o.repo | split: "/" | last }}: {{ o.note }}</a>
+        {% for o in contrib.others %}
+        <a href="{{ o.url }}" target="_blank" class="contrib-other">{{ o.name }} &middot; {{ o.count }}</a>
         {% endfor %}
       </div>
       {% endif %}
