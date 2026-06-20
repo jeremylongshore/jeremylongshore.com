@@ -1,3 +1,14 @@
+# Release v2.23.0
+
+**Release Date**: 2026-06-20
+
+## Changes since v2.22.1
+
+- chore: release v2.23.0 [skip ci] (16bd386)
+- feat(deploy): migrate to self-hosted VPS (off Firebase + Netlify) (#11) (af66a57)
+
+---
+
 # Release v2.22.1
 
 **Release Date**: 2026-06-20
