@@ -1,3 +1,18 @@
+# Release v2.22.0
+
+**Release Date**: 2026-06-20
+
+## Changes since v2.21.0
+
+- chore: release v2.22.0 [skip ci] (d9f7cf1)
+- Merge pull request #9 from jeremylongshore/feat/operator-editorial-redesign (33ff724)
+- docs(readme): correct deploy + stack to Netlify (drop Firebase/WIF) (0618839)
+- chore(deploy): remove dead Firebase deploy in favor of Netlify (70712f4)
+- docs(claude): correct deploy to Netlify (not Firebase) + document live-data plugins (c04c90e)
+- feat(site): operator-editorial redesign + live API contributions (8a42b28)
+
+---
+
 # Release v2.21.0
 
 **Release Date**: 2026-05-07
