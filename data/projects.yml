@@ -325,21 +325,6 @@ products:
     tech_stack: ["React", "Firebase", "Cloud Functions", "Firestore"]
     agent_framework: ["Vertex AI Agent Engine", "A2A Protocol"]
 
-  - id: costplusdb
-    title: "CostPlusDB"
-    url: "https://costplusdb.dev"
-    icon: "fa-solid fa-database"
-    github_repo: "jeremylongshore/cost-plus-db"
-    visibility: public
-    purpose_short: "Transparent Postgres: infrastructure cost + 25%, period"
-    purpose_long: "Transparent PostgreSQL hosting with a simple pricing model: infrastructure cost plus 25% margin. No hidden fees, no surprise bills, no vendor lock-in. Published performance benchmarks let you compare against AWS RDS, Cloud SQL, and others. Features include automated backups, point-in-time recovery, connection pooling, and performance monitoring. Built on GCP Compute Engine for reliability."
-    use_cases:
-      - "Predictable database hosting with transparent pricing"
-      - "Compare performance against major cloud providers"
-      - "Automated backups and disaster recovery"
-      - "No vendor lock-in with standard PostgreSQL"
-    tech_stack: ["PostgreSQL", "GCP Compute", "Terraform", "Prometheus"]
-    agent_framework: []
 
   - id: stci
     title: "STCI"
@@ -758,6 +743,22 @@ personal_repos:
       - "Hugo, Jekyll, Gatsby, Next.js, WordPress support"
     tech_stack: ["Python", "Hugo", "Jekyll", "Gatsby", "Next.js"]
     agent_framework: ["Claude Code"]
+
+  - id: costplusdb
+    title: "CostPlusDB"
+    url: "https://github.com/jeremylongshore/cost-plus-db"
+    icon: "fa-solid fa-database"
+    github_repo: "jeremylongshore/cost-plus-db"
+    visibility: public
+    purpose_short: "Reference build — transparent Postgres hosting (infra cost + 25%) on GCP"
+    purpose_long: "A demonstration build exploring a transparent PostgreSQL-hosting model: infrastructure cost plus a flat 25% margin, no hidden fees or vendor lock-in. Architected on GCP Compute with Terraform-managed infrastructure, automated backups, point-in-time recovery, connection pooling, and Prometheus monitoring, plus published benchmarks against AWS RDS and Cloud SQL. The hosted service has been retired; the full implementation is public on GitHub as a portfolio reference."
+    use_cases:
+      - "Reference architecture for transparent, cost-plus database hosting"
+      - "Terraform-managed GCP Compute provisioning"
+      - "Automated backups and point-in-time recovery patterns"
+      - "Benchmarking methodology vs. managed cloud databases"
+    tech_stack: ["PostgreSQL", "GCP Compute", "Terraform", "Prometheus"]
+    agent_framework: []
 
 # Client Projects - Work for Others
 # Links to: intentsolutions.io
