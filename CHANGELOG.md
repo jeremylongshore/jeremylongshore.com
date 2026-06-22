@@ -1,3 +1,14 @@
+# Release v2.23.1
+
+**Release Date**: 2026-06-22
+
+## Changes since v2.23.0
+
+- chore: release v2.23.1 [skip ci] (4467934)
+- content(portfolio): reframe CostPlusDB as a built demo (retired service) (#12) (90b702c)
+
+---
+
 # Release v2.23.0
 
 **Release Date**: 2026-06-20
