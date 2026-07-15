@@ -54,19 +54,19 @@ intent_solutions_repos:
     agent_framework: ["Vertex AI Gemini"]
 
   - id: bobs-brain
-    title: "Bob's Brain"
+    title: "IAM Bob ADK"
     url: "https://bobs-brain.web.app/"
     icon: "fa-solid fa-brain"
-    github_repo: "intent-solutions-io/iam-bobs-brain"
+    github_repo: "jeremylongshore/iam-bob-adk"
     visibility: public
-    purpose_short: "8-agent code review system for ADK pattern compliance"
-    purpose_long: "Multi-agent system that ensures codebase compliance with Google Agent Development Kit (ADK) patterns and best practices. Eight specialist agents review code for architecture patterns, security vulnerabilities, performance issues, and documentation gaps. Integrates with CI/CD pipelines for automated compliance checks on every commit. Essential for teams building production agents on Google Cloud."
+    purpose_short: "Google ADK reference implementation of the Intent Agent Model"
+    purpose_long: "Official Google ADK and Vertex AI Agent Engine reference implementation of the Intent Agent Model. A multi-agent foreman coordinates specialists through A2A and MCP, with Vertex Session and Memory Bank support and Google-specific hard-mode deployment contracts."
     use_cases:
       - "Automated code review for ADK pattern compliance"
       - "Security vulnerability scanning for agent code"
       - "Documentation generation and gap analysis"
       - "CI/CD integration for continuous compliance"
-    tech_stack: ["Python", "Cloud Run", "Firebase", "GitHub Actions"]
+    tech_stack: ["Python", "Google Cloud"]
     agent_framework: ["Google ADK", "Vertex AI Agent Engine"]
 
   - id: git-with-intent
