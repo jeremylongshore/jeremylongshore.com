@@ -1,3 +1,14 @@
+# Release v2.23.2
+
+**Release Date**: 2026-07-15
+
+## Changes since v2.23.1
+
+- chore: release v2.23.2 [skip ci] (18c6b2b)
+- docs: normalize IAM Bob ADK project identity (#13) (b2d96a2)
+
+---
+
 # Release v2.23.1
 
 **Release Date**: 2026-06-22
