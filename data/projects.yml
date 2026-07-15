@@ -66,7 +66,7 @@ intent_solutions_repos:
       - "Security vulnerability scanning for agent code"
       - "Documentation generation and gap analysis"
       - "CI/CD integration for continuous compliance"
-    tech_stack: ["Python", "Vertex AI Agent Engine", "A2A", "MCP"]
+    tech_stack: ["Python", "Google Cloud"]
     agent_framework: ["Google ADK", "Vertex AI Agent Engine"]
 
   - id: git-with-intent
