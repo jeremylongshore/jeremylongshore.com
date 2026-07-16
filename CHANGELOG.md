@@ -1,3 +1,14 @@
+# Release v2.23.3
+
+**Release Date**: 2026-07-16
+
+## Changes since v2.23.2
+
+- chore: release v2.23.3 [skip ci] (77e8334)
+- docs(ops): point VPS authority to Intent OS (#14) (f10b36a)
+
+---
+
 # Release v2.23.2
 
 **Release Date**: 2026-07-15
