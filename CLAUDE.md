@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Personal landing page for Jeremy Longshore built with **Linkyee** (Ruby-based static site generator). Single-page design featuring project links, social profiles, and dynamic GitHub star counts.
 
 **Live:** https://jeremylongshore.com
-**Deployment:** Firebase Hosting via GitHub Actions (builds on push to main)
+**Deployment:** Contabo VPS `intentsolutions` (`167.86.106.29`, Caddy). Verified via `dig +short jeremylongshore.com` 2026-07-16. Migrated off Firebase Hosting + Netlify on 2026-06-20. **NOT Firebase, NOT Netlify** — the repo still carries a stale `firebase-deploy.yml`/`netlify.toml` from the old hosts. Confirm the current pipeline against `~/.claude/CLAUDE.md` § "Cloud Platform" and the VPS runbook before touching deploy.
 
 ## Commands
 
@@ -72,11 +72,10 @@ text: "Project <span class='link-button-text'>({{vars.GithubRepoStarsCountPlugin
 
 ## Deployment
 
-- **Host:** Firebase Hosting (project: `bigo-portfolio`)
-- **Trigger:** Push to `main` branch
-- **Workflow:** `.github/workflows/firebase-deploy.yml`
-- **Auth:** Workload Identity Federation (no service account keys)
-- **Caching:** 1-year cache for images, CSS, JS
+- **Host:** Contabo VPS `intentsolutions` (`167.86.106.29`), served by Caddy. `dig`-verified 2026-07-16.
+- **History:** Migrated 2026-06-20 off **Firebase Hosting** (project `bigo-portfolio`) and Netlify. The old Firebase note (WIF auth, 1-year caching, push-to-`main` trigger) described the retired host, not the live one.
+- **Stale artifacts:** `.github/workflows/firebase-deploy.yml` and `netlify.toml` remain in the repo from the prior hosts — they do not reflect the live pipeline. Do not treat them as authoritative.
+- **Source of truth for the live pipeline:** `~/.claude/CLAUDE.md` § "Cloud Platform" + the VPS runbook (`~/000-projects/intentsolutions-vps-runbook/`). Verify the host with `dig`, not this file.
 
 ## Dependencies
 
