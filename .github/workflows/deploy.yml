@@ -6,7 +6,7 @@ name: Deploy jeremylongshore.com to VPS
 # -> Caddy file_server -> /healthz smoke check.
 #
 # Replaces the old Firebase deploy (removed). Onboarded per
-# intentsolutions-vps-runbook/docs/onboard-new-repo-deploy.md (static variant).
+# intent-solutions-io/intent-os/ops/deploy (static variant; D90).
 
 on:
   push:
