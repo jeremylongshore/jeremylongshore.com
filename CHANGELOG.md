@@ -1,3 +1,14 @@
+# Release v2.23.4
+
+**Release Date**: 2026-07-16
+
+## Changes since v2.23.3
+
+- chore: release v2.23.4 [skip ci] (ce7f12f)
+- docs(footer): correct star count to canonical persona value (1,300+ -> 2,500+) (#15) (9b40ff9)
+
+---
+
 # Release v2.23.3
 
 **Release Date**: 2026-07-16
