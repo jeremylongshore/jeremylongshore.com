@@ -1,3 +1,14 @@
+# Release v2.23.5
+
+**Release Date**: 2026-07-19
+
+## Changes since v2.23.4
+
+- chore: release v2.23.5 [skip ci] (e75bfaa)
+- docs(projects): rename QMD Team Intent KB entry to Bob's Big Brain Registrar (#16) (d801b38)
+
+---
+
 # Release v2.23.4
 
 **Release Date**: 2026-07-16
