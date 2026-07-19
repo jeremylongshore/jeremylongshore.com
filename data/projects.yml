@@ -680,14 +680,14 @@ personal_repos:
     tech_stack: ["Python", "Creative Writing"]
     agent_framework: []
 
-  - id: qmd-team-intent-kb
-    title: "QMD Team Intent KB"
-    url: "https://github.com/jeremylongshore/qmd-team-intent-kb"
+  - id: bobs-big-brain-registrar
+    title: "Bob's Big Brain Registrar"
+    url: "https://github.com/jeremylongshore/bobs-big-brain-registrar"
     icon: "fa-solid fa-book"
-    github_repo: "jeremylongshore/qmd-team-intent-kb"
+    github_repo: "jeremylongshore/bobs-big-brain-registrar"
     visibility: public
-    purpose_short: "Governed team memory platform for Claude Code"
-    purpose_long: "A governed team memory platform for Claude Code powered by QMD. Enables teams to build, query, and maintain a shared knowledge base with access controls, audit trails, and structured memory retrieval across Claude Code sessions."
+    purpose_short: "The team's memory keeper — admits by code, keeps tamper-evident receipts"
+    purpose_long: "Bob's Big Brain Registrar (formerly QMD Team Intent KB) — the team's memory keeper. A governed team memory platform for Claude Code: admits knowledge by deterministic code, keeps tamper-evident receipts, and serves structured memory retrieval with audit trails across Claude Code sessions."
     use_cases:
       - "Shared team knowledge base for Claude Code"
       - "Governed memory with access controls"
