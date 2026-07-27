@@ -1,3 +1,14 @@
+# Release v2.24.0
+
+**Release Date**: 2026-07-27
+
+## Changes since v2.23.5
+
+- chore: release v2.24.0 [skip ci] (3881687)
+- feat(profile): add Claude Partner Network certification card to profile header (#18) (560989b)
+
+---
+
 # Release v2.23.5
 
 **Release Date**: 2026-07-19
