@@ -1,3 +1,14 @@
+# Release v3.1.0
+
+**Release Date**: 2026-07-27
+
+## Changes since v3.0.0
+
+- chore: release v3.1.0 [skip ci] (0ff4a34)
+- feat(profile): wire footer star count live via GithubRepoStarsCountPlugin (#20) (2d72402)
+
+---
+
 # Release v3.0.0
 
 **Release Date**: 2026-07-27
