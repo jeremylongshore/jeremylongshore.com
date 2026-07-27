@@ -76,6 +76,76 @@ body {
   color: #cbd5e0;
 }
 
+/* Credly Badge — Claude Partner Network certification */
+.credly-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 24px auto 0;
+  max-width: 520px;
+  padding: 16px 20px;
+  background: #f7f8fa;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  text-align: left;
+}
+
+.credly-badge {
+  flex: 0 0 auto;
+  width: 150px;
+  min-height: 270px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.credly-badge > div {
+  width: 150px;
+  height: 270px;
+}
+
+.credly-meta {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.credly-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #CE1141; /* Braves Red — eyebrow accent */
+  margin-bottom: 4px;
+}
+
+.credly-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0C2340; /* Braves Navy */
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+
+.credly-desc {
+  font-size: 13px;
+  color: #4a5568; /* Slate gray */
+  line-height: 1.5;
+  margin: 0 0 8px 0;
+}
+
+.credly-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: #CE1141; /* Braves Red */
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.credly-link:hover {
+  color: #0C2340; /* Braves Navy */
+  text-decoration: underline;
+}
+
 /* Productivity Approach Section */
 .productivity-approach {
   margin-bottom: 40px;
@@ -771,5 +841,22 @@ footer a:hover {
     justify-content: center;
     min-height: 48px;
     padding: 14px 24px;
+  }
+
+  .credly-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 18px 16px;
+  }
+
+  .credly-badge {
+    margin: 0 auto;
+  }
+
+  .credly-eyebrow,
+  .credly-title,
+  .credly-desc,
+  .credly-link {
+    text-align: center;
   }
 }
