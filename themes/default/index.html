@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ title }}</title>
   <meta name="last-modified" content="{{ last_modified_at }}">
-  <meta name="theme-color" content="#faf8f4">
+  <meta name="theme-color" content="#FFFFFF">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="description" content="{{ tagline }}" />
   <meta property="og:title" content="{{ title }}" />
@@ -15,9 +15,6 @@
   <link rel="apple-touch-icon" sizes="180x180" href="./images/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicons/favicon-32x32.png">
   <link rel="shortcut icon" href="./images/favicons/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css?v={{ last_modified_at }}" />
 </head>
 <body>
@@ -33,6 +30,18 @@
         <span>·</span>
         <a href="https://startaitools.com" target="_blank">startaitools.com</a>
       </p>
+
+      <aside class="credly-card" aria-label="Claude Partner Network certification">
+        <div class="credly-badge">
+          <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="ddf22fb4-0aa6-46b3-a93b-0b45b509e471" data-share-badge-host="https://www.credly.com"></div>
+        </div>
+        <div class="credly-meta">
+          <div class="credly-eyebrow">Anthropic-issued</div>
+          <div class="credly-title">Claude Partner Badge &middot; Claude Code</div>
+          <p class="credly-desc">Certified through the Claude Partner Network to scope, deploy, configure, and run Claude Code activations end-to-end. Eight-course program with a scenario-based capstone.</p>
+          <a class="credly-link" href="https://www.credly.com/badges/ddf22fb4-0aa6-46b3-a93b-0b45b509e471" target="_blank" rel="noopener noreferrer">Verify on Credly &rarr;</a>
+        </div>
+      </aside>
     </header>
 
     <section class="contact-cta top">
@@ -43,16 +52,6 @@
         <a href="{{ contact_url }}" target="_blank" class="btn btn-secondary">
           <i class="fa-solid fa-envelope"></i> Send a Message
         </a>
-      </div>
-    </section>
-
-    <section class="featured-coaching">
-      <span class="fc-eyebrow">Learn with Jeremy</span>
-      <h2 class="fc-title">Your project. My methodology.</h2>
-      <p class="fc-desc">1:1 coaching on AI coding agents &mdash; Claude Code, Codex, Gemini, whatever moves the needle. You bring your real codebase; I bring the methodology that actually ships. Starter, Standard, and full-day deep dives.</p>
-      <div class="fc-actions">
-        <a href="{{ booking_url }}" target="_blank" class="btn btn-primary"><i class="fa-solid fa-calendar"></i> Book a session</a>
-        <a href="https://www.upwork.com/freelancers/jeremylongshore" target="_blank" class="btn btn-secondary">See the tiers</a>
       </div>
     </section>
 
@@ -187,7 +186,6 @@
         <h2 class="section-label">Products</h2>
       </div>
       {% for p in products %}
-      {% unless p.id == 'learn-with-jeremy' %}
       <div class="link-item" data-id="{{ p.id }}">
         <div class="link-row" onclick="toggleExpand('{{ p.id }}')">
           <div class="link-icon"><i class="{{ p.icon }}"></i></div>
@@ -224,34 +222,33 @@
           <a href="{{ p.url }}" target="_blank" class="expand-link">Open &rarr;</a>
         </div>
       </div>
-      {% endunless %}
       {% endfor %}
     </section>
     {% endif %}
 
-    {% assign contrib = vars.GithubContributionsPlugin %}
-    {% if contrib and contrib.total_prs > 0 %}
+    {% if contributions.highlights.size > 0 %}
     <section class="links">
-      <a href="https://github.com/pulls?q=is%3Apr%20author%3Ajeremylongshore%20is%3Amerged" target="_blank" class="section-header">
+      <div class="section-header">
         <h2 class="section-label">Open Source Contributions</h2>
-        <span class="contribution-count">{{ contrib.total_prs }} PRs &middot; {{ contrib.total_repos }} repos</span>
-      </a>
-      {% for c in contrib.highlights %}
+        <span class="contribution-count">{{ contributions.total_prs }} PRs merged</span>
+      </div>
+      {% for c in contributions.highlights %}
       <a href="{{ c.url }}" target="_blank" class="link-item simple">
         <div class="link-icon"><i class="{{ c.icon }}"></i></div>
         <div class="link-text">
-          <span class="link-title">{{ c.label }}</span>
+          <span class="link-title">{{ c.title }}</span>
           <span class="link-desc">{{ c.description }}</span>
         </div>
         <div class="link-badge">
-          <span class="badge contrib">{{ c.count }} PR{% unless c.count == 1 %}s{% endunless %}</span>
+          {% if c.prs %}<span class="badge contrib">{{ c.prs }} PRs</span>
+          {% else %}<span class="badge contrib">#{{ c.pr_number }}</span>{% endif %}
         </div>
       </a>
       {% endfor %}
-      {% if contrib.others.size > 0 %}
+      {% if contributions.others.size > 0 %}
       <div class="contributions-footer">
-        {% for o in contrib.others %}
-        <a href="{{ o.url }}" target="_blank" class="contrib-other">{{ o.name }} &middot; {{ o.count }}</a>
+        {% for o in contributions.others %}
+        <a href="{{ o.url }}" target="_blank" class="contrib-other">{{ o.repo | split: "/" | last }}: {{ o.note }}</a>
         {% endfor %}
       </div>
       {% endif %}
@@ -331,31 +328,6 @@
     </section>
     {% endif %}
 
-    {% if articles.size > 0 %}
-    <section class="links work-diary">
-      <a href="https://startaitools.com" target="_blank" class="section-header">
-        <h2 class="section-label">Work Diary</h2>
-        <span class="article-count">{{ articles.size }} latest</span>
-      </a>
-      <p class="section-intro">What I'm building, breaking, and shipping — direct from the commit log.</p>
-      {% for article in articles %}
-      <a href="{{ article.url }}" target="_blank" class="link-item simple article-item">
-        <div class="link-icon"><i class="fa-solid fa-pen-nib"></i></div>
-        <div class="link-text">
-          <span class="link-title">{{ article.title }}</span>
-          <span class="link-desc">{{ article.description }}</span>
-        </div>
-        <div class="link-badge">
-          <span class="badge article-date">{{ article.date }}</span>
-        </div>
-      </a>
-      {% endfor %}
-      <div class="article-footer">
-        <a href="https://startaitools.com" target="_blank" class="expand-link">Read all posts →</a>
-      </div>
-    </section>
-    {% endif %}
-
     <section class="who-i-work-with">
       <h2>Who I Work With</h2>
       <p>I work with organizations adopting AI — from startups building their first agent to enterprises rolling out coding tools across 500 engineers.</p>
@@ -367,6 +339,29 @@
       </ul>
       <a href="{{ booking_url }}" target="_blank" class="cta-link">Let's talk →</a>
     </section>
+
+    {% if blog_posts.size > 0 %}
+    <section class="links blog-section">
+      <a href="https://startaitools.com/posts/" target="_blank" class="section-header">
+        <h2 class="section-label">Latest Writing</h2>
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+      <p class="section-intro">Technical deep-dives on AI agents, plugin development, and production systems.</p>
+      {% for post in blog_posts %}
+      <a href="{{ post.url }}" target="_blank" class="link-item simple">
+        <div class="link-icon"><i class="fa-solid fa-pen-nib"></i></div>
+        <div class="link-text">
+          <span class="link-title">{{ post.title }}</span>
+          <span class="link-desc">{{ post.description }}</span>
+        </div>
+        <div class="link-badge">
+          <span class="badge date">{{ post.date }}</span>
+        </div>
+      </a>
+      {% endfor %}
+      <a href="https://startaitools.com/posts/" target="_blank" class="view-all-link">View all posts →</a>
+    </section>
+    {% endif %}
 
     <nav class="socials">
       {% for item in socials %}
@@ -411,6 +406,8 @@
     gtag('config', '{{ google_analytics_id }}');
   </script>
   {% endif %}
-  <script defer src="https://analytics.intentsolutions.io/script.js" data-website-id="3cea8ff2-5842-4090-a8a3-d2dc128f5385"></script>
+
+  <!-- Credly badge embed (Claude Partner Network certification card) -->
+  <script type="text/javascript" async src="https://www.credly.com/assets/utilities/embed.js"></script>
 </body>
 </html>
