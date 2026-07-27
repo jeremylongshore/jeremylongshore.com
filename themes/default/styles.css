@@ -642,6 +642,14 @@ a.section-header:hover i {
   border-color: #0C2340;
 }
 
+/* Inline-SVG variant of .social-icon (for brand marks that aren't in FA —
+   e.g. Hugging Face). Inherits width/height/color from .social-icon. */
+.social-icon--svg svg {
+  width: 1em;
+  height: 1em;
+  display: block;
+}
+
 /* Contact CTA */
 .contact-cta {
   margin-top: 32px;

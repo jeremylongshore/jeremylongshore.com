@@ -366,8 +366,12 @@
     <nav class="socials">
       {% for item in socials %}
       {% assign s = item.social %}
-      <a href="{{ s.url }}" target="{{ s.target }}" title="{{ s.title }}" class="social-icon">
+      <a href="{{ s.url }}" target="{{ s.target }}" title="{{ s.title }}" class="social-icon{% if s.icon contains 'svg:' %} social-icon--svg{% endif %}">
+        {%- if s.icon contains 'svg:' -%}
+        {{ s.icon | remove: 'svg:' }}
+        {%- else -%}
         <i class="{{ s.icon }}"></i>
+        {%- endif %}
       </a>
       {% endfor %}
     </nav>
