@@ -1,3 +1,14 @@
+# Release v3.0.0
+
+**Release Date**: 2026-07-27
+
+## Changes since v2.24.0
+
+- chore: release v3.0.0 [skip ci] (e77fe98)
+- ci(workflows): SHA-pin actions/checkout + actions/setup-python + ruby/setup-ruby (#19) (4ad1bf3)
+
+---
+
 # Release v2.24.0
 
 **Release Date**: 2026-07-27
