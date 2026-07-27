@@ -26,8 +26,8 @@ jobs:
     name: pre-deploy build gate
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: ruby/setup-ruby@v1
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0 — includes 2026-07-20 backport of allow-unsafe-pr-checkout
+      - uses: ruby/setup-ruby@b007fae6f1ffbe3a51c00a6df6f5ff01184d5340 # v1
         with:
           ruby-version: '3.2'
           bundler-cache: true
