@@ -1,3 +1,14 @@
+# Release v3.3.1
+
+**Release Date**: 2026-08-02
+
+## Changes since v3.3.0
+
+- chore: release v3.3.1 [skip ci] (1c38785)
+- fix(projects): hide the star badge when a repo has zero stars (#26) (105a73b)
+
+---
+
 # Release v3.3.0
 
 **Release Date**: 2026-08-02
