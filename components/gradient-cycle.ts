@@ -49,7 +49,13 @@ export function getCycleOffsetSeconds(seed: string): number {
  * `animation-delay` (as a CSS length string) for accent layer `index` of a
  * component keyed by `seed`. Layers are 2s apart intrinsically; the seed
  * offset shifts the whole stack together so instances never sync.
+ *
+ * NEGATIVE delays are load-bearing: a positive delay holds every layer at
+ * its 0% keyframe (opacity 0) until the delay elapses, leaving the cycle
+ * invisible for up to a full 24s loop after mount. A negative delay starts
+ * each layer mid-animation, so the cycle is already live on first paint.
  */
 export function getLayerDelay(index: number, seed: string): string {
-  return `${index * ACCENT_STEP_SECONDS + getCycleOffsetSeconds(seed)}s`;
+  const offset = index * ACCENT_STEP_SECONDS + getCycleOffsetSeconds(seed);
+  return `-${(ACCENT_LOOP_SECONDS - (offset % ACCENT_LOOP_SECONDS)).toFixed(3)}s`;
 }
