@@ -1,3 +1,14 @@
+# Release v3.2.0
+
+**Release Date**: 2026-08-02
+
+## Changes since v3.1.0
+
+- chore: release v3.2.0 [skip ci] (486fb39)
+- feat(hub): rebuild jeremylongshore.com as a dynamic Next.js hub on the reference design system (#22) (db2fdd8)
+
+---
+
 # Release v3.1.0
 
 **Release Date**: 2026-07-27
