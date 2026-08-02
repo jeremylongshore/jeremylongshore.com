@@ -2,12 +2,11 @@
  * New fetcher (no Ruby plugin precedent): per-URL pageview counts from a
  * self-hosted Umami v2 instance (analytics.intentsolutions.io).
  *
- * ASSUMPTION: Umami v2's `/api/websites/{id}/metrics?type=url` endpoint
+ * Umami's `/api/websites/{id}/metrics?type=path` endpoint (verified live 2026-08-02:
+ * this instance 400s on the older `type=url`, 200s on `type=path`)
  * returns an array of `{ x: string; y: number }` points, where `x` is the
  * page URL/path and `y` is the pageview count for that path over the
- * requested [startAt, endAt) window (both epoch milliseconds). This matches
- * Umami's documented "metrics" shape for the `url` type but was not smoke-
- * tested against a live instance (no UMAMI_* credentials were available in
+ * requested [startAt, endAt) window (both epoch milliseconds).
  * this environment) — verify against a real response before shipping.
  *
  * `startAt` defaults to 2024-01-01 (treated as "site epoch" — i.e. all-time
@@ -38,7 +37,7 @@ export async function getViewCounts(): Promise<Map<string, number>> {
   }
 
   const url = new URL(`/api/websites/${websiteId}/metrics`, baseUrl);
-  url.searchParams.set('type', 'url');
+  url.searchParams.set('type', 'path');
   url.searchParams.set('startAt', String(SITE_EPOCH_MS));
   url.searchParams.set('endAt', String(Date.now()));
 
