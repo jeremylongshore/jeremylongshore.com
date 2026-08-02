@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jeremylongshore.com Hub Rebuild · Architecture</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-page: #0f1117;
+      --bg-surface: #161b22;
+      --bg-raised: #1c2128;
+      --bg-raised-hover: #22272e;
+      --border-subtle: #30363d;
+      --border-accent: #58a6ff;
+      --text-primary: #e6edf3;
+      --text-secondary: #8b949e;
+      --text-muted: #6e7681;
+      --accent-blue: #58a6ff;
+      --accent-green: #3fb950;
+      --accent-orange: #f78166;
+      --accent-purple: #bc8cff;
+      --accent-teal: #39c5cf;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { min-width: 1024px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        animation-duration: 0.001ms !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+    body {
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      background: var(--bg-page);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-feature-settings: 'ss01', 'cv11';
+      padding: 40px 48px;
+      line-height: 1.5;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    /* ===== Sidebar ===== */
+    .sidebar { position: sticky; top: 40px; display: flex; flex-direction: column; gap: 28px; }
+    .version-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 4px 10px; border: 1px solid var(--accent-blue); border-radius: 999px;
+      font-family: 'JetBrains Mono', monospace; font-size: 12px;
+      color: var(--accent-blue); background: rgba(88, 166, 255, 0.06); align-self: flex-start;
+    }
+    .version-badge::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent-green); box-shadow: 0 0 0 2px rgba(63, 185, 80, 0.18);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.45; }
+    }
+    .tagline { font-size: 13px; color: var(--text-muted); line-height: 1.55; margin-top: 8px; }
+    .sidebar section { display: flex; flex-direction: column; gap: 12px; }
+    .label {
+      font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--text-muted);
+    }
+    .nav-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .nav-list a {
+      display: block; padding: 6px 10px; font-size: 13px;
+      color: var(--text-secondary); text-decoration: none; border-radius: 6px;
+      border-left: 2px solid transparent; margin-left: -12px; padding-left: 12px;
+      transition: color .15s, border-color .15s;
+    }
+    .nav-list a:hover { color: var(--text-primary); border-left-color: var(--accent-blue); }
+    .nav-list a:focus-visible {
+      outline: 2px solid var(--accent-blue); outline-offset: 2px;
+      color: var(--text-primary);
+    }
+    .invariants { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .invariants li {
+      font-size: 13px; color: var(--text-secondary);
+      padding-left: 12px; border-left: 3px solid var(--accent-green); line-height: 1.45;
+    }
+    .invariants li strong { color: var(--text-primary); font-weight: 600; }
+    .legend { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .legend li { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text-secondary); }
+    .chip { width: 14px; height: 10px; border-radius: 3px; border: 1px solid; flex-shrink: 0; }
+    .chip.frontend { border-color: var(--accent-blue);   background: rgba(88, 166, 255, 0.15); }
+    .chip.gateway  { border-color: var(--accent-teal);   background: rgba(57, 197, 207, 0.15); }
+    .chip.service  { border-color: var(--accent-green);  background: rgba(63, 185, 80, 0.15); }
+    .chip.store    { border-color: var(--accent-purple); background: rgba(188, 140, 255, 0.15); }
+    .chip.ext      { border-color: var(--text-muted);    background: rgba(110, 118, 129, 0.15); }
+    .chip.fetch    { border-color: var(--accent-orange); background: rgba(247, 129, 102, 0.15); }
+
+    /* ===== Main ===== */
+    .main { display: flex; flex-direction: column; gap: 48px; min-width: 0; }
+    .main-header { display: flex; flex-direction: column; gap: 8px; }
+    .main-header h1 { font-size: 28px; font-weight: 600; letter-spacing: -0.015em; }
+    .main-header .lede { color: var(--text-secondary); font-size: 15px; max-width: 780px; }
+
+    /* ===== Diagram card ===== */
+    .diagram-card {
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      border-radius: 12px; padding: 32px;
+    }
+    .diagram-card > header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 24px; gap: 16px;
+    }
+    .diagram-card h2 { font-size: 20px; font-weight: 600; }
+    .diagram-card .hint {
+      font-family: 'JetBrains Mono', monospace; font-size: 11px;
+      color: var(--text-muted); letter-spacing: 0.02em; text-align: right;
+    }
+    .diagram-scroll { overflow-x: auto; overflow-y: hidden; margin: 0 -32px; padding: 0 32px; }
+    .diagram-stage {
+      position: relative;
+      width: 1100px; height: 840px; min-width: 1100px;
+    }
+    .arrows-overlay {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      pointer-events: none; overflow: visible;
+    }
+    .arrows-overlay:focus-visible, svg:focus-visible {
+      outline: 2px solid var(--accent-blue); outline-offset: 2px;
+    }
+
+    /* ===== Nodes ===== */
+    .node {
+      position: absolute; background: var(--bg-raised);
+      border: 1px solid; border-radius: 8px; padding: 14px 16px;
+      transition: background .15s, border-color .15s;
+    }
+    .node:hover { background: var(--bg-raised-hover); }
+    .node-title { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; letter-spacing: -0.01em; }
+    .node-sub { margin-top: 2px; font-size: 11px; color: var(--text-muted); letter-spacing: 0.02em; }
+    .node-list { list-style: none; margin-top: 10px; display: flex; flex-direction: column; gap: 4px; }
+    .node-list li { font-size: 12px; color: var(--text-secondary); padding-left: 10px; position: relative; }
+    .node-list li::before { content: '—'; position: absolute; left: 0; color: var(--text-muted); }
+    .node-group-label {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);
+      margin-top: 10px; margin-bottom: 2px;
+    }
+
+    .n-frontend { border-color: rgba(88, 166, 255, 0.4); }
+    .n-frontend:hover { border-color: var(--accent-blue); }
+    .n-frontend .node-title { color: var(--accent-blue); }
+
+    .n-gateway { border-color: rgba(57, 197, 207, 0.4); }
+    .n-gateway:hover { border-color: var(--accent-teal); }
+    .n-gateway .node-title { color: var(--accent-teal); }
+
+    .n-service { border-color: rgba(63, 185, 80, 0.4); }
+    .n-service:hover { border-color: var(--accent-green); }
+    .n-service .node-title { color: var(--accent-green); }
+
+    .n-store { border-color: rgba(188, 140, 255, 0.4); }
+    .n-store:hover { border-color: var(--accent-purple); }
+    .n-store .node-title { color: var(--accent-purple); }
+
+    .n-ext {
+      border-color: rgba(110, 118, 129, 0.5);
+      border-left-width: 3px; border-left-color: var(--accent-orange);
+    }
+    .n-ext:hover { border-color: var(--text-secondary); border-left-color: var(--accent-orange); }
+    .n-ext .node-title { color: var(--text-primary); }
+
+    /* ===== Plane boundaries ===== */
+    .plane { position: absolute; border: 1px dashed; border-radius: 10px; }
+    .plane::before {
+      content: attr(data-label); position: absolute; top: -9px; left: 16px;
+      padding: 0 8px; font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.04em;
+      background: var(--bg-surface);
+    }
+    .plane-visitor { border-color: rgba(88, 166, 255, 0.55); }
+    .plane-visitor::before { color: var(--accent-blue); }
+    .plane-vps { border-color: rgba(63, 185, 80, 0.6); }
+    .plane-vps::before { color: var(--accent-green); }
+    .plane-external { border-color: rgba(247, 129, 102, 0.6); }
+    .plane-external::before { color: var(--accent-orange); }
+    .plane-cicd { border-color: rgba(188, 140, 255, 0.55); }
+    .plane-cicd::before { color: var(--accent-purple); }
+
+    /* ===== Sequence card ===== */
+    .seq-scroll { overflow-x: auto; overflow-y: hidden; margin: 0 -32px; padding: 0 32px; }
+    .seq-svg { display: block; width: 1080px; min-width: 1080px; height: auto; }
+
+    /* ===== Detail grid ===== */
+    .details h2 { font-size: 20px; font-weight: 600; margin-bottom: 20px; }
+    .detail-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .detail-card {
+      background: var(--bg-surface); border: 1px solid var(--border-subtle);
+      border-radius: 10px; padding: 24px;
+    }
+    .detail-card h3 {
+      font-size: 14px; font-weight: 600; margin-bottom: 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .detail-card h3::before { content: ''; width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .detail-card.c-blue   h3::before { background: var(--accent-blue); }
+    .detail-card.c-green  h3::before { background: var(--accent-green); }
+    .detail-card.c-purple h3::before { background: var(--accent-purple); }
+    .detail-card.c-orange h3::before { background: var(--accent-orange); }
+    .detail-card.c-teal   h3::before { background: var(--accent-teal); }
+    .detail-card ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .detail-card li { font-size: 13px; color: var(--text-secondary); padding-left: 16px; position: relative; line-height: 1.45; }
+    .detail-card li::before { content: '—'; position: absolute; left: 0; color: var(--text-muted); }
+    .detail-card code {
+      font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent-blue);
+      background: rgba(88, 166, 255, 0.08); padding: 1px 4px; border-radius: 3px;
+    }
+
+    .footer {
+      font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--text-muted);
+      padding-top: 24px; border-top: 1px solid var(--border-subtle); letter-spacing: 0.02em;
+    }
+    .footer a { color: var(--accent-blue); text-decoration: none; }
+    .footer a:hover, .footer a:focus-visible { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <main class="layout">
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+      <div>
+        <span class="version-badge">hub-rebuild · target</span>
+        <p class="tagline">jeremylongshore.com rebuilt as a Next.js 15 standalone server on the production VPS.</p>
+      </div>
+
+      <nav aria-label="On this page">
+        <h2 class="label" style="margin-bottom: 12px;">On this page</h2>
+        <ul class="nav-list">
+          <li><a href="#architecture">Target architecture</a></li>
+          <li><a href="#sequence">ISR data-flow sequence</a></li>
+          <li><a href="#details">Component details</a></li>
+          <li><a href="#invariants">Invariants</a></li>
+        </ul>
+      </nav>
+
+      <section id="invariants">
+        <h2 class="label">Architectural invariants</h2>
+        <ul class="invariants">
+          <li><strong>Caddy is the single ingress</strong> — validate then reload, never restart.</li>
+          <li><strong>All live data is fetched server-side via ISR</strong> — the browser never calls third-party APIs.</li>
+          <li><strong>Data fetchers fail loudly</strong> (build/health alarms) — never silently empty sections.</li>
+          <li><strong>Color is an interaction reward</strong> — the token layer keeps the neutral base; accents only on hover/rings.</li>
+          <li><strong>The reference site's owner is never named in this repo</strong> — name-leak gate before every commit.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="label">Legend</h2>
+        <ul class="legend">
+          <li><span class="chip frontend"></span>Frontend / visitor</li>
+          <li><span class="chip gateway"></span>Gateway (ingress / tunnel)</li>
+          <li><span class="chip service"></span>App server / worker</li>
+          <li><span class="chip store"></span>Store · analytics</li>
+          <li><span class="chip ext"></span>External surface</li>
+          <li><span class="chip fetch"></span>Server-side ISR fetch (edge)</li>
+        </ul>
+      </section>
+    </aside>
+
+    <!-- ===== MAIN ===== -->
+    <section class="main">
+      <header class="main-header">
+        <h1>jeremylongshore.com Hub Rebuild — Architecture</h1>
+        <p class="lede">
+          Target state after the rebuild: the current Ruby static build is replaced by a Next.js 15
+          standalone server running in Docker on the production VPS, behind the shared Caddy ingress.
+          Every dynamic section — GitHub stars, contributions heatmap, merged external PRs, the writing
+          feed, per-post view counts — is rendered server-side via ISR; the visitor's browser only ever
+          talks to Caddy and the analytics beacon.
+        </p>
+      </header>
+
+      <!-- ================================================================
+           SECTION 1 — TARGET ARCHITECTURE
+           Stage 1100×840. All coords pixel-literal; collision-checked
+           (Liang-Barsky arrow/node + endpoint attachment + arrow crossings
+           + label-over-node). Rev 2: no registry — image is built ON the VPS
+           by the deploy script (git fetch · compose build · up -d).
+           ================================================================ -->
+      <section class="diagram-card" id="architecture">
+        <header>
+          <h2>Target architecture</h2>
+          <span class="hint">grounded in deploy.yml · Caddyfile · docker compose · ISR fetch layer</span>
+        </header>
+
+        <div class="diagram-scroll">
+          <div class="diagram-stage">
+
+            <!-- ===== Plane boundaries ===== -->
+            <div class="plane plane-visitor" data-label="visitor"
+                 style="left: 20px; top: 40px; width: 220px; height: 160px;"></div>
+            <div class="plane plane-vps" data-label="vps — single ingress"
+                 style="left: 280px; top: 40px; width: 380px; height: 520px;"></div>
+            <div class="plane plane-external" data-label="external data — server-side isr fetches only"
+                 style="left: 740px; top: 40px; width: 340px; height: 520px;"></div>
+            <div class="plane plane-cicd" data-label="ci / cd"
+                 style="left: 20px; top: 590px; width: 1060px; height: 230px;"></div>
+
+            <!-- ===== Visitor ===== -->
+            <div class="node n-frontend" style="left: 40px; top: 80px; width: 180px;">
+              <div class="node-title">browser</div>
+              <div class="node-sub">Visitor browser</div>
+            </div>
+
+            <!-- ===== VPS plane ===== -->
+            <div class="node n-gateway" style="left: 300px; top: 80px; width: 340px;">
+              <div class="node-title">caddy :443</div>
+              <div class="node-sub">jeremylongshore.com · reverse_proxy · reload-only</div>
+            </div>
+
+            <div class="node n-service" style="left: 300px; top: 210px; width: 340px;">
+              <div class="node-title">jeremylongshore-web</div>
+              <div class="node-sub">Next.js 15 standalone · Docker · :3000 · ISR cache</div>
+              <div class="node-group-label">subcomponents</div>
+              <ul class="node-list">
+                <li>App Router pages</li>
+                <li>/api/healthz</li>
+                <li>token layer + component library</li>
+              </ul>
+            </div>
+
+            <div class="node n-store" style="left: 300px; top: 420px; width: 150px;">
+              <div class="node-title">umami</div>
+              <div class="node-sub">analytics (existing stack) · view-counts API</div>
+            </div>
+
+            <div class="node n-service" style="left: 480px; top: 420px; width: 160px;">
+              <div class="node-title">deploy script</div>
+              <div class="node-sub">git fetch · compose build · up -d</div>
+              <ul class="node-list">
+                <li>image built on VPS</li>
+              </ul>
+            </div>
+
+            <!-- ===== External data plane ===== -->
+            <div class="node n-ext" style="left: 760px; top: 80px; width: 300px;">
+              <div class="node-title">GitHub REST API</div>
+              <div class="node-sub">repo star counts</div>
+            </div>
+            <div class="node n-ext" style="left: 760px; top: 185px; width: 300px;">
+              <div class="node-title">GitHub GraphQL</div>
+              <div class="node-sub">contributions calendar (heatmap)</div>
+            </div>
+            <div class="node n-ext" style="left: 760px; top: 290px; width: 300px;">
+              <div class="node-title">GitHub Search API</div>
+              <div class="node-sub">merged external PRs</div>
+            </div>
+            <div class="node n-ext" style="left: 760px; top: 395px; width: 300px;">
+              <div class="node-title">startaitools.com RSS</div>
+              <div class="node-sub">writing feed</div>
+            </div>
+
+            <!-- ===== CI/CD plane ===== -->
+            <div class="node n-service" style="left: 40px; top: 640px; width: 230px;">
+              <div class="node-title">GitHub Actions</div>
+              <div class="node-sub">build + test gate (no image build in CI)</div>
+              <ul class="node-list">
+                <li>lint · typecheck · tests</li>
+                <li>name-leak gate</li>
+              </ul>
+            </div>
+            <div class="node n-gateway" style="left: 380px; top: 640px; width: 230px;">
+              <div class="node-title">tailscale</div>
+              <div class="node-sub">OIDC → force-command SSH</div>
+            </div>
+            <div class="node n-ext" style="left: 820px; top: 640px; width: 220px;">
+              <div class="node-title">slack #prod-deploys</div>
+              <div class="node-sub">failure notify</div>
+            </div>
+
+            <!-- ===== ARROW OVERLAY ===== -->
+            <svg class="arrows-overlay" viewBox="0 0 1100 840" preserveAspectRatio="none"
+                 role="img" aria-labelledby="arch-arrows-title arch-arrows-desc" tabindex="0">
+              <title id="arch-arrows-title">jeremylongshore.com hub rebuild — component connection overlay</title>
+              <desc id="arch-arrows-desc">
+                Directional edges: the visitor browser reaches Caddy over HTTPS; Caddy reverse-proxies
+                to the Next.js hub on port 3000; the browser sends an analytics beacon to Umami via the
+                analytics domain (dashed). The hub performs server-side ISR revalidation fetches to the
+                GitHub REST, GraphQL, and Search APIs (6-hour TTLs), the startaitools.com RSS feed
+                (1-hour TTL), and the VPS-local Umami view-count API (15-minute TTL). In CI/CD, GitHub
+                Actions runs the build and test gate only — no image build in CI — then connects
+                through Tailscale OIDC and force-command SSH to the VPS-side deploy script, which runs
+                git fetch, docker compose build, and up -d, building the image on the VPS and
+                restarting the hub. Actions then smoke-checks /api/healthz and notifies Slack on
+                failure (dashed).
+              </desc>
+              <defs>
+                <marker id="a-blue"   markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#58a6ff"/></marker>
+                <marker id="a-green"  markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#3fb950"/></marker>
+                <marker id="a-orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#f78166"/></marker>
+                <marker id="a-purple" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#bc8cff"/></marker>
+                <marker id="a-teal"   markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#39c5cf"/></marker>
+              </defs>
+
+              <!-- browser → caddy (HTTPS) -->
+              <line x1="222" y1="113" x2="296" y2="113" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#a-blue)"/>
+              <text x="259" y="106" fill="#58a6ff" font-family="JetBrains Mono" font-size="10" text-anchor="middle">HTTPS</text>
+
+              <!-- caddy → hub (reverse_proxy :3000) -->
+              <line x1="470" y1="152" x2="470" y2="206" stroke="#39c5cf" stroke-width="1.5" marker-end="url(#a-teal)"/>
+              <text x="480" y="183" fill="#39c5cf" font-family="JetBrains Mono" font-size="10" text-anchor="start">reverse_proxy :3000</text>
+
+              <!-- browser → umami (analytics beacon, dashed) -->
+              <path d="M130,148 L130,462 L296,462" fill="none" stroke="#bc8cff" stroke-width="1.5"
+                    stroke-dasharray="5 4" marker-end="url(#a-purple)"/>
+              <text x="136" y="454" fill="#bc8cff" font-family="JetBrains Mono" font-size="10" text-anchor="start">analytics beacon</text>
+
+              <!-- hub → GitHub REST (stars, 6h) -->
+              <path d="M642,230 L675,230 L675,115 L756,115" fill="none" stroke="#f78166" stroke-width="1.5" marker-end="url(#a-orange)"/>
+              <text x="752" y="109" fill="#f78166" font-family="JetBrains Mono" font-size="10" text-anchor="end">REST · 6h</text>
+
+              <!-- hub → GitHub GraphQL (contributions calendar, 6h) -->
+              <path d="M642,260 L690,260 L690,220 L756,220" fill="none" stroke="#f78166" stroke-width="1.5" marker-end="url(#a-orange)"/>
+              <text x="752" y="214" fill="#f78166" font-family="JetBrains Mono" font-size="10" text-anchor="end">GraphQL · 6h</text>
+
+              <!-- hub → GitHub Search (merged PRs, 6h) -->
+              <path d="M642,300 L705,300 L705,325 L756,325" fill="none" stroke="#f78166" stroke-width="1.5" marker-end="url(#a-orange)"/>
+              <text x="752" y="319" fill="#f78166" font-family="JetBrains Mono" font-size="10" text-anchor="end">Search · 6h</text>
+
+              <!-- hub → startaitools RSS (writing feed, 1h) -->
+              <path d="M642,340 L720,340 L720,430 L756,430" fill="none" stroke="#f78166" stroke-width="1.5" marker-end="url(#a-orange)"/>
+              <text x="714" y="424" fill="#f78166" font-family="JetBrains Mono" font-size="10" text-anchor="end">RSS · 1h</text>
+
+              <!-- hub → umami (view-count API, VPS-local, 15m) -->
+              <line x1="375" y1="372" x2="375" y2="417" stroke="#bc8cff" stroke-width="1.5" marker-end="url(#a-purple)"/>
+              <text x="385" y="398" fill="#bc8cff" font-family="JetBrains Mono" font-size="10" text-anchor="start">view counts · VPS-local · 15m</text>
+
+              <!-- deploy script → hub (compose build + up -d recreates the container) -->
+              <line x1="560" y1="418" x2="560" y2="374" stroke="#3fb950" stroke-width="1.5" marker-end="url(#a-green)"/>
+              <text x="570" y="400" fill="#3fb950" font-family="JetBrains Mono" font-size="10" text-anchor="start">build + up -d</text>
+
+              <!-- actions → tailscale (deploy trigger) -->
+              <line x1="272" y1="675" x2="377" y2="675" stroke="#39c5cf" stroke-width="1.5" marker-end="url(#a-teal)"/>
+              <text x="325" y="668" fill="#39c5cf" font-family="JetBrains Mono" font-size="10" text-anchor="middle">deploy · OIDC</text>
+
+              <!-- tailscale → deploy script (force-command SSH into the VPS) -->
+              <line x1="560" y1="638" x2="560" y2="548" stroke="#39c5cf" stroke-width="1.5" marker-end="url(#a-teal)"/>
+              <text x="568" y="600" fill="#39c5cf" font-family="JetBrains Mono" font-size="10" text-anchor="start">ssh · force-command</text>
+
+              <!-- post-deploy smoke check annotation (run by Actions against the live domain) -->
+              <text x="495" y="755" fill="#3fb950" font-family="JetBrains Mono" font-size="10" text-anchor="middle">post-deploy smoke: GET /api/healthz · fail ⇒ slack notify</text>
+
+              <!-- actions → slack (on failure, dashed) -->
+              <path d="M155,757 L155,790 L930,790 L930,713" fill="none" stroke="#f78166" stroke-width="1.5"
+                    stroke-dasharray="5 4" marker-end="url(#a-orange)"/>
+              <text x="542" y="784" fill="#f78166" font-family="JetBrains Mono" font-size="10" text-anchor="middle">on failure</text>
+            </svg>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           SECTION 2 — ISR DATA-FLOW SEQUENCE
+           ================================================================ -->
+      <section class="diagram-card" id="sequence">
+        <header>
+          <h2>ISR data-flow sequence</h2>
+          <span class="hint">request path + stale-while-revalidate background refresh</span>
+        </header>
+
+        <div class="seq-scroll">
+          <svg class="seq-svg" viewBox="0 0 1080 830" xmlns="http://www.w3.org/2000/svg"
+               role="img" aria-labelledby="seq-title seq-desc" tabindex="0">
+            <title id="seq-title">jeremylongshore.com ISR data-flow sequence</title>
+            <desc id="seq-desc">
+              Sequence diagram with six lifelines: Visitor, Caddy, the Next.js hub with ISR, the GitHub
+              APIs, the startaitools.com RSS feed, and Umami. A visitor GET request is reverse-proxied
+              by Caddy to the hub, which serves cached HTML instantly. In the stale-while-revalidate
+              background path the hub revalidates star counts over REST every 6 hours, the
+              contributions calendar over GraphQL every 6 hours, merged external PRs over the Search
+              API every 6 hours, the writing feed over RSS every hour, and per-post view counts from
+              the Umami API every 15 minutes, then re-renders and swaps the cache atomically. On any
+              fetch failure the hub keeps the last-good data and raises an alarm — sections are never
+              rendered blank.
+            </desc>
+
+            <defs>
+              <marker id="s-blue"   markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#58a6ff"/></marker>
+              <marker id="s-teal"   markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#39c5cf"/></marker>
+              <marker id="s-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#f78166"/></marker>
+              <marker id="s-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#bc8cff"/></marker>
+              <marker id="s-return" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#6e7681"/></marker>
+              <marker id="s-green"  markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#3fb950"/></marker>
+            </defs>
+
+            <!-- ===== Lifeline header boxes ===== -->
+            <g role="group" aria-label="Sequence participants">
+              <rect x="30" y="16" width="120" height="36" rx="6" fill="#1c2128" stroke="#58a6ff" stroke-opacity="0.5">
+                <title>Visitor — browser client</title>
+              </rect>
+              <text x="90" y="39" text-anchor="middle" fill="#58a6ff" font-family="JetBrains Mono" font-size="12" font-weight="600">Visitor</text>
+
+              <rect x="200" y="16" width="120" height="36" rx="6" fill="#1c2128" stroke="#39c5cf" stroke-opacity="0.5">
+                <title>Caddy — single ingress, reverse proxy</title>
+              </rect>
+              <text x="260" y="39" text-anchor="middle" fill="#39c5cf" font-family="JetBrains Mono" font-size="12" font-weight="600">Caddy</text>
+
+              <rect x="360" y="16" width="180" height="36" rx="6" fill="#1c2128" stroke="#3fb950" stroke-opacity="0.5">
+                <title>Next.js hub — standalone server with ISR cache</title>
+              </rect>
+              <text x="450" y="39" text-anchor="middle" fill="#3fb950" font-family="JetBrains Mono" font-size="12" font-weight="600">Next.js hub (ISR)</text>
+
+              <rect x="595" y="16" width="150" height="36" rx="6" fill="#1c2128" stroke="#f78166" stroke-opacity="0.5">
+                <title>GitHub APIs — REST, GraphQL, Search</title>
+              </rect>
+              <text x="670" y="39" text-anchor="middle" fill="#f78166" font-family="JetBrains Mono" font-size="12" font-weight="600">GitHub APIs</text>
+
+              <rect x="770" y="16" width="160" height="36" rx="6" fill="#1c2128" stroke="#f78166" stroke-opacity="0.5">
+                <title>startaitools.com RSS — writing feed source</title>
+              </rect>
+              <text x="850" y="39" text-anchor="middle" fill="#f78166" font-family="JetBrains Mono" font-size="12" font-weight="600">startaitools RSS</text>
+
+              <rect x="945" y="16" width="110" height="36" rx="6" fill="#1c2128" stroke="#bc8cff" stroke-opacity="0.5">
+                <title>Umami — VPS-local analytics API</title>
+              </rect>
+              <text x="1000" y="39" text-anchor="middle" fill="#bc8cff" font-family="JetBrains Mono" font-size="12" font-weight="600">Umami</text>
+            </g>
+
+            <!-- ===== Lifelines ===== -->
+            <g stroke="#30363d" stroke-width="1" stroke-dasharray="4 4" aria-hidden="true">
+              <line x1="90"   y1="52" x2="90"   y2="800"/>
+              <line x1="260"  y1="52" x2="260"  y2="800"/>
+              <line x1="450"  y1="52" x2="450"  y2="800"/>
+              <line x1="670"  y1="52" x2="670"  y2="800"/>
+              <line x1="850"  y1="52" x2="850"  y2="800"/>
+              <line x1="1000" y1="52" x2="1000" y2="800"/>
+            </g>
+
+            <!-- ===== Activation boxes ===== -->
+            <rect x="255" y="104" width="10" height="140" rx="2" fill="rgba(57,197,207,0.18)" stroke="#39c5cf" stroke-opacity="0.5">
+              <title>Caddy activation — proxying the visitor request</title>
+            </rect>
+            <rect x="445" y="146" width="10" height="60" rx="2" fill="rgba(63,185,80,0.18)" stroke="#3fb950" stroke-opacity="0.5">
+              <title>Hub activation — serving cached HTML</title>
+            </rect>
+            <rect x="445" y="318" width="10" height="412" rx="2" fill="rgba(63,185,80,0.18)" stroke="#3fb950" stroke-opacity="0.5">
+              <title>Hub activation — background revalidation cycle</title>
+            </rect>
+
+            <!-- ===== Request path ===== -->
+            <line x1="95" y1="110" x2="250" y2="110" stroke="#58a6ff" stroke-width="1.5" marker-end="url(#s-blue)"/>
+            <text x="172" y="103" text-anchor="middle" fill="#58a6ff" font-family="JetBrains Mono" font-size="11">GET / (HTTPS)</text>
+
+            <line x1="265" y1="152" x2="440" y2="152" stroke="#39c5cf" stroke-width="1.5" marker-end="url(#s-teal)"/>
+            <text x="352" y="145" text-anchor="middle" fill="#39c5cf" font-family="JetBrains Mono" font-size="11">reverse_proxy → :3000</text>
+
+            <line x1="440" y1="194" x2="270" y2="194" stroke="#6e7681" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#s-return)"/>
+            <text x="355" y="187" text-anchor="middle" fill="#8b949e" font-family="JetBrains Mono" font-size="11">cached HTML — ISR hit, instant</text>
+
+            <line x1="250" y1="236" x2="100" y2="236" stroke="#6e7681" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#s-return)"/>
+            <text x="175" y="229" text-anchor="middle" fill="#8b949e" font-family="JetBrains Mono" font-size="11">200 — no client API calls</text>
+
+            <!-- ===== Section band: stale-while-revalidate ===== -->
+            <rect x="40" y="268" width="1000" height="30" rx="6" fill="rgba(63,185,80,0.07)" stroke="#3fb950" stroke-opacity="0.35" stroke-dasharray="4 4">
+              <title>Background path — stale-while-revalidate, per-source TTL</title>
+            </rect>
+            <text x="540" y="288" text-anchor="middle" fill="#3fb950" font-family="JetBrains Mono" font-size="11" letter-spacing="1">stale-while-revalidate — background, per-source TTL</text>
+
+            <!-- stars · REST · 6h -->
+            <line x1="455" y1="336" x2="662" y2="336" stroke="#f78166" stroke-width="1.5" marker-end="url(#s-orange)"/>
+            <text x="558" y="329" text-anchor="middle" fill="#f78166" font-family="JetBrains Mono" font-size="11">revalidate stars — REST · 6h</text>
+            <line x1="662" y1="370" x2="460" y2="370" stroke="#6e7681" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#s-return)"/>
+            <text x="558" y="363" text-anchor="middle" fill="#8b949e" font-family="JetBrains Mono" font-size="11">star counts</text>
+
+            <!-- contributions calendar · GraphQL · 6h -->
+            <line x1="455" y1="412" x2="662" y2="412" stroke="#f78166" stroke-width="1.5" marker-end="url(#s-orange)"/>
+            <text x="558" y="405" text-anchor="middle" fill="#f78166" font-family="JetBrains Mono" font-size="11">contributions calendar — GraphQL · 6h</text>
+            <line x1="662" y1="446" x2="460" y2="446" stroke="#6e7681" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#s-return)"/>
+            <text x="558" y="439" text-anchor="middle" fill="#8b949e" font-family="JetBrains Mono" font-size="11">heatmap data</text>
+
+            <!-- merged PRs · Search · 6h -->
+            <line x1="455" y1="488" x2="662" y2="488" stroke="#f78166" stroke-width="1.5" marker-end="url(#s-orange)"/>
+            <text x="558" y="481" text-anchor="middle" fill="#f78166" font-family="JetBrains Mono" font-size="11">merged external PRs — Search · 6h</text>
+            <line x1="662" y1="522" x2="460" y2="522" stroke="#6e7681" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#s-return)"/>
+            <text x="558" y="515" text-anchor="middle" fill="#8b949e" font-family="JetBrains Mono" font-size="11">PR list</text>
+
+            <!-- writing feed · RSS · 1h -->
+            <line x1="455" y1="564" x2="842" y2="564" stroke="#f78166" stroke-width="1.5" marker-end="url(#s-orange)"/>
+            <text x="648" y="557" text-anchor="middle" fill="#f78166" font-family="JetBrains Mono" font-size="11">revalidate writing feed — RSS · 1h</text>
+            <line x1="842" y1="598" x2="460" y2="598" stroke="#6e7681" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#s-return)"/>
+            <text x="648" y="591" text-anchor="middle" fill="#8b949e" font-family="JetBrains Mono" font-size="11">latest posts</text>
+
+            <!-- view counts · Umami · 15m -->
+            <line x1="455" y1="640" x2="992" y2="640" stroke="#bc8cff" stroke-width="1.5" marker-end="url(#s-purple)"/>
+            <text x="723" y="633" text-anchor="middle" fill="#bc8cff" font-family="JetBrains Mono" font-size="11">per-post view counts — Umami API · VPS-local · 15m</text>
+            <line x1="992" y1="674" x2="460" y2="674" stroke="#6e7681" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#s-return)"/>
+            <text x="723" y="667" text-anchor="middle" fill="#8b949e" font-family="JetBrains Mono" font-size="11">view counts</text>
+
+            <!-- self-message: re-render + cache swap -->
+            <path d="M455,706 L560,706 L560,724 L462,724" fill="none" stroke="#3fb950" stroke-width="1.5" marker-end="url(#s-green)"/>
+            <text x="572" y="719" text-anchor="start" fill="#3fb950" font-family="JetBrains Mono" font-size="11">re-render route → atomic ISR cache swap</text>
+
+            <!-- failure annotation -->
+            <rect x="240" y="756" width="600" height="34" rx="6" fill="rgba(247,129,102,0.08)" stroke="#f78166" stroke-opacity="0.5" stroke-dasharray="4 4">
+              <title>Failure posture — fetch failure keeps last-good data and raises an alarm; sections are never blank</title>
+            </rect>
+            <text x="540" y="778" text-anchor="middle" fill="#f78166" font-family="JetBrains Mono" font-size="11">fetch failure → keep last-good + alarm, never blank</text>
+          </svg>
+        </div>
+      </section>
+
+      <!-- ===== Detail grid ===== -->
+      <section class="details" id="details">
+        <h2>Component details</h2>
+        <div class="detail-grid">
+          <div class="detail-card c-teal">
+            <h3>Serving path — Caddy → hub</h3>
+            <ul>
+              <li>Caddy is the VPS-wide shared ingress: <code>caddy validate</code> then <code>systemctl reload caddy</code> — never restart.</li>
+              <li>The site block becomes a <code>reverse_proxy</code> to <code>127.0.0.1:3000</code>, replacing the static <code>file_server</code>.</li>
+              <li>The hub runs as a Next.js 15 standalone server in Docker, exposing <code>/api/healthz</code> for the deploy gate.</li>
+              <li>Visitors only ever reach Caddy; the app container is never published beyond loopback.</li>
+            </ul>
+          </div>
+          <div class="detail-card c-orange">
+            <h3>ISR data layer</h3>
+            <ul>
+              <li>All third-party data is fetched server-side during ISR revalidation — never from the browser.</li>
+              <li>GitHub REST (stars), GraphQL (contributions calendar), and Search (merged PRs) revalidate on a <code>6h</code> TTL.</li>
+              <li>The startaitools.com RSS writing feed revalidates on a <code>1h</code> TTL.</li>
+              <li>Fetchers fail loudly: a failed revalidation keeps last-good data and raises a build/health alarm — no silently empty sections.</li>
+            </ul>
+          </div>
+          <div class="detail-card c-purple">
+            <h3>Analytics — Umami</h3>
+            <ul>
+              <li>Reuses the existing Umami stack on the VPS; no new analytics service is introduced.</li>
+              <li>The browser sends the beacon to the analytics domain directly (dashed edge) — the only non-Caddy browser call, and it is first-party infrastructure.</li>
+              <li>The hub reads per-post view counts from the Umami API over the VPS-local network on a <code>15m</code> TTL.</li>
+            </ul>
+          </div>
+          <div class="detail-card c-green">
+            <h3>CI/CD pipeline</h3>
+            <ul>
+              <li>GitHub Actions runs the build + test gate only — no image build or registry push happens in CI.</li>
+              <li>Deploy rides Tailscale OIDC into a force-command SSH session (command-restricted key) to the VPS.</li>
+              <li>The VPS-side deploy script does <code>git fetch</code> + <code>docker compose build</code> + <code>up -d</code> — the image is built on the VPS.</li>
+              <li>Actions then smoke-checks <code>/api/healthz</code>; failed runs notify Slack #prod-deploys, healthy runs stay quiet.</li>
+              <li>A name-leak gate runs before every commit — the reference site's owner is never named in this repo.</li>
+            </ul>
+          </div>
+          <div class="detail-card c-blue">
+            <h3>Design system posture</h3>
+            <ul>
+              <li>The token layer keeps a neutral base palette; color appears only as an interaction reward — hover states and focus rings.</li>
+              <li>App Router pages compose from a small component library driven by those tokens.</li>
+              <li>No client-side data fetching means no loading spinners for core content — pages arrive fully rendered.</li>
+            </ul>
+          </div>
+          <div class="detail-card c-orange">
+            <h3>Failure posture</h3>
+            <ul>
+              <li>Every external fetch is wrapped: failure → serve last-good cached payload + alarm.</li>
+              <li>The deploy gate refuses to call a run green unless <code>/api/healthz</code> passes after <code>compose up -d</code>.</li>
+              <li>Caddy reload (not restart) keeps the other VPS stacks untouched during config changes.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <p class="footer">
+        jeremylongshore.com hub rebuild · target architecture ·
+        <a href="https://github.com/jeremylongshore">github.com/jeremylongshore</a> · generated 2026-08-02
+      </p>
+    </section>
+  </main>
+</body>
+</html>
