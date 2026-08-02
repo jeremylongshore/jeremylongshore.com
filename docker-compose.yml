@@ -1,0 +1,25 @@
+# jeremylongshore.com production compose — runs on the intentsolutions VPS.
+# Caddy reverse-proxies jeremylongshore.com → 127.0.0.1:3010.
+# Deployed by /usr/local/sbin/deploy-jeremylongshore (force-command SSH);
+# cutover procedure: 000-docs/004-OD-RUNB-vps-cutover-runbook.md.
+
+services:
+  web:
+    build:
+      context: .
+      args:
+        # Baked-in ISR data on first build; sourced from /srv/jeremylongshore/.env
+        GITHUB_TOKEN: ${GITHUB_TOKEN:-}
+    image: jeremylongshore-web:latest
+    container_name: jeremylongshore-web
+    restart: unless-stopped
+    ports:
+      - '127.0.0.1:3010:3000'
+    env_file:
+      - /srv/jeremylongshore/.env
+    healthcheck:
+      test: ['CMD', 'wget', '-qO-', 'http://127.0.0.1:3000/api/healthz']
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
