@@ -27,9 +27,6 @@ Dockerfile            # Standalone server image (built on the VPS at deploy time
 docker-compose.yml    # Prod service: 127.0.0.1:3010 → container :3000
 ```
 
-> **Transition state:** the legacy Ruby/Linkyee build (`scaffold.rb`, `plugins/`, `themes/`,
-> `_output/`) remains in-tree until the cutover in
-> `000-docs/004-OD-RUNB-vps-cutover-runbook.md` executes, then is removed.
 
 ## Quick Start
 
