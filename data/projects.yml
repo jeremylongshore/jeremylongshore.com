@@ -2,6 +2,134 @@
 # purpose_short: max 90 chars, shown in list view
 # purpose_long: full description, shown in expanded view
 
+# Flagships - Featured on the homepage grid (first 8 linkable entries site-wide)
+flagships:
+  - id: claude-code-plugins
+    title: "Claude Code Plugins"
+    url: "https://claudecodeplugins.io"
+    icon: "fa-solid fa-puzzle-piece"
+    github_repo: "jeremylongshore/claude-code-plugins-plus-skills"
+    visibility: public
+    purpose_short: "471 plugins, 3,069 skills, 347 agents — largest Claude Code marketplace"
+    purpose_long: "The largest open-source marketplace of production-ready plugins, skills, and agents for Claude Code — 471 plugins, 3,069 skills, and 347 agents, browsable at tonsofskills.com and installable with the ccpi CLI package manager. Every listing is validated against the Intent Solutions enterprise schema for security, structure, and compatibility."
+    use_cases:
+      - "Install validated plugins, skills, and agents with the ccpi CLI"
+      - "Extend Claude Code with cloud, database, and API integrations"
+      - "Ship your own plugin against a strict, published schema"
+      - "Discover MCP servers for external tool integration"
+    tech_stack: ["TypeScript", "Node.js", "MCP Protocol", "React"]
+    agent_framework: ["Claude Code", "MCP Servers"]
+
+  - id: bobs-big-brain
+    title: "Bob's Big Brain"
+    url: "https://github.com/intent-solutions-io/bobs-big-brain-umbrella"
+    icon: "fa-solid fa-brain"
+    github_repo: "intent-solutions-io/bobs-big-brain-umbrella"
+    visibility: public
+    purpose_short: "Governed team brain: cited recall with a tamper-evident audit trail"
+    purpose_long: "The governed team brain — cited recall backed by hash-chained receipts. Local-first and citation-backed: every answer carries the source it came from, every write lands in a tamper-evident audit trail. Compile, then govern; local by default, remote sharing opt-in. Umbrella for the cognition kernel, knowledge base, query engine, and the Claude Code plugin."
+    use_cases:
+      - "Ask your estate questions and get citation-backed answers"
+      - "Keep a hash-chained, tamper-evident audit trail of team knowledge"
+      - "Govern what enters the shared brain before it is shared"
+      - "Run local-first with opt-in remote team sharing"
+    tech_stack: ["TypeScript", "SQLite", "MCP Protocol"]
+    agent_framework: ["Claude Code", "MCP Servers"]
+
+  - id: intent-eval-platform
+    title: "Intent Eval Platform"
+    url: "https://github.com/intent-solutions-io/intent-eval-platform"
+    icon: "fa-solid fa-clipboard-check"
+    github_repo: "intent-solutions-io/intent-eval-platform"
+    visibility: public
+    purpose_short: "Audit-first AI evaluation: measure the behavior, sign the result, gate the ship"
+    purpose_long: "Audit-first AI evaluation across six composable Apache-2.0 repos. Measure agent and skill behavior against typed schemas, sign the results into attestation envelopes, and gate releases on the evidence — evaluation as a supply-chain artifact, not a vibe check."
+    use_cases:
+      - "Behaviorally evaluate agents and skills before shipping them"
+      - "Sign eval results into verifiable attestation envelopes"
+      - "Gate CI releases on measured behavior, not claims"
+      - "Compose the six Apache-2.0 repos into your own eval pipeline"
+    tech_stack: ["TypeScript", "Python", "JSON Schema", "Zod"]
+    agent_framework: ["Claude Code", "Multi-provider LLM adapters"]
+
+  - id: scorecard-echo
+    title: "Scorecard Echo"
+    url: "https://scorecardecho.com"
+    icon: "fa-solid fa-baseball"
+    visibility: public
+    purpose_short: "Live broadcast-booth companion for baseball: real-time stats and storylines"
+    purpose_long: "Broadcast operations companion for baseball — real-time scorecards, player stats, and storyline prompts for the booth, backed by a live stats pipeline. Runs in production on the Intent Solutions VPS."
+    use_cases:
+      - "Follow a live game with a real-time digital scorecard"
+      - "Surface player stats and matchup context as the game unfolds"
+      - "Give broadcasters storyline prompts backed by live data"
+    tech_stack: ["React", "Node.js", "Python", "Docker"]
+    agent_framework: []
+
+  - id: diagnosticpro
+    title: "DiagnosticPro"
+    url: "https://diagnosticpro.io"
+    icon: "fa-solid fa-wrench"
+    github_repo: "intent-solutions-io/DiagnosticPro"
+    visibility: public
+    purpose_short: "Photo-to-diagnosis: upload a pic, get a repair plan"
+    purpose_long: "Consumer-facing AI diagnostic platform that helps users troubleshoot equipment issues with AI vision. Upload photos or describe symptoms, and get instant AI-powered diagnosis with repair cost estimates and step-by-step fix instructions. Covers vehicles, appliances, HVAC, and more. Pay-per-diagnosis model at $4.99 makes professional-grade diagnostics accessible to everyone."
+    use_cases:
+      - "Diagnose vehicle issues from symptoms or photos"
+      - "Get accurate repair cost estimates before visiting a shop"
+      - "Follow AI-guided troubleshooting steps"
+      - "Track maintenance history and upcoming service needs"
+    tech_stack: ["React", "SQLite", "Docker", "Self-hosted VPS"]
+    agent_framework: ["OpenAI GPT-4o"]
+
+  - id: hustlestats
+    title: "HustleStats"
+    url: "https://hustlestats.io"
+    icon: "fa-solid fa-futbol"
+    github_repo: "intent-solutions-io/hustle"
+    visibility: public
+    purpose_short: "Real-time youth soccer stats with AI performance reports"
+    purpose_long: "Youth sports analytics platform designed for coaches and parents. Track player statistics in real-time during games, generate AI-powered performance reports, and share highlight clips with families. Features include individual player development tracking, team analytics, season comparisons, and college recruiting profiles. Uses Vertex AI for game analysis and A2A protocol for multi-agent stat processing."
+    use_cases:
+      - "Real-time player stat tracking during games"
+      - "AI-generated performance reports and insights"
+      - "Share highlights and progress with parents"
+      - "Build college recruiting profiles with verified stats"
+    tech_stack: ["React", "Firebase", "Cloud Functions", "Firestore"]
+    agent_framework: ["Vertex AI Agent Engine", "A2A Protocol"]
+
+  - id: stci
+    title: "STCI"
+    url: "https://inferencepriceindex.com"
+    icon: "fa-solid fa-chart-line"
+    github_repo: "intent-solutions-io/stci-standard-inference-token-cost-index"
+    visibility: public
+    purpose_short: "Daily LLM pricing across every major provider, free API"
+    purpose_long: "The Standard Token Cost Index - a daily benchmark tracking LLM API pricing across OpenAI, Anthropic, Google, DeepSeek, and other providers. Historical price tracking shows cost trends over time. Free public API endpoint lets developers query current prices programmatically. Essential resource for teams optimizing AI infrastructure costs and making informed provider decisions."
+    use_cases:
+      - "Compare LLM API pricing across providers"
+      - "Track historical price changes and trends"
+      - "Free API endpoint for programmatic access"
+      - "Optimize AI infrastructure costs"
+    tech_stack: ["Python", "Firebase", "Cloud Scheduler", "FastAPI"]
+    agent_framework: []
+
+  - id: gastown-viewer
+    title: "Gastown Viewer"
+    url: "https://github.com/intent-solutions-io/gastown-viewer-intent"
+    icon: "fa-solid fa-gauge-high"
+    github_repo: "intent-solutions-io/gastown-viewer-intent"
+    visibility: public
+    purpose_short: "Dashboard + TUI for monitoring agent swarms in real-time"
+    purpose_long: "Dashboard and TUI for monitoring Beads task management and Gastown-style agent swarms. Provides real-time visibility into agent status, task queues, and execution logs. Built with Go backend and React frontend, with optional terminal interface for headless operation."
+    use_cases:
+      - "Monitor multi-agent swarm execution"
+      - "Track Beads task progress in real-time"
+      - "Debug agent failures with execution logs"
+      - "Operate via TUI on remote servers"
+    tech_stack: ["Go", "React", "TUI"]
+    agent_framework: ["Beads"]
+
 # Intent Solutions Organization - Enterprise & Production Systems
 # Links to: github.com/intent-solutions-io
 intent_solutions_repos:
@@ -36,22 +164,6 @@ intent_solutions_repos:
       - "Cross-domain intelligence correlation"
     tech_stack: ["Python", "Firebase", "Cloud Run", "BigQuery"]
     agent_framework: ["Google ADK", "Vertex AI Agent Engine", "A2A Protocol"]
-
-  - id: diagnosticpro
-    title: "DiagnosticPro"
-    url: "https://diagnosticpro.io"
-    icon: "fa-solid fa-wrench"
-    github_repo: "intent-solutions-io/DiagnosticPro"
-    visibility: public
-    purpose_short: "Photo-to-diagnosis: upload a pic, get a repair plan"
-    purpose_long: "Consumer-facing AI diagnostic platform that helps users troubleshoot equipment issues using Vertex AI Gemini. Upload photos or describe symptoms, and get instant AI-powered diagnosis with repair cost estimates and step-by-step fix instructions. Covers vehicles, appliances, HVAC, and more. Pay-per-diagnosis model at $4.99 makes professional-grade diagnostics accessible to everyone."
-    use_cases:
-      - "Diagnose vehicle issues from symptoms or photos"
-      - "Get accurate repair cost estimates before visiting a shop"
-      - "Follow AI-guided troubleshooting steps"
-      - "Track maintenance history and upcoming service needs"
-    tech_stack: ["React", "Firebase", "Cloud Functions", "Firestore"]
-    agent_framework: ["Vertex AI Gemini"]
 
   - id: bobs-brain
     title: "IAM Bob ADK"
@@ -309,55 +421,6 @@ products:
     tech_stack: ["Python", "Firestore", "Cloud Run", "BigQuery"]
     agent_framework: ["Google ADK", "Vertex AI Agent Engine"]
 
-  - id: hustlestats
-    title: "HustleStats"
-    url: "https://hustlestats.io"
-    icon: "fa-solid fa-futbol"
-    github_repo: "intent-solutions-io/hustle"
-    visibility: public
-    purpose_short: "Real-time youth soccer stats with AI performance reports"
-    purpose_long: "Youth sports analytics platform designed for coaches and parents. Track player statistics in real-time during games, generate AI-powered performance reports, and share highlight clips with families. Features include individual player development tracking, team analytics, season comparisons, and college recruiting profiles. Uses Vertex AI for game analysis and A2A protocol for multi-agent stat processing."
-    use_cases:
-      - "Real-time player stat tracking during games"
-      - "AI-generated performance reports and insights"
-      - "Share highlights and progress with parents"
-      - "Build college recruiting profiles with verified stats"
-    tech_stack: ["React", "Firebase", "Cloud Functions", "Firestore"]
-    agent_framework: ["Vertex AI Agent Engine", "A2A Protocol"]
-
-
-  - id: stci
-    title: "STCI"
-    url: "https://inferencepriceindex.com"
-    icon: "fa-solid fa-chart-line"
-    github_repo: "intent-solutions-io/stci-standard-inference-token-cost-index"
-    visibility: public
-    purpose_short: "Daily LLM pricing across every major provider, free API"
-    purpose_long: "The Standard Token Cost Index - a daily benchmark tracking LLM API pricing across OpenAI, Anthropic, Google, DeepSeek, and other providers. Historical price tracking shows cost trends over time. Free public API endpoint lets developers query current prices programmatically. Essential resource for teams optimizing AI infrastructure costs and making informed provider decisions."
-    use_cases:
-      - "Compare LLM API pricing across providers"
-      - "Track historical price changes and trends"
-      - "Free API endpoint for programmatic access"
-      - "Optimize AI infrastructure costs"
-    tech_stack: ["Python", "Firebase", "Cloud Scheduler", "FastAPI"]
-    agent_framework: []
-
-  - id: gastown-viewer
-    title: "Gastown Viewer"
-    url: "https://github.com/intent-solutions-io/gastown-viewer-intent"
-    icon: "fa-solid fa-gauge-high"
-    github_repo: "intent-solutions-io/gastown-viewer-intent"
-    visibility: public
-    purpose_short: "Dashboard + TUI for monitoring agent swarms in real-time"
-    purpose_long: "Dashboard and TUI for monitoring Beads task management and Gastown-style agent swarms. Provides real-time visibility into agent status, task queues, and execution logs. Built with Go backend and React frontend, with optional terminal interface for headless operation."
-    use_cases:
-      - "Monitor multi-agent swarm execution"
-      - "Track Beads task progress in real-time"
-      - "Debug agent failures with execution logs"
-      - "Operate via TUI on remote servers"
-    tech_stack: ["Go", "React", "TUI"]
-    agent_framework: ["Beads"]
-
 # Open Source - Personal Public Repos
 # Links to: github.com/jeremylongshore
 personal_repos:
@@ -392,22 +455,6 @@ personal_repos:
       - "Real-time watchtower monitoring of solver behavior"
     tech_stack: ["Solidity", "Foundry", "Ethereum", "ERC-7683"]
     agent_framework: []
-
-  - id: claude-code-plugins
-    title: "Claude Code Plugins"
-    url: "https://claudecodeplugins.io"
-    icon: "fa-solid fa-puzzle-piece"
-    github_repo: "jeremylongshore/claude-code-plugins-plus-skills"
-    visibility: public
-    purpose_short: "270+ plugins, 739 skills — largest Claude Code marketplace"
-    purpose_long: "The largest curated marketplace of production-ready plugins and MCP servers for Claude Code CLI. Browse 270+ plugins across categories including development tools, cloud integrations, database connectors, and workflow automation. Each plugin is validated for security, performance, and compatibility. Includes installation guides, usage examples, and community ratings."
-    use_cases:
-      - "Extend Claude Code with cloud provider integrations"
-      - "Add database and API connectors to your workflow"
-      - "Install pre-built automation and DevOps plugins"
-      - "Discover MCP servers for external tool integration"
-    tech_stack: ["TypeScript", "Node.js", "MCP Protocol", "React"]
-    agent_framework: ["Claude Code", "MCP Servers"]
 
   - id: hybrid-ai-stack
     title: "Hybrid AI Stack"
