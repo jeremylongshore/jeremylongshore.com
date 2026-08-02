@@ -1,5 +1,5 @@
 # Hugo generated files
-public/
+# public/ tracked for Next.js static assets (old Hugo-output ignore removed)
 resources/_gen/
 .hugo_build.lock
 

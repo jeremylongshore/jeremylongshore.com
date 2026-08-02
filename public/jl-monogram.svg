@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="JL monogram">
+  <defs>
+    <linearGradient id="ring" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fcfcfc"/>
+      <stop offset="1" stop-color="#b9b9b9"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#999999"/>
+      <stop offset="1" stop-color="#4d4d4d"/>
+    </linearGradient>
+  </defs>
+  <circle cx="64" cy="64" r="62" fill="url(#ring)"/>
+  <circle cx="64" cy="64" r="54" fill="#ffffff" stroke="rgba(0,0,0,0.15)" stroke-width="1"/>
+  <text x="64" y="64" text-anchor="middle" dominant-baseline="central" font-family="Geist, 'Geist Sans', ui-sans-serif, system-ui, sans-serif" font-size="44" font-weight="500" letter-spacing="-2" fill="url(#mark)">JL</text>
+</svg>
