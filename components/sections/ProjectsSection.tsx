@@ -49,7 +49,7 @@ export async function ProjectsSection() {
                   </div>
                   <p className="mt-3 grow text-base">{project.purposeShort}</p>
                   <div className="mt-4 flex flex-wrap items-center gap-2">
-                    {typeof starCount === 'number' && (
+                    {typeof starCount === 'number' && starCount > 0 && (
                       <span
                         className="font-mono text-sm"
                         style={{ color: 'var(--color-accent-strong)' }}
