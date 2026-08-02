@@ -1,3 +1,14 @@
+# Release v3.3.0
+
+**Release Date**: 2026-08-02
+
+## Changes since v3.2.2
+
+- chore: release v3.3.0 [skip ci] (9a6908b)
+- feat(projects): lead the homepage grid with a hand-picked flagships section (#25) (e447a2c)
+
+---
+
 # Release v3.2.2
 
 **Release Date**: 2026-08-02
