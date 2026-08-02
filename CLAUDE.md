@@ -4,112 +4,58 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Personal landing page for Jeremy Longshore built with **Linkyee** (Ruby-based static site generator). Single-page design featuring project links, social profiles, and dynamic GitHub star counts.
+Personal hub site for Jeremy Longshore — **Next.js 15 (App Router, standalone output) + Tailwind v4 + TypeScript**, serving live data (GitHub stars/heatmap/contributions, startaitools RSS, Umami view counts) via ISR. Design system adapted from a best-in-class reference hub's published machine-readable spec — the reference is deliberately anonymous in this repo (see `000-docs/001`, and the name-leak gate below).
 
 **Live:** https://jeremylongshore.com
-**Deployment:** Self-hosted on the Intent Solutions VPS (`intentsolutions`, 167.86.106.29) — Caddy `file_server` from `/srv/jeremylongshore/dist`. Push to `main` → `.github/workflows/deploy.yml` (Tailscale OIDC + force-command SSH). No Firebase/GCP, no Netlify (migrated 2026-06-20).
+**Deployment:** Dockerized on the Intent Solutions VPS (`intentsolutions`, 167.86.106.29), Caddy `reverse_proxy` → `127.0.0.1:3010`. Push to `main` → `.github/workflows/deploy.yml` (build gate → Tailscale OIDC → force-command SSH → VPS-side `docker compose build` + `up -d` → `/api/healthz` smoke).
+
+> **Transition state:** until the cutover in `000-docs/004-OD-RUNB-vps-cutover-runbook.md` is executed, the legacy Ruby/Linkyee build (`scaffold.rb`, `plugins/`, `themes/`, `_output/`) still exists in-tree and serves production. Do not extend the Ruby side; it is removed in the post-cutover cleanup commit.
 
 ## Commands
 
 ```bash
-# Build locally (requires Ruby + bundler)
-bash build.sh
-
-# Preview locally
-cd _output && python -m http.server 8000
-
-# Full workflow
-bash build.sh && cd _output && python -m http.server 8000
+pnpm install          # deps (pnpm 10, Node 22)
+pnpm dev              # dev server on :3000
+pnpm typecheck        # tsc --noEmit
+pnpm build            # production build (standalone)
+bash scripts/name-leak-gate.sh   # MUST be clean before every commit
 ```
 
 ## Architecture
 
 ```
-config.yml          # ALL content: links, bio, socials, plugin config
-scaffold.rb         # Build script: loads config → runs plugins → renders Liquid
-build.sh            # Wrapper: bundle install → ruby scaffold.rb
-themes/default/     # Liquid template + CSS + Font Awesome
-  index.html        # Template with {{ vars }} placeholders
-  styles.css        # Site styling
-plugins/            # Dynamic data fetchers (Ruby classes)
-_output/            # Generated static site (committed, deployed directly)
+app/                  # App Router: layout (Geist fonts, metadata), page (homepage), api/healthz
+app/globals.css       # THE design-token layer — every color/gradient/radius/motion token
+components/           # Design-system primitives (GradientCard, PillButton, AvatarRing,
+                      #   StatusChip, SectionReveal, CursorShimmer, LightLeakImage, Heatmap…)
+components/sections/  # Homepage sections (server components, fail-loud data boundaries)
+lib/site.ts           # Site-wide copy/config (name, tagline, socials, CTAs)
+lib/data/*.ts         # ISR fetchers: github-stars, github-heatmap (GraphQL),
+                      #   github-contributions, writing (RSS), umami-views, projects (YAML)
+lib/safe.ts           # Section boundary: fetchers throw; sections render VISIBLE fallbacks
+data/projects.yml     # Curated project grid data (single source of truth)
+000-docs/             # Design study, diagrams, design-language spec, cutover runbook
+Dockerfile            # Standalone server image (built on the VPS by the deploy script)
+docker-compose.yml    # Prod service: 127.0.0.1:3010 → container :3000
 ```
 
-**Build flow:** `config.yml` → plugins fetch data → Liquid renders `themes/default/` → `_output/`
-
-## Content Changes
-
-All content lives in `config.yml`:
-- `links:` - Project links with Font Awesome icons
-- `socials:` - Social media icons
-- `tagline:` - Bio text below name
-- `footer:` / `copyright:` - Footer content
-- `plugins:` - GitHub repos to fetch star counts for
-
-**Workflow:** Edit `config.yml` → `bash build.sh` → commit `_output/` → push to main
-
-## Plugins
-
-Located in `plugins/`. Fetch dynamic data at build time.
-
-**GithubRepoStarsCountPlugin**: Scrapes GitHub star counts. Usage in config.yml:
-```yaml
-plugins:
-  - GithubRepoStarsCountPlugin:
-      - owner/repo-name
-
-# Reference in link text:
-text: "Project <span class='link-button-text'>({{vars.GithubRepoStarsCountPlugin['owner/repo-name']}} Stars)</span>"
-```
-
-**Other build-time plugins (auto-run by `scaffold.rb`, no config needed):**
-- `StartAIToolsRSSPlugin` — pulls the latest posts from startaitools.com for the Work Diary section (1h cache).
-- `GithubContributionsPlugin` — pulls merged PRs to **external** repos live from the GitHub search API for the Open Source Contributions section; curated repo metadata (label/description/icon/tags) lives in the plugin's `META` map. Needs `GITHUB_TOKEN` in CI; falls back to `.github_contributions_cache.json` (6h TTL). This replaced the old hand-maintained `contributions:` block in `config.yml`.
+**Data philosophy:** fetchers throw typed errors (`DataFetchError`/`ConfigError`) and never return silently-empty data; sections catch via `safely()` and render a visible degraded notice. Page-level `revalidate = 3600`; per-fetch revalidate 6h (GitHub), 1h (RSS), 15m (Umami).
 
 ## Critical Rules
 
-1. **Never edit `_output/` manually** - regenerated on every build
-2. **All content in `config.yml`** - single source of truth
-3. **Icons: Font Awesome Free only** - https://fontawesome.com/search?o=r&m=free
-4. **Test locally before push**: Run `bash build.sh` to verify changes work
-5. **README.md is outdated** - references old Hugo setup; ignore it for architecture info
+1. **Name-leak gate before every commit** — `bash scripts/name-leak-gate.sh` (also runs in CI). The design reference's owner/domains/handles must never appear in this repo; patterns live base64-encoded inside the gate script.
+2. **Every visual value routes through a token** in `app/globals.css` — no ad-hoc hex/duration in components.
+3. **Color is an interaction reward** — accent gradients only on hover/rings/small accents, never static fills (`000-docs/003`).
+4. **All content edits** go in `lib/site.ts` (copy/socials) or `data/projects.yml` (projects) — not in components.
+5. **Test locally before push:** `pnpm build` must pass; live-data sections must render real values with `GITHUB_TOKEN` set.
+6. **Umami env** (`UMAMI_BASE_URL`, `UMAMI_API_TOKEN`, `UMAMI_WEBSITE_ID`) only exists on the VPS — locally the views section degrades to a visible notice by design (ConfigError → warn).
 
 ## Deployment
 
-**Self-hosted on the `intentsolutions` VPS** (167.86.106.29), the canonical
-VPS-as-the-home pattern. Apex `jeremylongshore.com` + `www` resolve to the VPS;
-Caddy serves the static build via `file_server` from `/srv/jeremylongshore/dist`.
+Reusable workflow `jeremylongshore/.github` `vps-deploy.yml` (`variant: docker`). Per-repo Tailscale OIDC trust + 4 GH secrets (TS_OIDC_CLIENT_ID, TS_AUDIENCE, VPS_DEPLOY_KEY, VPS_HOST_KEY). VPS side: `/usr/local/sbin/deploy-jeremylongshore` (force-command) does git fetch + compose build + up -d + healthz loop. Env at `/srv/jeremylongshore/.env` (GITHUB_TOKEN + UMAMI_*). Caddy block: `reverse_proxy 127.0.0.1:3010` — edit `/etc/caddy/Caddyfile` then `sudo caddy validate && sudo systemctl reload caddy` (NEVER restart — shared ingress). Full procedure + rollback: `000-docs/004-OD-RUNB-vps-cutover-runbook.md`.
 
-- **Production deploy:** push to `main` → `.github/workflows/deploy.yml` →
-  CI build gate → Tailscale OIDC → SSH (force-command) → the VPS script
-  `/usr/local/sbin/deploy-jeremylongshore` does `git fetch` + `bundle install` +
-  `ruby scaffold.rb` + `rsync -a --delete _output/ → dist/` + writes `dist/healthz`.
-  Reusable workflow: `jeremylongshore/.github` `vps-deploy.yml` (`variant: static`).
-  Per-repo Tailscale OIDC trust + 4 GH secrets (TS_OIDC_CLIENT_ID, TS_AUDIENCE,
-  VPS_DEPLOY_KEY, VPS_HOST_KEY) per the runbook onboarding doc.
-- **Build env on VPS:** `/srv/jeremylongshore/.env` (mode 600) holds `GITHUB_TOKEN`
-  for the stars + contributions plugins (interim plaintext; SOPS is the target).
-- **Caddy block:** `jeremylongshore.com, www.jeremylongshore.com { root * /srv/jeremylongshore/dist; file_server }`. Edit `/etc/caddy/Caddyfile` then `sudo caddy reload` (NEVER restart — shared ingress).
-- **Manual deploy:** `ssh intentsolutions /usr/local/sbin/deploy-jeremylongshore`.
-- **Build-time data** (stars, contributions, RSS) is baked into `_output/` on the
-  VPS at deploy time.
-
-> ⚠️ Verify the live host with DNS, not docs: `dig +short jeremylongshore.com`
-> → `167.86.106.29` = the VPS. (History: was on Firebase `bigo-portfolio` until
-> 2026-06-20, when it migrated to the VPS as part of the GCP exodus — off Google
-> and off Netlify, single deploy path.)
-
-## Dependencies
-
-Ruby gems (see Gemfile):
-- `liquid` ~> 5.5 - Template rendering
-- `nokogiri` >= 1.18.4 - HTML parsing for plugins
-- `rexml` - RSS/XML parsing (Work Diary plugin)
-- `yaml`, `bigdecimal`, `base64` - Standard libs
+> ⚠️ Verify the live host with DNS, not docs: `dig +short jeremylongshore.com` → `167.86.106.29`.
 
 ## Release Process
 
-Automated via GitHub Actions (`.github/workflows/release.yml`):
-- Conventional commits determine version bumps (feat→minor, fix→patch, BREAKING→major)
-- Updates `version.txt`, `CHANGELOG.md`, `README.md` version references
-- Creates Git tag and GitHub release
+Automated via GitHub Actions (`.github/workflows/release.yml`): conventional commits → version bump, `CHANGELOG.md`, tag, GitHub release.

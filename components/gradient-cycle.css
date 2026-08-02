@@ -1,0 +1,53 @@
+/**
+ * Keyframes shared by every consumer of the 12-accent gradient cycle
+ * (GradientCard, PillButton, AvatarRing) and the pill-button spin ring.
+ * Per-instance timing lives in gradient-cycle.ts; the motion spec is
+ * 000-docs/001 §8. `prefers-reduced-motion` is handled globally in
+ * app/globals.css (it collapses animation-duration to ~0), so nothing here
+ * needs its own reduced-motion override.
+ */
+
+.jl-accent-layer {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  animation-name: jl-accent-fade;
+  animation-duration: 24s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+/*
+ * A single layer's own 2s "on" window sits at the start of the shared 24s
+ * loop (0–2s of 24s = 0%–8.333%), with a 500ms crossfade (~2.083% of 24s)
+ * at each edge. Per-layer `animation-delay` (see getLayerDelay) staggers
+ * each of the 12 layers 2s apart so only one is visible at a time.
+ */
+@keyframes jl-accent-fade {
+  0% {
+    opacity: 0;
+  }
+  2.083% {
+    opacity: 1;
+  }
+  6.25% {
+    opacity: 1;
+  }
+  8.333% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.jl-conic-spin {
+  animation: jl-conic-spin 4s linear infinite;
+}
+
+@keyframes jl-conic-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

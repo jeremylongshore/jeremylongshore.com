@@ -4,83 +4,76 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![Version](https://img.shields.io/badge/version-v3.1.0-blue)
 
-Personal landing page and portfolio for Jeremy Longshore - AI Automation Specialist & Google Cloud Platform Expert.
+Personal hub site for Jeremy Longshore — AI systems that ship, live-data proof, hub-and-spokes to every product.
 
 **Live Site:** [jeremylongshore.com](https://jeremylongshore.com)
 
 ## Architecture
 
+Next.js 15 (App Router, standalone output) + Tailwind v4 + TypeScript, running as a Docker container on the Intent Solutions VPS behind Caddy. Live data rendered server-side via ISR — no client-side third-party calls.
+
 ```
-config.yml              # Site content: bio, socials, booking links
-data/projects.yml       # All project listings by category
-scaffold.rb             # Ruby build script (loads config → plugins → Liquid)
-build.sh                # Build wrapper: bundle install + scaffold.rb
-themes/default/         # Liquid template + CSS + Font Awesome
-  index.html            # Main template with {{ vars }} placeholders
-  styles.css            # Site styling
-plugins/                # Ruby plugins for dynamic data
-  GithubRepoStarsCountPlugin.rb  # Fetches GitHub star counts
-_output/                # Generated static site (rebuilt + served on the VPS via Caddy)
+app/                  # App Router: layout (self-hosted Geist), homepage, /api/healthz
+app/globals.css       # Design-token layer (colors, silver + 12 accent gradients, motion)
+components/           # Design-system primitives (GradientCard, PillButton, AvatarRing,
+                      #   StatusChip, SectionReveal, Heatmap, …)
+components/sections/  # Homepage sections (server components, fail-loud data boundaries)
+lib/site.ts           # Site copy/config (name, tagline, socials, CTAs)
+lib/data/             # ISR fetchers: GitHub stars + contribution heatmap (GraphQL) +
+                      #   merged external PRs, startaitools RSS, Umami view counts, projects
+data/projects.yml     # Project listings by category (single source of truth)
+000-docs/             # Design-system study, architecture diagrams, cutover runbook
+Dockerfile            # Standalone server image (built on the VPS at deploy time)
+docker-compose.yml    # Prod service: 127.0.0.1:3010 → container :3000
 ```
 
-**Build flow:** `config.yml` → plugins fetch data → Liquid renders `themes/default/` → `_output/`
+> **Transition state:** the legacy Ruby/Linkyee build (`scaffold.rb`, `plugins/`, `themes/`,
+> `_output/`) remains in-tree until the cutover in
+> `000-docs/004-OD-RUNB-vps-cutover-runbook.md` executes, then is removed.
 
 ## Quick Start
 
 ```bash
-# Build locally (requires Ruby 3.2+)
-bash build.sh
-
-# Preview locally
-cd _output && python -m http.server 8000
+pnpm install     # Node 22 + pnpm 10
+pnpm dev         # dev server → http://localhost:3000
+pnpm typecheck && pnpm build
 ```
+
+`GITHUB_TOKEN` in the environment lights up the stars/heatmap/contributions sections locally. Umami view counts need `UMAMI_BASE_URL` / `UMAMI_API_TOKEN` / `UMAMI_WEBSITE_ID` (VPS-only by default).
 
 ## Deployment
 
-**Self-hosted** on the Intent Solutions VPS (`intentsolutions`, `167.86.106.29`) —
-the canonical VPS-as-the-home pattern. Caddy serves the static build via
-`file_server` from `/srv/jeremylongshore/dist`. The apex + `www` resolve to the VPS
-(`dig +short jeremylongshore.com` → `167.86.106.29`).
+**Self-hosted** on the Intent Solutions VPS (`intentsolutions`, `167.86.106.29`) — the canonical VPS-as-the-home pattern. Caddy reverse-proxies the apex + `www` to the app container (`dig +short jeremylongshore.com` → `167.86.106.29`).
 
 On push to `main`, `.github/workflows/deploy.yml`:
-1. **Build gate** — Ruby 3.2 + `bundle exec ruby scaffold.rb` (validates Liquid + plugins)
+1. **Build gate** — Node 22 + pnpm: `typecheck` + `next build` + name-leak gate
 2. **Tailscale OIDC** — keyless auth to the tailnet (per-repo WIF trust)
-3. **SSH (force-command)** — triggers `/usr/local/sbin/deploy-jeremylongshore` on the VPS,
-   which does `git fetch` + `bundle install` + `ruby scaffold.rb` +
-   `rsync -a --delete _output/ → dist/` + writes `dist/healthz`
-4. **Smoke check** — `curl https://jeremylongshore.com/healthz` asserts `.ok == true`
+3. **SSH (force-command)** — triggers `/usr/local/sbin/deploy-jeremylongshore` on the VPS: `git fetch` + `docker compose build` + `up -d` (image built on the VPS)
+4. **Smoke check** — `curl https://jeremylongshore.com/api/healthz` asserts `.ok == true`
 
-Reusable workflow: `jeremylongshore/.github` `vps-deploy.yml` (`variant: static`).
+Reusable workflow: `jeremylongshore/.github` `vps-deploy.yml` (`variant: docker`).
 GH secrets: `TS_OIDC_CLIENT_ID`, `TS_AUDIENCE`, `VPS_DEPLOY_KEY`, `VPS_HOST_KEY`.
 
 **Manual deploy:** `ssh intentsolutions /usr/local/sbin/deploy-jeremylongshore`
 
-> Migrated off Firebase Hosting (`bigo-portfolio`) **and** Netlify on 2026-06-20 as
-> part of the GCP exodus — single deploy path, no Google, no Netlify.
+> Migrated off Firebase Hosting **and** Netlify on 2026-06-20 (GCP exodus); rebuilt from the
+> Ruby/Linkyee static generator to this Next.js hub in 2026-08.
 
 ## Configuration
 
-### Site Content (`config.yml`)
-- `title`, `name`, `tagline` - Header content
-- `socials` - Social media icons and links
-- `booking_url`, `contact_url` - CTA buttons
-- `footer`, `copyright` - Footer text
+- `lib/site.ts` — header/tagline copy, social links, CTA URLs, footer fallbacks
+- `data/projects.yml` — project listings by category (`intent_solutions_repos`, `products`, `personal_repos`, `client_projects`, `n8n_workflows`)
+- `app/globals.css` — every design token (see `000-docs/003` for the design-language spec)
 
-### Projects (`data/projects.yml`)
-Organized by category:
-- `intent_solutions_repos` - Enterprise/production systems
-- `products` - Commercial offerings
-- `personal_repos` - Open source projects
-- `client_projects` - Work for clients
-- `n8n_workflows` - Automation templates
+### Live-data fetchers (`lib/data/`, ISR)
 
-### Build-time data plugins (`plugins/`, auto-run by `scaffold.rb`)
-- **GithubRepoStarsCountPlugin** — star counts for any project with a
-  `github_repo: "owner/repo-name"`, cached in `.github_stars_cache.json`.
-- **GithubContributionsPlugin** — merged PRs to external repos, pulled live from
-  the GitHub search API for the Open Source Contributions section (needs
-  `GITHUB_TOKEN`; cached in `.github_contributions_cache.json`).
-- **StartAIToolsRSSPlugin** — latest startaitools.com posts for the Work Diary.
+- **github-stars** — star counts for any project with `github_repo` (6h revalidate)
+- **github-heatmap** — contribution calendar via GraphQL, rendered in the site's bronze ramp (6h)
+- **github-contributions** — merged PRs to external repos via the search API (6h)
+- **writing** — latest startaitools.com posts (1h)
+- **umami-views** — per-post view counts from self-hosted Umami (15m)
+
+Fetchers fail loudly (typed errors + logs); sections render visible fallbacks, never silently-empty content.
 
 ## Release Process
 
@@ -91,25 +84,11 @@ Automated via GitHub Actions on push to `main`:
 
 ## Tech Stack
 
-- **Generator:** [Linkyee](https://github.com/username/linkyee) (Ruby + Liquid)
-- **Hosting:** Self-hosted on the `intentsolutions` VPS (Caddy `file_server`)
+- **Framework:** Next.js 15 (standalone) · React 19 · Tailwind v4 · TypeScript
+- **Fonts:** Geist Sans/Mono, self-hosted
+- **Hosting:** Docker on the `intentsolutions` VPS (Caddy `reverse_proxy`)
 - **CI/CD:** GitHub Actions — `deploy.yml` (VPS deploy via Tailscale OIDC) + `release.yml` (versioning)
-- **Icons:** Font Awesome Free
-- **Analytics:** Google Analytics 4 + self-hosted Umami
-
-## File Management
-
-| File | Purpose |
-|------|---------|
-| `config.yml` | All site content - single source of truth |
-| `data/projects.yml` | Project listings with metadata |
-| `_output/` | Generated site (rebuilt + served on the VPS via Caddy) |
-| `.github/workflows/deploy.yml` | VPS deploy (Tailscale OIDC + force-command SSH) |
-
-**Rules:**
-- Never edit `_output/` manually - regenerated on every build
-- All content changes go in `config.yml` or `data/projects.yml`
-- Test locally with `bash build.sh` before pushing
+- **Analytics:** self-hosted Umami (also the view-counts data source)
 
 ## Contact
 
