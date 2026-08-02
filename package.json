@@ -2,7 +2,7 @@
   "name": "jeremylongshore-hub",
   "version": "4.0.0-dev",
   "private": true,
-  "description": "jeremylongshore.com — dynamic personal hub (Next.js standalone on the Intent Solutions VPS)",
+  "description": "jeremylongshore.com \u2014 dynamic personal hub (Next.js standalone on the Intent Solutions VPS)",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -15,7 +15,7 @@
     "next": "^15.5.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "simple-icons": "^16.28.0",
+    "simple-icons": "~16.27.1",
     "yaml": "^2.8.0"
   },
   "devDependencies": {
@@ -25,5 +25,6 @@
     "@types/react-dom": "^19.1.0",
     "tailwindcss": "^4.1.0",
     "typescript": "^5.8.0"
-  }
+  },
+  "packageManager": "pnpm@10.8.1"
 }
