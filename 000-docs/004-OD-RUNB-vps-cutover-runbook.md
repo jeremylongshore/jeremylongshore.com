@@ -22,8 +22,12 @@ sudo tee -a /srv/jeremylongshore/.env >/dev/null <<'EOF'
 UMAMI_BASE_URL=https://analytics.intentsolutions.io
 UMAMI_API_TOKEN=<token>
 UMAMI_WEBSITE_ID=<startaitools website uuid>
+NEXT_PUBLIC_UMAMI_SRC=https://analytics.intentsolutions.io/script.js
+NEXT_PUBLIC_UMAMI_WEBSITE_ID=<jeremylongshore.com website uuid — create in Umami if absent>
 EOF
 ```
+
+`UMAMI_WEBSITE_ID` (startaitools) powers the writing-section view counts; the two `NEXT_PUBLIC_*` values power this site's own beacon. NEXT_PUBLIC vars are baked at image build — they must be present in `.env` **before** `compose build` runs.
 
 (Interim plaintext like the existing token; SOPS remains the target posture.)
 
@@ -100,6 +104,6 @@ docker compose -f /srv/jeremylongshore/code/docker-compose.yml down
 
 ## 7. Post-cutover cleanup (separate commit, only after §5 verified)
 
-- Remove from the repo: `scaffold.rb`, `Gemfile`, `Gemfile.lock`, `plugins/`, `themes/`, `build.sh`, `_output/`, `config.yml` (content migrated), `.bundle/`, stale `netlify.toml` / Firebase remnants if present.
+- Remove from the repo: `scaffold.rb`, `Gemfile`, `Gemfile.lock`, `plugins/`, `themes/`, `build.sh`, `_output/`, `config.yml` (content migrated), `.bundle/`, stale `netlify.toml` / Firebase remnants if present, and the dormant `sync-startaitools` workflow + scripts (superseded by the RSS fetcher).
 - Update `CLAUDE.md` + `README.md` to the Next.js architecture.
 - After a week of clean runs: `sudo rm -rf /srv/jeremylongshore/dist` and retire the Ruby build deps on the VPS.

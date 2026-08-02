@@ -19,9 +19,19 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // Umami beacon for this site itself — emitted only when configured
+  // (NEXT_PUBLIC_UMAMI_SRC + NEXT_PUBLIC_UMAMI_WEBSITE_ID on the VPS).
+  const umamiSrc = process.env.NEXT_PUBLIC_UMAMI_SRC;
+  const umamiWebsiteId = process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID;
+
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        {umamiSrc && umamiWebsiteId && (
+          <script defer src={umamiSrc} data-website-id={umamiWebsiteId} />
+        )}
+      </body>
     </html>
   );
 }

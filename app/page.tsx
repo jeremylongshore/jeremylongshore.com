@@ -1,11 +1,26 @@
+import { Hero } from '@/components/sections/Hero';
+import { HeatmapSection } from '@/components/sections/HeatmapSection';
+import { ProjectsSection } from '@/components/sections/ProjectsSection';
+import { ContributionsSection } from '@/components/sections/ContributionsSection';
+import { WritingSection } from '@/components/sections/WritingSection';
+import { Footer } from '@/components/sections/Footer';
+
+/*
+ * Page-level ISR: hourly regeneration covers every section, including the
+ * GraphQL heatmap fetch (a POST, which Next's per-fetch cache won't
+ * memoize). Per-fetch revalidate values give GET fetchers finer freshness.
+ */
+export const revalidate = 3600;
+
 export default function Home() {
   return (
-    <main className="mx-auto max-w-4xl px-6 py-24">
-      <p className="text-sm uppercase tracking-widest" style={{ color: 'var(--color-eyebrow)' }}>
-        Scaffold checkpoint
-      </p>
-      <h1 className="mt-4 text-5xl leading-[1.1]">Jeremy Longshore</h1>
-      <p className="mt-6">Homepage sections land in Phase 2.</p>
+    <main className="mx-auto flex max-w-5xl flex-col gap-24 px-6 pt-20 md:pt-28">
+      <Hero />
+      <HeatmapSection />
+      <ProjectsSection />
+      <ContributionsSection />
+      <WritingSection />
+      <Footer />
     </main>
   );
 }
