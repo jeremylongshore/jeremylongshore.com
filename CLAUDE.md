@@ -9,7 +9,6 @@ Personal hub site for Jeremy Longshore — **Next.js 15 (App Router, standalone 
 **Live:** https://jeremylongshore.com
 **Deployment:** Dockerized on the Intent Solutions VPS (`intentsolutions`, 167.86.106.29), Caddy `reverse_proxy` → `127.0.0.1:3010`. Push to `main` → `.github/workflows/deploy.yml` (build gate → Tailscale OIDC → force-command SSH → VPS-side `docker compose build` + `up -d` → `/api/healthz` smoke).
 
-> **Transition state:** until the cutover in `000-docs/004-OD-RUNB-vps-cutover-runbook.md` is executed, the legacy Ruby/Linkyee build (`scaffold.rb`, `plugins/`, `themes/`, `_output/`) still exists in-tree and serves production. Do not extend the Ruby side; it is removed in the post-cutover cleanup commit.
 
 ## Commands
 
