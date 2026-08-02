@@ -1,3 +1,14 @@
+# Release v3.2.2
+
+**Release Date**: 2026-08-02
+
+## Changes since v3.2.1
+
+- chore: release v3.2.2 [skip ci] (8228bdd)
+- chore(cleanup): remove the Ruby/Linkyee toolchain after the VPS cutover (#24) (99d2b22)
+
+---
+
 # Release v3.2.1
 
 **Release Date**: 2026-08-02
