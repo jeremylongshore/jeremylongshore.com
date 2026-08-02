@@ -1,3 +1,14 @@
+# Release v3.2.1
+
+**Release Date**: 2026-08-02
+
+## Changes since v3.2.0
+
+- chore: release v3.2.1 [skip ci] (fd17f95)
+- fix(data): use type=path for the Umami metrics endpoint (#23) (74bbe7f)
+
+---
+
 # Release v3.2.0
 
 **Release Date**: 2026-08-02
