@@ -69,7 +69,7 @@ export function GradientCard({
       </span>
 
       {/* Layer 3: white content well — covers the center, leaves the p-3 frame visible. */}
-      <span className="relative block overflow-hidden rounded-xl border bg-white" style={{ borderColor: 'var(--color-well-border)' }}>
+      <span className="relative block overflow-hidden rounded-xl border" style={{ background: 'var(--color-well)', borderColor: 'var(--color-well-border)' }}>
         {children}
         {shimmer ? <CursorShimmer /> : null}
       </span>

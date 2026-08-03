@@ -92,8 +92,33 @@
     inset 0 -8px 8px rgba(77, 77, 77, 0.2);
 }
 
+:root {
+  /* ---- Surface tokens (light defaults; dark overrides below) ---- */
+  --color-page: #ffffff;
+  --color-well: #ffffff;
+  --color-chip-bg: rgba(255, 255, 255, 0.8);
+}
+
+/* Dark pass (Phase 4): neutral spine inverts; silver/accent gradients stay —
+   metal reads even better on near-black. No toggle; OS preference only. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-page: #0b0b0c;
+    --color-well: #151517;
+    --color-chip-bg: rgba(21, 21, 23, 0.8);
+    --color-brand: #e8e8e8;
+    --color-body: rgba(232, 232, 232, 0.78);
+    --color-faint: rgba(232, 232, 232, 0.55);
+    --color-eyebrow: rgba(232, 232, 232, 0.45);
+    --color-ink: #ffffff;
+    --color-hairline: #232327;
+    --color-well-border: rgba(255, 255, 255, 0.16);
+    --color-heat-0: #1c1c1f;
+  }
+}
+
 body {
-  background: #ffffff;
+  background: var(--color-page);
   color: var(--color-body);
   font-family: var(--font-sans);
   font-size: 18px;

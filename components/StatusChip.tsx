@@ -15,8 +15,8 @@ export interface StatusChipProps {
 export function StatusChip({ label, active, className = '' }: StatusChipProps): React.ReactElement {
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full bg-white/80 px-2.5 py-1 text-xs font-medium backdrop-blur ${className}`.trim()}
-      style={{ color: 'var(--color-brand)' }}
+      className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium backdrop-blur ${className}`.trim()}
+      style={{ background: 'var(--color-chip-bg)', color: 'var(--color-brand)' }}
     >
       <span
         aria-hidden="true"
