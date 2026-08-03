@@ -3,6 +3,7 @@ import { HeatmapSection } from '@/components/sections/HeatmapSection';
 import { ProjectsSection } from '@/components/sections/ProjectsSection';
 import { ContributionsSection } from '@/components/sections/ContributionsSection';
 import { WritingSection } from '@/components/sections/WritingSection';
+import { ToolsSection } from '@/components/sections/ToolsSection';
 import { Footer } from '@/components/sections/Footer';
 
 /*
@@ -20,6 +21,7 @@ export default function Home() {
       <ProjectsSection />
       <ContributionsSection />
       <WritingSection />
+      <ToolsSection />
       <Footer />
     </main>
   );

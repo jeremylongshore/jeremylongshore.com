@@ -18,8 +18,8 @@ This is the machine-readable design system for jeremylongshore.com. If you are a
 | Page background | `#ffffff` | `#0b0b0c` |
 | Brand gray (headings/icons) | `#4d4d4d` | `#e8e8e8` |
 | Body text | `rgba(77,77,77,0.8)` | `rgba(232,232,232,0.78)` |
-| Captions/small | `rgba(77,77,77,0.6)` | `rgba(232,232,232,0.55)` |
-| Eyebrow labels | `rgba(77,77,77,0.5)` | `rgba(232,232,232,0.45)` |
+| Captions/small | `rgba(77,77,77,0.78)` | `rgba(232,232,232,0.68)` |
+| Eyebrow labels | `rgba(77,77,77,0.8)` | `rgba(232,232,232,0.6)` |
 | Hover/active text | `#000000` | `#ffffff` |
 | Hairline borders | `#eeeeee` | `#232327` |
 | Card content well | `#ffffff` | `#151517` |
@@ -101,4 +101,6 @@ Blunt operator. Claim → live number → link. Active verbs, sentence case, no 
 ## Do / Don't
 
 **Do:** keep the resting page neutral; spend color on interaction; use Amber when one accent must lead; keep focus rings visible (amber, 2px).
+**Note on muted text:** caption/eyebrow alphas are deliberately heavier than the reference system's — they are tuned to hold WCAG AA (4.5:1) at 14px. Do not lighten them.
+
 **Don't:** use accent gradients as static fills; synchronize gradient cycles across instances; show "★ 0"; animate with layout-shifting properties; drop below WCAG AA contrast.

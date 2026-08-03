@@ -15,8 +15,10 @@
   /* ---- Neutral palette ---- */
   --color-brand: #4d4d4d; /* headings, icons, primary text */
   --color-body: rgba(77, 77, 77, 0.8);
-  --color-faint: rgba(77, 77, 77, 0.6); /* captions/small */
-  --color-eyebrow: rgba(77, 77, 77, 0.5);
+  /* Alphas tuned for WCAG AA (4.5:1) at 14px on white — the reference's
+     lighter values (0.6/0.5) fail contrast; quality floor wins. */
+  --color-faint: rgba(77, 77, 77, 0.78); /* captions/small */
+  --color-eyebrow: rgba(77, 77, 77, 0.8);
   --color-ink: #000000; /* hover/active text */
   --color-hairline: #eeeeee; /* borders/dividers */
   --color-well-border: rgba(0, 0, 0, 0.15); /* card content-well border */
@@ -108,8 +110,8 @@
     --color-chip-bg: rgba(21, 21, 23, 0.8);
     --color-brand: #e8e8e8;
     --color-body: rgba(232, 232, 232, 0.78);
-    --color-faint: rgba(232, 232, 232, 0.55);
-    --color-eyebrow: rgba(232, 232, 232, 0.45);
+    --color-faint: rgba(232, 232, 232, 0.68);
+    --color-eyebrow: rgba(232, 232, 232, 0.6);
     --color-ink: #ffffff;
     --color-hairline: #232327;
     --color-well-border: rgba(255, 255, 255, 0.16);
