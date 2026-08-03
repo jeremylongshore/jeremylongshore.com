@@ -43,7 +43,7 @@ export function AvatarRing({
   const instanceSeed = seed ?? reactId;
 
   const overlayVisibility = active
-    ? 'opacity-100'
+    ? 'jl-cycle-active opacity-100'
     : 'opacity-0 transition-opacity duration-[var(--duration-hover)] ease-out group-hover:opacity-100';
 
   return (

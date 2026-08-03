@@ -58,7 +58,7 @@ export function PillButton({
   const ring = (
     <span
       aria-hidden="true"
-      className="pointer-events-none absolute -inset-[2px] overflow-hidden rounded-full opacity-40 transition-opacity duration-[var(--duration-hover)] ease-out group-hover:opacity-90"
+      className="jl-cycle-active pointer-events-none absolute -inset-[2px] overflow-hidden rounded-full opacity-40 transition-opacity duration-[var(--duration-hover)] ease-out group-hover:opacity-90"
     >
       <span className="jl-conic-spin absolute inset-0">
         {ACCENT_GRADIENT_VARS.map((varName, index) => (
