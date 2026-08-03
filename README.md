@@ -2,7 +2,7 @@
 
 [![Deploy: self-hosted VPS](https://img.shields.io/badge/deploy-self--hosted%20VPS%20(Caddy)-2ea44f)](https://intentsolutions.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-![Version](https://img.shields.io/badge/version-v3.4.0-blue)
+![Version](https://img.shields.io/badge/version-v3.5.0-blue)
 
 Personal hub site for Jeremy Longshore — AI systems that ship, live-data proof, hub-and-spokes to every product.
 
