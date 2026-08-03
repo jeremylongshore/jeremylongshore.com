@@ -23,7 +23,8 @@ bash scripts/name-leak-gate.sh   # MUST be clean before every commit
 ## Architecture
 
 ```
-app/                  # App Router: layout (Geist fonts, metadata), page (homepage), api/healthz
+app/                  # App Router: layout (Geist fonts, Header, metadata), homepage, api/healthz,
+                      #   /about /brand /contact, sitemap.ts, robots.ts, opengraph-image.tsx (next/og)
 app/globals.css       # THE design-token layer — every color/gradient/radius/motion token
 components/           # Design-system primitives (GradientCard, PillButton, AvatarRing,
                       #   StatusChip, SectionReveal, CursorShimmer, LightLeakImage, Heatmap…)
@@ -33,6 +34,8 @@ lib/data/*.ts         # ISR fetchers: github-stars, github-heatmap (GraphQL),
                       #   github-contributions, writing (RSS), umami-views, projects (YAML)
 lib/safe.ts           # Section boundary: fetchers throw; sections render VISIBLE fallbacks
 data/projects.yml     # Curated project grid data (single source of truth)
+data/tools.yml        # Curated tools list (homepage Tools section, filter pills)
+public/design.md      # Machine-readable design system for AI agents (keep synced with globals.css)
 000-docs/             # Design study, diagrams, design-language spec, cutover runbook
 Dockerfile            # Standalone server image (built on the VPS by the deploy script)
 docker-compose.yml    # Prod service: 127.0.0.1:3010 → container :3000

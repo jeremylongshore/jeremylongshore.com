@@ -59,7 +59,7 @@ const HEAT_RAMP: { step: string; varName: string; hex: string }[] = [
 const TYPE_SPECIMENS: { label: string; sampleClassName: string; sampleStyle: React.CSSProperties }[] = [
   {
     label: 'H1 · 56px · Medium',
-    sampleClassName: 'text-[56px] leading-[1.1] tracking-tight',
+    sampleClassName: 'break-words text-[32px] leading-[1.1] tracking-tight sm:text-[56px]',
     sampleStyle: { color: 'var(--color-brand)', fontWeight: 500 },
   },
   {
