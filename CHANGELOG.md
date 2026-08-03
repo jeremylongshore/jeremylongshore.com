@@ -1,3 +1,14 @@
+# Release v3.5.0
+
+**Release Date**: 2026-08-03
+
+## Changes since v3.4.0
+
+- chore: release v3.5.0 [skip ci] (da5e2b0)
+- feat(contributions): promote NOW LMS to a highlighted contribution card (#33) (14bf05d)
+
+---
+
 # Release v3.4.0
 
 **Release Date**: 2026-08-03
