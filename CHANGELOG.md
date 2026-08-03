@@ -1,3 +1,14 @@
+# Release v3.4.0
+
+**Release Date**: 2026-08-03
+
+## Changes since v3.3.1
+
+- chore: release v3.4.0 [skip ci] (bd70949)
+- feat(profile): replace the hero headshot with the current X profile photo (#32) (e50f9ac)
+
+---
+
 # Release v3.3.1
 
 **Release Date**: 2026-08-02
