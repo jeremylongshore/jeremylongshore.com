@@ -98,21 +98,37 @@ flagships:
     tech_stack: ["React", "Firebase", "Cloud Functions", "Firestore"]
     agent_framework: ["Vertex AI Agent Engine", "A2A Protocol"]
 
-  - id: stci
-    title: "STCI"
-    url: "https://inferencepriceindex.com"
-    icon: "fa-solid fa-chart-line"
-    github_repo: "intent-solutions-io/stci-standard-inference-token-cost-index"
+  - id: irsb
+    title: "IRSB"
+    url: "https://github.com/jeremylongshore/irsb"
+    icon: "fa-solid fa-shield-halved"
+    github_repo: "jeremylongshore/irsb"
     visibility: public
-    purpose_short: "Daily LLM pricing across every major provider, free API"
-    purpose_long: "The Standard Token Cost Index - a daily benchmark tracking LLM API pricing across OpenAI, Anthropic, Google, DeepSeek, and other providers. Historical price tracking shows cost trends over time. Free public API endpoint lets developers query current prices programmatically. Essential resource for teams optimizing AI infrastructure costs and making informed provider decisions."
+    purpose_short: "On-chain guardrails for AI agents — no agent should hold unguarded keys"
+    purpose_long: "On-chain guardrails for AI agents: EIP-7702 spend limits, cryptographic execution receipts, and automated dispute resolution. Umbrella for the protocol, solver, watchtower, and agent services — every agent action is bounded, receipted, and disputable."
     use_cases:
-      - "Compare LLM API pricing across providers"
-      - "Track historical price changes and trends"
-      - "Free API endpoint for programmatic access"
-      - "Optimize AI infrastructure costs"
-    tech_stack: ["Python", "Firebase", "Cloud Scheduler", "FastAPI"]
+      - "Cap what an AI agent can spend with EIP-7702 limits"
+      - "Prove what an agent executed with cryptographic receipts"
+      - "Resolve bad agent actions through automated disputes"
+      - "Run agents with keys they cannot abuse"
+    tech_stack: ["Solidity", "TypeScript", "Python"]
     agent_framework: []
+
+  - id: wild-rails-ai-ops
+    title: "Wild — Rails AI Ops"
+    url: "https://github.com/intent-solutions-io/wild-rails-ai-ops"
+    icon: "fa-solid fa-gem"
+    github_repo: "intent-solutions-io/wild-rails-ai-ops"
+    visibility: public
+    purpose_short: "10 production Ruby gems for safe AI-agent ops in Rails"
+    purpose_long: "Stop hand-rolling agent-safety code in every Rails app. Wild gives Rails teams ten production-ready Ruby gems for safe AI-agent operations: capability gating, audited execution, MCP servers, privacy-aware telemetry, and gap analysis. Opinionated defaults, composable pieces."
+    use_cases:
+      - "Gate what AI agents can do inside a Rails app"
+      - "Audit every agent execution with a durable trail"
+      - "Serve MCP endpoints from Rails with privacy-aware telemetry"
+      - "Find agent-safety gaps in an existing codebase"
+    tech_stack: ["Ruby", "Rails"]
+    agent_framework: ["MCP Servers"]
 
   - id: gastown-viewer
     title: "Gastown Viewer"
