@@ -1,3 +1,14 @@
+# Release v3.7.0
+
+**Release Date**: 2026-08-03
+
+## Changes since v3.6.2
+
+- chore: release v3.7.0 [skip ci] (aa1e710)
+- feat(phase4): subpages, brand kit + agent-readable design.md, tools section, dark mode, Next 16 (#35) (306505d)
+
+---
+
 # Release v3.6.2
 
 **Release Date**: 2026-08-03
