@@ -55,7 +55,7 @@ export function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             className="mt-4 inline-block font-medium transition-colors duration-200"
-            style={{ color: 'var(--color-accent)' }}
+            style={{ color: 'var(--color-accent-strong)' }}
           >
             Verify on Credly →
           </a>

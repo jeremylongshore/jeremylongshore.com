@@ -30,7 +30,18 @@ export async function Footer() {
         ))}
       </nav>
       <p className="pb-12 text-sm" style={{ color: 'var(--color-faint)' }}>
-        © 2026{' '}
+        <a href="/about" className="underline decoration-dotted underline-offset-4">
+          About
+        </a>{' '}
+        |{' '}
+        <a href="/brand" className="underline decoration-dotted underline-offset-4">
+          Brand
+        </a>{' '}
+        |{' '}
+        <a href="/contact" className="underline decoration-dotted underline-offset-4">
+          Contact
+        </a>
+        <br />© 2026{' '}
         <a href="https://jeremylongshore.com" className="underline decoration-dotted underline-offset-4">
           Jeremy Longshore
         </a>{' '}

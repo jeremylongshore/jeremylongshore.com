@@ -1,0 +1,127 @@
+# Curated tools — "what I actually run", grouped by category.
+# Rendered on the homepage tools section with category filter pills.
+# Edit freely: title, url, note (one line, why it earns its place).
+
+categories:
+  - name: AI & Agents
+    tools:
+      - title: Claude Code
+        url: https://code.claude.com
+        note: The daily driver — every repo in the estate is built and operated with it.
+      - title: Claude
+        url: https://claude.ai
+        note: Reasoning partner for architecture calls and writing.
+      - title: Codex CLI
+        url: https://github.com/openai/codex
+        note: Second coding agent for cross-checking approaches.
+      - title: Gemini CLI
+        url: https://github.com/google-gemini/gemini-cli
+        note: Third opinion; useful free tier for batch jobs.
+      - title: Model Context Protocol
+        url: https://modelcontextprotocol.io
+        note: The integration standard everything here speaks.
+      - title: Playwright
+        url: https://playwright.dev
+        note: Agents drive real browsers with it to verify their own UI work.
+
+  - name: Dev & CLI
+    tools:
+      - title: beads
+        url: https://github.com/gastownhall/beads
+        note: Git-native issue tracking agents can operate; survives context loss.
+      - title: Dolt
+        url: https://www.dolthub.com
+        note: Version-controlled SQL — the audit trail under the task tracker.
+      - title: pnpm
+        url: https://pnpm.io
+        note: Content-addressed store; one copy of every dependency on disk.
+      - title: uv
+        url: https://github.com/astral-sh/uv
+        note: Python installs measured in milliseconds.
+      - title: GitHub CLI
+        url: https://cli.github.com
+        note: PRs, issues, checks, and API calls without leaving the terminal.
+      - title: ripgrep
+        url: https://github.com/BurntSushi/ripgrep
+        note: The search default; nothing else is close.
+      - title: fzf
+        url: https://github.com/junegunn/fzf
+        note: Fuzzy-find everything — history, files, branches.
+      - title: bat
+        url: https://github.com/sharkdp/bat
+        note: cat with syntax highlighting and git awareness.
+      - title: eza
+        url: https://github.com/eza-community/eza
+        note: ls, modernized.
+      - title: zoxide
+        url: https://github.com/ajeetdsouza/zoxide
+        note: cd that learns where you actually go.
+      - title: delta
+        url: https://github.com/dandavison/delta
+        note: Diffs you can actually read.
+      - title: hyperfine
+        url: https://github.com/sharkdp/hyperfine
+        note: Benchmark CLI claims instead of arguing about them.
+      - title: tmux
+        url: https://github.com/tmux/tmux
+        note: Eleven agent sessions, one terminal.
+
+  - name: Infrastructure
+    tools:
+      - title: Caddy
+        url: https://caddyserver.com
+        note: One config file, automatic TLS, single ingress for the whole estate.
+      - title: Docker Compose
+        url: https://docs.docker.com/compose/
+        note: Seven production stacks on one VPS, each a folder with a file.
+      - title: Tailscale
+        url: https://tailscale.com
+        note: The network layer — keyless CI deploys via OIDC, no public SSH.
+      - title: SOPS + age
+        url: https://github.com/getsops/sops
+        note: Secrets encrypted in git, decrypted in process. No vault server.
+      - title: BorgBackup
+        url: https://www.borgbackup.org
+        note: Deduplicated nightly backups that have actually been restored.
+      - title: Netdata
+        url: https://www.netdata.cloud
+        note: Per-second metrics on the VPS, tailnet-only.
+      - title: GitHub Actions
+        url: https://github.com/features/actions
+        note: Every deploy is a push — build gate, SSH force-command, health check.
+      - title: Contabo
+        url: https://contabo.com
+        note: Boring, cheap, big VPS. The whole estate fits on one.
+
+  - name: Analytics & Data
+    tools:
+      - title: Umami
+        url: https://umami.is
+        note: Self-hosted analytics — also the live view-count API for this site.
+      - title: Plane
+        url: https://plane.so
+        note: Self-hosted project tracker mirrored to GitHub issues.
+      - title: Twenty
+        url: https://twenty.com
+        note: Open-source CRM, self-hosted.
+      - title: SQLite
+        url: https://sqlite.org
+        note: The default database until proven otherwise.
+
+  - name: Building This Site
+    tools:
+      - title: Next.js
+        url: https://nextjs.org
+        note: App Router + ISR — live data server-side, static speed client-side.
+      - title: Tailwind CSS
+        url: https://tailwindcss.com
+        note: The token layer lives in CSS variables; Tailwind wires it to markup.
+      - title: TypeScript
+        url: https://www.typescriptlang.org
+        note: Strict mode, no any. Fetchers with typed failure modes.
+      - title: Geist
+        url: https://vercel.com/font
+        note: Sans for voice, Mono for evidence. Self-hosted, SIL OFL.
+      - title: Hugo
+        url: https://gohugo.io
+        note: Still runs startaitools.com — the writing feed this site pulls from.
