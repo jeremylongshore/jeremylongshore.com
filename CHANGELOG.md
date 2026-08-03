@@ -1,3 +1,14 @@
+# Release v3.6.0
+
+**Release Date**: 2026-08-03
+
+## Changes since v3.5.0
+
+- chore: release v3.6.0 [skip ci] (cccdaba)
+- feat(projects): swap STCI for the IRSB umbrella and add Wild Rails AI Ops (#34) (ccce2b9)
+
+---
+
 # Release v3.5.0
 
 **Release Date**: 2026-08-03
