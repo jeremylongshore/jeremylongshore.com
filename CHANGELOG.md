@@ -1,3 +1,14 @@
+# Release v3.7.1
+
+**Release Date**: 2026-08-03
+
+## Changes since v3.7.0
+
+- chore: release v3.7.1 [skip ci] (ad64ecd)
+- perf(design-system): pause idle accent-gradient cycles; run on interaction (#36) (cd02f26)
+
+---
+
 # Release v3.7.0
 
 **Release Date**: 2026-08-03
