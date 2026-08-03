@@ -16,6 +16,18 @@
   animation-duration: 24s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+  /* Paused at rest — ~30 cards x 12 layers of invisible infinite animation
+     cost ~3.7s of Style & Layout on the Lighthouse mobile trace. The cycle
+     only rewards interaction, so it runs only while interacted-with; the
+     negative per-instance delays still land each instance at a different
+     phase the moment it starts. */
+  animation-play-state: paused;
+}
+
+.group:hover .jl-accent-layer,
+.group:focus-within .jl-accent-layer,
+.jl-cycle-active .jl-accent-layer {
+  animation-play-state: running;
 }
 
 /*
