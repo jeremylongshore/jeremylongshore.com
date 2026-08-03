@@ -51,6 +51,12 @@ export interface ContributionsResult {
  * presentation-only (label/description/icon/tags).
  */
 const META: Record<string, ContributionMeta> = {
+  'bmosoluciones/now-lms': {
+    label: 'NOW LMS',
+    description: 'i18n compile-at-boot fixes, enrollment integrity constraints, theme perf, and test coverage for the open-source learning management system',
+    icon: 'fa-solid fa-graduation-cap',
+    tags: ['Python', 'Flask', 'i18n'],
+  },
   'GoogleCloudPlatform/vertex-ai-samples': {
     label: 'Vertex AI Samples',
     description: 'ADK inline-source deployment tutorial for Agent Engine',
