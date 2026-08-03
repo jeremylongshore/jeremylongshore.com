@@ -1,3 +1,14 @@
+# Release v3.6.2
+
+**Release Date**: 2026-08-03
+
+## Changes since v3.6.1
+
+- chore: release v3.6.2 [skip ci] (0e32f1a)
+- chore(deps): bump actions/setup-node from 4.4.0 to 7.0.0 (#27) (fb0c8fb)
+
+---
+
 # Release v3.6.1
 
 **Release Date**: 2026-08-03
