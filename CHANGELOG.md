@@ -1,3 +1,14 @@
+# Release v3.6.1
+
+**Release Date**: 2026-08-03
+
+## Changes since v3.6.0
+
+- chore: release v3.6.1 [skip ci] (ca4b937)
+- chore(deps): bump actions/checkout from 4.4.0 to 7.0.1 (#28) (cfa3978)
+
+---
+
 # Release v3.6.0
 
 **Release Date**: 2026-08-03
