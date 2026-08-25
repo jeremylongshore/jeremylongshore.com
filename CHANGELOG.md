@@ -1,3 +1,14 @@
+# Release v3.8.1
+
+**Release Date**: 2026-08-25
+
+## Changes since v3.8.0
+
+- chore: release v3.8.1 [skip ci] (5f51eef)
+- docs(readme): add the Ko-fi support badge (4692414)
+
+---
+
 # Release v3.8.0
 
 **Release Date**: 2026-08-25
