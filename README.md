@@ -4,6 +4,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![Version](https://img.shields.io/badge/version-v3.8.0-blue)
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U5S225PTME)
+
 Personal hub site for Jeremy Longshore — AI systems that ship, live-data proof, hub-and-spokes to every product.
 
 **Live Site:** [jeremylongshore.com](https://jeremylongshore.com)
