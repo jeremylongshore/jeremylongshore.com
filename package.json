@@ -1,6 +1,6 @@
 {
   "name": "jeremylongshore-hub",
-  "version": "3.7.1",
+  "version": "3.8.0",
   "private": true,
   "description": "jeremylongshore.com — dynamic personal hub (Next.js standalone on the Intent Solutions VPS)",
   "scripts": {
