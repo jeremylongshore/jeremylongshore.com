@@ -1,3 +1,14 @@
+# Release v3.8.0
+
+**Release Date**: 2026-08-25
+
+## Changes since v3.7.1
+
+- chore: release v3.8.0 [skip ci] (d65e604)
+- feat(layout): Ko-fi floating support button (#40) (d38ac80)
+
+---
+
 # Release v3.7.1
 
 **Release Date**: 2026-08-03
