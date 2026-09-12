@@ -56,7 +56,7 @@ export function ToolsFilter({ categories }: ToolsFilterProps): React.ReactElemen
               type="button"
               aria-pressed={isActive}
               onClick={() => setActive(name)}
-              className="rounded-full px-4 py-1.5 text-sm font-medium transition-colors duration-200"
+              className="min-h-11 rounded-full px-4 py-2 text-sm font-medium transition-colors duration-[var(--duration-micro)]"
               style={
                 isActive
                   ? { backgroundImage: 'var(--gradient-button)', color: '#ffffff' }
@@ -76,7 +76,7 @@ export function ToolsFilter({ categories }: ToolsFilterProps): React.ReactElemen
             href={tool.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-baseline justify-between gap-4 border-t py-3"
+            className="group flex min-w-0 flex-col items-start gap-1 border-t py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
             style={{ borderColor: 'var(--color-hairline)' }}
           >
             <span>
@@ -90,7 +90,7 @@ export function ToolsFilter({ categories }: ToolsFilterProps): React.ReactElemen
                 {tool.note}
               </span>
             </span>
-            <span className="shrink-0 font-mono text-xs" style={{ color: 'var(--color-eyebrow)' }}>
+            <span className="max-w-full break-all font-mono text-xs sm:shrink-0" style={{ color: 'var(--color-eyebrow)' }}>
               {hostname(tool.url)}
             </span>
           </a>

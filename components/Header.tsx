@@ -1,5 +1,8 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 const NAV = [
   { href: '/', label: 'Home' },
@@ -10,9 +13,10 @@ const NAV = [
 
 /** Site-wide header: JL monogram + wordmark left, page nav right. */
 export function Header() {
+  const pathname = usePathname();
   return (
-    <header className="mx-auto flex w-full max-w-5xl items-center justify-between px-6 py-6">
-      <Link href="/" className="flex items-center gap-3" aria-label="Jeremy Longshore — home">
+    <header className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-between gap-2 px-4 py-5 sm:px-6 sm:py-6">
+      <Link href="/" className="flex min-h-11 min-w-11 items-center gap-3" aria-label="Jeremy Longshore — home">
         <Image src="/jl-monogram.svg" alt="" width={36} height={36} priority />
         <span
           className="hidden text-base font-medium tracking-tight sm:inline"
@@ -27,8 +31,8 @@ export function Header() {
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="rounded-full px-3 py-1.5 text-sm font-medium transition-colors duration-200 hover:text-black dark:hover:text-white"
-                style={{ color: 'var(--color-body)' }}
+                aria-current={pathname === item.href ? 'page' : undefined}
+                className="site-nav-link inline-flex min-h-11 items-center rounded-full px-2 text-sm font-medium transition-colors duration-[var(--duration-micro)] sm:px-3"
               >
                 {item.label}
               </Link>

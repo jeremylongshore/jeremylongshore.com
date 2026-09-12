@@ -50,6 +50,7 @@
 }
 
 :root {
+  --hero-title-size: clamp(2.5rem, 10vw, 6rem);
   /* ---- Bronze heatmap ramp (signature element, spec §3.2) ----
      Lives in :root, NOT @theme: Tailwind v4 treats `--color-<name>-<digit>`
      inside @theme as a shade scale and silently drops non-even steps
@@ -128,6 +129,32 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
+
+.site-nav-link { color: var(--color-body); }
+.site-nav-link:hover,
+.site-nav-link[aria-current='page'] { color: var(--color-ink); }
+.site-nav-link[aria-current='page'] {
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-underline-offset: 0.4em;
+}
+
+.hero-title { font-size: var(--hero-title-size); text-wrap: balance; }
+
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  background: var(--color-well);
+  color: var(--color-brand);
+  transform: translateY(-200%);
+}
+.skip-link:focus { transform: translateY(0); }
+
+main { scroll-margin-top: 1rem; }
 
 h1,
 h2,

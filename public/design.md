@@ -58,7 +58,7 @@ Geist Sans everywhere; Geist Mono for data/code. Self-hosted (SIL OFL).
 
 | Role | Spec |
 |---|---|
-| H1 | 56px (hero up to 96px) / Medium / tight tracking / 1.1 |
+| H1 | 56px (hero uses `--hero-title-size`: 40–96px fluid) / Medium / tight tracking / 1.1 |
 | H2 | 24px / Medium |
 | Body | 18px / Light / relaxed leading |
 | Small | 14px / Regular |
@@ -89,10 +89,14 @@ Base token `0.625rem`; scale sm `0.375rem` → 4xl `1.625rem`. Cards: `rounded-3
 | Hover | 300ms ease-out | card lift, gradient fade, image zoom 1.05–1.10 |
 | Slide-in | 350ms cubic-bezier(0.22,1,0.36,1) | fade + 2rem translate |
 | Crossfade | 500ms | gradient cycle |
-| Scroll reveal | 700ms ease-out | sections fade + rise 2rem, IntersectionObserver 0.15, once |
+| Scroll reveal | 700ms soft easing | already-visible sections gently rise 1rem on first intersection; no hidden server content |
 | Pill spin | 4s linear | conic ring |
 
 Accent-cycle layers use **negative** animation-delays so the cycle is live on first paint. `prefers-reduced-motion` collapses all of it; content must remain fully visible.
+
+## Navigation and mobile behavior
+
+The header keeps the JL monogram and existing page links. Current-page links use an amber underline and `aria-current`; each navigation and category-filter target is at least 44px tall. A keyboard-visible skip link focuses the main content on every page. Mobile layouts use tighter top spacing and stacked tool rows so hostnames never squeeze the tool description.
 
 ## Voice
 

@@ -12,13 +12,14 @@ export function Hero() {
         src="/images/profile.jpeg"
         alt="Jeremy Longshore"
         size={160}
+        priority
         lightLeak
         chip={{ label: 'Building', active: true }}
       />
 
       <div>
         <Eyebrow>Jeremy Longshore · Intent Solutions</Eyebrow>
-        <h1 className="mt-4 text-6xl leading-[1.1] tracking-tight md:text-8xl">
+        <h1 className="hero-title mt-4 leading-[1.1] tracking-tight">
           I make teams
           <br />
           AI-native.
