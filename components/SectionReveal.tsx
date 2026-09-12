@@ -1,12 +1,11 @@
 'use client';
 
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useRef, type ReactNode } from 'react';
 
 /**
- * Fades + rises children 2rem on first scroll into view (IntersectionObserver,
- * threshold 0.15, fires once — 000-docs/001 §8). Renders content visible
- * immediately when `prefers-reduced-motion` is set or `IntersectionObserver`
- * is unavailable, so nothing ever depends on JS to become visible.
+ * Progressive enhancement: content is visible in server HTML. Animate once
+ * on entry, unless reduced motion is requested. Long sections need only
+ * intersect the viewport; they never need 15% of their height on screen.
  */
 
 export interface SectionRevealProps {
@@ -16,7 +15,6 @@ export interface SectionRevealProps {
 
 export function SectionReveal({ children, className = '' }: SectionRevealProps): React.ReactElement {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const node = ref.current;
@@ -26,33 +24,38 @@ export function SectionReveal({ children, className = '' }: SectionRevealProps):
       typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (prefersReducedMotion || typeof IntersectionObserver === 'undefined') {
-      setVisible(true);
       return;
     }
+
+    let animation: Animation | undefined;
 
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            setVisible(true);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+              const styles = getComputedStyle(node);
+              animation = node.animate(
+                [{ opacity: 0.7, transform: 'translateY(1rem)' }, { opacity: 1, transform: 'translateY(0)' }],
+                { duration: parseFloat(styles.getPropertyValue('--duration-reveal')) || 700, easing: styles.getPropertyValue('--ease-soft').trim() || 'ease-out' },
+              );
+            }
             observer.disconnect();
             break;
           }
         }
       },
-      { threshold: 0.15 },
+      { threshold: 0 },
     );
 
     observer.observe(node);
-    return () => observer.disconnect();
+    return () => { observer.disconnect(); animation?.cancel(); };
   }, []);
 
   return (
     <div
       ref={ref}
-      className={`transition-[opacity,transform] duration-[var(--duration-reveal)] ease-out ${
-        visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-      } ${className}`.trim()}
+      className={className}
     >
       {children}
     </div>

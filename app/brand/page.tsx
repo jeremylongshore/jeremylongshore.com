@@ -101,7 +101,7 @@ const DONT_LIST = [
 
 export default function BrandPage() {
   return (
-    <main className="mx-auto flex max-w-5xl flex-col gap-24 px-6 pt-20 md:pt-28">
+    <main id="main-content" tabIndex={-1} className="mx-auto flex max-w-5xl flex-col gap-16 px-6 pt-12 sm:gap-24 md:pt-28">
       <SectionReveal>
         <header className="flex flex-col items-center gap-6 text-center">
           <Eyebrow>Brand kit</Eyebrow>

@@ -20,6 +20,8 @@ export interface AvatarRingProps {
   alt: string;
   /** Ring diameter in px (applies to both width and height). */
   size?: number;
+  /** Preload the portrait when it is the first image in the hero. */
+  priority?: boolean;
   /** Force the accent-cycle ring on regardless of hover. */
   active?: boolean;
   lightLeak?: boolean;
@@ -33,6 +35,7 @@ export function AvatarRing({
   src,
   alt,
   size = 96,
+  priority = false,
   active = false,
   lightLeak = false,
   seed,
@@ -71,7 +74,7 @@ export function AvatarRing({
       </span>
 
       <span className="relative block h-full w-full overflow-hidden rounded-full">
-        <Image src={src} alt={alt} fill sizes={`${size}px`} className="object-cover" />
+        <Image src={src} alt={alt} fill sizes={`${size}px`} priority={priority} className="object-cover" />
         {lightLeak ? (
           <span
             aria-hidden="true"
