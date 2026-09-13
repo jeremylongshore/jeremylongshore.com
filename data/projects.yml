@@ -4,14 +4,17 @@
 
 # Flagships - Featured on the homepage grid (first 8 linkable entries site-wide)
 flagships:
-  - id: claude-code-plugins
-    title: "Claude Code Plugins"
-    url: "https://claudecodeplugins.io"
+  - id: tons-of-skills
+    title: "Tons of Skills"
+    url: "https://tonsofskills.com"
     icon: "fa-solid fa-puzzle-piece"
-    github_repo: "jeremylongshore/claude-code-plugins-plus-skills"
+    github_repo: "jeremylongshore/tons-of-skills-marketplace"
     visibility: public
-    purpose_short: "471 plugins, 3,069 skills, 347 agents — largest Claude Code marketplace"
-    purpose_long: "The largest open-source marketplace of production-ready plugins, skills, and agents for Claude Code — 471 plugins, 3,069 skills, and 347 agents, browsable at tonsofskills.com and installable with the ccpi CLI package manager. Every listing is validated against the Intent Solutions enterprise schema for security, structure, and compatibility."
+    purpose_short: "57.4K Skills.sh installs · 2,729 GitHub stars · 397 forks"
+    purpose_long: "A public marketplace for reusable agent skills and extensions, backed by open source and independently visible adoption. Metrics verified 13 September 2026: 57.4K installs on Skills.sh, 2,729 GitHub stars, and 397 forks."
+    proof_links:
+      - label: "Skills.sh installs"
+        url: "https://skills.sh/b/jeremylongshore/tons-of-skills-marketplace"
     use_cases:
       - "Install validated plugins, skills, and agents with the ccpi CLI"
       - "Extend Claude Code with cloud, database, and API integrations"
@@ -842,51 +845,3 @@ client_projects:
       - "Cross-validation and accuracy reporting"
     tech_stack: ["Python", "TimeGPT", "FastAPI", "Pandas"]
     agent_framework: ["Claude Code"]
-
-# N8N Workflows - Automation Templates
-# Links to: n8n.io or no link
-n8n_workflows:
-  - id: disposable-marketplace-n8n
-    title: "Disposable Marketplace"
-    url: "https://jeremylongshore.github.io/disposable-marketplace-n8n/"
-    icon: "fa-solid fa-cart-shopping"
-    github_repo: "jeremylongshore/disposable-marketplace-n8n"
-    visibility: public
-    purpose_short: "Reseller outreach and quote collection automation"
-    tech_stack: ["N8N", "CSV", "Email"]
-
-  - id: gmail-drive-organizer-n8n
-    title: "Gmail Drive Organizer"
-    url: "https://jeremylongshore.github.io/gmail-drive-organizer-n8n/"
-    icon: "fa-solid fa-envelope-open-text"
-    github_repo: "jeremylongshore/gmail-drive-organizer-n8n"
-    visibility: public
-    purpose_short: "Auto-organize Gmail attachments to Drive"
-    tech_stack: ["N8N", "Gmail API", "Google Drive API"]
-
-  - id: news-pipeline-n8n
-    title: "News Pipeline"
-    url: "https://github.com/jeremylongshore/news-pipeline-n8n"
-    icon: "fa-solid fa-newspaper"
-    github_repo: "jeremylongshore/news-pipeline-n8n"
-    visibility: public
-    purpose_short: "Daily news monitoring and topic analysis"
-    tech_stack: ["N8N", "RSS", "AI Analysis"]
-
-  - id: n8n-workflow-template
-    title: "N8N Workflow Template"
-    url: "https://github.com/jeremylongshore/n8n-workflow-template"
-    icon: "fa-solid fa-diagram-project"
-    github_repo: "jeremylongshore/n8n-workflow-template"
-    visibility: public
-    purpose_short: "Professional template for documented n8n repos"
-    tech_stack: ["N8N", "GitHub Pages", "Markdown"]
-
-  - id: ai-blog-journalist-n8n
-    title: "AI Blog Journalist"
-    url: "https://github.com/jeremylongshore/ai-blog-journalist-n8n"
-    icon: "fa-solid fa-pen-nib"
-    github_repo: "jeremylongshore/ai-blog-journalist-n8n"
-    visibility: public
-    purpose_short: "Automated blog content with AI research"
-    tech_stack: ["N8N", "Perplexity", "Claude", "Markdown"]

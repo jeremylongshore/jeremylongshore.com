@@ -61,7 +61,7 @@ GH secrets: `TS_OIDC_CLIENT_ID`, `TS_AUDIENCE`, `VPS_DEPLOY_KEY`, `VPS_HOST_KEY`
 ## Configuration
 
 - `lib/site.ts` — header/tagline copy, social links, CTA URLs, footer fallbacks
-- `data/projects.yml` — project listings by category (`intent_solutions_repos`, `products`, `personal_repos`, `client_projects`, `n8n_workflows`)
+- `data/projects.yml` — project listings by category (`flagships`, `intent_solutions_repos`, `products`, `personal_repos`, `client_projects`)
 - `app/globals.css` — every design token (see `000-docs/003` for the design-language spec)
 
 ### Live-data fetchers (`lib/data/`, ISR)

@@ -15,10 +15,16 @@ export async function ContributionsSection() {
           <Eyebrow>Upstream, not just downstream</Eyebrow>
           <h2 className="mt-2 text-2xl">Open-source contributions</h2>
           {contributions && (
-            <p className="mt-2 text-base" style={{ color: 'var(--color-faint)' }}>
-              <span className="font-mono">{contributions.totalPrs}</span> merged PRs across{' '}
-              <span className="font-mono">{contributions.totalRepos}</span> external repos
-            </p>
+            <div className="mx-auto mt-2 max-w-2xl text-center" style={{ color: 'var(--color-faint)' }}>
+              <p className="text-base">
+                <span className="font-mono">{contributions.totalPrs}</span> merged PRs across{' '}
+                <span className="font-mono">{contributions.totalRepos}</span> external repos
+              </p>
+              <p className="mt-2 text-sm">
+                Authored by Jeremy and accepted by outside maintainers. Contribution does not imply employment,
+                partnership, or client status.
+              </p>
+            </div>
           )}
         </div>
         {contributions ? (
