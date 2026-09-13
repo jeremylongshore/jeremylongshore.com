@@ -13,7 +13,7 @@ export async function Footer() {
       style={{ borderColor: 'var(--color-hairline)' }}
     >
       <p className="max-w-2xl">
-        Claude Code Plugins creator (<span className="font-mono">{formatStars(starCount)}</span>+ stars). Marine.{' '}
+        Tons of Skills creator (<span className="font-mono">{formatStars(starCount)}</span>+ stars). Marine.{' '}
         <a
           href="https://www.citadel.edu"
           target="_blank"

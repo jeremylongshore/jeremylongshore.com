@@ -29,6 +29,7 @@ export interface Project {
   useCases?: string[];
   techStack?: string[];
   agentFramework?: string[];
+  proofLinks?: { label: string; url: string }[];
 }
 
 export interface ProjectCategory {
@@ -49,6 +50,7 @@ interface RawProject {
   use_cases?: string[];
   tech_stack?: string[];
   agent_framework?: string[];
+  proof_links?: { label: string; url: string }[];
 }
 
 type RawProjectsFile = Record<string, RawProject[]>;
@@ -59,7 +61,6 @@ const CATEGORY_LABELS: Record<string, string> = {
   products: 'Products & Services',
   personal_repos: 'Open Source',
   client_projects: 'Client Projects',
-  n8n_workflows: 'N8N Workflows',
 };
 
 function humanizeCategory(key: string): string {
@@ -85,6 +86,7 @@ function toProject(raw: RawProject): Project {
     useCases: raw.use_cases,
     techStack: raw.tech_stack,
     agentFramework: raw.agent_framework,
+    proofLinks: raw.proof_links,
   };
 }
 

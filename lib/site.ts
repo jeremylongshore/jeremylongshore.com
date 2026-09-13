@@ -21,11 +21,11 @@ export const site = {
   name: 'Jeremy Longshore',
   title: 'Jeremy Longshore — I Make Teams AI-Native',
   tagline:
-    'I build AI systems that ship and train teams to work with coding agents — Claude, Codex, Gemini, whatever moves the needle. 20+ years ops, self-taught dev, 60+ repos with real GitHub stars.',
+    'I build agentic systems that ship and help teams operate them. Public proof includes 57.4K Skills.sh installs and 44 merged contributions across 17 external repositories.',
   bookingUrl: 'https://calendar.app.google/Wqbt8EJuEh5xvvV58',
   contactUrl: 'https://intentsolutions.io/contact',
   /** Canonical repo whose star count anchors the footer credibility line. */
-  canonicalRepo: 'jeremylongshore/claude-code-plugins-plus-skills',
+  canonicalRepo: 'jeremylongshore/tons-of-skills-marketplace',
   footerFallbackStars: 2500,
   socials: [
     {

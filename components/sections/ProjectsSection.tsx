@@ -29,11 +29,11 @@ export async function ProjectsSection() {
         <div className="grid gap-6 sm:grid-cols-2">
           {projects.map((project, i) => {
             const starCount = project.githubRepo ? stars?.[project.githubRepo] : undefined;
+            const githubUrl = project.githubRepo ? `https://github.com/${project.githubRepo}` : undefined;
             return (
               <GradientCard
                 key={project.id}
                 seed={project.id}
-                href={project.url ?? (project.githubRepo ? `https://github.com/${project.githubRepo}` : undefined)}
                 variant={i % 3 === 0 ? 'default' : i % 3 === 1 ? 'angled' : 'reverse'}
                 shimmer
               >
@@ -66,6 +66,42 @@ export async function ProjectsSection() {
                       >
                         {t}
                       </span>
+                    ))}
+                  </div>
+                  <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 font-mono text-sm">
+                    {project.url && (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline decoration-dotted underline-offset-4 transition-colors duration-200 hover:text-black"
+                        style={{ color: 'var(--color-accent-strong)' }}
+                      >
+                        Open project
+                      </a>
+                    )}
+                    {githubUrl && project.url !== githubUrl && (
+                      <a
+                        href={githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline decoration-dotted underline-offset-4 transition-colors duration-200 hover:text-black"
+                        style={{ color: 'var(--color-accent-strong)' }}
+                      >
+                        Repository
+                      </a>
+                    )}
+                    {(project.proofLinks ?? []).map((link) => (
+                      <a
+                        key={link.url}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline decoration-dotted underline-offset-4 transition-colors duration-200 hover:text-black"
+                        style={{ color: 'var(--color-accent-strong)' }}
+                      >
+                        {link.label}
+                      </a>
                     ))}
                   </div>
                 </div>
