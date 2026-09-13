@@ -1,3 +1,17 @@
+# Release v3.9.0
+
+**Release Date**: 2026-09-13
+
+## Changes since v3.8.0
+
+- chore: release v3.9.0 [skip ci] (8bc8fb0)
+- feat: refresh public proof inventory (#45) (2119376)
+- fix(ui): polish founder site navigation and mobile reading (#44) (f71bb6c)
+- chore(funding): add Ko-fi alongside the existing funding sources (98e1864)
+- docs(readme): add the Ko-fi support badge (4692414)
+
+---
+
 # Release v3.8.0
 
 **Release Date**: 2026-08-25
