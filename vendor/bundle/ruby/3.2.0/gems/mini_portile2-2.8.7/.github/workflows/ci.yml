@@ -41,7 +41,7 @@ jobs:
         run: |
           git config --system core.autocrlf false
           git config --system core.eol lf
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: MSP-Greg/setup-ruby-pkgs@v1
         with:
           apt-get: _update_ build-essential cmake
@@ -66,14 +66,14 @@ jobs:
         run: |
           git config --system core.autocrlf false
           git config --system core.eol lf
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: MSP-Greg/setup-ruby-pkgs@v1
         with:
           apt-get: _update_ build-essential cmake
           mingw: _upgrade_ cmake
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
-      - uses: actions/cache@v4
+      - uses: actions/cache@v5
         with:
           path: examples/ports/archives
           key: examples-${{ hashFiles('examples/Rakefile') }}
@@ -91,8 +91,8 @@ jobs:
       - run: |
           dnf group install -y "C Development Tools and Libraries"
           dnf install -y ruby ruby-devel libyaml-devel git-all patch cmake xz
-      - uses: actions/checkout@v4
-      - uses: actions/cache@v4
+      - uses: actions/checkout@v7
+      - uses: actions/cache@v5
         with:
           path: examples/ports/archives
           key: examples-${{ hashFiles('examples/Rakefile') }}
@@ -108,8 +108,8 @@ jobs:
     env:
       MAKE: gmake
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/cache@v4
+      - uses: actions/checkout@v7
+      - uses: actions/cache@v5
         with:
           path: examples/ports/archives
           key: examples-${{ hashFiles('examples/Rakefile') }}
@@ -134,7 +134,7 @@ jobs:
     env:
       MAKE: gmake
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - uses: vmactions/openbsd-vm@v1
       with:
         envs: MAKE

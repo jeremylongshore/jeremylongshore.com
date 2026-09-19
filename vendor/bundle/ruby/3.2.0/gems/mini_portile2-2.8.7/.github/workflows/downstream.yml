@@ -45,14 +45,14 @@ jobs:
         run: |
           git config --system core.autocrlf false
           git config --system core.eol lf
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{matrix.ruby}}
           bundler-cache: true
           bundler: latest
       - run: git clone --depth=1 ${{matrix.url}} ${{matrix.name}}
-      - uses: actions/cache@v4
+      - uses: actions/cache@v5
         with:
           path: ${{matrix.name}}/ports/archives
           key: tarballs-${{matrix.name}}
