@@ -54,7 +54,12 @@ jobs:
       - name: Determine previous tag
         id: prev
         run: |
-          PREV_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+          # Highest semver tag, NOT `git describe`: a release whose branch push
+          # lost a race leaves its tag on a commit that is not an ancestor of
+          # main, so describe returns the tag before it and the next run tries
+          # to re-create the same tag ("tag already exists", 2026-09-24).
+          PREV_TAG=$(git tag -l 'v[0-9]*' --sort=-v:refname | head -1)
+          PREV_TAG=${PREV_TAG:-v0.0.0}
           echo "prev=$PREV_TAG" >> $GITHUB_OUTPUT
 
       - name: Check if release needed
@@ -173,10 +178,24 @@ jobs:
       - name: Create tag and push
         if: steps.check.outputs.needed == 'true' && github.event.inputs.dry_run != 'true'
         run: |
+          set -e
           TAG="${{ steps.ver.outputs.tag }}"
+          BRANCH="${GITHUB_REF_NAME}"
+          # The job checked out the triggering SHA; merges that landed while it
+          # ran move the branch, and a bare push then fails non-fast-forward.
+          # The old `|| echo` swallowed that, stranding the tag off-branch and
+          # breaking every later release. Rebase the [skip ci] release commits
+          # onto the live branch, push the branch FIRST, then tag what landed.
+          pushed=0
+          for attempt in 1 2 3; do
+            if git push origin "HEAD:refs/heads/$BRANCH"; then pushed=1; break; fi
+            echo "branch push rejected (attempt $attempt); rebasing onto origin/$BRANCH"
+            git fetch origin "$BRANCH"
+            git rebase "origin/$BRANCH" || { git rebase --abort; echo "::error::release commits conflict with origin/$BRANCH"; exit 1; }
+          done
+          [ "$pushed" -eq 1 ] || { echo "::error::could not push release commits to $BRANCH"; exit 1; }
           git tag -a "$TAG" -m "Release $TAG"
-          git push origin "$TAG" || echo "Tag push may have failed"
-          git push origin HEAD || echo "Branch push may have failed"
+          git push origin "$TAG"
 
       - name: Create GitHub Release
         if: steps.check.outputs.needed == 'true' && github.event.inputs.dry_run != 'true'
