@@ -1,3 +1,14 @@
+# Release v4.0.1
+
+**Release Date**: 2026-09-24
+
+## Changes since v4.0.0
+
+- chore: release v4.0.1 [skip ci] (a56fa1c)
+- chore(deps): bump simple-icons from 16.27.1 to 16.31.0 (#52) (cf903ce)
+
+---
+
 # Release v4.0.0
 
 **Release Date**: 2026-09-19
