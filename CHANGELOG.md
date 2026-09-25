@@ -1,3 +1,20 @@
+# Release v4.0.2
+
+**Release Date**: 2026-09-25
+
+## Changes since v4.0.1
+
+- chore: release v4.0.2 [skip ci] (c809988)
+- fix(release): stop a lost branch-push race from wedging every later release (#54) (0212ba1)
+- chore: recover uncommitted beads export and architecture diagram (#53) (3e737ae)
+- chore(deps): bump react and @types/react (#48) (7fdb45e)
+- chore(deps): bump yaml from 2.9.0 to 2.9.1 (#51) (e561747)
+- chore(deps-dev): bump typescript from 5.9.3 to 6.0.3 (#39) (a4da3d1)
+- chore(deps-dev): bump @types/node from 22.20.1 to 25.9.7 (#50) (661c327)
+- chore(deps-dev): bump @types/react-dom from 19.2.4 to 19.2.7 (#42) (07b3f5e)
+
+---
+
 # Release v4.0.0
 
 **Release Date**: 2026-09-19
