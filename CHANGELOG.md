@@ -1,3 +1,14 @@
+# Release v4.1.0
+
+**Release Date**: 2026-10-01
+
+## Changes since v4.0.2
+
+- chore: release v4.1.0 [skip ci] (02cfaa0)
+- feat: explain the connected company and customer handoff on the founder site (#58) (b6faccd)
+
+---
+
 # Release v4.0.2
 
 **Release Date**: 2026-09-25
