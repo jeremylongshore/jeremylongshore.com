@@ -50,17 +50,11 @@ export default function AboutPage() {
       <SectionReveal>
         <section aria-label="What I do" className="mx-auto flex max-w-2xl flex-col gap-5">
           <h2 className="text-2xl">What I do</h2>
+          {site.companyStory.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           <p>
-            I build AI systems that ship. Every product lives on its own domain, running live and
-            linked from the homepage — not a slide deck.
-          </p>
-          <p>
-            I train teams to work with coding agents — Claude, Codex, Gemini, whatever moves the
-            needle on the task in front of them.
-          </p>
-          <p>
-            I run all of it on infrastructure I operate myself: a single self-hosted VPS, one
-            ingress, push-to-deploy. No cloud vendor standing between me and the outage.
+            <a href={site.companyStoryUrl} className="underline underline-offset-4">
+              How the Intent Solutions work connects
+            </a>
           </p>
         </section>
       </SectionReveal>
