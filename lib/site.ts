@@ -21,7 +21,13 @@ export const site = {
   name: 'Jeremy Longshore',
   title: 'Jeremy Longshore — I Make Teams AI-Native',
   tagline:
-    'I build agentic systems that ship and help teams operate them. Public proof includes 57.4K Skills.sh installs and 44 merged contributions across 17 external repositories.',
+    'I build AI systems around real work, test what they do, and help teams operate and improve them. Intent Solutions connects that engineering to evidence, teaching, open source, and products.',
+  companyStory: [
+    'I founded Intent Solutions as an applied AI engineering company. We work on the gap between what a model can do and what a team can reliably put into production.',
+    'Engineering, Labs, Evals, Demos, Learn, and our open-source tools are connected parts of that company. A useful implementation can also produce evidence, a reusable component, a product, or a lesson for the next team.',
+    'The goal is customer independence: define the outcome, build and test the system, then transfer the knowledge needed to operate and evolve it. Ownership, operating access, documentation, and a handoff plan belong in the scope from the start.',
+  ],
+  companyStoryUrl: 'https://startaitools.com/deployment-thesis/',
   bookingUrl: 'https://calendar.app.google/Wqbt8EJuEh5xvvV58',
   contactUrl: 'https://intentsolutions.io/contact',
   /** Canonical repo whose star count anchors the footer credibility line. */
