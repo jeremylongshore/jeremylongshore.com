@@ -11,7 +11,6 @@ export interface SocialLink {
     | 'huggingface'
     | 'upwork'
     | 'x'
-    | 'discord'
     | 'email';
   url: string;
   title: string;
@@ -63,11 +62,6 @@ export const site = {
       icon: 'x',
       url: 'https://x.com/asphaltcowb0y',
       title: "Jeremy Longshore's X (Twitter)",
-    },
-    {
-      icon: 'discord',
-      url: 'https://discord.com/users/asphaltcowboy',
-      title: 'Discord: asphaltcowboy',
     },
     {
       icon: 'email',
