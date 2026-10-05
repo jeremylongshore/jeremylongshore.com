@@ -1,3 +1,14 @@
+# Release v4.1.1
+
+**Release Date**: 2026-10-05
+
+## Changes since v4.1.0
+
+- chore: release v4.1.1 [skip ci] (ad96730)
+- fix(site): remove the Discord social link from the footer and contact rows (#61) (81c0de6)
+
+---
+
 # Release v4.1.0
 
 **Release Date**: 2026-10-01
