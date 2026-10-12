@@ -1,3 +1,14 @@
+# Release v4.1.2
+
+**Release Date**: 2026-10-12
+
+## Changes since v4.1.1
+
+- chore: release v4.1.2 [skip ci] (b039b13)
+- fix(ci): adopt pinned-IP SSH deployment (#64) (817dc29)
+
+---
+
 # Release v4.1.1
 
 **Release Date**: 2026-10-05
