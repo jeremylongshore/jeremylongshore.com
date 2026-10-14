@@ -1,5 +1,11 @@
 # JeremyLongshore.com
 
+<!-- intent-select-partner:start -->
+[![Intent Solutions: Claude Partner Network Select Services Partner](https://raw.githubusercontent.com/intent-solutions-io/.github/b82af5d3e7951d85e39ea9e65cc24ee8278722a7/assets/brand/claude-select-partner.svg)](https://intentsolutions.io/)
+
+Intent Solutions is a Claude Partner Network Select Services Partner.
+<!-- intent-select-partner:end -->
+
 [![Deploy: self-hosted VPS](https://img.shields.io/badge/deploy-self--hosted%20VPS%20(Caddy)-2ea44f)](https://intentsolutions.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![Version](https://img.shields.io/badge/version-v4.1.3-blue)
