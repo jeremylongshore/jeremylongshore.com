@@ -29,6 +29,25 @@ export const site = {
   companyStoryUrl: 'https://startaitools.com/deployment-thesis/',
   bookingUrl: 'https://calendar.app.google/Wqbt8EJuEh5xvvV58',
   contactUrl: 'https://intentsolutions.io/contact',
+  credentials: {
+    partner: {
+      company: 'Intent Solutions',
+      description: 'Select Services Partner in the Claude Partner Network.',
+      image: '/images/credentials/claude-select-partner.svg',
+      imageAlt: 'Claude Partner Network — Select Services Partner',
+      url: 'https://intentsolutions.io/',
+      linkLabel: 'Explore Intent Solutions',
+    },
+    individual: {
+      title: 'Claude Code credential',
+      description:
+        'Anthropic-issued badge for scoping, deploying, configuring, and operating Claude Code. Earned through eight courses and a scenario-based capstone.',
+      image: '/images/credentials/claude-code-badge.png',
+      imageAlt: 'Claude Partner Badge — Claude Code, issued to Jeremy Longshore',
+      url: 'https://www.credly.com/badges/ddf22fb4-0aa6-46b3-a93b-0b45b509e471',
+      linkLabel: 'Verify on Credly',
+    },
+  },
   /** Canonical repo whose star count anchors the footer credibility line. */
   canonicalRepo: 'jeremylongshore/tons-of-skills-marketplace',
   footerFallbackStars: 2500,

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { AvatarRing } from '@/components/AvatarRing';
 import { GradientCard } from '@/components/GradientCard';
 import { PillButton } from '@/components/PillButton';
@@ -42,24 +43,48 @@ export function Hero() {
         </PillButton>
       </div>
 
-      <GradientCard seed="credential" className="max-w-xl text-left" shimmer>
-        <div className="p-6">
-          <Eyebrow>Anthropic-issued</Eyebrow>
-          <h2 className="mt-2 text-2xl">Claude Partner Badge · Claude Code</h2>
-          <p className="mt-3 text-base">
-            Certified through the Claude Partner Network to scope, deploy, configure, and run
-            Claude Code activations end-to-end. Eight-course program with a scenario-based
-            capstone.
-          </p>
-          <a
-            href="https://www.credly.com/badges/ddf22fb4-0aa6-46b3-a93b-0b45b509e471"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-4 inline-block font-medium transition-colors duration-200"
-            style={{ color: 'var(--color-accent-strong)' }}
-          >
-            Verify on Credly →
-          </a>
+      <GradientCard seed="credential" className="credential-panel w-full max-w-3xl text-left">
+        <div className="p-5 sm:p-7">
+          <section className="credential-partner" aria-labelledby="partner-title">
+            <Image
+              src={site.credentials.partner.image}
+              alt={site.credentials.partner.imageAlt}
+              width={600}
+              height={190}
+              unoptimized
+              className="credential-partner-image"
+            />
+            <div className="min-w-0">
+              <h2 id="partner-title" className="text-xl">{site.credentials.partner.company}</h2>
+              <p className="mt-2 text-base">{site.credentials.partner.description}</p>
+              <a href={site.credentials.partner.url} className="credential-link">
+                {site.credentials.partner.linkLabel}
+              </a>
+            </div>
+          </section>
+
+          <section className="credential-individual" aria-labelledby="credential-title">
+            <Image
+              src={site.credentials.individual.image}
+              alt={site.credentials.individual.imageAlt}
+              width={600}
+              height={600}
+              sizes="(max-width: 639px) 96px, 128px"
+              className="credential-individual-image"
+            />
+            <div className="min-w-0">
+              <h2 id="credential-title" className="text-lg">{site.credentials.individual.title}</h2>
+              <p className="mt-2 text-sm">{site.credentials.individual.description}</p>
+              <a
+                href={site.credentials.individual.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="credential-link"
+              >
+                {site.credentials.individual.linkLabel}
+              </a>
+            </div>
+          </section>
         </div>
       </GradientCard>
     </header>

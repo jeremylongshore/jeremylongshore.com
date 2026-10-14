@@ -141,6 +141,42 @@ body {
 
 .hero-title { font-size: var(--hero-title-size); text-wrap: balance; }
 
+/* Official artwork stays intact; the frame supports the credential, not vice versa. */
+.credential-panel { padding: 2px; }
+.credential-partner { display: grid; gap: 1.25rem; align-items: center; }
+.credential-partner-image { display: block; width: min(100%, 20rem); height: auto; }
+.credential-individual {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  align-items: start;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-hairline);
+}
+.credential-individual-image { display: block; width: 100%; height: auto; }
+.credential-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 0.25rem;
+  color: var(--color-brand);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-underline-offset: 0.3em;
+}
+.credential-link:hover { color: var(--color-ink); }
+@media (min-width: 640px) {
+  .credential-partner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2rem; }
+  .credential-individual { grid-template-columns: 8rem minmax(0, 1fr); gap: 2rem; }
+}
+@media (max-width: 359px) {
+  .credential-individual { grid-template-columns: minmax(0, 1fr); }
+  .credential-individual-image { width: 6rem; }
+}
+
 .skip-link {
   position: fixed;
   top: 1rem;

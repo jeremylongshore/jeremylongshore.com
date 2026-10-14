@@ -81,6 +81,8 @@ Base token `0.625rem`; scale sm `0.375rem` → 4xl `1.625rem`. Cards: `rounded-3
 
 **Cursor shimmer:** soft white radial (`rgba(255,255,255,0.7)`, 600px) tracking the pointer across card surfaces.
 
+**Credentials:** the homepage uses a restrained 2px silver frame with separate sections for Intent Solutions' Select Services Partner status and Jeremy's individual Claude Code badge. Preserve the original artwork and aspect ratios in `public/images/credentials/`; do not recolor, crop, or recreate the issuer's marks. The company badge uses a responsive two-column layout from 640px; the individual badge is 96px on mobile and 128px on desktop, stacking below 360px. Links retain 44px touch targets. Credential copy and verification URLs live in `lib/site.ts`; the individual artwork comes from the linked public Credly record.
+
 ## Motion
 
 | Token | Value | Use |
