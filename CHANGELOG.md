@@ -1,3 +1,14 @@
+# Release v4.1.3
+
+**Release Date**: 2026-10-14
+
+## Changes since v4.1.2
+
+- chore: release v4.1.3 [skip ci] (69993a3)
+- fix: display official partner and Claude Code badge artwork (#65) (9eace61)
+
+---
+
 # Release v4.1.2
 
 **Release Date**: 2026-10-12
