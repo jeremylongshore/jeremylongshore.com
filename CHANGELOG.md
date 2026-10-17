@@ -1,3 +1,14 @@
+# Release v4.1.6
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.1.5
+
+- chore: release v4.1.6 [skip ci] (0fcfd38)
+- ci(deploy): deploy from the Buzz vps-deploy runner instead of joining the tailnet (#68) (02dcd49)
+
+---
+
 # Release v4.1.5
 
 **Release Date**: 2026-10-17
