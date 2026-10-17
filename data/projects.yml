@@ -10,8 +10,8 @@ flagships:
     icon: "fa-solid fa-puzzle-piece"
     github_repo: "jeremylongshore/tons-of-skills-marketplace"
     visibility: public
-    purpose_short: "57.4K Skills.sh installs · 2,729 GitHub stars · 397 forks"
-    purpose_long: "A public marketplace for reusable agent skills and extensions, backed by open source and independently visible adoption. Metrics verified 13 September 2026: 57.4K installs on Skills.sh, 2,729 GitHub stars, and 397 forks."
+    purpose_short: "Open-source skills marketplace · about 56K Skills.sh installs (Oct 2026)"
+    purpose_long: "A public marketplace for reusable agent skills and extensions, backed by open source and independently visible adoption. Metrics verified 16 October 2026: about 56,000 installs recorded by Skills.sh, 2,846 GitHub stars, 421 forks and 57 outside contributors."
     proof_links:
       - label: "Skills.sh installs"
         url: "https://skills.sh/b/jeremylongshore/tons-of-skills-marketplace"

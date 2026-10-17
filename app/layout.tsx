@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://jeremylongshore.com'),
   title: 'Jeremy Longshore — I Make Teams AI-Native',
   description:
-    'I build agentic systems that ship and help teams operate them. Public proof includes 57.4K Skills.sh installs and 44 merged contributions across 17 external repositories.',
+    'I build agentic systems that ship and help teams operate them. Public proof includes about 56K Skills.sh installs and 45 merged contributions across 17 external repositories.',
   openGraph: {
     title: 'Jeremy Longshore — I Make Teams AI-Native',
     description:
