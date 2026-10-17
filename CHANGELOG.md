@@ -1,3 +1,14 @@
+# Release v4.1.5
+
+**Release Date**: 2026-10-17
+
+## Changes since v4.1.4
+
+- chore: release v4.1.5 [skip ci] (be1b784)
+- fix(content): replace stale Tons of Skills figures with dated, non-conflicting copy (#67) (429a422)
+
+---
+
 # Release v4.1.4
 
 **Release Date**: 2026-10-14
