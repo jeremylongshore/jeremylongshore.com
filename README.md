@@ -8,7 +8,7 @@ Intent Solutions is a Claude Partner Network Select Services Partner.
 
 [![Deploy: self-hosted VPS](https://img.shields.io/badge/deploy-self--hosted%20VPS%20(Caddy)-2ea44f)](https://intentsolutions.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-![Version](https://img.shields.io/badge/version-v4.1.4-blue)
+![Version](https://img.shields.io/badge/version-v4.1.5-blue)
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U5S225PTME)
 
