@@ -1,3 +1,14 @@
+# Release v4.1.7
+
+**Release Date**: 2026-11-04
+
+## Changes since v4.1.6
+
+- chore: release v4.1.7 [skip ci] (940b145)
+- fix(site): send "Book a call" to the self-hosted booking page (#73) (563e4c3)
+
+---
+
 # Release v4.1.6
 
 **Release Date**: 2026-10-17
