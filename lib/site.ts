@@ -27,7 +27,7 @@ export const site = {
     'The goal is customer independence: define the outcome, build and test the system, then transfer the knowledge needed to operate and evolve it. Ownership, operating access, documentation, and a handoff plan belong in the scope from the start.',
   ],
   companyStoryUrl: 'https://startaitools.com/deployment-thesis/',
-  bookingUrl: 'https://calendar.app.google/Wqbt8EJuEh5xvvV58',
+  bookingUrl: 'https://book.jeremylongshore.com/jeremy',
   contactUrl: 'https://intentsolutions.io/contact',
   credentials: {
     partner: {
