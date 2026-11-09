@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       geist:
-        specifier: ^1.5.1
-        version: 1.7.2(next@16.2.12(react-dom@19.2.8(react@19.3.0))(react@19.3.0))
+        specifier: ^1.9.1
+        version: 1.9.1(next@16.2.12(react-dom@19.2.8(react@19.3.0))(react@19.3.0))
       next:
         specifier: ^16.2.12
         version: 16.2.12(react-dom@19.2.8(react@19.3.0))(react@19.3.0)
@@ -383,8 +383,8 @@ packages:
     resolution: {integrity: sha512-L1l8TNvomm6UVW5B253AGxQagSQr+vGwhMlrrfRS2qmhx46AMpMVJKQYLvWYbysTMY8VoicOvzHzoHMbyzB+4A==}
     engines: {node: '>=10.13.0'}
 
-  geist@1.7.2:
-    resolution: {integrity: sha512-Gu5lDFa3pLRyoBlBPf0QIFHVdWAnpco7fS1bJm41jyLPFoguBgiubseUN2oLXMgqZ7uxAxDoXcHMhCY/fOTTgg==}
+  geist@1.9.1:
+    resolution: {integrity: sha512-mkbyVjMJoNf6xz76NLeKAFwKE19BweHfFefA++wd+M9qiCX2Zncq3M96bdDwOsy4wurDQ594AKwtx+HILX+WBg==}
     peerDependencies:
       next: '>=13.2.0'
 
@@ -821,7 +821,7 @@ snapshots:
       graceful-fs: 4.2.11
       tapable: 2.3.3
 
-  geist@1.7.2(next@16.2.12(react-dom@19.2.8(react@19.3.0))(react@19.3.0)):
+  geist@1.9.1(next@16.2.12(react-dom@19.2.8(react@19.3.0))(react@19.3.0)):
     dependencies:
       next: 16.2.12(react-dom@19.2.8(react@19.3.0))(react@19.3.0)
 
