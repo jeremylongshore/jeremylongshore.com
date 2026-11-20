@@ -29,12 +29,16 @@ export const site = {
   bookingUrl: 'https://book.jeremylongshore.com/jeremy',
   contactUrl: 'https://intentsolutions.io/contact',
   credentials: {
-    /**
-     * Jeremy's individual developer certificate, shown above the company badge.
-     * Left null until its exact name, artwork and Credly record are supplied:
-     * nothing renders for it until then, so the page never shows an unverified claim.
-     */
-    developer: null as null | {
+    /** Jeremy's individual developer certificate (Anthropic, via Credly), shown above the company badge. */
+    developer: {
+      title: 'Claude Certified Developer, Foundations',
+      description:
+        'Anthropic certification for building, integrating and shipping production applications and agents on Claude: the Claude API, Claude Code, custom tools and MCP servers. Earned September 2026.',
+      image: '/images/credentials/claude-certified-developer.png',
+      imageAlt: 'Claude Certified Developer, Foundations badge',
+      url: 'https://www.credly.com/badges/75c18477-5957-4398-ad4e-3ac7313ef944',
+      linkLabel: 'Verify on Credly',
+    } as null | {
       title: string;
       description: string;
       image: string;

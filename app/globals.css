@@ -131,7 +131,7 @@ main { scroll-margin-top: var(--space-md); }
 .cred:first-child { border-top: var(--rule-bar) solid var(--color-ink); }
 .cred__art { background: var(--color-paper); }
 .cred__art img { width: 100%; height: auto; }
-.cred__art--badge { max-width: 10rem; }
+.cred__art--badge { max-width: 10rem; background: transparent; }
 .cred h3 { font-size: var(--text-title); }
 .cred p { margin-top: var(--space-sm); max-width: 48ch; }
 @media (max-width: 60rem) {
