@@ -1,3 +1,14 @@
+# Release v4.3.2
+
+**Release Date**: 2026-11-20
+
+## Changes since v4.3.1
+
+- chore: release v4.3.2 [skip ci] (28ecb80)
+- Feature the most-starred repos and apply the Hallmark review fixes (#84) (2463877)
+
+---
+
 # Release v4.3.1
 
 **Release Date**: 2026-11-20
