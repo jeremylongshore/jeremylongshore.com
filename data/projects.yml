@@ -2,8 +2,10 @@
 # purpose_short: max 90 chars, shown in list view
 # purpose_long: full description, shown in expanded view
 
-# Flagships - Featured on the homepage grid (first 8 linkable entries site-wide)
+# Flagships - Featured on the homepage (first 8 linkable entries site-wide), ordered by GitHub stars.
+# Star counts under 10 are hidden on the page (ProjectsSection MIN_STARS_SHOWN).
 flagships:
+
   - id: tons-of-skills
     title: "Tons of Skills"
     url: "https://tonsofskills.com"
@@ -22,6 +24,121 @@ flagships:
       - "Discover MCP servers for external tool integration"
     tech_stack: ["TypeScript", "Node.js", "MCP Protocol", "React"]
     agent_framework: ["Claude Code", "MCP Servers"]
+
+  - id: excel-analyst-pro
+    title: "Excel Analyst Pro"
+    url: "https://github.com/jeremylongshore/excel-analyst-pro-skill-md"
+    icon: "fa-solid fa-table"
+    github_repo: "jeremylongshore/excel-analyst-pro-skill-md"
+    visibility: public
+    purpose_short: "Financial modeling skills for Claude Code: DCF, LBO, variance, pivots"
+    purpose_long: "Professional financial modeling toolkit for Claude Code with auto-invoked skills. Build DCF models, LBO analysis, variance reports and pivot tables in natural language."
+    use_cases:
+      - "Build a DCF or LBO model from a plain-English brief"
+      - "Produce variance reports and pivot tables"
+    tech_stack: ["Python", "Excel", "Agent Skills"]
+    agent_framework: ["Claude Code"]
+
+  - id: cad-dxf-agent
+    title: "CAD AI Agent"
+    url: "https://github.com/jeremylongshore/cad-ai-agent"
+    icon: "fa-solid fa-compass-drafting"
+    github_repo: "jeremylongshore/cad-ai-agent"
+    visibility: public
+    purpose_short: "Reads and safely edits DXF and vector PDF drawings for AEC teams"
+    purpose_long: "Local-first DXF layout editor with LLM-assisted prompt-to-edit planning, validation, preview, and safe save-as DXF workflow. Enables natural language CAD editing for floor plans and layouts without cloud dependencies."
+    use_cases:
+      - "Edit DXF layouts with natural language prompts"
+      - "LLM-assisted floor plan modifications"
+      - "Preview and validate CAD changes before saving"
+      - "Local-first CAD editing with no cloud dependency"
+    tech_stack: ["Python", "DXF", "ezdxf"]
+    agent_framework: []
+
+  - id: claude-code-slack-channel
+    title: "Claude Code Slack Channel"
+    url: "https://github.com/jeremylongshore/claude-code-slack-channel"
+    icon: "fa-brands fa-slack"
+    github_repo: "jeremylongshore/claude-code-slack-channel"
+    visibility: public
+    purpose_short: "Slack-native governance for Claude Code: policy-checked tools, signed audit log"
+    purpose_long: "Slack channel integration for Claude Code enabling two-way chat via Socket Mode and MCP. First claude/channel implementation for Slack. Lets Claude Code read, respond to, and participate in Slack conversations as a first-class channel member."
+    use_cases:
+      - "Two-way Claude Code chat in Slack channels"
+      - "Respond to team questions from Claude Code"
+      - "MCP-based Slack integration for agents"
+      - "Real-time Slack monitoring and response"
+    tech_stack: ["TypeScript", "Slack SDK", "MCP Protocol", "Socket Mode"]
+    agent_framework: ["Claude Code", "MCP Servers"]
+
+  - id: gastown-viewer
+    title: "Gastown Viewer"
+    url: "https://github.com/jeremylongshore/gastown-viewer-intent"
+    icon: "fa-solid fa-gauge-high"
+    github_repo: "jeremylongshore/gastown-viewer-intent"
+    visibility: public
+    purpose_short: "Dashboard + TUI for monitoring agent swarms in real-time"
+    purpose_long: "Dashboard and TUI for monitoring Beads task management and Gastown-style agent swarms. Provides real-time visibility into agent status, task queues, and execution logs. Built with Go backend and React frontend, with optional terminal interface for headless operation."
+    use_cases:
+      - "Monitor multi-agent swarm execution"
+      - "Track Beads task progress in real-time"
+      - "Debug agent failures with execution logs"
+      - "Operate via TUI on remote servers"
+    tech_stack: ["Go", "React", "TUI"]
+    agent_framework: ["Beads"]
+
+  - id: bobs-brain
+    title: "IAM Bob ADK"
+    url: "https://github.com/jeremylongshore/iam-bob-adk-python"
+    icon: "fa-solid fa-brain"
+    github_repo: "jeremylongshore/iam-bob-adk-python"
+    visibility: public
+    purpose_short: "The first Intent Agent Model runtime, on Google ADK (historical V1)"
+    purpose_long: "Official Google ADK and Vertex AI Agent Engine reference implementation of the Intent Agent Model. A multi-agent foreman coordinates specialists through A2A and MCP, with Vertex Session and Memory Bank support and Google-specific hard-mode deployment contracts."
+    use_cases:
+      - "Automated code review for ADK pattern compliance"
+      - "Security vulnerability scanning for agent code"
+      - "Documentation generation and gap analysis"
+      - "CI/CD integration for continuous compliance"
+    tech_stack: ["Python", "Google Cloud"]
+    agent_framework: ["Google ADK", "Vertex AI Agent Engine"]
+
+  - id: bobs-big-brain-registrar
+    title: "Bob's Big Brain Registrar"
+    url: "https://github.com/jeremylongshore/bobs-big-brain-registrar"
+    icon: "fa-solid fa-book"
+    github_repo: "jeremylongshore/bobs-big-brain-registrar"
+    visibility: public
+    purpose_short: "The team's memory keeper — admits by code, keeps tamper-evident receipts"
+    purpose_long: "Bob's Big Brain Registrar (formerly QMD Team Intent KB) — the team's memory keeper. A governed team memory platform for Claude Code: admits knowledge by deterministic code, keeps tamper-evident receipts, and serves structured memory retrieval with audit trails across Claude Code sessions."
+    use_cases:
+      - "Shared team knowledge base for Claude Code"
+      - "Governed memory with access controls"
+      - "Cross-session context retrieval"
+      - "Audit trails for team knowledge changes"
+    tech_stack: ["TypeScript", "QMD"]
+    agent_framework: ["Claude Code"]
+
+  - id: nixtla-plugins
+    title: "Nixtla Plugins"
+    url: "https://github.com/jeremylongshore/plugins-nixtla"
+    icon: "fa-solid fa-chart-simple"
+    github_repo: "jeremylongshore/plugins-nixtla"
+    visibility: public
+    client_work: true
+    purpose_short: "Natural language → TimeGPT forecast pipeline in Claude Code"
+    purpose_long: "Claude Code plugin suite for Nixtla's TimeGPT forecasting platform. Generate complete forecasting pipelines from natural language descriptions, run automated model benchmarks against historical data, and visualize predictions. Supports univariate and multivariate time series, anomaly detection, and cross-validation. Built for data teams who want AI-assisted forecasting without leaving their IDE."
+    use_cases:
+      - "Natural language to forecast pipeline generation"
+      - "Automated model benchmarking and validation"
+      - "Time series visualization and anomaly detection"
+      - "Cross-validation and accuracy reporting"
+    tech_stack: ["Python", "TimeGPT", "FastAPI", "Pandas"]
+    agent_framework: ["Claude Code"]
+
+# Intent Solutions Organization - Enterprise & Production Systems
+# Links to: github.com/intent-solutions-io
+intent_solutions_repos:
 
   - id: bobs-big-brain
     title: "Bob's Big Brain"
@@ -133,25 +250,6 @@ flagships:
     tech_stack: ["Ruby", "Rails"]
     agent_framework: ["MCP Servers"]
 
-  - id: gastown-viewer
-    title: "Gastown Viewer"
-    url: "https://github.com/intent-solutions-io/gastown-viewer-intent"
-    icon: "fa-solid fa-gauge-high"
-    github_repo: "intent-solutions-io/gastown-viewer-intent"
-    visibility: public
-    purpose_short: "Dashboard + TUI for monitoring agent swarms in real-time"
-    purpose_long: "Dashboard and TUI for monitoring Beads task management and Gastown-style agent swarms. Provides real-time visibility into agent status, task queues, and execution logs. Built with Go backend and React frontend, with optional terminal interface for headless operation."
-    use_cases:
-      - "Monitor multi-agent swarm execution"
-      - "Track Beads task progress in real-time"
-      - "Debug agent failures with execution logs"
-      - "Operate via TUI on remote servers"
-    tech_stack: ["Go", "React", "TUI"]
-    agent_framework: ["Beads"]
-
-# Intent Solutions Organization - Enterprise & Production Systems
-# Links to: github.com/intent-solutions-io
-intent_solutions_repos:
   - id: executive-intent
     title: "Executive Intent"
     url: "https://executive-intent.web.app"
@@ -183,22 +281,6 @@ intent_solutions_repos:
       - "Cross-domain intelligence correlation"
     tech_stack: ["Python", "Firebase", "Cloud Run", "BigQuery"]
     agent_framework: ["Google ADK", "Vertex AI Agent Engine", "A2A Protocol"]
-
-  - id: bobs-brain
-    title: "IAM Bob ADK"
-    url: "https://bobs-brain.web.app/"
-    icon: "fa-solid fa-brain"
-    github_repo: "jeremylongshore/iam-bob-adk"
-    visibility: public
-    purpose_short: "Google ADK reference implementation of the Intent Agent Model"
-    purpose_long: "Official Google ADK and Vertex AI Agent Engine reference implementation of the Intent Agent Model. A multi-agent foreman coordinates specialists through A2A and MCP, with Vertex Session and Memory Bank support and Google-specific hard-mode deployment contracts."
-    use_cases:
-      - "Automated code review for ADK pattern compliance"
-      - "Security vulnerability scanning for agent code"
-      - "Documentation generation and gap analysis"
-      - "CI/CD integration for continuous compliance"
-    tech_stack: ["Python", "Google Cloud"]
-    agent_framework: ["Google ADK", "Vertex AI Agent Engine"]
 
   - id: git-with-intent
     title: "Git With Intent"
@@ -634,22 +716,6 @@ personal_repos:
     tech_stack: ["Shell", "Box CLI"]
     agent_framework: ["Claude Code"]
 
-  - id: claude-code-slack-channel
-    title: "Claude Code Slack Channel"
-    url: "https://github.com/jeremylongshore/claude-code-slack-channel"
-    icon: "fa-brands fa-slack"
-    github_repo: "jeremylongshore/claude-code-slack-channel"
-    visibility: public
-    purpose_short: "Two-way Slack chat for Claude Code via Socket Mode + MCP"
-    purpose_long: "Slack channel integration for Claude Code enabling two-way chat via Socket Mode and MCP. First claude/channel implementation for Slack. Lets Claude Code read, respond to, and participate in Slack conversations as a first-class channel member."
-    use_cases:
-      - "Two-way Claude Code chat in Slack channels"
-      - "Respond to team questions from Claude Code"
-      - "MCP-based Slack integration for agents"
-      - "Real-time Slack monitoring and response"
-    tech_stack: ["TypeScript", "Slack SDK", "MCP Protocol", "Socket Mode"]
-    agent_framework: ["Claude Code", "MCP Servers"]
-
   - id: moat
     title: "Moat"
     url: "https://github.com/jeremylongshore/moat"
@@ -746,38 +812,6 @@ personal_repos:
     tech_stack: ["Python", "Creative Writing"]
     agent_framework: []
 
-  - id: bobs-big-brain-registrar
-    title: "Bob's Big Brain Registrar"
-    url: "https://github.com/jeremylongshore/bobs-big-brain-registrar"
-    icon: "fa-solid fa-book"
-    github_repo: "jeremylongshore/bobs-big-brain-registrar"
-    visibility: public
-    purpose_short: "The team's memory keeper — admits by code, keeps tamper-evident receipts"
-    purpose_long: "Bob's Big Brain Registrar (formerly QMD Team Intent KB) — the team's memory keeper. A governed team memory platform for Claude Code: admits knowledge by deterministic code, keeps tamper-evident receipts, and serves structured memory retrieval with audit trails across Claude Code sessions."
-    use_cases:
-      - "Shared team knowledge base for Claude Code"
-      - "Governed memory with access controls"
-      - "Cross-session context retrieval"
-      - "Audit trails for team knowledge changes"
-    tech_stack: ["TypeScript", "QMD"]
-    agent_framework: ["Claude Code"]
-
-  - id: cad-dxf-agent
-    title: "CAD DXF Agent"
-    url: "https://github.com/jeremylongshore/cad-dxf-agent"
-    icon: "fa-solid fa-compass-drafting"
-    github_repo: "jeremylongshore/cad-dxf-agent"
-    visibility: private
-    purpose_short: "Local DXF layout editor with LLM-assisted planning"
-    purpose_long: "Local-first DXF layout editor with LLM-assisted prompt-to-edit planning, validation, preview, and safe save-as DXF workflow. Enables natural language CAD editing for floor plans and layouts without cloud dependencies."
-    use_cases:
-      - "Edit DXF layouts with natural language prompts"
-      - "LLM-assisted floor plan modifications"
-      - "Preview and validate CAD changes before saving"
-      - "Local-first CAD editing with no cloud dependency"
-    tech_stack: ["Python", "DXF", "ezdxf"]
-    agent_framework: []
-
   - id: j-rig-binary-eval
     title: "J-Rig Binary Eval"
     url: "https://github.com/jeremylongshore/j-rig-binary-eval"
@@ -825,23 +859,3 @@ personal_repos:
       - "Benchmarking methodology vs. managed cloud databases"
     tech_stack: ["PostgreSQL", "GCP Compute", "Terraform", "Prometheus"]
     agent_framework: []
-
-# Client Projects - Work for Others
-# Links to: intentsolutions.io
-client_projects:
-  - id: nixtla-plugins
-    title: "Nixtla Plugins"
-    url: "https://github.com/intent-solutions-io/plugins-nixtla"
-    icon: "fa-solid fa-chart-simple"
-    github_repo: "intent-solutions-io/plugins-nixtla"
-    visibility: public
-    client_work: true
-    purpose_short: "Natural language → TimeGPT forecast pipeline in Claude Code"
-    purpose_long: "Claude Code plugin suite for Nixtla's TimeGPT forecasting platform. Generate complete forecasting pipelines from natural language descriptions, run automated model benchmarks against historical data, and visualize predictions. Supports univariate and multivariate time series, anomaly detection, and cross-validation. Built for data teams who want AI-assisted forecasting without leaving their IDE."
-    use_cases:
-      - "Natural language to forecast pipeline generation"
-      - "Automated model benchmarking and validation"
-      - "Time series visualization and anomaly detection"
-      - "Cross-validation and accuracy reporting"
-    tech_stack: ["Python", "TimeGPT", "FastAPI", "Pandas"]
-    agent_framework: ["Claude Code"]

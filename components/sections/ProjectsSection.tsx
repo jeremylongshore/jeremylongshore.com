@@ -4,6 +4,8 @@ import { getRepoStars, formatStars } from '@/lib/data/github-stars';
 import { safely } from '@/lib/safe';
 
 const FEATURED_COUNT = 8;
+/** Below this a star count reads as weak proof, so the row shows none. */
+const MIN_STARS_SHOWN = 10;
 
 /** Stage one: the shipped projects as an index, the lead row set larger with its live star count. */
 export async function ProjectsSection() {
@@ -57,7 +59,7 @@ export async function ProjectsSection() {
                   </div>
                 </div>
                 <div className="index__meta">
-                  {typeof starCount === 'number' && starCount > 0 && (
+                  {typeof starCount === 'number' && starCount >= MIN_STARS_SHOWN && (
                     <>
                       <span className="index__stars" aria-label={`${starCount} GitHub stars`}>
                         {formatStars(starCount)}
