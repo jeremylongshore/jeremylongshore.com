@@ -37,8 +37,7 @@ export function SocialIcon({
       aria-label={social.title}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex h-11 w-11 items-center justify-center rounded-full transition-colors duration-200"
-      style={{ color: 'var(--color-brand)' }}
+      className="icon-link"
     >
       <svg
         role="img"

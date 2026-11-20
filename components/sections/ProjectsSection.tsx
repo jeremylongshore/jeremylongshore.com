@@ -1,7 +1,3 @@
-import { GradientCard } from '@/components/GradientCard';
-import { StatusChip } from '@/components/StatusChip';
-import { Eyebrow } from '@/components/Eyebrow';
-import { SectionReveal } from '@/components/SectionReveal';
 import { LiveDataNotice } from '@/components/sections/LiveDataNotice';
 import { getFeaturedProjects } from '@/lib/data/projects';
 import { getRepoStars, formatStars } from '@/lib/data/github-stars';
@@ -9,107 +5,74 @@ import { safely } from '@/lib/safe';
 
 const FEATURED_COUNT = 8;
 
+/** Stage one: the shipped projects as an index, the lead row set larger with its live star count. */
 export async function ProjectsSection() {
   const projects = getFeaturedProjects(FEATURED_COUNT);
   const repos = projects.map((p) => p.githubRepo).filter((r): r is string => Boolean(r));
   const stars = await safely('project-stars', () => getRepoStars(repos));
 
   return (
-    <SectionReveal>
-      <section aria-label="Projects" className="flex flex-col gap-8">
-        <div className="text-center">
-          <Eyebrow>Shipped and running</Eyebrow>
-          <h2 className="mt-2 text-2xl">Projects</h2>
-        </div>
-        {!stars && (
-          <div className="flex justify-center">
-            <LiveDataNotice what="star counts" />
-          </div>
-        )}
-        <div className="grid gap-6 sm:grid-cols-2">
+    <li className="stage" aria-labelledby="stage-build">
+      <div className="stage__head">
+        <h2 id="stage-build">Build it</h2>
+        <p className="lead">Shipped and running: the projects, with live GitHub stars.</p>
+      </div>
+      <div className="stage__body">
+        {!stars && <LiveDataNotice what="star counts" />}
+        <div className="index">
           {projects.map((project, i) => {
             const starCount = project.githubRepo ? stars?.[project.githubRepo] : undefined;
             const githubUrl = project.githubRepo ? `https://github.com/${project.githubRepo}` : undefined;
             return (
-              <GradientCard
-                key={project.id}
-                seed={project.id}
-                variant={i % 3 === 0 ? 'default' : i % 3 === 1 ? 'angled' : 'reverse'}
-                shimmer
-              >
-                <div className="flex h-full flex-col p-6">
-                  <div className="flex items-start justify-between gap-3">
-                    <h3 className="text-xl" style={{ color: 'var(--color-brand)' }}>
-                      {project.title}
-                    </h3>
-                    <StatusChip
-                      label={project.visibility === 'private' ? 'Client' : 'Live'}
-                      active={project.visibility !== 'private'}
-                    />
-                  </div>
-                  <p className="mt-3 grow text-base">{project.purposeShort}</p>
-                  <div className="mt-4 flex flex-wrap items-center gap-2">
-                    {typeof starCount === 'number' && starCount > 0 && (
-                      <span
-                        className="font-mono text-sm"
-                        style={{ color: 'var(--color-accent-strong)' }}
-                        aria-label={`${starCount} GitHub stars`}
-                      >
-                        ★ {formatStars(starCount)}
-                      </span>
-                    )}
-                    {(project.techStack ?? []).slice(0, 3).map((t) => (
-                      <span
-                        key={t}
-                        className="rounded-full border px-2.5 py-0.5 text-xs"
-                        style={{ borderColor: 'var(--color-hairline)', color: 'var(--color-faint)' }}
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 font-mono text-sm">
+              <article key={project.id} className={i === 0 ? 'index__row index__row--lead' : 'index__row'}>
+                <div>
+                  <h3>{project.title}</h3>
+                  <p className="label">{project.visibility === 'private' ? 'Client' : 'Live'}</p>
+                </div>
+                <div>
+                  <p>{project.purposeShort}</p>
+                  {(project.techStack ?? []).length > 0 && (
+                    <ul className="tags" aria-label="Stack">
+                      {(project.techStack ?? []).slice(0, 3).map((t) => (
+                        <li key={t}>{t}</li>
+                      ))}
+                    </ul>
+                  )}
+                  <div className="index__links">
                     {project.url && (
-                      <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline decoration-dotted underline-offset-4 transition-colors duration-200 hover:text-black"
-                        style={{ color: 'var(--color-accent-strong)' }}
-                      >
+                      <a href={project.url} target="_blank" rel="noopener noreferrer" className="link">
                         Open project
                       </a>
                     )}
                     {githubUrl && project.url !== githubUrl && (
-                      <a
-                        href={githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline decoration-dotted underline-offset-4 transition-colors duration-200 hover:text-black"
-                        style={{ color: 'var(--color-accent-strong)' }}
-                      >
+                      <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="link">
                         Repository
                       </a>
                     )}
                     {(project.proofLinks ?? []).map((link) => (
-                      <a
-                        key={link.url}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline decoration-dotted underline-offset-4 transition-colors duration-200 hover:text-black"
-                        style={{ color: 'var(--color-accent-strong)' }}
-                      >
+                      <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="link">
                         {link.label}
                       </a>
                     ))}
                   </div>
                 </div>
-              </GradientCard>
+                <div className="index__meta">
+                  {typeof starCount === 'number' && starCount > 0 && (
+                    <>
+                      <span className="index__stars" aria-label={`${starCount} GitHub stars`}>
+                        {formatStars(starCount)}
+                      </span>
+                      <span className="label" aria-hidden="true">
+                        stars
+                      </span>
+                    </>
+                  )}
+                </div>
+              </article>
             );
           })}
         </div>
-      </section>
-    </SectionReveal>
+      </div>
+    </li>
   );
 }

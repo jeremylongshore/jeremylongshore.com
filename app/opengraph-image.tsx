@@ -1,14 +1,20 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'nodejs';
-export const alt = 'Jeremy Longshore — I Make Teams AI-Native';
+export const alt = 'Jeremy Longshore: I make teams AI-native';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
-/**
- * OG card: neutral base, silver frame, amber accent bar — the design
- * system's two-metal story in a static 1200x630.
+/*
+ * OG card in the site's printed-bill system. next/og (satori) cannot read CSS
+ * custom properties or oklch, so the three tokens from app/tokens.css are
+ * mirrored here as sRGB hex: paper oklch(92% 0.028 88), ink oklch(18% 0.01 50),
+ * vermilion oklch(53% 0.19 33).
  */
+const PAPER = '#ebe3cf';
+const INK = '#1b1513';
+const VERMILION = '#c0361c';
+
 export default function OpenGraphImage() {
   return new ImageResponse(
     (
@@ -19,46 +25,36 @@ export default function OpenGraphImage() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          background: '#ffffff',
-          padding: 72,
+          background: PAPER,
+          padding: 64,
           fontFamily: 'sans-serif',
+          borderTop: `16px solid ${INK}`,
         }}
       >
+        <div style={{ display: 'flex', fontSize: 34, fontWeight: 700, color: INK, letterSpacing: '0.02em' }}>
+          JEREMY LONGSHORE
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <div style={{ display: 'flex', fontSize: 120, fontWeight: 700, color: INK, lineHeight: 0.95 }}>
+            I MAKE TEAMS
+          </div>
+          <div style={{ display: 'flex', fontSize: 120, fontWeight: 700, color: VERMILION, lineHeight: 0.95 }}>
+            AI-NATIVE.
+          </div>
+        </div>
         <div
           style={{
             display: 'flex',
-            width: 180,
-            height: 10,
-            borderRadius: 9999,
-            background: 'linear-gradient(to right, #f59e0b, #d97706, #b45309)',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            borderTop: `5px solid ${INK}`,
+            paddingTop: 24,
+            fontSize: 30,
+            color: INK,
           }}
-        />
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <div style={{ display: 'flex', fontSize: 84, fontWeight: 500, color: '#4d4d4d', letterSpacing: '-0.02em', lineHeight: 1.05 }}>
-            I make teams AI-native.
-          </div>
-          <div style={{ display: 'flex', marginTop: 28, fontSize: 34, color: 'rgba(77,77,77,0.8)' }}>
-            Jeremy Longshore — AI systems that ship. I build what I sell.
-          </div>
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div style={{ display: 'flex', fontSize: 28, color: 'rgba(77,77,77,0.6)' }}>jeremylongshore.com</div>
-          <div
-            style={{
-              display: 'flex',
-              width: 64,
-              height: 64,
-              borderRadius: 9999,
-              background: 'linear-gradient(to bottom, #fcfcfc, #b9b9b9)',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: 26,
-              fontWeight: 500,
-              color: '#4d4d4d',
-            }}
-          >
-            JL
-          </div>
+        >
+          <div style={{ display: 'flex' }}>AI systems that ship. I build what I sell.</div>
+          <div style={{ display: 'flex' }}>jeremylongshore.com</div>
         </div>
       </div>
     ),

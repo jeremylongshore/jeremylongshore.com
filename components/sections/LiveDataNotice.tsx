@@ -3,12 +3,5 @@
  * The invariant is "never silently empty": if data is down, say so.
  */
 export function LiveDataNotice({ what }: { what: string }) {
-  return (
-    <p
-      className="rounded-full border px-4 py-2 text-sm"
-      style={{ borderColor: 'var(--color-hairline)', color: 'var(--color-faint)' }}
-    >
-      Live {what} is refreshing — check back shortly.
-    </p>
-  );
+  return <p className="notice">Live {what} is refreshing. Check back shortly.</p>;
 }

@@ -1,0 +1,36 @@
+[
+ {
+  "mode": "redesign",
+  "depth": "full",
+  "scope": "site",
+  "shape": "Narrative Workflow",
+  "theme": "broadside",
+  "axes": "light/display-condensed/warm",
+  "hero": "Stage",
+  "nav": "edge-aligned slab",
+  "footer": "statement",
+  "imagery": "owner portrait, duotone, one frame",
+  "photos": [],
+  "entry": "none",
+  "sections": [
+   "Stage hero",
+   "Credentials band",
+   "Index",
+   "Figure+heatmap+Table",
+   "Switcher",
+   "Rows",
+   "Statement footer"
+  ],
+  "signature": "headline fitted to the measure in Six Caps, second line vermilion",
+  "waived": [
+   "23",
+   "38iii",
+   "77",
+   "44c",
+   "79"
+  ],
+  "prompt": "personal site of an independent AI engineer and founder: hire or book a call, proof of open-source work, writing",
+  "fingerprint": "344e3d",
+  "date": "2026-11-20"
+ }
+]

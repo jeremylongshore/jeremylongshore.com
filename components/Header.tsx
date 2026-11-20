@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { site } from '@/lib/site';
 
 const NAV = [
   { href: '/', label: 'Home' },
@@ -11,35 +11,34 @@ const NAV = [
   { href: '/contact', label: 'Contact' },
 ] as const;
 
-/** Site-wide header: JL monogram + wordmark left, page nav right. */
+/** Site-wide bar: the wordmark at one edge, the page links and the booking action at the other, over a five-point rule. */
 export function Header() {
   const pathname = usePathname();
   return (
-    <header className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-between gap-2 px-4 py-5 sm:px-6 sm:py-6">
-      <Link href="/" className="flex min-h-11 min-w-11 items-center gap-3" aria-label="Jeremy Longshore — home">
-        <Image src="/jl-monogram.svg" alt="" width={36} height={36} priority />
-        <span
-          className="hidden text-base font-medium tracking-tight sm:inline"
-          style={{ color: 'var(--color-brand)' }}
-        >
+    <header className="site-bar">
+      <div className="container site-bar__inner">
+        <Link href="/" className="wordmark" aria-label="Jeremy Longshore, home">
           Jeremy Longshore
-        </span>
-      </Link>
-      <nav aria-label="Site">
-        <ul className="flex items-center gap-1">
-          {NAV.map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                aria-current={pathname === item.href ? 'page' : undefined}
-                className="site-nav-link inline-flex min-h-11 items-center rounded-full px-2 text-sm font-medium transition-colors duration-[var(--duration-micro)] sm:px-3"
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+        </Link>
+        <nav aria-label="Site" className="site-nav">
+          <ul>
+            {NAV.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  aria-current={pathname === item.href ? 'page' : undefined}
+                  className="nav-link"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <a href={site.bookingUrl} className="btn" target="_blank" rel="noopener noreferrer">
+            Book a call
+          </a>
+        </nav>
+      </div>
     </header>
   );
 }

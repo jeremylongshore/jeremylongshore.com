@@ -18,9 +18,8 @@ export interface SocialLink {
 
 export const site = {
   name: 'Jeremy Longshore',
-  title: 'Jeremy Longshore — I Make Teams AI-Native',
-  tagline:
-    'I build AI systems around real work, test what they do, and help teams operate and improve them. Intent Solutions connects that engineering to evidence, teaching, open source, and products.',
+  title: 'Jeremy Longshore: I make teams AI-native',
+  tagline: 'I build AI systems around real work, test what they do, and help teams operate and improve them.',
   companyStory: [
     'I founded Intent Solutions as an applied AI engineering company. We work on the gap between what a model can do and what a team can reliably put into production.',
     'Engineering, Labs, Evals, Demos, Learn, and our open-source tools are connected parts of that company. A useful implementation can also produce evidence, a reusable component, a product, or a lesson for the next team.',
@@ -30,22 +29,27 @@ export const site = {
   bookingUrl: 'https://book.jeremylongshore.com/jeremy',
   contactUrl: 'https://intentsolutions.io/contact',
   credentials: {
+    /**
+     * Jeremy's individual developer certificate, shown above the company badge.
+     * Left null until its exact name, artwork and Credly record are supplied:
+     * nothing renders for it until then, so the page never shows an unverified claim.
+     */
+    developer: null as null | {
+      title: string;
+      description: string;
+      image: string;
+      imageAlt: string;
+      url: string;
+      linkLabel: string;
+    },
     partner: {
       company: 'Intent Solutions',
       description: 'Select Services Partner in the Claude Partner Network.',
+      note: 'Intent Solutions connects that engineering to evidence, teaching, open source, and products.',
       image: '/images/credentials/claude-select-partner.svg',
-      imageAlt: 'Claude Partner Network — Select Services Partner',
+      imageAlt: 'Claude Partner Network, Select Services Partner',
       url: 'https://intentsolutions.io/',
       linkLabel: 'Explore Intent Solutions',
-    },
-    individual: {
-      title: 'Claude Code credential',
-      description:
-        'Anthropic-issued badge for scoping, deploying, configuring, and operating Claude Code. Earned through eight courses and a scenario-based capstone.',
-      image: '/images/credentials/claude-code-badge.png',
-      imageAlt: 'Claude Partner Badge — Claude Code, issued to Jeremy Longshore',
-      url: 'https://www.credly.com/badges/ddf22fb4-0aa6-46b3-a93b-0b45b509e471',
-      linkLabel: 'Verify on Credly',
     },
   },
   /** Canonical repo whose star count anchors the footer credibility line. */
