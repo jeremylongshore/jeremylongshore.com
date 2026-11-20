@@ -1,3 +1,14 @@
+# Release v4.3.0
+
+**Release Date**: 2026-11-20
+
+## Changes since v4.2.0
+
+- chore: release v4.3.0 [skip ci] (cf7c74f)
+- feat(site): show the Claude Certified Developer credential above the partner badge (#82) (b0ce91a)
+
+---
+
 # Release v4.2.0
 
 **Release Date**: 2026-11-20
