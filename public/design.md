@@ -26,13 +26,13 @@ The personal site is deliberately distinct from the Intent Solutions company bra
 | `--color-accent` | `oklch(53% 0.19 33)` | Vermilion: one display line or figure a screen, hover, focus ring |
 | `--color-accent-ink` | `oklch(95.5% 0.018 88)` | Text on vermilion |
 
-Heatmap ramp: paper-3, then vermilion mixed into paper at 28% and 55%, vermilion, then vermilion mixed into ink.
+Heatmap ramp: paper-3, then ink mixed into paper at 22%, 42%, 64% and 84%, then ink. No vermilion: the bill keeps it for one line a screen.
 
 ## Typography
 
 Three faces, all SIL OFL, self-hosted with `next/font`:
 
-- **Six Caps** 400, uppercase, line-height 0.88: headlines and big figures. Each line is its own non-wrapping element, sized in `cqi` so it fills its column exactly (`.fit-block` > `.fit` with `--fit`).
+- **Six Caps** 400, uppercase, line-height 0.88: headlines and big figures. Each line is its own non-wrapping element, sized in `cqi` so it fills its column exactly (`.fit-block` > `.fit` with a measured `--fit`); after the fonts load, a small script shrinks any line wider than its block so none is ever clipped.
 - **Bevan** 400, uppercase, untracked, line-height 1: section heads (`h2`), item titles (`h3`), the wordmark.
 - **Archivo Narrow** 400/500/600, line-height 1.55: everything read. Labels and captions in 500 a step smaller, sentence case, untracked, `--color-muted`.
 

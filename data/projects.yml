@@ -109,7 +109,7 @@ flagships:
     icon: "fa-solid fa-book"
     github_repo: "jeremylongshore/bobs-big-brain-registrar"
     visibility: public
-    purpose_short: "The team's memory keeper — admits by code, keeps tamper-evident receipts"
+    purpose_short: "The team's memory keeper: admits by code, keeps tamper-evident receipts"
     purpose_long: "Bob's Big Brain Registrar (formerly QMD Team Intent KB) — the team's memory keeper. A governed team memory platform for Claude Code: admits knowledge by deterministic code, keeps tamper-evident receipts, and serves structured memory retrieval with audit trails across Claude Code sessions."
     use_cases:
       - "Shared team knowledge base for Claude Code"
@@ -126,7 +126,7 @@ flagships:
     github_repo: "jeremylongshore/plugins-nixtla"
     visibility: public
     client_work: true
-    purpose_short: "Natural language → TimeGPT forecast pipeline in Claude Code"
+    purpose_short: "Plain English in, a TimeGPT forecast pipeline out, inside Claude Code"
     purpose_long: "Claude Code plugin suite for Nixtla's TimeGPT forecasting platform. Generate complete forecasting pipelines from natural language descriptions, run automated model benchmarks against historical data, and visualize predictions. Supports univariate and multivariate time series, anomaly detection, and cross-validation. Built for data teams who want AI-assisted forecasting without leaving their IDE."
     use_cases:
       - "Natural language to forecast pipeline generation"
@@ -224,7 +224,7 @@ intent_solutions_repos:
     icon: "fa-solid fa-shield-halved"
     github_repo: "jeremylongshore/irsb"
     visibility: public
-    purpose_short: "On-chain guardrails for AI agents — no agent should hold unguarded keys"
+    purpose_short: "On-chain guardrails for AI agents: no agent should hold unguarded keys"
     purpose_long: "On-chain guardrails for AI agents: EIP-7702 spend limits, cryptographic execution receipts, and automated dispute resolution. Umbrella for the protocol, solver, watchtower, and agent services — every agent action is bounded, receipted, and disputable."
     use_cases:
       - "Cap what an AI agent can spend with EIP-7702 limits"
@@ -235,7 +235,7 @@ intent_solutions_repos:
     agent_framework: []
 
   - id: wild-rails-ai-ops
-    title: "Wild — Rails AI Ops"
+    title: "Wild: Rails AI Ops"
     url: "https://github.com/intent-solutions-io/wild-rails-ai-ops"
     icon: "fa-solid fa-gem"
     github_repo: "intent-solutions-io/wild-rails-ai-ops"
@@ -336,7 +336,7 @@ intent_solutions_repos:
     icon: "fa-solid fa-file-lines"
     github_repo: "intent-solutions-io/intent-blueprint-docs"
     visibility: public
-    purpose_short: "22 templates: PRD, architecture, tasks — zero setup"
+    purpose_short: "22 templates: PRD, architecture, tasks: zero setup"
     purpose_long: "Production-ready documentation generator with 22 professional templates covering PRD, architecture, tasks, and risk management. Works with Claude Code and Cursor IDE with zero setup. Includes enterprise intake workflow and automated template selection based on project needs."
     use_cases:
       - "Generate PRDs from natural language descriptions"
@@ -352,7 +352,7 @@ intent_solutions_repos:
     icon: "fa-solid fa-layer-group"
     github_repo: "intent-solutions-io/intent-genai-project-template"
     visibility: public
-    purpose_short: "FastAPI + evals + Docker — LLM app in minutes"
+    purpose_short: "FastAPI + evals + Docker: LLM app in minutes"
     purpose_long: "Battle-tested Python project template for building LLM applications. Includes FastAPI server, CLI interface, prompt pack management, streaming support, and evaluation framework. Preconfigured CI/CD with GitHub Actions, Docker support, and structured logging via structlog."
     use_cases:
       - "Bootstrap new LLM projects in minutes"
@@ -400,7 +400,7 @@ intent_solutions_repos:
     icon: "fa-solid fa-file-contract"
     github_repo: "intent-solutions-io/proposal-template"
     visibility: private
-    purpose_short: "Jinja templates → professional client proposals → PDF"
+    purpose_short: "Jinja templates, then professional client proposals, then PDF"
     purpose_long: "Jinja-based proposal generation system with commercial-safety patches for sensitive content. Includes templates for consulting engagements, SOWs, and project proposals. Automated variable substitution, PDF export, and version tracking for professional client deliverables."
     use_cases:
       - "Generate client proposals from templates"
@@ -432,7 +432,7 @@ intent_solutions_repos:
     icon: "fa-solid fa-droplet"
     github_repo: "intent-solutions-io/drop"
     visibility: public
-    purpose_short: "Verified, citeable location events — water infra first"
+    purpose_short: "Verified, citeable location events: water infra first"
     purpose_long: "Global standard platform for verified, citeable location-based events with water infrastructure as the primary use case. Implements a Situation Graph data model for tracking events, conditions, and responses tied to geographic coordinates with cryptographic verification."
     use_cases:
       - "Track water infrastructure events globally"
@@ -481,7 +481,7 @@ products:
     url: "https://www.upwork.com/freelancers/jeremylongshore"
     icon: "fa-solid fa-graduation-cap"
     visibility: public
-    purpose_short: "1:1 AI coding agent coaching — your project, my methodology"
+    purpose_short: "1:1 AI coding agent coaching: your project, my methodology"
     purpose_long: "White-glove 1:1 coaching on AI coding agents for founders, engineers, and teams. Claude Code, Codex, Gemini Code Assist — I teach the methodology that works across all of them. You bring your real project. Starter (30 min) covers agent basics and your first workflow. Standard (90 min + follow-up) builds custom automations. Advanced (full day) architects production agent infrastructure end-to-end. Book via Upwork or schedule directly."
     use_cases:
       - "Get productive with AI coding agents in one session"
@@ -531,7 +531,7 @@ personal_repos:
     icon: "fa-solid fa-gem"
     github_repo: "jeremylongshore/wild-rails-safe-introspection-mcp"
     visibility: public
-    purpose_short: "10 Ruby gems — governed AI agent ops for production Rails"
+    purpose_short: "10 Ruby gems: governed AI agent ops for production Rails"
     purpose_long: "Governed operational intelligence layer for AI agents in production Rails environments. Ten focused gems covering safe introspection (wild-rails-safe-introspection-mcp), admin operations (wild-admin-tools-mcp), capability gating (wild-capability-gate), telemetry (wild-session-telemetry), transcript processing (wild-transcript-pipeline), gap analysis (wild-gap-miner), hook management (wild-hook-ops), permission auditing (wild-permission-analyzer), flake forensics (wild-test-flake-forensics), and skill governance (wild-skillops-registry). Every tool is read-only or governed, audited, and bounded by hard safety ceilings. Deep-dive series at startaitools.com/wild-ecosystem/."
     use_cases:
       - "Safe, read-only Rails introspection for AI agents via MCP"
@@ -578,7 +578,7 @@ personal_repos:
     icon: "fa-solid fa-file-excel"
     github_repo: "jeremylongshore/excel-analyst-pro"
     visibility: public
-    purpose_short: "DCF, LBO, variance reports — natural language to Excel"
+    purpose_short: "DCF, LBO, variance reports: natural language to Excel"
     purpose_long: "Professional financial modeling toolkit for Claude Code with auto-invoked Skills. Build DCF models, LBO analysis, variance reports, and pivot tables using natural language."
     use_cases:
       - "DCF model generation from natural language"
@@ -626,7 +626,7 @@ personal_repos:
     icon: "fa-solid fa-database"
     github_repo: "intent-solutions-io/iam-local-rag"
     visibility: public
-    purpose_short: "Query private docs with AI — 100% local, zero cloud cost"
+    purpose_short: "Query private docs with AI: 100% local, zero cloud cost"
     purpose_long: "Fully autonomous local AI agent for private document intelligence. Runs 100% locally with no cloud costs using Ollama for inference and LangChain for orchestration. Indexes documents into vector store for semantic retrieval while keeping all data on-premises."
     use_cases:
       - "Query private documents with natural language"
@@ -722,7 +722,7 @@ personal_repos:
     icon: "fa-solid fa-shield"
     github_repo: "jeremylongshore/moat"
     visibility: public
-    purpose_short: "Verified Agent Capabilities Marketplace — MCP trust layer"
+    purpose_short: "Verified Agent Capabilities Marketplace: MCP trust layer"
     purpose_long: "Verified Agent Capabilities Marketplace providing an MCP-first trust, policy, and execution layer for AI agents. Establishes verified capability claims, enforced policies, and auditable execution for agent-to-agent interactions in production environments."
     use_cases:
       - "Verified agent capability claims and discovery"
@@ -786,7 +786,7 @@ personal_repos:
     icon: "fa-solid fa-bug"
     github_repo: "jeremylongshore/x-bug-triage-plugin"
     visibility: public
-    purpose_short: "X complaints → clusters → repo evidence → Slack → issues"
+    purpose_short: "X complaints, then clusters, then repo evidence, then Slack, then issues"
     purpose_long: "Closed-loop bug triage pipeline: monitors X/Twitter for user complaints, clusters them by theme, maps clusters to repository evidence, routes to owners via Slack for review, and files GitHub issues automatically. End-to-end from social signal to actionable ticket."
     use_cases:
       - "Monitor X/Twitter for product complaints"
@@ -802,7 +802,7 @@ personal_repos:
     icon: "fa-solid fa-film"
     github_repo: "jeremylongshore/gastown-series"
     visibility: public
-    purpose_short: "Gas Town Chronicles — 10-episode animated AI miniseries"
+    purpose_short: "Gas Town Chronicles: 10-episode animated AI miniseries"
     purpose_long: "Gas Town Chronicles — a 10-episode animated miniseries set in a post-human city run entirely by autonomous AI agents. Creative writing and world-building project exploring AI governance, agent autonomy, and urban systems through narrative fiction."
     use_cases:
       - "AI-themed animated storytelling"
@@ -850,7 +850,7 @@ personal_repos:
     icon: "fa-solid fa-database"
     github_repo: "jeremylongshore/cost-plus-db"
     visibility: public
-    purpose_short: "Reference build — transparent Postgres hosting (infra cost + 25%) on GCP"
+    purpose_short: "Reference build: transparent Postgres hosting (infra cost + 25%) on GCP"
     purpose_long: "A demonstration build exploring a transparent PostgreSQL-hosting model: infrastructure cost plus a flat 25% margin, no hidden fees or vendor lock-in. Architected on GCP Compute with Terraform-managed infrastructure, automated backups, point-in-time recovery, connection pooling, and Prometheus monitoring, plus published benchmarks against AWS RDS and Cloud SQL. The hosted service has been retired; the full implementation is public on GitHub as a portfolio reference."
     use_cases:
       - "Reference architecture for transparent, cost-plus database hosting"

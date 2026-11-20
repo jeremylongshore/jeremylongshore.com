@@ -1,3 +1,4 @@
+import { SocialIcon } from '@/components/SocialIcon';
 import { site } from '@/lib/site';
 
 /**
@@ -27,6 +28,15 @@ export function Hero() {
               Send a message
             </a>
           </div>
+          <nav aria-label="Social profiles" className="hero__socials">
+            <ul className="socials">
+              {site.socials.map((s) => (
+                <li key={s.url}>
+                  <SocialIcon social={s} />
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
 
         <figure className="hero__figure">
@@ -49,7 +59,7 @@ export function Credentials() {
   return (
     <section className="band grained" aria-labelledby="credentials-title">
       <div className="container creds">
-        <h2 id="credentials-title">Credentials</h2>
+        <h2 id="credentials-title">Certified and partnered</h2>
         <div className="creds__list">
           {developer && (
             <article className="cred">

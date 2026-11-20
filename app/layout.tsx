@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Six_Caps, Bevan, Archivo_Narrow } from 'next/font/google';
+import { FitLines } from '@/components/FitLines';
 import { Header } from '@/components/Header';
-import { KofiWidget } from '@/components/KofiWidget';
 import './globals.css';
 
 // Broadside's three faces, self-hosted at build time by next/font (no runtime Google request).
@@ -41,10 +41,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a className="skip-link" href="#main-content">Skip to content</a>
         <Header />
         {children}
+        <FitLines />
         {umamiSrc && umamiWebsiteId && (
           <script defer src={umamiSrc} data-website-id={umamiWebsiteId} />
         )}
-        <KofiWidget />
       </body>
     </html>
   );

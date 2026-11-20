@@ -70,12 +70,11 @@ export default function BrandPage() {
 
         <section className="section container" aria-labelledby="assets">
           <div className="split">
-            <h2 id="assets">Download</h2>
+            <h2 id="assets">Take the files</h2>
             <div>
               <div className="asset" style={{ paddingTop: 0 }}>
                 <div className="asset__art frame">
-                  {/* eslint-disable-next-line @next/next/no-img-element -- the published SVG as it downloads */}
-                  <img src="/jl-monogram.svg" alt="JL monogram" width={72} height={72} />
+                  <span className="asset__mark" role="img" aria-label="JL monogram, printed flat in the ink">JL</span>
                 </div>
                 <div>
                   <h3>JL monogram</h3>
@@ -111,7 +110,7 @@ export default function BrandPage() {
         <section className="section container" aria-labelledby="color">
           <div className="split">
             <div>
-              <h2 id="color">Color</h2>
+              <h2 id="color">Ink and paper</h2>
               <p className="lead" style={{ marginTop: 'var(--space-lg)' }}>
                 A printed bill: buff stock, near-black ink, one vermilion.
               </p>
@@ -132,7 +131,7 @@ export default function BrandPage() {
         <section className="section container" aria-labelledby="type">
           <div className="split">
             <div>
-              <h2 id="type">Typography</h2>
+              <h2 id="type">Three faces</h2>
               <p className="lead" style={{ marginTop: 'var(--space-lg)' }}>
                 One case of wood type: the gothic for scale, the slab for weight, the narrow for reading. All SIL OFL,
                 self-hosted.
