@@ -1,3 +1,14 @@
+# Release v4.2.0
+
+**Release Date**: 2026-11-20
+
+## Changes since v4.1.7
+
+- chore: release v4.2.0 [skip ci] (e50fe68)
+- feat(site): redesign jeremylongshore.com as a printed bill, distinct from the company brand (#81) (a7cee2e)
+
+---
+
 # Release v4.1.7
 
 **Release Date**: 2026-11-04
