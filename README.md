@@ -21,10 +21,9 @@ Personal hub site for Jeremy Longshore — AI systems that ship, live-data proof
 Next.js 15 (App Router, standalone output) + Tailwind v4 + TypeScript, running as a Docker container on the Intent Solutions VPS behind Caddy. Live data rendered server-side via ISR — no client-side third-party calls.
 
 ```
-app/                  # App Router: layout (self-hosted Geist), homepage, /api/healthz
-app/globals.css       # Design-token layer (colors, silver + 12 accent gradients, motion)
-components/           # Design-system primitives (GradientCard, PillButton, AvatarRing,
-                      #   StatusChip, SectionReveal, Heatmap, …)
+app/                  # App Router: layout (self-hosted fonts via next/font), homepage, /api/healthz
+app/globals.css       # Broadside roles and components; values in app/tokens.css + app/base.css
+components/           # Header, Heatmap, SocialIcon, KofiWidget
 components/sections/  # Homepage sections (server components, fail-loud data boundaries)
 lib/site.ts           # Site copy/config (name, tagline, socials, CTAs)
 lib/data/             # ISR fetchers: GitHub stars + contribution heatmap (GraphQL) +
@@ -90,7 +89,7 @@ Automated via GitHub Actions on push to `main`:
 ## Tech Stack
 
 - **Framework:** Next.js 15 (standalone) · React 19 · Tailwind v4 · TypeScript
-- **Fonts:** Geist Sans/Mono, self-hosted
+- **Fonts:** Six Caps, Bevan, Archivo Narrow, self-hosted via `next/font`
 - **Hosting:** Docker on the `intentsolutions` VPS (Caddy `reverse_proxy`)
 - **CI/CD:** GitHub Actions — `deploy.yml` (VPS deploy via Tailscale OIDC) + `release.yml` (versioning)
 - **Analytics:** self-hosted Umami (also the view-counts data source)
