@@ -23,7 +23,7 @@ Next.js 15 (App Router, standalone output) + Tailwind v4 + TypeScript, running a
 ```
 app/                  # App Router: layout (self-hosted fonts via next/font), homepage, /api/healthz
 app/globals.css       # Broadside roles and components; values in app/tokens.css + app/base.css
-components/           # Header, Heatmap, SocialIcon, KofiWidget
+components/           # Header, Heatmap, SocialIcon
 components/sections/  # Homepage sections (server components, fail-loud data boundaries)
 lib/site.ts           # Site copy/config (name, tagline, socials, CTAs)
 lib/data/             # ISR fetchers: GitHub stars + contribution heatmap (GraphQL) +

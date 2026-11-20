@@ -26,7 +26,7 @@ bash scripts/name-leak-gate.sh   # MUST be clean before every commit
 app/                  # App Router: layout (next/font: Six Caps, Bevan, Archivo Narrow; Header, metadata), homepage, api/healthz,
                       #   /about /brand /contact, sitemap.ts, robots.ts, opengraph-image.tsx (next/og)
 app/globals.css       # Hallmark stamp + Broadside roles/components; token values in app/tokens.css, base in app/base.css
-components/           # Header, Heatmap, SocialIcon, KofiWidget
+components/           # Header, Heatmap, SocialIcon
 components/sections/  # Homepage sections (server components, fail-loud data boundaries)
 lib/site.ts           # Site-wide copy/config (name, tagline, socials, CTAs)
 lib/data/*.ts         # ISR fetchers: github-stars, github-heatmap (GraphQL),

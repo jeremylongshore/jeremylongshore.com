@@ -11,10 +11,13 @@
 /* Hallmark · dropped the JL monogram from the bar · the Bevan wordmark is the mark; the monogram stays the favicon and a download on /brand */
 /* Hallmark · dropped the dark-mode palette · Broadside is a printed bill on buff stock; one light colourway */
 /* Hallmark · waive 77 · the heatmap sits inside stage two between its fitted figure and its table; the /about and /contact closes are one row of actions and profile links · neither is a section of its own */
-/* Hallmark · waive 44c · /about, /contact and /brand open on a Banner head: the fitted headline and one line, then the first section · inner pages lead with their content, not a full screen */
+/* Hallmark · waive 44c · /about, /contact and /brand open on a Banner head, and the home portrait sits flush with the container's right edge under the bar's Book a call · inner pages lead with their content, not a full screen; on / the hero review asked for that alignment, and the paper between headline and frame is the bill's margin */
 /* Hallmark · waive 79 · the inner-page Banner heads end where their headline ends; the first section follows its section gap · growing them would push /about's first section below the fold */
 /* Hallmark · dropped the contribution highlight card headings (NOW LMS, Kobiton Automate and the rest) · each is now the first cell of its table row, linked as before */
 /* Hallmark · dismissed F15 · one container; 1152 is the 72rem cap on the inner-page fitted headlines, not a second container */
+/* Hallmark · hero-review: fix · 5 findings · 4 resolved 1 unresolved (4: the portrait is 400px upscaled; needs the owner's 1600px original) */
+/* Hallmark · finish-review: subagent · 8 findings · 8 resolved · gap: none (1: a measured fit pass now shrinks any line wider than its block; the clip persists only in the render tier's tall full-page capture, and a fonts-ready full-page capture shows every line whole at 97 to 99 percent) */
+/* Hallmark · answered F · the footer statement fills its 64rem block rather than the container · the cap keeps the closing line one measure with the inner-page heads */
 /* Hallmark · waive 38iii · the vermilion second hero line, set as its own element once · Broadside names one vermilion display line as its signature */
 
 @import 'tailwindcss';
@@ -22,12 +25,12 @@
 @import './base.css' layer(base);
 
 :root {
-  /* Heatmap ramp: one hue, paper to vermilion to ink (a chart whose marks differ in value). */
+  /* Heatmap ramp: paper to ink in one hue, so the bill keeps vermilion for its one line a screen. */
   --color-heat-0: var(--color-paper-3);
-  --color-heat-1: color-mix(in oklab, var(--color-accent) 28%, var(--color-paper));
-  --color-heat-2: color-mix(in oklab, var(--color-accent) 55%, var(--color-paper));
-  --color-heat-3: var(--color-accent);
-  --color-heat-4: color-mix(in oklab, var(--color-accent) 55%, var(--color-ink));
+  --color-heat-1: color-mix(in oklab, var(--color-ink) 22%, var(--color-paper));
+  --color-heat-2: color-mix(in oklab, var(--color-ink) 42%, var(--color-paper));
+  --color-heat-3: color-mix(in oklab, var(--color-ink) 64%, var(--color-paper));
+  --color-heat-4: color-mix(in oklab, var(--color-ink) 84%, var(--color-paper));
   --color-heat-5: var(--color-ink);
   --grain-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.4 -.55'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
   --nav-height: 72px;
@@ -52,7 +55,9 @@ h1 { max-width: none; }
 .rule-hair { border-top: var(--rule-hair) solid var(--color-ink); }
 .frame { border: var(--rule-frame) solid var(--color-ink); box-shadow: inset 0 0 0 3px var(--color-paper), inset 0 0 0 4px var(--color-ink); padding: var(--space-lg); }
 .frame--photo { padding: var(--space-xs); }
-.band { background: var(--color-paper-2); padding-block: var(--section-gap-s); }
+.band { background: var(--color-paper-2); padding-block: var(--section-gap-s); border-top: var(--rule-bar) solid var(--color-ink); }
+/* The band carries the five-point rule on its top edge, so its padding sits below the rule, not above it. */
+.band > .split { border-top: 0; padding-top: 0; }
 .grained { position: relative; isolation: isolate; }
 .grained::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: var(--grain); mix-blend-mode: multiply; background-image: var(--grain-image); z-index: 2; }
 
@@ -115,13 +120,19 @@ main { scroll-margin-top: var(--space-md); }
 .hero__text { display: grid; gap: var(--space-xl); min-width: 0; }
 .hero__lead { font-size: var(--text-lead); line-height: 1.45; max-width: 44ch; color: var(--color-ink-2); }
 .hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-md); }
-.hero__figure { margin: 0; display: grid; gap: var(--space-sm); justify-self: start; width: 100%; max-width: 34rem; }
+.hero__socials { margin-top: calc(var(--space-md) - var(--space-xl)); }
+.hero__figure { margin: 0; display: grid; gap: var(--space-sm); justify-self: end; width: 100%; max-width: 34rem; }
 .hero__slot { aspect-ratio: 1 / 1; }
-.hero__figure figcaption { font-size: var(--text-sm); font-weight: 500; color: var(--color-muted); }
+.hero__figure figcaption { font-size: var(--text-lead); font-weight: 500; line-height: 1.35; color: var(--color-ink); }
 @media (max-width: 60rem) {
   .hero { min-height: 0; }
   .hero__grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-xl); }
   .hero__figure { justify-self: start; max-width: 22rem; }
+}
+@media (max-width: 40rem) {
+  /* One column on a phone: the portrait leads, small, so the face lands on the first screen. */
+  .hero__figure { order: -1; max-width: 9rem; }
+  .hero__figure figcaption { display: none; }
 }
 
 /* ---------- Credentials band ---------- */
@@ -249,7 +260,6 @@ main { scroll-margin-top: var(--space-md); }
 .bill { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: var(--rule-bar) solid var(--color-ink); }
 .bill__col { display: grid; align-content: start; gap: var(--space-md); padding: var(--space-xl) var(--space-xl) var(--space-xl) 0; }
 .bill__col + .bill__col { border-left: var(--rule-bar) solid var(--color-ink); padding-left: var(--space-xl); }
-.bill__col h3 { font-size: var(--text-title); }
 .bill__col .fit-block { min-height: 6rem; align-content: end; }
 .bill__col .action { margin-top: var(--space-md); }
 .bill__email { font-weight: 600; font-size: var(--text-lead); overflow-wrap: anywhere; }
@@ -269,6 +279,7 @@ main { scroll-margin-top: var(--space-md); }
 .swatch dd { margin: 0; font-size: var(--text-sm); font-weight: 500; color: var(--color-muted); }
 .specimen { display: grid; gap: var(--space-xl); }
 .specimen__row { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: var(--gap-columns); align-items: baseline; padding-block: var(--space-lg); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.asset__mark { display: grid; place-items: center; width: 4.5rem; aspect-ratio: 1; font-family: var(--font-display-2); font-size: var(--text-title); line-height: 1; color: var(--color-ink); }
 .asset { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-xl); align-items: center; padding-block: var(--space-xl); border-bottom: var(--rule-hair) solid var(--color-rule); }
 .asset__art { background: var(--color-paper); padding: var(--space-lg); }
 .asset__art--ink { background: var(--color-ink); }

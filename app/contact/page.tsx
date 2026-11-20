@@ -10,6 +10,8 @@ export const metadata: Metadata = {
 };
 
 const EMAIL = 'jeremy@intentsolutions.io';
+/** One size for the three offers, measured to fill the column with the longest, so the bill reads as one row. */
+const FIT_OFFER = 28;
 
 /** Three ways in, set as a bill: each a column under a five-point rule, parted by five-point verticals. */
 export default function ContactPage() {
@@ -27,11 +29,10 @@ export default function ContactPage() {
           <h2 className="visually-hidden">Ways to reach me</h2>
           <div className="bill">
             <div className="bill__col">
-              <p className="display fit-block">
-                <span className="fit" style={{ '--fit': 66 } as React.CSSProperties}>Fastest</span>
-              </p>
-              <h3>Book a call</h3>
-              <p>30 minutes, straight to it.</p>
+              <h3 className="display fit-block">
+                <span className="fit" style={{ '--fit': FIT_OFFER } as React.CSSProperties}>Book a call</span>
+              </h3>
+              <p>The fastest way in: 30 minutes, straight to it.</p>
               <p className="action">
                 <a href={site.bookingUrl} className="btn" target="_blank" rel="noopener noreferrer">
                   Book a call
@@ -39,11 +40,10 @@ export default function ContactPage() {
               </p>
             </div>
             <div className="bill__col">
-              <p className="display fit-block">
-                <span className="fit" style={{ '--fit': 74 } as React.CSSProperties}>Direct</span>
-              </p>
-              <h3>Email</h3>
-              <p>Read daily, no ticket queue.</p>
+              <h3 className="display fit-block">
+                <span className="fit" style={{ '--fit': FIT_OFFER } as React.CSSProperties}>Email</span>
+              </h3>
+              <p>Direct to me, read daily, no ticket queue.</p>
               <p className="action">
                 <a href={`mailto:${EMAIL}`} className="link bill__email">
                   {EMAIL}
@@ -51,10 +51,9 @@ export default function ContactPage() {
               </p>
             </div>
             <div className="bill__col">
-              <p className="display fit-block">
-                <span className="fit" style={{ '--fit': 56 } as React.CSSProperties}>Company</span>
-              </p>
-              <h3>Work with Intent Solutions</h3>
+              <h3 className="display fit-block">
+                <span className="fit" style={{ '--fit': FIT_OFFER } as React.CSSProperties}>Intent Solutions</span>
+              </h3>
               <p>For company projects and partner work.</p>
               <p className="action">
                 <a href={site.contactUrl} className="btn btn--frame" target="_blank" rel="noopener noreferrer">

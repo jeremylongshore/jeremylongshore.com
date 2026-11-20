@@ -7,7 +7,7 @@ categories:
     tools:
       - title: Claude Code
         url: https://code.claude.com
-        note: The daily driver — every repo in the estate is built and operated with it.
+        note: "The daily driver: every repo in the estate is built and operated with it."
       - title: Claude
         url: https://claude.ai
         note: Reasoning partner for architecture calls and writing.
@@ -31,7 +31,7 @@ categories:
         note: Git-native issue tracking agents can operate; survives context loss.
       - title: Dolt
         url: https://www.dolthub.com
-        note: Version-controlled SQL — the audit trail under the task tracker.
+        note: "Version-controlled SQL: the audit trail under the task tracker."
       - title: pnpm
         url: https://pnpm.io
         note: Content-addressed store; one copy of every dependency on disk.
@@ -46,7 +46,7 @@ categories:
         note: The search default; nothing else is close.
       - title: fzf
         url: https://github.com/junegunn/fzf
-        note: Fuzzy-find everything — history, files, branches.
+        note: "Fuzzy-find everything: history, files, branches."
       - title: bat
         url: https://github.com/sharkdp/bat
         note: cat with syntax highlighting and git awareness.
@@ -76,7 +76,7 @@ categories:
         note: Seven production stacks on one VPS, each a folder with a file.
       - title: Tailscale
         url: https://tailscale.com
-        note: The network layer — keyless CI deploys via OIDC, no public SSH.
+        note: "The network layer: keyless CI deploys via OIDC, no public SSH."
       - title: SOPS + age
         url: https://github.com/getsops/sops
         note: Secrets encrypted in git, decrypted in process. No vault server.
@@ -88,7 +88,7 @@ categories:
         note: Per-second metrics on the VPS, tailnet-only.
       - title: GitHub Actions
         url: https://github.com/features/actions
-        note: Every deploy is a push — build gate, SSH force-command, health check.
+        note: "Every deploy is a push: build gate, SSH force-command, health check."
       - title: Contabo
         url: https://contabo.com
         note: Boring, cheap, big VPS. The whole estate fits on one.
@@ -97,7 +97,7 @@ categories:
     tools:
       - title: Umami
         url: https://umami.is
-        note: Self-hosted analytics — also the live view-count API for this site.
+        note: "Self-hosted analytics: also the live view-count API for this site."
       - title: Plane
         url: https://plane.so
         note: Self-hosted project tracker mirrored to GitHub issues.
@@ -112,7 +112,7 @@ categories:
     tools:
       - title: Next.js
         url: https://nextjs.org
-        note: App Router + ISR — live data server-side, static speed client-side.
+        note: "App Router + ISR: live data server-side, static speed client-side."
       - title: Tailwind CSS
         url: https://tailwindcss.com
         note: The token layer lives in CSS variables; Tailwind wires it to markup.
@@ -124,4 +124,4 @@ categories:
         note: Sans for voice, Mono for evidence. Self-hosted, SIL OFL.
       - title: Hugo
         url: https://gohugo.io
-        note: Still runs startaitools.com — the writing feed this site pulls from.
+        note: "Still runs startaitools.com: the writing feed this site pulls from."

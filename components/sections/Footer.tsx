@@ -39,6 +39,11 @@ export async function Footer() {
             <li><a href="/contact">Contact</a></li>
             <li><a href="/privacy.html">Privacy</a></li>
             <li><a href="/terms.html">Terms</a></li>
+            <li>
+              <a href="https://ko-fi.com/U5S225PTME" target="_blank" rel="noopener noreferrer">
+                Support me on Ko-fi
+              </a>
+            </li>
           </ul>
         </div>
         <p className="site-foot__legal">
