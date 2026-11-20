@@ -1,4 +1,4 @@
-import { Hero } from '@/components/sections/Hero';
+import { Hero, Credentials } from '@/components/sections/Hero';
 import { HeatmapSection } from '@/components/sections/HeatmapSection';
 import { ProjectsSection } from '@/components/sections/ProjectsSection';
 import { ContributionsSection } from '@/components/sections/ContributionsSection';
@@ -13,16 +13,27 @@ import { Footer } from '@/components/sections/Footer';
  */
 export const revalidate = 3600;
 
+/*
+ * The page argues in four numbered stages, the tagline's own verbs:
+ * build it (projects), prove it (upstream contributions and the heatmap),
+ * run it (the tools), write it down (field notes).
+ */
 export default function Home() {
   return (
-    <main id="main-content" tabIndex={-1} className="mx-auto flex max-w-5xl flex-col gap-16 px-6 pt-12 sm:gap-24 md:pt-28">
-      <Hero />
-      <HeatmapSection />
-      <ProjectsSection />
-      <ContributionsSection />
-      <WritingSection />
-      <ToolsSection />
+    <>
+      <main id="main-content" tabIndex={-1}>
+        <Hero />
+        <Credentials />
+        <ol className="stages container" aria-label="The work, in four stages">
+          <ProjectsSection />
+          <ContributionsSection>
+            <HeatmapSection />
+          </ContributionsSection>
+          <ToolsSection />
+          <WritingSection />
+        </ol>
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

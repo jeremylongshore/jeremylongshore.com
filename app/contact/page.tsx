@@ -1,82 +1,86 @@
 import type { Metadata } from 'next';
-import { Eyebrow } from '@/components/Eyebrow';
-import { GradientCard } from '@/components/GradientCard';
-import { PillButton } from '@/components/PillButton';
-import { SectionReveal } from '@/components/SectionReveal';
 import { SocialIcon } from '@/components/SocialIcon';
+import { Footer } from '@/components/sections/Footer';
 import { site } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Contact — Jeremy Longshore',
+  title: 'Contact: Jeremy Longshore',
   description:
     'Book a call, send an email, or reach out to Intent Solutions for company projects. Email gets read daily.',
 };
 
 const EMAIL = 'jeremy@intentsolutions.io';
 
+/** Three ways in, set as a bill: each a column under a five-point rule, parted by five-point verticals. */
 export default function ContactPage() {
   return (
-    <main id="main-content" tabIndex={-1} className="mx-auto flex max-w-5xl flex-col gap-16 px-6 pt-12 sm:gap-24 md:pt-28">
-      <header className="flex flex-col items-center gap-4 text-center">
-        <Eyebrow>Contact</Eyebrow>
-        <h1 className="text-5xl leading-[1.1] tracking-tight md:text-7xl">Let&apos;s talk.</h1>
-        <p className="max-w-xl">Fastest paths below — email gets read daily.</p>
-      </header>
+    <>
+      <main id="main-content" tabIndex={-1}>
+        <header className="page-head container">
+          <h1 className="fit-block" style={{ maxWidth: '40rem' }}>
+            <span className="fit" style={{ '--fit': 47 } as React.CSSProperties}>Let&apos;s talk.</span>
+          </h1>
+          <p className="lead">Fastest paths below. Email gets read daily.</p>
+        </header>
 
-      <SectionReveal>
-        <section aria-label="Ways to reach me" className="grid gap-6 sm:grid-cols-3">
-          <GradientCard seed="contact-call" variant="default" className="text-left">
-            <div className="flex h-full flex-col gap-3 p-6">
-              <Eyebrow>Fastest</Eyebrow>
-              <h2 className="text-xl" style={{ color: 'var(--color-brand)' }}>
-                Book a call
-              </h2>
-              <p className="grow text-base">30 minutes, straight to it.</p>
-              <PillButton href={site.bookingUrl} variant="cta" external className="self-start">
-                Book a call
-              </PillButton>
+        <section className="section--s container" aria-label="Ways to reach me" style={{ paddingTop: 'var(--section-gap-s)' }}>
+          <h2 className="visually-hidden">Ways to reach me</h2>
+          <div className="bill">
+            <div className="bill__col">
+              <p className="display fit-block">
+                <span className="fit" style={{ '--fit': 66 } as React.CSSProperties}>Fastest</span>
+              </p>
+              <h3>Book a call</h3>
+              <p>30 minutes, straight to it.</p>
+              <p className="action">
+                <a href={site.bookingUrl} className="btn" target="_blank" rel="noopener noreferrer">
+                  Book a call
+                </a>
+              </p>
             </div>
-          </GradientCard>
-
-          <GradientCard seed="contact-email" variant="angled" className="text-left">
-            <div className="flex h-full flex-col gap-3 p-6">
-              <Eyebrow>Direct</Eyebrow>
-              <h2 className="text-xl" style={{ color: 'var(--color-brand)' }}>
-                Email
-              </h2>
-              <p className="text-base">Read daily — no ticket queue.</p>
-              <a
-                href={`mailto:${EMAIL}`}
-                className="mt-auto break-all font-mono text-sm transition-colors duration-200"
-                style={{ color: 'var(--color-accent-strong)' }}
-              >
-                {EMAIL}
-              </a>
+            <div className="bill__col">
+              <p className="display fit-block">
+                <span className="fit" style={{ '--fit': 74 } as React.CSSProperties}>Direct</span>
+              </p>
+              <h3>Email</h3>
+              <p>Read daily, no ticket queue.</p>
+              <p className="action">
+                <a href={`mailto:${EMAIL}`} className="link bill__email">
+                  {EMAIL}
+                </a>
+              </p>
             </div>
-          </GradientCard>
-
-          <GradientCard seed="contact-intent" variant="reverse" className="text-left">
-            <div className="flex h-full flex-col gap-3 p-6">
-              <Eyebrow>Company</Eyebrow>
-              <h2 className="text-xl" style={{ color: 'var(--color-brand)' }}>
-                Work with Intent Solutions
-              </h2>
-              <p className="grow text-base">For company projects and partner work.</p>
-              <PillButton href={site.contactUrl} variant="primary" external className="self-start">
-                Visit Intent Solutions
-              </PillButton>
+            <div className="bill__col">
+              <p className="display fit-block">
+                <span className="fit" style={{ '--fit': 56 } as React.CSSProperties}>Company</span>
+              </p>
+              <h3>Work with Intent Solutions</h3>
+              <p>For company projects and partner work.</p>
+              <p className="action">
+                <a href={site.contactUrl} className="btn btn--frame" target="_blank" rel="noopener noreferrer">
+                  Visit Intent Solutions
+                </a>
+              </p>
             </div>
-          </GradientCard>
+          </div>
         </section>
-      </SectionReveal>
 
-      <SectionReveal>
-        <nav aria-label="Social profiles" className="flex flex-wrap items-center justify-center gap-1">
-          {site.socials.map((s) => (
-            <SocialIcon key={s.url} social={s} />
-          ))}
-        </nav>
-      </SectionReveal>
-    </main>
+        <section className="section container" aria-label="Profiles">
+          <div className="close">
+            <h2>Elsewhere</h2>
+            <nav aria-label="Social profiles">
+              <ul className="socials">
+                {site.socials.map((s) => (
+                  <li key={s.url}>
+                    <SocialIcon social={s} />
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
   );
 }

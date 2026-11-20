@@ -1,28 +1,25 @@
 import type { Metadata } from 'next';
-import { AvatarRing } from '@/components/AvatarRing';
-import { Eyebrow } from '@/components/Eyebrow';
-import { GradientCard } from '@/components/GradientCard';
-import { PillButton } from '@/components/PillButton';
-import { SectionReveal } from '@/components/SectionReveal';
 import { SocialIcon } from '@/components/SocialIcon';
+import { Footer } from '@/components/sections/Footer';
 import { site } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'About — Jeremy Longshore',
+  title: 'About: Jeremy Longshore',
   description:
-    'Marine veteran and Citadel grad who spent 20 years running operations before software — now a self-taught developer and AI architect who builds what he sells.',
+    'Marine veteran and Citadel grad who spent 20 years running operations before software, now a self-taught developer and AI architect who builds what he sells.',
 };
 
-const FACTS = [
-  'United States Marine Corps veteran',
-  'The Citadel graduate',
-  '20 years of operations leadership before software',
-  'Self-taught developer',
-  'Now an AI architect',
+/** The path, in order: a label and the fact, set as particulars. */
+const FACTS: { label: string; fact: string }[] = [
+  { label: 'Service', fact: 'United States Marine Corps veteran' },
+  { label: 'School', fact: 'The Citadel graduate' },
+  { label: 'Operations', fact: '20 years of operations leadership before software' },
+  { label: 'Software', fact: 'Self-taught developer' },
+  { label: 'Now', fact: 'An AI architect' },
 ];
 
 const BELIEFS = [
-  'Evidence over adjectives — the homepage numbers are live for a reason.',
+  'Evidence over adjectives.',
   'I build what I sell.',
   'Simple survives.',
   'Enforcement travels with the code.',
@@ -30,93 +27,90 @@ const BELIEFS = [
 
 export default function AboutPage() {
   return (
-    <main id="main-content" tabIndex={-1} className="mx-auto flex max-w-5xl flex-col gap-16 px-6 pt-12 sm:gap-24 md:pt-28">
-      <header className="flex flex-col items-center gap-8 text-center">
-        <AvatarRing
-          src="/images/profile.jpeg"
-          alt="Jeremy Longshore"
-          size={128}
-          lightLeak
-          chip={{ label: 'Building', active: true }}
-        />
-        <div>
-          <Eyebrow>About</Eyebrow>
-          <h1 className="mt-4 text-5xl leading-[1.1] tracking-tight md:text-7xl">
-            Operator first. Engineer second. Shipping always.
+    <>
+      <main id="main-content" tabIndex={-1}>
+        <header className="page-head container">
+          <h1 className="fit-block" style={{ maxWidth: '40rem' }}>
+            <span className="fit" style={{ '--fit': 30.5 } as React.CSSProperties}>Operator first.</span>
+            <span className="fit" style={{ '--fit': 28 } as React.CSSProperties}>Engineer second.</span>
+            <span className="fit fit--accent" style={{ '--fit': 28 } as React.CSSProperties}>Shipping always.</span>
           </h1>
-        </div>
-      </header>
+        </header>
 
-      <SectionReveal>
-        <section aria-label="What I do" className="mx-auto flex max-w-2xl flex-col gap-5">
-          <h2 className="text-2xl">What I do</h2>
-          {site.companyStory.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-          <p>
-            <a href={site.companyStoryUrl} className="underline underline-offset-4">
-              How the Intent Solutions work connects
-            </a>
-          </p>
+        <section className="section container" aria-labelledby="what-i-do">
+          <div className="split">
+            <h2 id="what-i-do">What I do</h2>
+            <div className="prose">
+              {site.companyStory.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+              <p>
+                <a href={site.companyStoryUrl} className="link">
+                  How the Intent Solutions work connects
+                </a>
+              </p>
+            </div>
+          </div>
         </section>
-      </SectionReveal>
 
-      <SectionReveal>
-        <section aria-label="How I got here" className="mx-auto flex max-w-2xl flex-col gap-5">
-          <h2 className="text-2xl">How I got here</h2>
-          <p>
-            The ops years are why the systems ship — reliability habits came before the code.
-          </p>
-          <ul className="flex flex-col gap-3 text-base">
-            {FACTS.map((fact) => (
-              <li key={fact} className="flex items-start gap-3">
-                <span
-                  aria-hidden="true"
-                  className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full"
-                  style={{ background: 'var(--color-accent)' }}
-                />
-                {fact}
-              </li>
-            ))}
-          </ul>
+        <section className="section container" aria-labelledby="how-i-got-here">
+          <div className="split">
+            <div>
+              <h2 id="how-i-got-here">How I got here</h2>
+              <p className="lead" style={{ marginTop: 'var(--space-lg)' }}>
+                The ops years are why the systems ship: reliability habits came before the code.
+              </p>
+            </div>
+            <dl className="particulars">
+              {FACTS.map((f) => (
+                <div key={f.label}>
+                  <dt>{f.label}</dt>
+                  <dd>{f.fact}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
         </section>
-      </SectionReveal>
 
-      <SectionReveal>
-        <section aria-label="What I believe" className="mx-auto flex max-w-2xl flex-col gap-5">
-          <h2 className="text-2xl">What I believe</h2>
-          <GradientCard seed="beliefs" className="text-left">
-            <ul className="flex flex-col gap-4 p-6 text-base">
+        <section className="band grained section--s" aria-labelledby="what-i-believe" style={{ marginTop: 'var(--section-gap)' }}>
+          <div className="container split">
+            <div>
+              <h2 id="what-i-believe">What I believe</h2>
+              <p className="lead" style={{ marginTop: 'var(--space-lg)' }}>
+                The homepage numbers are live for a reason.
+              </p>
+            </div>
+            <ul className="beliefs">
               {BELIEFS.map((belief) => (
-                <li key={belief} className="flex items-start gap-3">
-                  <span
-                    aria-hidden="true"
-                    className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full"
-                    style={{ background: 'var(--color-accent)' }}
-                  />
-                  {belief}
-                </li>
+                <li key={belief}>{belief}</li>
               ))}
             </ul>
-          </GradientCard>
-        </section>
-      </SectionReveal>
-
-      <SectionReveal>
-        <div className="flex flex-col items-center gap-8 text-center">
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <PillButton href={site.bookingUrl} variant="cta" external>
-              Book a call
-            </PillButton>
-            <PillButton href="/contact" variant="primary">
-              Get in touch
-            </PillButton>
           </div>
-          <nav aria-label="Social profiles" className="flex flex-wrap items-center justify-center gap-1">
-            {site.socials.map((s) => (
-              <SocialIcon key={s.url} social={s} />
-            ))}
-          </nav>
-        </div>
-      </SectionReveal>
-    </main>
+        </section>
+
+        <section className="section container" aria-label="Get in touch">
+          <div className="close">
+            <div className="hero__actions">
+              <a href={site.bookingUrl} className="btn" target="_blank" rel="noopener noreferrer">
+                Book a call
+              </a>
+              <a href="/contact" className="btn btn--frame">
+                Get in touch
+              </a>
+            </div>
+            <nav aria-label="Social profiles">
+              <ul className="socials">
+                {site.socials.map((s) => (
+                  <li key={s.url}>
+                    <SocialIcon social={s} />
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
   );
 }

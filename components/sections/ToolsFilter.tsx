@@ -4,10 +4,9 @@ import { useMemo, useState } from 'react';
 import type { ToolCategory } from '@/lib/data/tools';
 
 /**
- * Client-side category filter + list for the Tools section. Deliberately
- * quieter than the project cards (000-docs/001 §6 cards are a 3-layer
- * gradient sandwich) — this is a typography-led row list with hairline
- * dividers, no gradient overlays. Filtering is local state only, no URL sync.
+ * Client-side category switcher + list for the Tools stage: a typography-led
+ * row list under ink rules. Filtering is local state only, no URL sync; every
+ * tool renders without script, with "All" selected.
  */
 
 export interface ToolsFilterProps {
@@ -46,53 +45,28 @@ export function ToolsFilter({ categories }: ToolsFilterProps): React.ReactElemen
   const visibleTools = active === ALL ? flatTools : flatTools.filter((tool) => tool.category === active);
 
   return (
-    <div className="flex flex-col gap-8">
-      <div className="flex flex-wrap justify-center gap-2" role="group" aria-label="Filter tools by category">
-        {filters.map((name) => {
-          const isActive = name === active;
-          return (
-            <button
-              key={name}
-              type="button"
-              aria-pressed={isActive}
-              onClick={() => setActive(name)}
-              className="min-h-11 rounded-full px-4 py-2 text-sm font-medium transition-colors duration-[var(--duration-micro)]"
-              style={
-                isActive
-                  ? { backgroundImage: 'var(--gradient-button)', color: '#ffffff' }
-                  : { color: 'var(--color-body)', border: '1px solid var(--color-hairline)' }
-              }
-            >
-              {name}
-            </button>
-          );
-        })}
+    <div>
+      <div className="switch" role="group" aria-label="Filter tools by category">
+        {filters.map((name) => (
+          <button
+            key={name}
+            type="button"
+            aria-pressed={name === active}
+            onClick={() => setActive(name)}
+            className="chip"
+          >
+            {name}
+          </button>
+        ))}
       </div>
 
-      <div className="grid gap-x-8 sm:grid-cols-2">
+      <div className="tool-grid">
         {visibleTools.map((tool) => (
-          <a
-            key={tool.url}
-            href={tool.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex min-w-0 flex-col items-start gap-1 border-t py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
-            style={{ borderColor: 'var(--color-hairline)' }}
-          >
+          <a key={tool.url} href={tool.url} target="_blank" rel="noopener noreferrer" className="tool">
             <span>
-              <span
-                className="font-medium transition-colors duration-200 group-hover:text-black dark:group-hover:text-white"
-                style={{ color: 'var(--color-brand)' }}
-              >
-                {tool.title}
-              </span>
-              <span className="ml-2 text-sm" style={{ color: 'var(--color-faint)' }}>
-                {tool.note}
-              </span>
+              <span className="tool__name">{tool.title}</span> <span className="tool__note">{tool.note}</span>
             </span>
-            <span className="max-w-full break-all font-mono text-xs sm:shrink-0" style={{ color: 'var(--color-eyebrow)' }}>
-              {hostname(tool.url)}
-            </span>
+            <span className="tool__host">{hostname(tool.url)}</span>
           </a>
         ))}
       </div>

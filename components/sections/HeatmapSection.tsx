@@ -1,32 +1,26 @@
 import { Heatmap } from '@/components/Heatmap';
-import { Eyebrow } from '@/components/Eyebrow';
-import { SectionReveal } from '@/components/SectionReveal';
 import { LiveDataNotice } from '@/components/sections/LiveDataNotice';
 import { getContributionHeatmap } from '@/lib/data/github-heatmap';
 import { safely } from '@/lib/safe';
 
+/** The year of GitHub activity, set inside stage two under a hair rule. */
 export async function HeatmapSection() {
   const heatmap = await safely('heatmap', () => getContributionHeatmap());
 
   return (
-    <SectionReveal>
-      <section aria-label="GitHub contribution activity" className="flex flex-col items-center gap-6">
-        <div className="text-center">
-          <Eyebrow>Proof of work</Eyebrow>
-          <h2 className="mt-2 text-2xl">
-            {heatmap
-              ? `${heatmap.totalContributions.toLocaleString('en-US')} contributions in the last year`
-              : 'GitHub activity'}
-          </h2>
+    <section aria-label="GitHub contribution activity" className="proof__heat">
+      <h3>
+        {heatmap
+          ? `${heatmap.totalContributions.toLocaleString('en-US')} contributions in the last year`
+          : 'GitHub activity'}
+      </h3>
+      {heatmap ? (
+        <div className="heat-scroll">
+          <Heatmap weeks={heatmap.weeks} totalContributions={heatmap.totalContributions} />
         </div>
-        {heatmap ? (
-          <div className="w-full overflow-x-auto">
-            <Heatmap weeks={heatmap.weeks} totalContributions={heatmap.totalContributions} />
-          </div>
-        ) : (
-          <LiveDataNotice what="contribution data" />
-        )}
-      </section>
-    </SectionReveal>
+      ) : (
+        <LiveDataNotice what="contribution data" />
+      )}
+    </section>
   );
 }

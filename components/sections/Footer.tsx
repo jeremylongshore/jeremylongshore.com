@@ -3,66 +3,52 @@ import { getRepoStars, formatStars } from '@/lib/data/github-stars';
 import { safely } from '@/lib/safe';
 import { site } from '@/lib/site';
 
+/** Statement footer: the closing line fitted in Six Caps on the ink, the bio, the profiles, the page links and the legal line. */
 export async function Footer() {
   const stars = await safely('footer-stars', () => getRepoStars([site.canonicalRepo]));
   const starCount = stars?.[site.canonicalRepo] ?? site.footerFallbackStars;
 
   return (
-    <footer
-      className="flex flex-col items-center gap-6 border-t pt-12 text-center text-base"
-      style={{ borderColor: 'var(--color-hairline)' }}
-    >
-      <p className="max-w-2xl">
-        Tons of Skills creator (<span className="font-mono">{formatStars(starCount)}</span>+ stars). Marine.{' '}
-        <a
-          href="https://www.citadel.edu"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline decoration-dotted underline-offset-4"
-        >
-          Citadel
-        </a>{' '}
-        grad. 20 years ops → self-taught dev → AI architect. I build what I sell.
-      </p>
-      <nav aria-label="Social profiles (footer)" className="flex flex-wrap items-center justify-center gap-1">
-        {site.socials.map((s) => (
-          <SocialIcon key={s.url} social={s} size={18} />
-        ))}
-      </nav>
-      <p className="pb-12 text-sm" style={{ color: 'var(--color-faint)' }}>
-        <a href="/about" className="underline decoration-dotted underline-offset-4">
-          About
-        </a>{' '}
-        |{' '}
-        <a href="/brand" className="underline decoration-dotted underline-offset-4">
-          Brand
-        </a>{' '}
-        |{' '}
-        <a href="/contact" className="underline decoration-dotted underline-offset-4">
-          Contact
-        </a>
-        <br />© 2026{' '}
-        <a href="https://jeremylongshore.com" className="underline decoration-dotted underline-offset-4">
-          Jeremy Longshore
-        </a>{' '}
-        |{' '}
-        <a
-          href="https://intentsolutions.io"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline decoration-dotted underline-offset-4"
-        >
-          Intent Solutions
-        </a>{' '}
-        |{' '}
-        <a href="/privacy.html" className="underline decoration-dotted underline-offset-4">
-          Privacy
-        </a>{' '}
-        |{' '}
-        <a href="/terms.html" className="underline decoration-dotted underline-offset-4">
-          Terms
-        </a>
-      </p>
+    <footer className="site-foot grained">
+      <div className="container">
+        <p className="display fit-block">
+          <span className="fit" style={{ '--fit': 26 } as React.CSSProperties}>
+            I build what I sell.
+          </span>
+        </p>
+        <p className="site-foot__bio">
+          Tons of Skills creator ({formatStars(starCount)}+ stars). Marine.{' '}
+          <a href="https://www.citadel.edu" target="_blank" rel="noopener noreferrer">
+            Citadel
+          </a>{' '}
+          grad. Twenty years in operations, then a self-taught developer, now an AI architect.
+        </p>
+        <div className="site-foot__row">
+          <nav aria-label="Social profiles (footer)">
+            <ul className="socials">
+              {site.socials.map((s) => (
+                <li key={s.url}>
+                  <SocialIcon social={s} />
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <ul className="site-foot__links" aria-label="Pages">
+            <li><a href="/about">About</a></li>
+            <li><a href="/brand">Brand</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/privacy.html">Privacy</a></li>
+            <li><a href="/terms.html">Terms</a></li>
+          </ul>
+        </div>
+        <p className="site-foot__legal">
+          © 2026 <a href="https://jeremylongshore.com">Jeremy Longshore</a>. Founder of{' '}
+          <a href="https://intentsolutions.io" target="_blank" rel="noopener noreferrer">
+            Intent Solutions
+          </a>
+          .
+        </p>
+      </div>
     </footer>
   );
 }

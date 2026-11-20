@@ -1,112 +1,73 @@
-# jeremylongshore.com — Design System (for developers and AI agents)
+# jeremylongshore.com design system (for developers and AI agents)
 
-This is the machine-readable design system for jeremylongshore.com. If you are an AI agent building something that should match this site, follow this file exactly. Canonical source of the tokens: `app/globals.css` in the site repo.
+This is the machine-readable design system for jeremylongshore.com. If you are an AI agent building something that should match this site, follow this file exactly. Canonical source of the tokens: `app/tokens.css` (values) and `app/globals.css` (roles and components) in the site repo.
+
+The personal site is deliberately distinct from the Intent Solutions company brand (dark zinc and orange). Do not mix the two.
 
 ## Core principles
 
-1. **Neutral, refined base.** Silver gradients and warm grays; the work is the color. The resting page is white/gray/silver (near-black in dark mode).
-2. **Color is an interaction reward.** The 12 accent gradients appear only on hover, rings, halos, and small accents — never as dominant static fills.
-3. **Two-metal identity.** Silver frames + **Amber/bronze** lead accent. Where a single accent is needed (focus rings, featured labels, the heatmap ramp), use the Amber family.
-4. **Rounded forms.** Pills, circles, rings, generous radii.
-5. **Soft, physical motion.** Modest translations, gentle scaling, extended crossfades. Never abrupt.
-6. **Numbers are evidence.** Monospace type is reserved for live data (star counts, view counts, dates). Never show a zero as proof.
+1. **A printed bill.** Buff paper, near-black ink, one vermilion. Loud because the capitals are tall and the rules heavy, never because anything is drawn.
+2. **One accent, rationed.** Vermilion sets one whole display line or one figure a screen. Never a second colour, never a gradient.
+3. **Square and flat.** No rounded corners, no shadows. Frames are a double rule.
+4. **Printed, so still.** No reveals, no hover growth, no marquee. Live figures update in place.
+5. **Numbers are evidence.** Every count on the homepage is live (GitHub stars, merged PRs, contributions, views). Never show a zero as proof; when a feed is down, say so plainly.
 
-## Color
+## Color (OKLCH)
 
-| Token | Light | Dark |
+| Token | Value | Role |
 |---|---|---|
-| Page background | `#ffffff` | `#0b0b0c` |
-| Brand gray (headings/icons) | `#4d4d4d` | `#e8e8e8` |
-| Body text | `rgba(77,77,77,0.8)` | `rgba(232,232,232,0.78)` |
-| Captions/small | `rgba(77,77,77,0.78)` | `rgba(232,232,232,0.68)` |
-| Eyebrow labels | `rgba(77,77,77,0.8)` | `rgba(232,232,232,0.6)` |
-| Hover/active text | `#000000` | `#ffffff` |
-| Hairline borders | `#eeeeee` | `#232327` |
-| Card content well | `#ffffff` | `#151517` |
-| Well border | `rgba(0,0,0,0.15)` | `rgba(255,255,255,0.16)` |
-| Status dot active / idle | `#22c55e` / `#999999` | same |
-| Lead accent / strong | `#d97706` / `#b45309` | same |
+| `--color-paper` | `oklch(92% 0.028 88)` | Page background, buff stock |
+| `--color-paper-2` | `oklch(88.5% 0.032 88)` | Bands and wells |
+| `--color-paper-3` | `oklch(85% 0.036 86)` | Heatmap empty cell |
+| `--color-ink` | `oklch(18% 0.01 50)` | Type, rules, filled button, footer band |
+| `--color-ink-2` | `oklch(30% 0.012 50)` | Secondary text, pressed state |
+| `--color-muted` | `oklch(43% 0.02 62)` | Labels, captions, meta |
+| `--color-rule` | `oklch(75% 0.028 82)` | Hair rules between rows |
+| `--color-accent` | `oklch(53% 0.19 33)` | Vermilion: one display line or figure a screen, hover, focus ring |
+| `--color-accent-ink` | `oklch(95.5% 0.018 88)` | Text on vermilion |
 
-**Silver UI gradients** (used in both modes):
-
-- Card border (default): `linear-gradient(to bottom, #fcfcfc, #b9b9b9)`
-- Card border (angled): `linear-gradient(113deg, #fcfcfc 0%, #b9b9b9 84%)`
-- Card border (reverse): `linear-gradient(203deg, #fcfcfc 18%, #b9b9b9 100%)`
-- Button primary: `linear-gradient(to bottom, #999999, #4d4d4d)`
-
-**12 accent gradients** (all `linear-gradient(to bottom, …)`; hover/ring/halo use only):
-
-1. Sunset `#ef4444 → #f97316 → #eab308` (primary CTA family)
-2. Emerald `#22c55e → #10b981 → #06b6d4`
-3. Twilight `#3b82f6 → #8b5cf6 → #ec4899`
-4. Neon `#00bfff → #0015ff → #ff00ea`
-5. Coral `#f43f5e → #ec4899 → #d946ef`
-6. Ocean `#6366f1 → #3b82f6 → #06b6d4`
-7. Citrus `#eab308 → #84cc16 → #22c55e`
-8. Aurora `#14b8a6 → #6366f1 → #a855f7`
-9. **Amber `#f59e0b → #d97706 → #b45309` (lead accent family)**
-10. Peach `#fb7185 → #f9a8d4 → #fbbf24`
-11. Cosmos `#9333ea → #7c3aed → #4f46e5`
-12. Prism `#ef4444 → #06b6d4 → #eab308`
-
-**Bronze heatmap ramp** (the signature element; replaces contribution-green):
-`#f5f5f4` (empty; `#1c1c1f` dark) → `#fef3c7` → `#fde68a` → `#f59e0b` → `#d97706` → `#92400e`
+Heatmap ramp: paper-3, then vermilion mixed into paper at 28% and 55%, vermilion, then vermilion mixed into ink.
 
 ## Typography
 
-Geist Sans everywhere; Geist Mono for data/code. Self-hosted (SIL OFL).
+Three faces, all SIL OFL, self-hosted with `next/font`:
 
-| Role | Spec |
-|---|---|
-| H1 | 56px (hero uses `--hero-title-size`: 40–96px fluid) / Medium / tight tracking / 1.1 |
-| H2 | 24px / Medium |
-| Body | 18px / Light / relaxed leading |
-| Small | 14px / Regular |
-| Eyebrow | 14px / Medium / uppercase / wide tracking |
-| Data/code | Geist Mono 13–14px |
+- **Six Caps** 400, uppercase, line-height 0.88: headlines and big figures. Each line is its own non-wrapping element, sized in `cqi` so it fills its column exactly (`.fit-block` > `.fit` with `--fit`).
+- **Bevan** 400, uppercase, untracked, line-height 1: section heads (`h2`), item titles (`h3`), the wordmark.
+- **Archivo Narrow** 400/500/600, line-height 1.55: everything read. Labels and captions in 500 a step smaller, sentence case, untracked, `--color-muted`.
 
-## Radius
+Sizes: hero fitted to its column; `h2` about 52px at 1440; `h3` about 25px; lead 21px; body 16px; labels 14px.
 
-Base token `0.625rem`; scale sm `0.375rem` → 4xl `1.625rem`. Cards: `rounded-3xl` outer / `rounded-xl` inner. Buttons, chips, tags: fully rounded.
+## Rules and surfaces
+
+- `--rule-bar` 5px ink above every section and table; `--rule-hair` 1px between rows (`--color-rule`) or under a running head (ink).
+- Frames: a 3px ink border with a 1px ink keyline 3px inside it, round the portrait and wells.
+- Bands: `--color-paper-2` with a light speck grain, or the ink (footer). Two a page at most.
+- Photographs print in the ink: grayscale, multiplied on the paper.
 
 ## Components
 
-**Card (3-layer sandwich):** outer `p-3 rounded-3xl` silver-gradient frame → accent-gradient overlay revealed on hover (opacity 0 → 1, 300ms) cycling the 12 accents (2s each, 24s loop, per-instance hash offset so instances never sync) → content well (`rounded-xl`, well color, 1px well-border). Hover lifts `-translate-y-1`, transform only.
-
-**Pill button:** fully rounded; primary = silver-to-dark gradient with white text; CTA = Sunset family. A conic accent ring spins continuously behind the border (4s linear) layered with the 24s crossfade. Active scale 0.97.
-
-**Avatar ring:** 4px metallic ring (`button` gradient + inset bevels `inset 0 8px 8px rgba(255,255,255,0.5), inset 0 -8px 8px rgba(77,77,77,0.2)`); cycles accents when active/hovered. Optional warm light-leak overlay (screen blend): radial at 85%/15% `rgba(255,120,100,0.4)`→50%, 10%/80% `rgba(255,200,100,0.2)`→50%, 50%/50% `rgba(255,255,255,0.1)`→70%.
-
-**Status chip:** frosted pill (chip-bg token + backdrop-blur), 8px dot, 12px medium label.
-
-**Cursor shimmer:** soft white radial (`rgba(255,255,255,0.7)`, 600px) tracking the pointer across card surfaces.
-
-**Credentials:** the homepage uses a restrained 2px silver frame with separate sections for Intent Solutions' Select Services Partner status and Jeremy's individual Claude Code badge. Preserve the original artwork and aspect ratios in `public/images/credentials/`; do not recolor, crop, or recreate the issuer's marks. The company badge uses a responsive two-column layout from 640px; the individual badge is 96px on mobile and 128px on desktop, stacking below 360px. Links retain 44px touch targets. Credential copy and verification URLs live in `lib/site.ts`; the individual artwork comes from the linked public Credly record.
+- **Buttons:** square, 48px tall, Archivo Narrow 600 uppercase at 0.02em. Primary is an ink fill (vermilion on hover); secondary is an unfilled double-rule frame. One filled primary per screen.
+- **Links:** ink, underlined, vermilion on hover.
+- **Site bar:** wordmark in Bevan at one edge, page links and "Book a call" at the other, over a five-point rule.
+- **Homepage stages:** a numbered `<ol>` of four stages (Build it, Prove it upstream, Run it daily, Write it down); the number is generated by `counter()` in vermilion.
+- **Index / table / rows:** projects as an index, contributions as a table, tools behind a category switcher, writing as dated rows. All under ink rules, no cards.
+- **Footer:** a statement fitted in Six Caps on the ink band, then bio, profiles, page links and the legal line.
 
 ## Motion
 
-| Token | Value | Use |
-|---|---|---|
-| Micro | 200ms ease-out | text color, small scales |
-| Hover | 300ms ease-out | card lift, gradient fade, image zoom 1.05–1.10 |
-| Slide-in | 350ms cubic-bezier(0.22,1,0.36,1) | fade + 2rem translate |
-| Crossfade | 500ms | gradient cycle |
-| Scroll reveal | 700ms soft easing | already-visible sections gently rise 1rem on first intersection; no hidden server content |
-| Pill spin | 4s linear | conic ring |
-
-Accent-cycle layers use **negative** animation-delays so the cycle is live on first paint. `prefers-reduced-motion` collapses all of it; content must remain fully visible.
+Colour transitions only (120ms, `--ease-out`). Nothing moves or reveals. `prefers-reduced-motion` is honoured globally.
 
 ## Navigation and mobile behavior
 
-The header keeps the JL monogram and existing page links. Current-page links use an amber underline and `aria-current`; each navigation and category-filter target is at least 44px tall. A keyboard-visible skip link focuses the main content on every page. Mobile layouts use tighter top spacing and stacked tool rows so hostnames never squeeze the tool description.
+Every interactive target is at least 44px. Under 40rem the page links take their own row and the bar's booking button hides (the hero carries it). A keyboard-visible skip link focuses the main content on every page. Focus rings are vermilion, 2px, instant.
 
 ## Voice
 
-Blunt operator. Claim → live number → link. Active verbs, sentence case, no filler. Errors say what happened and what to do next. Live-data sections never render silently empty — degraded states are visible and honest.
+Blunt operator. Claim, live number, link. Active verbs, sentence case, no filler, no dashes. Errors say what happened and what to do next. Live-data sections never render silently empty.
 
 ## Do / Don't
 
-**Do:** keep the resting page neutral; spend color on interaction; use Amber when one accent must lead; keep focus rings visible (amber, 2px).
-**Note on muted text:** caption/eyebrow alphas are deliberately heavier than the reference system's — they are tuned to hold WCAG AA (4.5:1) at 14px. Do not lighten them.
+**Do:** print on buff with ink; spend vermilion on one line or one figure a screen; fit every big line to its measure; part sections with a five-point rule; keep corners square.
 
-**Don't:** use accent gradients as static fills; synchronize gradient cycles across instances; show "★ 0"; animate with layout-shifting properties; drop below WCAG AA contrast.
+**Don't:** add a second accent or a gradient; set labels in tracked capitals; show "0 stars"; animate layout properties or reveal content with script; drop below WCAG AA contrast.

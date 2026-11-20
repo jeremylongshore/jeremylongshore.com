@@ -1,6 +1,6 @@
 /**
  * GitHub-style contribution calendar, rendered as inline SVG in the site's
- * signature bronze/amber ramp (`--color-heat-0`..`--color-heat-4`) instead
+ * signature vermilion ramp (`--color-heat-0`..`--color-heat-4`) instead
  * of GitHub green — the one deliberate visual risk of the identity spec
  * (000-docs/003 §3.2). Pure server component: no hooks, no client JS.
  * Per-cell detail is carried by native <title> tooltips; the grid itself is
@@ -78,7 +78,7 @@ export function Heatmap({ weeks, totalContributions, className = '' }: HeatmapPr
         viewBox={`0 0 ${width} ${height}`}
         width={width}
         height={height}
-        className="max-w-full font-sans"
+        className="max-w-full"
       >
         {monthLabels.map(({ week, label }) => (
           <text
@@ -86,7 +86,7 @@ export function Heatmap({ weeks, totalContributions, className = '' }: HeatmapPr
             x={DAY_LABEL_WIDTH + week * CELL_STEP}
             y={MONTH_LABEL_HEIGHT - 6}
             className="text-[10px]"
-            style={{ fill: 'var(--color-faint)' }}
+            style={{ fill: 'var(--color-muted)', fontFamily: 'var(--font-body)' }}
           >
             {label}
           </text>
@@ -98,7 +98,7 @@ export function Heatmap({ weeks, totalContributions, className = '' }: HeatmapPr
             x={0}
             y={MONTH_LABEL_HEIGHT + Number(row) * CELL_STEP + CELL_SIZE - 2}
             className="text-[10px]"
-            style={{ fill: 'var(--color-faint)' }}
+            style={{ fill: 'var(--color-muted)', fontFamily: 'var(--font-body)' }}
           >
             {label}
           </text>
@@ -112,8 +112,8 @@ export function Heatmap({ weeks, totalContributions, className = '' }: HeatmapPr
               y={MONTH_LABEL_HEIGHT + dayIndex * CELL_STEP}
               width={CELL_SIZE}
               height={CELL_SIZE}
-              rx={2}
-              ry={2}
+              rx={0}
+              ry={0}
               style={{ fill: `var(--color-heat-${day.level})` }}
             >
               <title>{`${day.count} contribution${day.count === 1 ? '' : 's'} on ${day.date}`}</title>
@@ -122,13 +122,13 @@ export function Heatmap({ weeks, totalContributions, className = '' }: HeatmapPr
         )}
       </svg>
 
-      <div className="mt-2 flex items-center justify-end gap-1 text-xs" style={{ color: 'var(--color-faint)' }}>
+      <div className="mt-2 flex items-center justify-end gap-1 text-xs" style={{ color: 'var(--color-muted)' }}>
         <span>Less</span>
         {([0, 1, 2, 3, 4] as const).map((level) => (
           <span
             key={level}
             aria-hidden="true"
-            className="h-3 w-3 rounded-sm"
+            className="h-3 w-3"
             style={{ background: `var(--color-heat-${level})` }}
           />
         ))}

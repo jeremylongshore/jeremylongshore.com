@@ -1,92 +1,91 @@
-import Image from 'next/image';
-import { AvatarRing } from '@/components/AvatarRing';
-import { GradientCard } from '@/components/GradientCard';
-import { PillButton } from '@/components/PillButton';
-import { SocialIcon } from '@/components/SocialIcon';
-import { Eyebrow } from '@/components/Eyebrow';
 import { site } from '@/lib/site';
 
+/**
+ * Stage hero: the headline fitted to its column in Six Caps (each line its own
+ * element, sized in cqi so it fills the measure), one sentence, the two
+ * actions, and the portrait printed in the ink in a double-rule frame.
+ */
 export function Hero() {
   return (
-    <header className="flex flex-col items-center gap-8 text-center">
-      <AvatarRing
-        src="/images/profile.jpeg"
-        alt="Jeremy Longshore"
-        size={160}
-        priority
-        lightLeak
-        chip={{ label: 'Building', active: true }}
-      />
-
-      <div>
-        <Eyebrow>Jeremy Longshore · Intent Solutions</Eyebrow>
-        <h1 className="hero-title mt-4 leading-[1.1] tracking-tight">
-          I make teams
-          <br />
-          AI-native.
-        </h1>
-        <p className="mx-auto mt-6 max-w-2xl">{site.tagline}</p>
-      </div>
-
-      <nav aria-label="Social profiles" className="flex flex-wrap items-center justify-center gap-1">
-        {site.socials.map((s) => (
-          <SocialIcon key={s.url} social={s} />
-        ))}
-      </nav>
-
-      <div className="flex flex-wrap items-center justify-center gap-4">
-        <PillButton href={site.bookingUrl} variant="cta" external>
-          Book a call
-        </PillButton>
-        <PillButton href={site.contactUrl} variant="primary" external>
-          Send a message
-        </PillButton>
-      </div>
-
-      <GradientCard seed="credential" className="credential-panel w-full max-w-3xl text-left">
-        <div className="p-5 sm:p-7">
-          <section className="credential-partner" aria-labelledby="partner-title">
-            <Image
-              src={site.credentials.partner.image}
-              alt={site.credentials.partner.imageAlt}
-              width={600}
-              height={190}
-              unoptimized
-              className="credential-partner-image"
-            />
-            <div className="min-w-0">
-              <h2 id="partner-title" className="text-xl">{site.credentials.partner.company}</h2>
-              <p className="mt-2 text-base">{site.credentials.partner.description}</p>
-              <a href={site.credentials.partner.url} className="credential-link">
-                {site.credentials.partner.linkLabel}
-              </a>
-            </div>
-          </section>
-
-          <section className="credential-individual" aria-labelledby="credential-title">
-            <Image
-              src={site.credentials.individual.image}
-              alt={site.credentials.individual.imageAlt}
-              width={600}
-              height={600}
-              sizes="(max-width: 639px) 96px, 128px"
-              className="credential-individual-image"
-            />
-            <div className="min-w-0">
-              <h2 id="credential-title" className="text-lg">{site.credentials.individual.title}</h2>
-              <p className="mt-2 text-sm">{site.credentials.individual.description}</p>
-              <a
-                href={site.credentials.individual.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="credential-link"
-              >
-                {site.credentials.individual.linkLabel}
-              </a>
-            </div>
-          </section>
+    <section className="hero" aria-labelledby="hero-title">
+      <div className="container hero__grid">
+        <div className="hero__text">
+          <h1 id="hero-title" className="fit-block">
+            <span className="fit" style={{ '--fit': 38.5 } as React.CSSProperties}>
+              I make teams
+            </span>
+            <span className="fit fit--accent" style={{ '--fit': 48.5 } as React.CSSProperties}>
+              AI-native.
+            </span>
+          </h1>
+          <p className="hero__lead">{site.tagline}</p>
+          <div className="hero__actions">
+            <a href={site.bookingUrl} className="btn" target="_blank" rel="noopener noreferrer">
+              Book a call
+            </a>
+            <a href={site.contactUrl} className="btn btn--frame" target="_blank" rel="noopener noreferrer">
+              Send a message
+            </a>
+          </div>
         </div>
-      </GradientCard>
-    </header>
+
+        <figure className="hero__figure">
+          <div className="frame frame--photo">
+            <div className="hero__slot" data-slot="hero" data-alt="Jeremy Longshore, head and shoulders, 1600px or larger">
+              {/* eslint-disable-next-line @next/next/no-img-element -- printed through the slot's duotone, which next/image's wrapper would break */}
+              <img src="/images/profile.jpeg" alt="Jeremy Longshore" width={400} height={400} fetchPriority="high" />
+            </div>
+          </div>
+          <figcaption>Marine. Citadel grad. Twenty years in operations before software.</figcaption>
+        </figure>
+      </div>
+    </section>
+  );
+}
+
+/** The credentials, as particulars on a paper band: the individual certificate first, the company badge beneath it. */
+export function Credentials() {
+  const { developer, partner } = site.credentials;
+  return (
+    <section className="band grained" aria-labelledby="credentials-title">
+      <div className="container creds">
+        <h2 id="credentials-title">Credentials</h2>
+        <div className="creds__list">
+          {developer && (
+            <article className="cred">
+              <div className="cred__art cred__art--badge">
+                {/* eslint-disable-next-line @next/next/no-img-element -- issuer artwork shown as published */}
+                <img src={developer.image} alt={developer.imageAlt} width={600} height={600} loading="lazy" />
+              </div>
+              <div>
+                <h3>{developer.title}</h3>
+                <p>{developer.description}</p>
+                <p>
+                  <a href={developer.url} className="link" target="_blank" rel="noopener noreferrer">
+                    {developer.linkLabel}
+                  </a>
+                </p>
+              </div>
+            </article>
+          )}
+          <article className="cred">
+            <div className="cred__art">
+              {/* eslint-disable-next-line @next/next/no-img-element -- issuer artwork shown as published */}
+              <img src={partner.image} alt={partner.imageAlt} width={600} height={190} loading="lazy" />
+            </div>
+            <div>
+              <h3>{partner.company}</h3>
+              <p>{partner.description}</p>
+              <p className="muted">{partner.note}</p>
+              <p>
+                <a href={partner.url} className="link">
+                  {partner.linkLabel}
+                </a>
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
   );
 }

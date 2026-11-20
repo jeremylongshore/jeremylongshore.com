@@ -1,85 +1,88 @@
-import { GradientCard } from '@/components/GradientCard';
-import { Eyebrow } from '@/components/Eyebrow';
-import { SectionReveal } from '@/components/SectionReveal';
 import { LiveDataNotice } from '@/components/sections/LiveDataNotice';
 import { getContributions } from '@/lib/data/github-contributions';
 import { safely } from '@/lib/safe';
 
-export async function ContributionsSection() {
+/**
+ * Stage two: proof upstream. The merged-PR count fitted to the measure, the
+ * contribution heatmap (passed in as children), then the highlights as a table.
+ */
+export async function ContributionsSection({ children }: { children?: React.ReactNode }) {
   const contributions = await safely('contributions', () => getContributions());
 
   return (
-    <SectionReveal>
-      <section aria-label="Open source contributions" className="flex flex-col gap-8">
-        <div className="text-center">
-          <Eyebrow>Upstream, not just downstream</Eyebrow>
-          <h2 className="mt-2 text-2xl">Open-source contributions</h2>
-          {contributions && (
-            <div className="mx-auto mt-2 max-w-2xl text-center" style={{ color: 'var(--color-faint)' }}>
-              <p className="text-base">
-                <span className="font-mono">{contributions.totalPrs}</span> merged PRs across{' '}
-                <span className="font-mono">{contributions.totalRepos}</span> external repos
+    <li className="stage" aria-labelledby="stage-prove">
+      <div className="stage__head">
+        <h2 id="stage-prove">Prove it upstream</h2>
+        <p className="lead">Upstream, not just downstream: work accepted by outside maintainers.</p>
+      </div>
+      <div className="stage__body">
+        {contributions ? (
+          <div className="proof__figure">
+            <p className="display fit-block" aria-label={`${contributions.totalPrs} merged pull requests`}>
+              <span className="fit" style={{ '--fit': 35 } as React.CSSProperties}>
+                {contributions.totalPrs} merged PRs
+              </span>
+            </p>
+            <div className="proof__note">
+              <p className="lead">
+                Across {contributions.totalRepos} external repos.
               </p>
-              <p className="mt-2 text-sm">
+              <p className="muted">
                 Authored by Jeremy and accepted by outside maintainers. Contribution does not imply employment,
                 partnership, or client status.
               </p>
             </div>
-          )}
-        </div>
-        {contributions ? (
+          </div>
+        ) : (
+          <LiveDataNotice what="contribution data" />
+        )}
+
+        {children}
+
+        {contributions && (
           <>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {contributions.highlights.map((c) => (
-                <GradientCard key={c.repo} seed={c.repo} href={c.url}>
-                  <div className="flex h-full flex-col p-5">
-                    <h3 className="text-lg" style={{ color: 'var(--color-brand)' }}>
-                      {c.label}
-                    </h3>
-                    <p className="mt-2 grow text-sm">{c.description}</p>
-                    <div className="mt-3 flex flex-wrap items-center gap-2">
-                      <span className="font-mono text-sm" style={{ color: 'var(--color-accent-strong)' }}>
-                        {c.count} merged PR{c.count === 1 ? '' : 's'}
-                      </span>
-                      {c.tags.slice(0, 3).map((t) => (
-                        <span
-                          key={t}
-                          className="rounded-full border px-2.5 py-0.5 text-xs"
-                          style={{ borderColor: 'var(--color-hairline)', color: 'var(--color-faint)' }}
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </GradientCard>
-              ))}
-            </div>
+            <table className="table">
+              <caption className="visually-hidden">Merged pull requests by project</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Project</th>
+                  <th scope="col">What was merged</th>
+                  <th scope="col">Stack</th>
+                  <th scope="col">Merged PRs</th>
+                </tr>
+              </thead>
+              <tbody>
+                {contributions.highlights.map((c) => (
+                  <tr key={c.repo}>
+                    <td>
+                      <a href={c.url} target="_blank" rel="noopener noreferrer">
+                        {c.label}
+                      </a>
+                    </td>
+                    <td className="desc">{c.description}</td>
+                    <td className="desc muted">{c.tags.slice(0, 3).join(', ')}</td>
+                    <td className="num">{c.count}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
             {contributions.others.length > 0 && (
-              <p className="text-center text-sm" style={{ color: 'var(--color-faint)' }}>
+              <p className="also">
                 Also merged in{' '}
                 {contributions.others.map((o, i) => (
                   <span key={o.repo}>
-                    {i > 0 && ' · '}
-                    <a
-                      href={o.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline decoration-dotted underline-offset-4 transition-colors duration-200 hover:text-black"
-                    >
+                    {i > 0 && (i === contributions.others.length - 1 ? ' and ' : ', ')}
+                    <a href={o.url} target="_blank" rel="noopener noreferrer" className="link">
                       {o.name}
                     </a>
                   </span>
                 ))}
+                .
               </p>
             )}
           </>
-        ) : (
-          <div className="flex justify-center">
-            <LiveDataNotice what="contribution data" />
-          </div>
         )}
-      </section>
-    </SectionReveal>
+      </div>
+    </li>
   );
 }
