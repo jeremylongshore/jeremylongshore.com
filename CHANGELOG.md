@@ -1,3 +1,14 @@
+# Release v4.3.1
+
+**Release Date**: 2026-11-20
+
+## Changes since v4.3.0
+
+- chore: release v4.3.1 [skip ci] (87ebbde)
+- chore(components): delete the pre-redesign primitives and the geist font (#83) (b3c265a)
+
+---
+
 # Release v4.3.0
 
 **Release Date**: 2026-11-20
