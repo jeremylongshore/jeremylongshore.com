@@ -23,11 +23,10 @@ bash scripts/name-leak-gate.sh   # MUST be clean before every commit
 ## Architecture
 
 ```
-app/                  # App Router: layout (Geist fonts, Header, metadata), homepage, api/healthz,
+app/                  # App Router: layout (next/font: Six Caps, Bevan, Archivo Narrow; Header, metadata), homepage, api/healthz,
                       #   /about /brand /contact, sitemap.ts, robots.ts, opengraph-image.tsx (next/og)
-app/globals.css       # THE design-token layer — every color/gradient/radius/motion token
-components/           # Design-system primitives (GradientCard, PillButton, AvatarRing,
-                      #   StatusChip, SectionReveal, CursorShimmer, LightLeakImage, Heatmap…)
+app/globals.css       # Hallmark stamp + Broadside roles/components; token values in app/tokens.css, base in app/base.css
+components/           # Header, Heatmap, SocialIcon, KofiWidget
 components/sections/  # Homepage sections (server components, fail-loud data boundaries)
 lib/site.ts           # Site-wide copy/config (name, tagline, socials, CTAs)
 lib/data/*.ts         # ISR fetchers: github-stars, github-heatmap (GraphQL),
@@ -46,8 +45,8 @@ docker-compose.yml    # Prod service: 127.0.0.1:3010 → container :3000
 ## Critical Rules
 
 1. **Name-leak gate before every commit** — `bash scripts/name-leak-gate.sh` (also runs in CI). The design reference's owner/domains/handles must never appear in this repo; patterns live base64-encoded inside the gate script.
-2. **Every visual value routes through a token** in `app/globals.css` — no ad-hoc hex/duration in components.
-3. **Color is an interaction reward** — accent gradients only on hover/rings/small accents, never static fills (`000-docs/003`).
+2. **Every visual value routes through a token** in `app/tokens.css` — no ad-hoc hex/duration in components (the OG image is the one exception: Satori needs hex).
+3. **One vermilion, rationed** — one display line or figure a screen, no gradients, square corners (`public/design.md`).
 4. **All content edits** go in `lib/site.ts` (copy/socials) or `data/projects.yml` (projects) — not in components.
 5. **Test locally before push:** `pnpm build` must pass; live-data sections must render real values with `GITHUB_TOKEN` set.
 6. **Umami env** (`UMAMI_BASE_URL`, `UMAMI_API_TOKEN`, `UMAMI_WEBSITE_ID`) only exists on the VPS — locally the views section degrades to a visible notice by design (ConfigError → warn).
