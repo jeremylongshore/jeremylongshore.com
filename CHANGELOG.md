@@ -1,3 +1,14 @@
+# Release v4.3.4
+
+**Release Date**: 2026-11-25
+
+## Changes since v4.3.3
+
+- chore: release v4.3.4 [skip ci] (c9113f7)
+- fix(hero): fit headline lines without the Font Loading API so they never clip (#87) (9925b2c)
+
+---
+
 # Release v4.3.3
 
 **Release Date**: 2026-11-25
