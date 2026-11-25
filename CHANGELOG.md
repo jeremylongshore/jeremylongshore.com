@@ -1,3 +1,14 @@
+# Release v4.3.3
+
+**Release Date**: 2026-11-25
+
+## Changes since v4.3.2
+
+- chore: release v4.3.3 [skip ci] (d2df9a6)
+- chore(deps): consolidate open Dependabot bumps and patch next advisories (#86) (2cbf289)
+
+---
+
 # Release v4.3.2
 
 **Release Date**: 2026-11-20
